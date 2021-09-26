@@ -1,0 +1,12 @@
+[submodule "roles/homebrew"]
+	path = roles/homebrew
+	url = git@github.com:the-wright-engineer/ansible-role-homebrew.git
+[submodule "roles/go"]
+	path = roles/go
+	url = git@github.com:the-wright-engineer/ansible-role-golang.git
+[submodule "roles/python-pip"]
+	path = roles/python-pip
+	url = git@github.com:the-wright-engineer/ansible-role-pip.git
+[submodule "roles/osx-command-line-tools"]
+	path = roles/osx-command-line-tools
+	url = git@github.com:the-wright-engineer/ansible-osx-command-line-tools

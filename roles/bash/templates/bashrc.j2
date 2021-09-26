@@ -1,0 +1,185 @@
+#!/bin/bash
+
+# Environment
+umask 77
+
+{% if setup_brew is defined %}
+test -f /usr/local/opt/kube-ps1/share/kube-ps1.sh && . /usr/local/opt/kube-ps1/share/kube-ps1.sh
+test -f /usr/local/bin/virtualenvwrapper.sh && . /usr/local/bin/virtualenvwrapper.sh
+{% endif %}
+
+# Set up bash completion
+{% if setup_brew is defined %}
+test -f /usr/local/etc/bash_completion && . /usr/local/etc/bash_completion
+test -f /usr/local/etc/bash_completion.d && . /usr/local/etc/bash_completion.d
+{% else %}
+test -f /etc/bash_completion && . /etc/bash_completion
+{% endif %}
+
+source <(kubectl completion bash)
+
+#####################################################################
+##################### HISTORY CONFIGURATION #########################
+#####################################################################
+
+# don't put duplicate lines or lines starting with space in the history
+HISTCONTROL=ignoreboth
+export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTTIMEFORMAT='%F %T '
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTISZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+#####################################################################
+####################### PROMPT CONFIGURATION ########################
+#####################################################################
+# config for git-prompt
+MAGENTA="\[\033[0;35m\]"
+YELLOW="\[\033[01;32m\]"
+BLUE="\[\033[00;34m\]"
+LIGHT_GRAY="\[\033[0;37m\]"
+CYAN="\[\033[1;36m\]"
+GREEN="\[\033[0;32m\]"
+ORANGE="\[\033[0;33m\]"
+RED="\[\033[0;31m\]"
+VIOLET="\[\033[1;35m\]"
+DEFAULT="\[\033[0;39m\]"
+OFF="[\e[m]"
+
+function virtualenv_info(){
+  # Get Virtual Env
+  if [[ -n "$VIRTUAL_ENV" ]]; then
+      # Strip out the path and just leave the env name
+      venv="${VIRTUAL_ENV##*/}"
+  else
+      # In case you don't have one activated
+      venv=''
+  fi
+  [[ -n "$venv" ]] && echo "(venv:$venv) "
+}
+
+function color_my_prompt {
+  local __and_host="$DEFAULT@[$ORANGE\H$DEFAULT]"
+  local __cur_location="$BLUE\w"   #capital 'W': current directory, small 'w':full file path
+  local __git_branch_color="$GREEN"
+  local __git_branch='$(__git_ps1)';
+
+  # colour branch name depending on state
+    if [[ "$(__git_ps1)" =~ "*" ]]; then           # if repository is dirty
+       __git_branch_color="$RED"
+    elif [[ "$(__git_ps1)" =~ "$" ]]; then         # if there is something stashed
+       __git_branch_color="$YELLOW"
+    elif [[ "$(__git_ps1)" =~ "%" ]]; then         # if there are only untracked files
+       __git_branch_color="$LIGHT_GRAY"
+    elif [[ "$(__git_ps1)" =~ "+" ]]; then         # if there are staged files
+       __git_branch_color="$BLUE"
+    fi
+
+  # disable the default virtualenv prompt change
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  local VENV="\$(virtualenv_info)";
+
+  if [[ $EUID -ne 0 ]]; then
+    local __user="$GREEN\u$DEFAULT"
+    local __prompt_tail="$VIOLET$"
+    local __user_input_color="$DEFAULT"
+  else
+    local __user="$RED\u$DEFAULT"
+    local __prompt_tail="$RED#"
+    local __user_input_color="$RED"
+  fi
+
+  # build prompt string
+  PS1="\$(kube_ps1) ${VENV}$__user$__and_host $__cur_location$__git_branch_color$__git_branch\n$__prompt_tail$__user_input_color "
+}
+
+# call PROMPT_COMMAND which is executed before PS1
+export PROMPT_COMMAND='_kube_ps1_update_cache;color_my_prompt'
+
+# Uncomment below to use basic git-prompt (without colours)
+#export PROMPT_COMMAND='__git_ps1 "\u:\W" "$"'
+
+if [ -f ~/.git_prompt.sh ]; then
+  GIT_PS1_SHOWDIRTYSTATE=true
+  GIT_PS1_SHOWSTASHSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  GIT_PS1_SHOWUPSTREAM="auto"
+  GIT_PS1_HIDE_IF_PWD_IGNORED=true
+  GIT_PS1_SHOWCOLORHINTS=true
+  . ~/.git_prompt.sh
+fi
+
+#####################################################################
+######################## COLOR CONFIGURATION ########################
+#####################################################################
+
+# enable color support of ls and also add handy aliases
+{% if ansible_os_family != 'Darwin' %}
+if [ -f ~/.dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='ls -color=auto'
+  alias grep='grep -color=auto'
+  alias fgrep='fgrep -color=auto'
+  alias egrep='egrep -color=auto'
+{% endif %}
+{% if ansible_os_family == 'Darwin' %}
+if [ -f ~/.dircolors ]; then
+  export CLICOLOR=YES
+fi
+{% endif %}
+
+
+#####################################################################
+######################## SSH CONFIGURATION ##########################
+#####################################################################
+
+# Configure SSH-AGENT and KEYCHAIN to add ssh keys automatically on startup
+#eval `/usr/bin/ssh-agent -s > /dev/null 2>&1`
+#if [ "`ssh-add -l`" == "The agent has no identities." ]; then
+  #`ssh-add ~/.ssh/rsa`
+#fi
+ssh-add -l &>/dev/null
+if [ "$?" == 2 ]; then
+  test -r ~/.ssh-agent && \
+    eval "$(<~/.ssh-agent)" >/dev/null
+
+  ssh-add -l &>/dev/null
+  if [ "$?" == 2 ]; then
+    (umask 066; ssh-agent > ~/.ssh-agent)
+    eval "$(<~/.ssh-agent)" >/dev/null
+    ssh-add ~/.ssh/id_rsa
+  fi
+fi
+
+set -o vi
+
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin:/usr/local/sbin"
+export MINIKUBE_HOME="$HOME/kubernetes/minikube/minikube_1.0.0/bin"
+export KUBECONFIG="$MINIKUBE_HOME/.kube/config"
+export PATH="$MINIKUBE_HOME:$PATH"
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+eval $(/usr/local/bin/brew shellenv)
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+complete -C /usr/local/bin/terraform terraform
+
+{% if setup_color is defined %}
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+{% endif %}

@@ -1,0 +1,15 @@
+# Find all non-running pods
+kpnr=$(kubectl get pods -A --field-selector=status.phase!=Running | grep -v Complete")
+# Get list of nodes and their memory size
+knmem=$(kubectl get no -o json | jq -r '.items | sort_by(.status.capacity.memory)[] | [.metadata.name,.status.capacity.memory] | @tsv')
+# Get list of nodes and the number of pods running on them
+knpc=$(kubectl get po -o json --all-namespaces | jq '.items | group_by(.spec.nodeName) | map({"nodeName": .[0].spec.nodeName, "count": length}) | sort_by(.count)')
+# Get top pods based on cpu
+kptc=$(kubectl top pods -A | sort --reverse --key 3 --numeric)
+# Get top pods based on mem
+kptm=$(kubectl top pods -A | sort --reverse --key 4 --numeric)
+# Print limits and requests for pods
+kplr=$(kubectl get pods -A -o=custom-columns='NAME:spec.containers[*].name,MEMREQ:spec.containers[*].resources.requests.memory,MEMLIM:spec.containers[*].resources.limits.memory,CPUREQ:spec.containers[*].resources.requests.cpu,CPULIM:spec.containers[*].resources.limits.cpu')
+# Get internal IP addresses of cluster nodes
+knip=$(kubectl get nodes -o json | jq -r '.items[].status.addresses[]? | select (.type == "InternalIP") | .address' | paste -sd "\n" -)
+

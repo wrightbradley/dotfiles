@@ -1,0 +1,129 @@
+---
+
+- name: Install default packages using system package manager
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - build-essential
+    - bash
+    - bash-completion
+    - fzf
+    - vim
+    - git
+    - zip
+    - unzip
+    - whois
+    - tree
+    - xclip
+    - mtr
+    - dnsutils
+    - nmap
+    - netcat
+    - tmux
+    - zsh
+    - rsync
+    - colordiff
+    - jq
+    - nodejs
+  become: yes
+  become_user: root
+  when: not setup_brew
+
+- name: Install default packages with brew
+  block:
+    - name: Install default taps
+      homebrew:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - ack
+        - ansible
+        - ansible-lint
+        - ant
+        - argo
+        - argocd
+        - aws-iam-authenticator
+        - awscli
+        - bash
+        - bash-completion
+        - cmake
+        - colordiff
+        - coreutils
+        - dive
+        - docker
+        - dos2unix
+        - eksctl
+        - expect
+        - faas-cli
+        - fzf
+        - git
+        - glances
+        - gnupg
+        - gnutls
+        - go
+        - gradle
+        - grpcurl
+        - hadolint
+        - helm
+        - helm@2
+        - htop
+        - httrack
+        - jq
+        - jsonnet
+        - k9s
+        - krew
+        - kube-ps1
+        - kubectx
+        - kubernetes-cli
+        - kubeseal
+        - kustomize
+        - maven
+        - mtr
+        - neofetch
+        - nmap
+        - node
+        - openjdk
+        - packer
+        - perl
+        - popeye
+        - postgresql
+        - pyenv
+        - python@3.8
+        - ripgrep
+        - rsync
+        - ruby
+        - screen
+        - skaffold
+        - sqlite
+        - starship
+        - stern
+        - tektoncd-cli
+        - terraform
+        - tmux
+        - tree
+        - trivy
+        - vim
+        - watch
+        - wget
+        - whois
+        - zsh
+
+    - name: Install default casks
+      homebrew_cask:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - virtualbox
+        - minikube
+        - iterm2
+      ignore_errors: yes
+  when: setup_brew
+
+- name: Install Starship Terminal
+  unarchive:
+    src: https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz
+    dest: /usr/local/bin
+    remote_src: yes
+  become: yes
+  when: not setup_brew

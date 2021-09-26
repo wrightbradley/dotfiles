@@ -1,0 +1,5 @@
+dotfiles_repo: "https://github.com/the-wright-engineer/dotfiles.git"
+dotfiles_repo_version: main
+dotfiles_repo_local_destination: "~/dotfiles"
+dotfiles_home: "~"
+

@@ -1,0 +1,43 @@
+---
+- name: Install kubectl
+  get_url:
+    url: https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/linux/amd64/kubectl
+    dest: /usr/local/bin/kubectl
+    mode: '0755'
+  become: yes
+  become_user: root
+
+- name: Install kubectx and kubens
+  package:
+    name: kubectx
+    state: present
+  become: yes
+  become_user: root
+  when: not setup_brew
+
+- name: Install Stern
+  get_url:
+    url: https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
+    dest: /usr/local/bin/stern
+    mode: '0755'
+  become: yes
+  become_user: root
+
+- name: Install Helm
+  unarchive:
+    src: https://get.helm.sh/helm-v3.3.1-linux-amd64.tar.gz
+    dest: /usr/local/bin
+    mode: '0755'
+    remote_src: yes
+  become: yes
+  become_user: root
+
+- name: Install Kustomize
+  unarchive:
+    src: https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv3.8.1/kustomize_v3.8.1_linux_amd64.tar.gz
+    dest: /usr/local/bin
+    mode: '0755'
+    remote_src: yes
+  become: yes
+  become_user: root
+

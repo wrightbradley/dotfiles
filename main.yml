@@ -1,0 +1,59 @@
+---
+- hosts: all
+  vars:
+    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+  pre_tasks:
+    - name: Git clone into ~/dotfiles if not already
+      git:
+        repo: "{{ dotfiles_repo }}"
+        dest: "{{ dotfiles_repo_local_destination }}"
+        version: "{{ dotfiles_repo_version }}"
+        accept_hostkey: yes
+    - name: Backup files
+      archive:
+        path:
+          - ~/.bashrc
+          - ~/.zsh
+          - ~/.config
+          - ~/.oh-my-zsh
+          - ~/.gitconfig
+          - ~/.gitaliases
+          - ~/.gitconfig.local
+          - ~/.vimrc
+          - ~/.screenrc
+          - ~/.tmux.conf
+          - ~/.aliases
+        dest: "{{ dotfiles_home }}/ansible-dotfiles-backup-{{ date }}.tar.gz"
+        format: gz
+      loop:
+  roles:
+    - { role: homebrew, tags: homebrew, when: setup_brew }
+    - { role: osx-command-line-tools, tags: osx-command-line-tools, when: setup_brew }
+    - { role: system, tags: system }
+    - { role: aliases, tags: aliases }
+    - { role: git, tags: git }
+    - { role: bash, tags: bash }
+    - { role: zsh, tags: zsh }
+    - { role: chromebook, tags: chromebook, when: setup_chromebook }
+    - { role: color_icons_fonts, tags: color_icons_fonts }
+    - { role: go, tags: go }
+    #- { role: python-pip, tags: python-pip }
+    - { role: screenrc_tmux, tags: screenrc_tmux }
+    - { role: vim, tags: vim }
+    - { role: vscode, tags: vscode }
+    - { role: kubernetes, tags: kubernetes}
+    - { role: hugo, tags: hugo}
+  post_tasks:
+    - name: Change shell
+      user:
+        name: "{{ lookup('env', 'USER') }}"
+        shell: /bin/zsh
+      become: yes
+      when: setup_zsh and not setup_brew
+    - name: Change shell
+      user:
+        name: "{{ lookup('env', 'USER') }}"
+        shell: /usr/local/bin/zsh
+      become: yes
+      when: setup_zsh and setup_brew
+

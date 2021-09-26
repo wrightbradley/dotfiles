@@ -1,0 +1,91 @@
+# Don't print a new line at the start of the prompt
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]      # The name of the module we are configuring is "character"
+symbol = "[➜](bold green)"     # The "symbol" segment is being set to "➜"
+
+[username]
+disabled = true
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[aws]
+disabled = true
+style = "bold blue"
+displayed_items = "region"
+
+[aws.region_aliases]
+us-east-1 = "VA"
+
+[docker_context]
+symbol = "🐋 "
+
+[git_branch]
+#symbol = "🌱 " #\U0001F331
+# truncation_length = 4
+# truncation_symbol = ""
+
+[git_status]
+staged.value = "++"
+staged.style = "green"
+staged_count.enabled = true
+staged_count.style = "green"
+
+[hostname]
+ssh_only = true
+format = ">"
+trim_at = ".companyname.com"
+disabled = false
+
+[jobs]
+symbol = "+ "
+threshold = 4
+
+[kubernetes]
+# symbol = "⛵ "
+symbol = ""
+style = "bold blue"
+disabled = false
+
+[kubernetes.context_aliases]
+"bwright@eks" = "EKS"
+
+[python]
+symbol = "🐍 "
+pyenv_version_name = true
+pyenv_prefix = "foo "
+
+[terraform]
+symbol = "🌎 "
+
+[golang]
+symbol = "🦦 "
+
+[java]
+symbol = "♨️  "
+
+[nodejs]
+disabled = true
+# symbol = "🤖 "
+
+format = """\
+    $username\
+    $hostname\
+    $kubernetes\
+    $directory\
+    $git_branch\
+    $git_commit\
+    $git_state\
+    $git_status\
+    $hg_branch\
+    $docker_context\
+    $golang\
+    $java\
+    $nodejs\
+    $python\
+    $terraform\
+    $jobs\
+    """

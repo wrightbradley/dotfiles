@@ -1,0 +1,26 @@
+---
+dotfiles_repo: "https://github.com/the-wright-engineer/dotfiles.git"
+dotfiles_repo_version: main
+dotfiles_repo_local_destination: "~/dotfiles"
+dotfiles_home: "~"
+
+# Setup Var Flags
+setup_aliases: True
+setup_brew: True
+setup_bash: True
+setup_chromebook: True
+setup_color: True
+setup_fonts: False
+setup_git: True
+setup_icons: False
+setup_system: True
+setup_python: False
+setup_screen: True
+setup_tmux: True
+setup_vim: True
+setup_vscode: False
+setup_zsh: True
+install_ycm: False
+
+gitauthor: the-wright-engineer
+gitemail: bradley.wright.tech@gmail.com

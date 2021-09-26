@@ -1,0 +1,12 @@
+---
+
+- import_tasks: color.yml
+  when: setup_color
+
+- import_tasks: fonts.yml
+  when: setup_fonts
+
+- import_tasks: icons.yml
+  when: setup_icons
+
+

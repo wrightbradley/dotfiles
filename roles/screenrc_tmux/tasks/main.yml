@@ -1,0 +1,33 @@
+---
+
+# TODO check for screen package and template out screen file
+- name: "Setup Screen"
+  block:
+    - name: Template out .screenrc file
+      template:
+        src: screenrc.j2
+        dest: "{{ lookup('env', 'HOME') }}/.dotfiles/screenrc"
+        mode: '0444'
+
+    - name: Symlink .screenrc file
+      file:
+        src: "{{ lookup('env', 'HOME') }}/.dotfiles/screenrc"
+        dest: "{{ lookup('env', 'HOME') }}/.screenrc"
+        state: link
+  when: setup_screen
+
+# TODO ensure tmux is installed and template out tmux file
+- name: "Setup Tmux"
+  block:
+    - name: Template out .tmux.conf file
+      template:
+        src: tmux.conf.j2
+        dest: "{{ lookup('env', 'HOME') }}/.dotfiles/tmux.conf"
+        mode: '0444'
+
+    - name: Symlink .tmux.conf file
+      file:
+        src: "{{ lookup('env', 'HOME') }}/.dotfiles/tmux.conf"
+        dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
+        state: link
+  when: setup_tmux

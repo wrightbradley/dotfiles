@@ -1,0 +1,213 @@
+{
+    //GIST ID: 5969c0f6631714641d43ca98a3569a9c
+
+    // ***************
+    // ** TELEMETRY **
+    // ***************
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+
+    // ****************
+    // ** EXTENSIONS **
+    // ****************
+    "extensions.autoCheckUpdates": true,
+
+    // ****************
+    // ** WORKBENCH **
+    // ****************
+    "workbench.settings.editor": "json",
+    "workbench.colorTheme": "Material Theme Darker",
+    "workbench.iconTheme": "material-icon-theme",
+    "files.autoSaveDelay": 1000,
+    "files.autoSave": "afterDelay",
+    "workbench.tips.enabled": true,
+    "workbench.statusBar.feedback.visible": false,
+
+    // ************
+    // ** EDITOR **
+    // ************
+    "editor.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "debug.console.fontSize": 16,
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, Hack, monospace",
+    "materialTheme.accent": "Graphite",
+    "breadcrumbs.enabled": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.renderWhitespace": "boundary",
+    "editor.renderIndentGuides": true,
+    "editor.suggestSelection": "first",
+    "editor.copyWithSyntaxHighlighting": true,
+    "editor.lineNumbers": "relative",
+
+    // *********
+    // ** GIT **
+    // *********
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+
+    // ****************
+    // ** KUBERNETES **
+    // ****************
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "~/.vs-kubernetes/tools/helm/darwin-amd64/helm",
+        "vs-kubernetes.minikube-path": "~/.vs-kubernetes/tools/minikube/darwin-amd64/minikube",
+        "vs-kubernetes.draft-path": "~/.vs-kubernetes/tools/draft/darwin-amd64/draft"
+    },
+
+    // **************
+    // ** MARKDOWN **
+    // **************
+   "[markdown]": {
+       "editor.wordWrap": "on",
+       "editor.quickSuggestions": false,
+       "editor.minimap.enabled": true
+   },
+
+    // ********************
+    // ** CLOUDFORMATION **
+    // ********************
+    "cfnLint.path":  "/usr/local/bin/cfn-lint",
+    // Custom tags for the parser to use
+    "yaml.customTags": [
+        "!And mapping",
+        "!And scalar",
+        "!And sequence",
+        "!Base64 mapping",
+        "!Base64 scalar",
+        "!Base64 sequence",
+        "!Cidr mapping",
+        "!Cidr scalar",
+        "!Cidr sequence",
+        "!Equals mapping",
+        "!Equals scalar",
+        "!Equals sequence",
+        "!FindInMap mappping",
+        "!FindInMap scalar",
+        "!FindInMap sequence",
+        "!GetAtt mapping",
+        "!GetAtt scalar",
+        "!GetAtt sequence",
+        "!GetAZs mapping",
+        "!GetAZs scalar",
+        "!GetAZs sequence",
+        "!If mapping",
+        "!If scalar",
+        "!If sequence",
+        "!ImportValue mapping",
+        "!ImportValue scalar",
+        "!ImportValue sequence",
+        "!ImportValue string",
+        "!Join mapping",
+        "!Join scalar",
+        "!Join sequence",
+        "!Join string",
+        "!Join !Ref",
+        "!Not mapping",
+        "!Not scalar",
+        "!Not sequence",
+        "!Or mapping",
+        "!Or scalar",
+        "!Or sequence",
+        "!Ref mapping",
+        "!Ref scalar",
+        "!Ref sequence",
+        "!Ref string",
+        "!Select mapping",
+        "!Select scalar",
+        "!Select sequence",
+        "!Split mapping",
+        "!Split scalar",
+        "!Split sequence",
+        "!Sub mapping",
+        "!Sub scalar",
+        "!Sub sequence"
+    ],
+    "yaml.format.enable": true,
+    "yaml.validate": false,
+
+    // **************
+    // ** TERMINAL **
+    // **************
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.showExitAlert": true,
+    "terminal.integrated.fontFamily": "'SourceCodePro Nerd Font'",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+
+    // *********
+    // ** VIM **
+    // *********
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.hlsearch": true,
+    "showMusicMetrics": false,
+    "showGitMetrics": false,
+    "showWeeklyRanking": false,
+    "sync.gist": "5969c0f6631714641d43ca98a3569a9c",
+    "peacock.favoriteColors": [
+        {
+            "name": "Angular Red",
+            "value": "#b52e31"
+        },
+        {
+            "name": "Auth0 Orange",
+            "value": "#eb5424"
+        },
+        {
+            "name": "Azure Blue",
+            "value": "#007fff"
+        },
+        {
+            "name": "C# Purple",
+            "value": "#68217A"
+        },
+        {
+            "name": "Gatsby Purple",
+            "value": "#639"
+        },
+        {
+            "name": "Go Cyan",
+            "value": "#5dc9e2"
+        },
+        {
+            "name": "Java Blue-Gray",
+            "value": "#557c9b"
+        },
+        {
+            "name": "JavaScript Yellow",
+            "value": "#f9e64f"
+        },
+        {
+            "name": "Mandalorian Blue",
+            "value": "#1857a4"
+        },
+        {
+            "name": "Node Green",
+            "value": "#215732"
+        },
+        {
+            "name": "React Blue",
+            "value": "#00b3e6"
+        },
+        {
+            "name": "Something Different",
+            "value": "#832561"
+        },
+        {
+            "name": "Vue Green",
+            "value": "#42b883"
+        }
+    ],
+    "vsintellicode.modify.editor.suggestSelection": "choseToUpdateConfiguration",
+    "python.jediEnabled": false,
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "vim.easymotion": true,
+    "workbench.editor.showTabs": true,
+    "[go]": {"editor.formatOnSave": true}
+}
