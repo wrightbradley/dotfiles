@@ -22,13 +22,30 @@ zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="dd.mm.yyyy"
+HISTSIZE=10000000
+SAVEHIST=10000000
+
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker fzf git kubectl ssh-agent vi-mode zsh-autosuggestions zsh-completions zsh-syntax-highlighting zsh-z)
+plugins=(fzf git kubectl zsh-autosuggestions zsh-completions zsh-syntax-highlighting history-substring-search)
+autoload -U compinit && compinit
 
 # ssh-agent plugin setting
 zstyle :omz:plugins:ssh-agent agent-forwarding on
@@ -72,17 +89,16 @@ alias grep="grep --color=always"
 alias egrep="egrep --color=always"
 
 #---- Export ----
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="/usr/local/lib/python3.7/site-packages:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export GOPATH="$HOME/go"
-export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$HOME/.local/bin"
+export PATH=$PATH:$HOME/.istioctl/bin
+source ~/_istioctl
 
 export KUBECONFIG="$HOME/.kube/config"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
@@ -91,7 +107,11 @@ export KUBECONFIG="$HOME/.kube/config"
 [[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_BASE="/usr/bin/fzf"
+ export FZF_BASE="/usr/bin/fzf"
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
+fi
 
 if type rg &> /dev/null; then
       export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
@@ -103,6 +123,7 @@ fi
 #---- Source ----
 [ -f ~/bin/fubectl.source ] && source ~/bin/fubectl.source
 source $HOME/.aliases
+# source $(dirname $(gem which colorls))/tab_complete.sh
 #---- End Source ----
 
 #---- END CUSTOM ----

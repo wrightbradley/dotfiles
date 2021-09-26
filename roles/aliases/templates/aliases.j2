@@ -70,10 +70,6 @@ alias cdiff='colordiff -yW"`tput cols`"'
 alias helm2="/usr/local/opt/helm@2/bin/helm"
  
 alias samp="sampler -c $HOME/sampler_config.yml"
- 
-whoip() {
-    curl ip-api.com/$1
-}
 
 ##############
 # MY ALIASES #
@@ -85,6 +81,8 @@ then
 else
   alias screen='/bin/screen'
 fi
+
+alias cdiff='colordiff -yW"`tput cols`"'
 
 # Network Aliases
 alias ping='ping -c 10'
@@ -99,6 +97,8 @@ alias tdumpv='tcpdump -vv -x -X -s 1500 -i eth1 "port 8080"'
 alias scr='cd ~/Documents/scripts'
 alias cdn='cd ~/Documents/notes'
 
+alias helm2="/usr/local/opt/helm@2/bin/helm"
+
 grsub () {
     if [ -z "$1" ]; then
         echo "Please provide a submodule path/name"
@@ -112,6 +112,77 @@ grsub () {
 bak () {
     LOGDATE=`date +%Y%m%dT%H%M%S`
     cp "$1" "$1.bak.$LOGDATE"
+}
+
+alias samp="sampler -c $HOME/sampler_config.yml"
+# fshow - git commit browser (enter for show, ctrl-d for diff, ` toggles sort)
+fshow() {
+  local out shas sha q k
+  while out=$(
+      git log --graph --color=always \
+          --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+      fzf --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
+          --print-query --expect=ctrl-d --toggle-sort=\`); do
+    q=$(head -1 <<< "$out")
+    k=$(head -2 <<< "$out" | tail -1)
+    shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
+    [ -z "$shas" ] && continue
+    if [ "$k" = 'ctrl-d' ]; then
+      git diff --color=always $shas | less -R
+    else
+      for sha in $shas; do
+        git show --color=always $sha | less -R
+      done
+    fi
+  done
+}
+
+whoip() {
+       curl ip-api.com/$1
+}
+
+debug_daemonset() {
+  RED="31m"
+  GREEN="32m"
+  BOLD_RED="\e[1;${RED}"
+  BOLD_GREEN="\e[1;${GREEN}"
+  ENDCOLOR="\e[0m"
+
+  if [ -z "$1" ]; then
+      echo "Please provide a Daemonset pod name string value"
+  else
+    daemonsetString=$1
+
+    echo "Checking for Daemonset pods with string: $daemonsetString"
+
+    for node in $(kubectl get nodes --no-headers | awk '{print $1}'); do
+      if kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName="$node" --no-headers | awk '{print $2}' | grep -q "$daemonsetString"; then
+        echo -e "${BOLD_GREEN}Found daemonset pod on: $node.${ENDCOLOR}"
+      else
+        echo -e "${BOLD_RED}Missing daemonset pod on: $node.${ENDCOLOR}"
+      fi
+    done
+  fi
+}
+
+find_istio_proxy() {
+  RED="31m"
+  GREEN="32m"
+  BOLD_RED="\e[1;${RED}"
+  BOLD_GREEN="\e[1;${GREEN}"
+  ENDCOLOR="\e[0m"
+
+  echo "Checking pods for istio proxy"
+
+  for pod in $(kubectl get pods --no-headers | awk '{print $1}'); do
+    if kubectl get pod "$pod" -o jsonpath="{.spec.containers[*].name}" |tr -s '[:space:]' '\n' | grep -q "istio-proxy"; then
+      istioVersion=$(kubectl get pod "$pod" -o jsonpath="{.spec.containers[*].image}" |tr -s '[:space:]' '\n' | grep "istio" | cut -d ":" -f2)
+      echo -e "${BOLD_GREEN}$pod has istio-proxy injected using version: $istioVersion${ENDCOLOR}"
+    else
+      echo -e "${BOLD_RED}$pod is missing istio-proxy.${ENDCOLOR}"
+    fi
+  done
+
 }
 {% endif %}
 

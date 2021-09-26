@@ -6,6 +6,8 @@ bind-key C-g send-prefix
 set -g default-terminal "screen-256color"
 set -s escape-time 10 # faster command sequences
 
+set -g default-terminal "screen-256color"
+
 # Easy config reload
 bind-key R source-file ~/.tmux.conf \; display-message "tmux.conf reloaded."
 
@@ -71,7 +73,7 @@ set -g @resurrect-processes 'vim'
 set -g @resurrect-strategy-vim 'session'
 set -g @resurrect-save 'S'
 set -g @resurrect-restore 'R'
-set -g @resurrect-save-shell-history 'on'
+set -g @resurrect-save-shell-history 'off'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run -b '~/.tmux/plugins/tpm/tpm'

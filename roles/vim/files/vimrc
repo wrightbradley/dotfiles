@@ -1,3 +1,16 @@
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Initialize plugin system
+call plug#end()
+
 " Set compatibility to Vim only.
 set nocompatible
 
@@ -70,6 +83,8 @@ augroup filetypedetect
   autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
 
+let g:polyglot_disabled = ['go']
+
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
 
@@ -94,6 +109,24 @@ set noerrorbells
 " Window management
 set splitright               " Split vertical windows right to the current windows
 set splitbelow               " Split horizontal windows below to the current windows
+
+"Max out the height of the current split
+" ctrl + w _
+
+"Max out the width of the current split
+" ctrl + w |
+
+"Normalize all split sizes, which is very handy when resizing terminal
+" ctrl + w =
+
+"Swap top/bottom or left/right split
+" ctrl + w R
+
+"Break out current window into a new tabview
+" ctrl + w T
+
+"Close every window in the current tabview but the current one
+" ctrl + w o
 
 " Show row and column ruler information
 set ruler
@@ -146,6 +179,83 @@ set viminfo='100,<9999,s100
 
 " Number of undo levels
 set undolevels=1000
+
+" Code from plugin: vim-bracketed-paste
+" Code from:
+" http://stackoverflow.com/questions/5585129/pasting-code-into-terminal-window-into-vim-on-mac-os-x
+" then https://coderwall.com/p/if9mda
+" and then https://github.com/aaronjensen/vimfiles/blob/59a7019b1f2d08c70c28a41ef4e2612470ea0549/plugin/terminaltweaks.vim
+" to fix the escape time problem with insert mode.
+"
+" Docs on bracketed paste mode:
+" http://www.xfree86.org/current/ctlseqs.html
+" Docs on mapping fast escape codes in vim
+" http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
+
+if exists("g:loaded_bracketed_paste")
+  finish
+endif
+let g:loaded_bracketed_paste = 1
+
+let &t_ti .= "\<Esc>[?2004h"
+let &t_te = "\e[?2004l" . &t_te
+
+function! XTermPasteBegin(ret)
+  set pastetoggle=<f29>
+  set paste
+  return a:ret
+endfunction
+
+execute "set <f28>=\<Esc>[200~"
+execute "set <f29>=\<Esc>[201~"
+map <expr> <f28> XTermPasteBegin("i")
+imap <expr> <f28> XTermPasteBegin("")
+vmap <expr> <f28> XTermPasteBegin("c")
+cmap <f28> <nop>
+cmap <f29> <nop>
+
+" This plugin causes all trailing whitespace to be highlighted in red.
+" *FixWhitespace*
+" To fix the whitespace errors, just call :FixWhitespace.  By default it
+" operates on the entire file.  Pass a range (or use V to select some lines)
+" to restrict the portion of the file that gets fixed.
+" The repo is at http://github.com/bronson/vim-trailing-whitespace
+" Originally based on http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" VARIABLES
+" g:extra_whitespace_ignored_filetypes
+" g:extra_whitespace_ignored_filetypes
+" You can set filetypes to be ignored for highlight into this variable.
+" let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
+" The default value is [].
+
+let loaded_trailing_whitespace_plugin = 1
+
+if !exists('g:extra_whitespace_ignored_filetypes')
+    let g:extra_whitespace_ignored_filetypes = []
+endif
+
+function! ShouldMatchWhitespace()
+    for ft in g:extra_whitespace_ignored_filetypes
+        if ft ==# &filetype | return 0 | endif
+    endfor
+    return 1
+endfunction
+
+" Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
+autocmd ColorScheme * highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
+autocmd BufRead,BufNew * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+$/ | else | match ExtraWhitespace /^^/ | endif
+
+" The above flashes annoyingly while typing, be calmer in insert mode
+autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+$/ | endif
+autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+\%#\@<!$/ | endif
+
+function! s:FixWhitespace(line1,line2)
+    silent! keepjumps execute ':' . a:line1 . ',' . a:line2 . 's/\\\@<!\s\+$//'
+endfunction
+
+" Run :FixWhitespace to remove end of line white space
+command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
 " Code from plugin: vim-bracketed-paste
 " Code from:
@@ -373,9 +483,10 @@ let g:airline#extensions#branch#enabled = 1
 " Enabel the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 
-" Show just the filenames with index ref
+" Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
@@ -603,13 +714,17 @@ let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 " For toggling
-noremap <Leader>n :NERDTreeToggle<cr>
-noremap <Leader>f :NERDTreeFind<cr>
+noremap <Leader>nt :NERDTreeToggle<cr>
+noremap <Leader>nf :NERDTreeFind<cr>
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-" don;t show these file types
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
+" Automatically close NerdTree when you open a file
+" let NERDTreeQuitOnOpen = 1
+
+" Automatically close a tab if the only remaining window is NerdTree
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " NERDCommenter configuration
 " Add spaces after comment delimiters by default
@@ -700,3 +815,9 @@ let g:vim_markdown_conceal = 0
 
 " Prettier
 packloadall
+
+" source ~/.fzf/plugin/fzf.vim
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+nmap <Leader>f :FzfGFiles<CR>
+nmap <Leader>F :FzfFiles<CR>
