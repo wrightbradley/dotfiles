@@ -23,21 +23,6 @@ Derived from my dotfiles bash script.
 
 * To setup up the prerequisties, you can run `bootstrap.sh`
 
-### Git Submodules
-
-* Homebrew
-* osx tools
-* go
-* python-pip
-
-#### How to add git submodules
-```
-git submodule init
-git submodule update --init --recursive --remote
-git submodule foreach 'git fetch origin --tags && git checkout master && git pull'
-git pull origin master
-```
-
 ### Python/Pip on macOS
 
 ```
