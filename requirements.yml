@@ -1,0 +1,8 @@
+---
+roles:
+  - name: elliotweiser.osx-command-line-tools
+  - name: geerlingguy.pip
+  - name: gantsign.golang
+
+collections:
+  - name: geerlingguy.mac
