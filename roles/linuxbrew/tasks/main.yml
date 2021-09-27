@@ -1,6 +1,6 @@
 ---
 - name: Install linuxbrew
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  shell: echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 - name: Test 1
   shell: test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
@@ -17,3 +17,12 @@
 - name: Test 4
   shell: echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
   ignore_errors: yes
+
+- name: Install Build Essentials
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - build-essential
+    - gcc
+
