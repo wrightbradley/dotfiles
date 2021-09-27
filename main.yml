@@ -27,13 +27,13 @@
         format: gz
       loop:
   roles:
-    - { role: elliotweiser.osx-command-line-tools, tags: osx-command-line-tools, when: setup_brew }
-    - { role: geerlingguy.mac.homebrew, tags: homebrew, when: setup_brew }
+    - { role: elliotweiser.osx-command-line-tools, tags: osx-command-line-tools, when: ansible_os_family == 'Darwin' }
+    - { role: geerlingguy.mac.homebrew, tags: homebrew, when: setup_brew, become: yes}
     - role: geerlingguy.mac.mas
-      when: setup_brew and (mas_installed_apps or mas_installed_app_ids)
+      when: ansible_os_family == 'Darwin' and (mas_installed_apps or mas_installed_app_ids)
       tags: ['mas']
     - role: geerlingguy.mac.dock
-      when: setup_brew and configure_dock
+      when: ansible_os_family == 'Darwin' and configure_dock
       tags: ['dock']
     - { role: system, tags: system }
     - { role: aliases, tags: aliases }

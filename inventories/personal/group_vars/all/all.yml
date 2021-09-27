@@ -4,11 +4,14 @@ dotfiles_repo_version: main
 dotfiles_repo_local_destination: "~/dotfiles"
 dotfiles_home: "~"
 
+homebrew_prefix: "{{ (ansible_os_family == 'Darwin') | ternary('/opt/homebrew', '/home/linuxbrew/.linuxbrew') }}"
+homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
+
 # Setup Var Flags
 setup_aliases: True
 setup_brew: True
 setup_bash: True
-setup_chromebook: True
+setup_chromebook: False
 setup_color: True
 setup_fonts: False
 setup_git: True
