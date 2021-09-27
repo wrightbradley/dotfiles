@@ -27,7 +27,6 @@
         format: gz
       loop:
   roles:
-    - { role: homebrew, tags: homebrew, when: setup_brew }
     - { role: elliotweiser.osx-command-line-tools, tags: osx-command-line-tools, when: setup_brew }
     - { role: geerlingguy.mac.homebrew, tags: homebrew, when: setup_brew }
     - role: geerlingguy.mac.mas
