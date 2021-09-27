@@ -28,8 +28,8 @@
       loop:
   roles:
     - { role: elliotweiser.osx-command-line-tools, tags: osx-command-line-tools, when: ansible_os_family == 'Darwin' }
-    - { role: linuxbrew, tags: linuxbrew, when: ansible_os_family != 'Darwin' and setup_brew, become: yes}
-    - { role: geerlingguy.mac.homebrew, tags: homebrew, when: ansible_os_family == 'Darwin', become: yes}
+    - { role: linuxbrew, tags: linuxbrew, when: ansible_os_family != 'Darwin' and setup_brew}
+    - { role: geerlingguy.mac.homebrew, tags: homebrew, when: ansible_os_family == 'Darwin'}
     - role: geerlingguy.mac.mas
       when: ansible_os_family == 'Darwin' and (mas_installed_apps or mas_installed_app_ids)
       tags: ['mas']
