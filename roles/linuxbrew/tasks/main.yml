@@ -1,15 +1,19 @@
 ---
-- name: Force update brew after installation.
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+- name: Install linuxbrew
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 - name: Test 1
   shell: test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+  ignore_errors: yes
 
 - name: Test 2
   shell: test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  ignore_errors: yes
 
 - name: Test 3
   shell: test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bash_profile
+  ignore_errors: yes
 
 - name: Test 4
   shell: echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
+  ignore_errors: yes
