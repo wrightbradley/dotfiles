@@ -13,5 +13,8 @@ pip3 install --user ansible
 #export PATH=$PATH:/Users/$(whoami)/Library/Python/3.7/bin
 export PATH=$PATH:$HOME/.local/bin
 
+echo "Installing Ansible Galaxy Dependencies"
+ansible-galaxy install -r requirements.yml
+
 echo "BOOTSTRAP RAN" >> /tmp/bootstrap.txt
 ansible-playbook -i localhost main.yml
