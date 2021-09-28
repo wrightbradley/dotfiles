@@ -13,7 +13,7 @@
       archive:
         path:
           - ~/.bashrc
-          - ~/.zsh
+          - ~/.zshrc
           - ~/.config
           - ~/.oh-my-zsh
           - ~/.gitconfig
