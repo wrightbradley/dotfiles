@@ -25,6 +25,10 @@ install_ycm: False
 gitauthor: the-wright-engineer
 gitemail: bradley.wright.tech@gmail.com
 
+# Configure shell rc files
+linuxbrew_init_shell: false
+linuxbrew_user: linuxbrew
+
 homebrew_prefix: "{{ (ansible_os_family == 'Darwin') | ternary('/opt/homebrew', '/home/linuxbrew/.linuxbrew') }}"
 homebrew_install_path: "{{ homebrew_prefix }}"
 homebrew_brew_bin_path: "/usr/local/bin/"
