@@ -1,5 +1,11 @@
 ---
 
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.dotfiles
+    state: directory
+    mode: '0755'
+
 - name: Setup Alias File
   block:
     - name: Template out Aliases file
