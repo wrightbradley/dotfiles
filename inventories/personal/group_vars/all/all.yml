@@ -86,7 +86,7 @@ homebrew_installed_packages:
   - openjdk
   - packer
   - perl
-  - popeye
+  - derailed/popeye/popeye
   - postgresql
   - pyenv
   - python@3.8
@@ -101,7 +101,7 @@ homebrew_installed_packages:
   - terraform
   - tmux
   - tree
-  - trivy
+  - aquasecurity/trivy/trivy
   - vim
   - watch
   - wget
