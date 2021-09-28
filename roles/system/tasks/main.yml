@@ -33,7 +33,7 @@
 - name: Install default packages with brew
   block:
     - name: Install default taps
-      command: "brew install {{ item }}"
+      command: "{{ homebrew_install_path }}/bin/brew install {{ item }}"
       loop: "{{ homebrew_installed_packages }}"
   when: setup_brew and ansible_os_family != 'Darwin'
 
