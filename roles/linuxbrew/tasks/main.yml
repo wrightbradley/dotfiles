@@ -2,20 +2,14 @@
 - name: Install linuxbrew
   shell: echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-- name: Test 1
+# https://docs.brew.sh/Homebrew-on-Linux
+- name: Add brew to environment
   shell: |
     test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
     test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     test -r ~/.bash_profile && echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.bash_profile
     echo "eval \"\$($(brew --prefix)/bin/brew shellenv)\"" >>~/.profile
   ignore_errors: yes
-
-- name: Install Build Essentials
-  ansible.builtin.package:
-    name: "{{ item }}"
-    state: latest
-  loop:
-    - build-essential
 
 # Place brew binary in proper location and complete setup.
 - name: Check if homebrew binary is already in place.

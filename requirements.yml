@@ -3,6 +3,7 @@ roles:
   - name: elliotweiser.osx-command-line-tools
   - name: geerlingguy.pip
   - name: gantsign.golang
+  - name: markosamuli.linuxbrew
 
 collections:
   - name: geerlingguy.mac

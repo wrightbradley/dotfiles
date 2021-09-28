@@ -28,7 +28,7 @@
     - nodejs
   become: yes
   become_user: root
-  when: not setup_brew
+  when: not setup_brew and ansible_os_family != 'Darwin'
 
 - name: Install default packages with brew
   block:
@@ -36,89 +36,8 @@
       homebrew:
         name: "{{ item }}"
         state: present
-      loop:
-        - ack
-        - ansible
-        - ansible-lint
-        - ant
-        - argo
-        - argocd
-        - aws-iam-authenticator
-        - awscli
-        - bash
-        - bash-completion
-        - cmake
-        - colordiff
-        - coreutils
-        - dive
-        - docker
-        - dos2unix
-        - eksctl
-        - expect
-        - faas-cli
-        - fzf
-        - git
-        - glances
-        - gnupg
-        - gnutls
-        - go
-        - gradle
-        - grpcurl
-        - hadolint
-        - helm
-        - helm@2
-        - htop
-        - httrack
-        - jq
-        - jsonnet
-        - k9s
-        - krew
-        - kube-ps1
-        - kubectx
-        - kubernetes-cli
-        - kubeseal
-        - kustomize
-        - maven
-        - mtr
-        - neofetch
-        - nmap
-        - node
-        - openjdk
-        - packer
-        - perl
-        - popeye
-        - postgresql
-        - pyenv
-        - python@3.8
-        - ripgrep
-        - rsync
-        - ruby
-        - screen
-        - skaffold
-        - sqlite
-        - starship
-        - stern
-        - tektoncd-cli
-        - terraform
-        - tmux
-        - tree
-        - trivy
-        - vim
-        - watch
-        - wget
-        - whois
-        - zsh
-
-    - name: Install default casks
-      homebrew_cask:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - virtualbox
-        - minikube
-        - iterm2
-      ignore_errors: yes
-  when: setup_brew
+      loop: "{{ homebrew_installed_packages }}"
+  when: setup_brew and ansible_os_family != 'Darwin'
 
 - name: Install Starship Terminal
   unarchive:

@@ -4,10 +4,6 @@ dotfiles_repo_version: main
 dotfiles_repo_local_destination: "~/dotfiles"
 dotfiles_home: "~"
 
-homebrew_prefix: "{{ (ansible_os_family == 'Darwin') | ternary('/opt/homebrew', '/home/linuxbrew/.linuxbrew') }}"
-homebrew_install_path: "{{ homebrew_prefix }}"
-homebrew_brew_bin_path: "/usr/local/bin/"
-
 # Setup Var Flags
 setup_aliases: True
 setup_brew: True
@@ -28,3 +24,94 @@ install_ycm: False
 
 gitauthor: the-wright-engineer
 gitemail: bradley.wright.tech@gmail.com
+
+homebrew_prefix: "{{ (ansible_os_family == 'Darwin') | ternary('/opt/homebrew', '/home/linuxbrew/.linuxbrew') }}"
+homebrew_install_path: "{{ homebrew_prefix }}"
+homebrew_brew_bin_path: "/usr/local/bin/"
+
+homebrew_installed_packages:
+  - ack
+  - ansible
+  - ansible-lint
+  - ant
+  - argo
+  - argocd
+  - aws-iam-authenticator
+  - awscli
+  - bash
+  - bash-completion
+  - cmake
+  - colordiff
+  - coreutils
+  - dive
+  - docker
+  - dos2unix
+  - eksctl
+  - expect
+  - faas-cli
+  - fzf
+  - git
+  - glances
+  - gnupg
+  - gnutls
+  - go
+  - gradle
+  - grpcurl
+  - hadolint
+  - helm
+  - helm@2
+  - htop
+  - httrack
+  - jq
+  - jsonnet
+  - k9s
+  - krew
+  - kube-ps1
+  - kubectx
+  - kubernetes-cli
+  - kubeseal
+  - kustomize
+  - maven
+  - mtr
+  - neofetch
+  - nmap
+  - node
+  - openjdk
+  - packer
+  - perl
+  - popeye
+  - postgresql
+  - pyenv
+  - python@3.8
+  - ripgrep
+  - rsync
+  - ruby
+  - screen
+  - skaffold
+  - sqlite
+  - starship
+  - stern
+  - terraform
+  - tmux
+  - tree
+  - trivy
+  - vim
+  - watch
+  - wget
+  - whois
+  - zsh
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - docker
+  - firefox
+  - google-chrome
+  - handbrake
+  - slack
+  - virtualbox
+  - minikube
+  - iterm2
