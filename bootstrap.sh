@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces
+
 echo "Install pip"
 #sudo apt-get update
 #sudo apt-get -y install python3-pip
