@@ -24,6 +24,11 @@
         dest: "{{ lookup('env', 'HOME') }}/.dotfiles/zshrc"
         mode: '0444'
 
+    - name: Remove any existing .zshrc file
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.zshrc"
+        state: absent
+
     - name: Symlink .zshrc file
       file:
         src: "{{ lookup('env', 'HOME') }}/.dotfiles/zshrc"
