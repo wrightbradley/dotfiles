@@ -3,7 +3,6 @@ roles:
   - name: elliotweiser.osx-command-line-tools
   - name: geerlingguy.pip # https://galaxy.ansible.com/geerlingguy/pip
   - name: gantsign.golang # https://galaxy.ansible.com/gantsign/golang
-  - name: markosamuli.linuxbrew # https://galaxy.ansible.com/markosamuli/linuxbrew
 
 collections:
   - name: geerlingguy.mac

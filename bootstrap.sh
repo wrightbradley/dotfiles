@@ -15,6 +15,10 @@ pip3 install --user ansible
 #export PATH=$PATH:/Users/$(whoami)/Library/Python/3.7/bin
 export PATH=$PATH:$HOME/.local/bin
 
+git submodule init
+git submodule foreach 'git fetch origin --tags && git checkout master && git pull'
+git submodule update --init --recursive --remote
+
 echo "Installing Ansible Galaxy Dependencies"
 ansible-galaxy install -r requirements.yml
 
