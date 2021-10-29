@@ -10,9 +10,9 @@ setup_brew: True
 setup_bash: True
 setup_chromebook: False
 setup_color: True
-setup_fonts: False
+setup_fonts: True
 setup_git: True
-setup_icons: False
+setup_icons: True
 setup_system: True
 setup_python: False
 setup_screen: True
@@ -117,6 +117,8 @@ homebrew_cask_apps:
   - google-chrome
   - handbrake
   - slack
-  - virtualbox
-  - minikube
   - iterm2
+  - vlc
+  - bitwarden
+  - authy
+  - visual-studio-code
