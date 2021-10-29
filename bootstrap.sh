@@ -12,7 +12,7 @@ echo "Install ansible"
 pip3 install --user ansible
 
 # Python 3
-#export PATH=$PATH:/Users/$(whoami)/Library/Python/3.7/bin
+export PATH=$PATH:/Users/$(whoami)/Library/Python/3.8/bin
 export PATH=$PATH:$HOME/.local/bin
 
 git submodule init
