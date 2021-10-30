@@ -23,4 +23,4 @@ echo "Installing Ansible Galaxy Dependencies"
 ansible-galaxy install -r requirements.yml
 
 echo "BOOTSTRAP RAN" >> /tmp/bootstrap.txt
-ansible-playbook -i inventories/personal/inventory main.yml
+ansible-playbook -i inventories/personal/inventory main.yml -K
