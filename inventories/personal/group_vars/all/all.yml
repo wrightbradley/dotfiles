@@ -32,10 +32,6 @@ linuxbrew_use_installer: true
 linuxbrew_install_url: "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 linuxbrew_install_checksum: "sha256:586d9ddff4c8a3ab0c1e9ab3e26a4cb5e4453fe43970207c215d329531921527"
 
-homebrew_prefix: "{{ (ansible_os_family == 'Darwin') | ternary('/opt/homebrew', '/home/linuxbrew/.linuxbrew') }}"
-homebrew_install_path: "{{ homebrew_prefix }}"
-homebrew_brew_bin_path: "/usr/local/bin"
-
 homebrew_installed_packages:
   - ansible
   - ansible-lint
