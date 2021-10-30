@@ -41,7 +41,7 @@ homebrew_installed_packages:
   - aws-iam-authenticator
   - awscli
   - bash
-  - bash-completion --force
+  - { name: bash-completion, install_options: "--force" }
   - cmake
   - colordiff
   - coreutils
