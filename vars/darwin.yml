@@ -144,7 +144,6 @@ homebrew_taps:
   - derailed/popeye
   # - FairwindsOps/tap
   - hashicorp/tap
-  - hombrew/cask-fonts
   - homebrew/cask
   - homebrew/core
   - int128/kubelogin
@@ -161,11 +160,11 @@ homebrew_cask_apps:
   - bitwarden
   - docker
   - firefox
-  - font-caskaydia-cove-nered-font
-  - font-droidsansmono-nerd-font-mono
-  - font-fira-code-nerd-font
-  - font-hack-nerd-font
-  - font-sourcecodepro-nerd-font-mono
+  - homebrew/cask/fonts/font-caskaydia-cove-nered-font
+  - homebrew/cask/fonts/font-droidsansmono-nerd-font-mono
+  - homebrew/cask/fonts/font-fira-code-nerd-font
+  - homebrew/cask/fonts/font-hack-nerd-font
+  - homebrew/cask/fonts/font-sourcecodepro-nerd-font-mono
   - google-chrome
   - handbrake
   - iterm2
