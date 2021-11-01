@@ -81,8 +81,10 @@ fi
 # For a full list of active aliases, run `alias`.
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-test -e ~/.dircolors && \
-   eval `dircolors -b ~/.dircolors`
+
+if command -v dircolors &> /dev/null; then
+  test -e ~/.dircolors && eval $(dircolors -b ~/.dircolors)
+fi
 
 alias ls="ls --color=always"
 alias grep="grep --color=always"
@@ -97,8 +99,7 @@ export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$HOME/.local/bin"
-export PATH=$PATH:$HOME/.istioctl/bin
-source ~/_istioctl
+[[ -f $HOME/_istioctl ]] && export PATH=$PATH:$HOME/.istioctl/bin && source ~/_istioctl
 
 export KUBECONFIG="$HOME/.kube/config"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
