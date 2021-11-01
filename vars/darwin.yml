@@ -100,8 +100,8 @@ homebrew_installed_packages:
   - packer
   - perl
   - pgcli
-  - pluto
-  - polaris
+  # - pluto
+  # - polaris
   - popeye
   - postgresql
   - prettier
@@ -135,8 +135,6 @@ homebrew_installed_packages:
   - zsh
 
 homebrew_taps:
-  - homebrew/core
-  - homebrew/cask
   - adoptopenjdk/openjdk
   - aquasecurity/trivy
   - argoproj/tap
@@ -144,12 +142,14 @@ homebrew_taps:
   - dbcli/tap
   - derailed/k9s
   - derailed/popeye
-  - fairwindsops/tap
+  # - FairwindsOps/tap
   - hashicorp/tap
   - hombrew/cask-fonts
+  - homebrew/cask
+  - homebrew/core
   - int128/kubelogin
   - mike-engel/jwt-cli
-  - reactiveops/tap
+  # - reactiveops/tap
   - tektoncd/tools
   - tilt-dev/tap
   - weaveworks/tap
