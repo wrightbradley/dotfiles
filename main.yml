@@ -61,4 +61,10 @@
         name: "{{ lookup('env', 'USER') }}"
         shell: /usr/local/bin/zsh
       become: yes
-      when: setup_zsh and setup_brew
+      when: setup_zsh and setup_brew and ansible_architecture != "arm64"
+    - name: Change shell
+      user:
+        name: "{{ lookup('env', 'USER') }}"
+        shell: /opt/homebrew/bin/zsh
+      become: yes
+      when: setup_zsh and setup_brew and ansible_architecture == "arm64"
