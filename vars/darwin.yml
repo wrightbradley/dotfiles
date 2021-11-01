@@ -102,7 +102,7 @@ homebrew_installed_packages:
   - pgcli
   - pluto
   - polaris
-  - derailed/popeye/popeye
+  - popeye
   - postgresql
   - prettier
   - pyenv
@@ -123,7 +123,7 @@ homebrew_installed_packages:
   - tilt
   - tmux
   - tree
-  - aquasecurity/trivy/trivy
+  - trivy
   - vault
   - vim
   - watch
@@ -137,6 +137,22 @@ homebrew_installed_packages:
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
+  - adoptopenjdk/openjdk
+  - aquasecurity/trivy
+  - argoproj/tap
+  - aws/tap
+  - dbcli/tap
+  - derailed/k9s
+  - derailed/popeye
+  - fairwindsops/tap
+  - hashicorp/tap
+  - hombrew/cask-fonts
+  - int128/kubelogin
+  - mike-engel/jwt-cli
+  - reactiveops/tap
+  - tektoncd/tools
+  - tilt-dev/tap
+  - weaveworks/tap
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
