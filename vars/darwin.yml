@@ -1,0 +1,134 @@
+---
+# Setup Var Flags
+setup_aliases: True
+setup_brew: True
+setup_bash: True
+setup_chromebook: False
+setup_color: True
+setup_fonts: True
+setup_git: True
+setup_icons: True
+setup_system: True
+setup_python: False
+setup_screen: True
+setup_tmux: True
+setup_vim: True
+setup_vscode: True
+setup_zsh: True
+install_ycm: True
+
+homebrew_installed_packages:
+  - ansible
+  - ansible-lint
+  - ant
+  - argo
+  - argocd
+  - aws-iam-authenticator
+  - awscli
+  - bash
+  - { name: bash-completion, install_options: "force" }
+  - cli53
+  - cmake
+  - colordiff
+  - coreutils
+  - dive
+  - docker
+  - docker-slim
+  - dos2unix
+  - ec2-instance-selector
+  - eksctl
+  - expect
+  - faas-cli
+  - fzf
+  - git
+  - glances
+  - gnu-sed
+  - gnupg
+  - gnutls
+  - go
+  - go-jsonnet
+  - gradle
+  - grpcurl
+  - hadolint
+  - helm
+  - htop
+  - httrack
+  - jinja2-cli
+  - jq
+  - jwt-cli
+  - k9s
+  - krew
+  - kube-linter
+  - kube-ps1
+  - kubectx
+  - kubernetes-cli
+  - kubernetes-helm
+  - kubeseal
+  - kustomize
+  - maven
+  - mtr
+  - mysql-client
+  - neofetch
+  - nmap
+  - node
+  - openjdk
+  - packer
+  - perl
+  - pgcli
+  - pluto
+  - polaris
+  - derailed/popeye/popeye
+  - postgresql
+  - prettier
+  - pyenv
+  - python@3.8
+  - ripgrep
+  - rsync
+  - ruby
+  - screen
+  - shellcheck
+  - shfmt
+  - skaffold
+  - sqlite
+  - starship
+  - stern
+  - terraform
+  - terrascan
+  - tfsec
+  - tilt
+  - tmux
+  - tree
+  - aquasecurity/trivy/trivy
+  - vault
+  - vim
+  - watch
+  - wget
+  - whois
+  - wireshark
+  - yarn
+  - yq
+  - zsh
+
+homebrew_taps:
+  - homebrew/core
+  - homebrew/cask
+
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - adoptopenjdk11
+  - authy
+  - bitwarden
+  - docker
+  - firefox
+  - font-caskaydia-cove-nered-font
+  - font-fira-code-nerd-font
+  - font-hack-nerd-font
+  - google-chrome
+  - handbrake
+  - iterm2
+  - lens
+  - sampler
+  - slack
+  - visual-studio-code
+  - vlc
+  - wireshark

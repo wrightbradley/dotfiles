@@ -31,7 +31,7 @@
     - { role: linuxbrew, tags: linuxbrew, when: ansible_os_family != 'Darwin' and setup_brew}
     - { role: geerlingguy.mac.homebrew, tags: homebrew, when: ansible_os_family == 'Darwin'}
     - role: geerlingguy.mac.mas
-      when: ansible_os_family != 'Darwin' and (mas_installed_apps or mas_installed_app_ids)
+      when: ansible_os_family == 'Darwin' and (mas_installed_apps or mas_installed_app_ids)
       tags: ['mas']
     - role: geerlingguy.mac.dock
       when: ansible_os_family == 'Darwin' and configure_dock

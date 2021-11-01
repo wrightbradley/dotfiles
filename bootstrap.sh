@@ -2,11 +2,6 @@
 
 # https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces
 
-# Python 3
-PATH=$PATH:/Users/$(whoami)/Library/Python/3.8/bin
-PATH=$PATH:$HOME/.local/bin
-export PATH
-
 # https://packaging.python.org/guides/installing-using-linux-tools/
 echo "Install pip"
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
@@ -41,4 +36,19 @@ echo "Installing Ansible Galaxy Dependencies"
 ansible-galaxy install -r requirements.yml
 
 echo "BOOTSTRAP RAN" >> /tmp/bootstrap.txt
-ansible-playbook -i inventories/personal/inventory main.yml -K
+
+if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
+    if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
+        ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/codespaces.yml" -K
+    else
+        ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/debian.yml" -K
+    fi
+fi
+
+if [ "$(grep -Ei 'fedora|redhat' /etc/*release)" ]; then
+    ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/rhel.yml" -K
+fi
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+    ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/darwin.yml" -K
+fi
