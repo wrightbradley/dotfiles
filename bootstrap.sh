@@ -39,7 +39,7 @@ echo "BOOTSTRAP RAN" >> /tmp/bootstrap.txt
 
 if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
-        ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/codespaces.yml" -K
+        ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/codespaces.yml"
     else
         ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/debian.yml" -K
     fi

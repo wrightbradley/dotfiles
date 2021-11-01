@@ -30,14 +30,6 @@
   become_user: root
   when: not setup_brew and ansible_os_family != 'Darwin'
 
-- name: Install default packages with brew
-  block:
-    - name: Install default taps
-      command: "{{ homebrew_install_path }}/bin/brew install {{ item }}"
-      loop: "{{ homebrew_installed_packages }}"
-  when: setup_brew and ansible_os_family != 'Darwin'
-  ignore_errors: True
-
 - name: Install Starship Terminal
   unarchive:
     src: https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz

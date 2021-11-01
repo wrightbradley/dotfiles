@@ -47,9 +47,8 @@
     - { role: geerlingguy.pip, tags: python-pip }
     - { role: screenrc_tmux, tags: screenrc_tmux }
     - { role: vim, tags: vim }
-    - { role: vscode, tags: vscode }
     - { role: kubernetes, tags: kubernetes}
-    - { role: hugo, tags: hugo}
+    #- { role: vscode, tags: vscode }
   post_tasks:
     - name: Change shell
       user:
@@ -63,4 +62,3 @@
         shell: /usr/local/bin/zsh
       become: yes
       when: setup_zsh and setup_brew
-

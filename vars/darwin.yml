@@ -17,6 +17,31 @@ setup_vscode: True
 setup_zsh: True
 install_ycm: True
 
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: true
+dockitems_remove:
+- Launchpad
+- Safari
+- Messages
+- Mail
+- Maps
+- Photos
+- FaceTime
+- Calendar
+- Contacts
+- Reminders
+- Notes
+- TV
+- Music
+- Podcasts
+- News
+- 'App Store'
+- 'System Preferences'
+dockitems_persist: []
+# - name: "Sublime Text"
+#   path: "/Applications/Sublime Text.app/"
+#   pos: 5
+
 homebrew_installed_packages:
   - ansible
   - ansible-lint
@@ -121,8 +146,10 @@ homebrew_cask_apps:
   - docker
   - firefox
   - font-caskaydia-cove-nered-font
+  - font-droidsansmono-nerd-font-mono
   - font-fira-code-nerd-font
   - font-hack-nerd-font
+  - font-sourcecodepro-nerd-font-mono
   - google-chrome
   - handbrake
   - iterm2

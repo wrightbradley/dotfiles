@@ -18,7 +18,7 @@ alias ld='colorls -d'
 alias lf='colorls -f'
 alias ls="colorls --sd -A"
 {% elif lsd is defined %}
-alias ls="lsd"
+alias ls='lsd'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -27,7 +27,7 @@ alias lS='ls -lSh'
 alias lcr='ls -cr'
 alias lc='ls -c'
 {% else %}
-alias ls="ls --color=always"
+alias ls='ls --color=always'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -49,8 +49,8 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -iv'
 alias mkdir='mkdir -p'
-alias grep="grep --color=always"
-alias egrep="egrep --color=always"
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
 alias cdiff='colordiff -yW"`tput cols`"'
 
 # Viewing/Editing Aliases
@@ -61,14 +61,13 @@ alias svi='sudo vim'
 alias view='vim -R'
 
 # Tmux
-alias t="tmux"
-alias ta="t a -t"
-alias tls="t ls"
-alias tn="t new -t"
+alias t='tmux"
+alias ta='t a -t'
+alias tls='t ls'
+alias tn='t new -t'
 
-alias cdiff='colordiff -yW"`tput cols`"'
 alias helm2="/usr/local/opt/helm@2/bin/helm"
- 
+
 alias samp="sampler -c $HOME/sampler_config.yml"
 
 ##############
@@ -81,8 +80,6 @@ then
 else
   alias screen='/bin/screen'
 fi
-
-alias cdiff='colordiff -yW"`tput cols`"'
 
 # Network Aliases
 alias ping='ping -c 10'
@@ -138,7 +135,7 @@ fshow() {
 }
 
 whoip() {
-       curl ip-api.com/$1
+  curl ip-api.com/$1
 }
 
 debug_daemonset() {
@@ -217,7 +214,7 @@ alias kgn="kubectl get nodes -o wide"
 alias kgp="kubectl get pods -o wide"
 alias kgd="kubectl get deployment -o wide"
 alias kgs="kubectl get svc -o wide"
- 
+
 alias kdp="kubectl describe pod"
 alias kdd="kubectl desribe deployment"
 alias kds="kubectl describe service"
