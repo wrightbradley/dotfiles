@@ -155,7 +155,7 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - adoptopenjdk11
+  # - adoptopenjdk11 # requires Rosetta 2
   - authy
   - bitwarden
   - docker
@@ -164,13 +164,12 @@ homebrew_cask_apps:
   - homebrew/cask-fonts/font-droid-sans-mono-nerd-font
   - homebrew/cask-fonts/font-fira-code-nerd-font
   - homebrew/cask-fonts/font-hack-nerd-font
-  - homebrew/cask-fonts/font-sourcecodepro-nerd-font
+  # - homebrew/cask-fonts/font-sourcecodepro-nerd-font
   - google-chrome
   - handbrake
   - iterm2
   - lens
-  - sampler
   - slack
   - visual-studio-code
   - vlc
-  - wireshark
+  # - wireshark # requires Rosetta 2
