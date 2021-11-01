@@ -160,11 +160,11 @@ homebrew_cask_apps:
   - bitwarden
   - docker
   - firefox
-  - homebrew/cask/fonts/font-caskaydia-cove-nered-font
-  - homebrew/cask/fonts/font-droidsansmono-nerd-font-mono
+  - homebrew/cask/fonts/font-caskaydia-cove-nerd-font
+  - homebrew/cask/fonts/font-droid-sans-mono-nerd-font
   - homebrew/cask/fonts/font-fira-code-nerd-font
   - homebrew/cask/fonts/font-hack-nerd-font
-  - homebrew/cask/fonts/font-sourcecodepro-nerd-font-mono
+  - homebrew/cask/fonts/font-sourcecodepro-nerd-font
   - google-chrome
   - handbrake
   - iterm2
