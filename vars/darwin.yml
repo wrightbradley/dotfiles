@@ -168,18 +168,19 @@ homebrew_cask_apps:
   - bitwarden
   - docker
   - firefox
+  - google-chrome
+  - handbrake
   - homebrew/cask-fonts/font-caskaydia-cove-nerd-font
   - homebrew/cask-fonts/font-droid-sans-mono-nerd-font
   - homebrew/cask-fonts/font-fira-code-nerd-font
   - homebrew/cask-fonts/font-hack-nerd-font
   # - homebrew/cask-fonts/font-sourcecodepro-nerd-font
-  - google-chrome
-  - handbrake
   - iterm2
   - lens
   - parallels
   - parallels-toolbox
   - slack
+  - ticktick
   - visual-studio-code
   - vlc
   - zoom
