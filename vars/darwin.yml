@@ -185,3 +185,7 @@ homebrew_cask_apps:
   - vlc
   - zoom
   # - wireshark # requires Rosetta 2
+
+mas_installed_apps:
+  - { id: 441258766, name: "Magnet (2.6.0)" }
+  - { id: 682658836, name: "GarageBand (10.4.4)" }
