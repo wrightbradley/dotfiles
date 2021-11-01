@@ -43,8 +43,8 @@
     - { role: zsh, tags: zsh }
     - { role: chromebook, tags: chromebook, when: setup_chromebook }
     - { role: color_icons_fonts, tags: color_icons_fonts }
-    - { role: gantsign.golang, tags: go }
-    - { role: geerlingguy.pip, tags: python-pip }
+    - { role: gantsign.golang, tags: go, when: not setup_brew}
+    - { role: geerlingguy.pip, tags: python-pip, when: setup_brew }
     - { role: screenrc_tmux, tags: screenrc_tmux }
     - { role: vim, tags: vim }
     - { role: kubernetes, tags: kubernetes}
