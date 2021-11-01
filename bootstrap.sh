@@ -4,12 +4,12 @@
 
 # https://packaging.python.org/guides/installing-using-linux-tools/
 echo "Install pip"
-if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
+if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release > /dev/null 2>&1)" ]; then
     sudo apt-get update
     sudo apt-get -y install python3-pip
 fi
 
-if [ "$(grep -Ei 'fedora|redhat' /etc/*release)" ]; then
+if [ "$(grep -Ei 'fedora|redhat' /etc/*release > /dev/null 2>&1)" ]; then
     sudo dnf install python3-pip python3-wheel
 fi
 
@@ -41,7 +41,7 @@ ansible-galaxy install -r requirements.yml
 
 echo "BOOTSTRAP RAN" >> /tmp/bootstrap.txt
 
-if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
+if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release > /dev/null 2>&1)" ]; then
     if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
         ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/codespaces.yml"
     else
@@ -49,7 +49,7 @@ if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release)" ]; then
     fi
 fi
 
-if [ "$(grep -Ei 'fedora|redhat' /etc/*release)" ]; then
+if [ "$(grep -Ei 'fedora|redhat' /etc/*release > /dev/null 2>&1)" ]; then
     ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/rhel.yml" -K
 fi
 
