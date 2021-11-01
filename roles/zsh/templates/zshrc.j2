@@ -39,6 +39,21 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f /usr/bin/fzf ]] && export FZF_BASE="/usr/bin/fzf"
+[[ -f /usr/local/bin/fzf ]] && export FZF_BASE="/usr/local/bin/fzf"
+[[ -f /opt/homebrew/bin/fzf ]] && export FZF_BASE="/opt/homebrew/bin/fzf"
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
+fi
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  export FZF_DEFAULTS_OPTS='--ansi -m --height 50% --border'
+fi
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -107,21 +122,6 @@ export KUBECONFIG="$HOME/.kube/config"
 [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 [[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ -f /usr/bin/fzf ]] && export FZF_BASE="/usr/bin/fzf"
-[[ -f /usr/local/bin/fzf ]] && export FZF_BASE="/usr/local/bin/fzf"
-[[ -f /opt/homebrew/bin/fzf ]] && export FZF_BASE="/opt/homebrew/bin/fzf"
-
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-  export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
-fi
-
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-  export FZF_DEFAULTS_OPTS='--ansi -m --height 50% --border'
-fi
 
 #---- End Export ----
 
