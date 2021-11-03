@@ -165,7 +165,7 @@ homebrew_cask_apps:
   # - adoptopenjdk11 # requires Rosetta 2
   - authy
   - backblaze
-  - bitwarden
+  #- bitwarden # use the App store version
   - docker
   - firefox
   - google-chrome
@@ -180,6 +180,7 @@ homebrew_cask_apps:
   - parallels
   - parallels-toolbox
   - slack
+  - signal
   - spotify
   - ticktick
   - visual-studio-code
