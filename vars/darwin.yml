@@ -191,3 +191,4 @@ homebrew_cask_apps:
 mas_installed_apps:
   - { id: 441258766, name: "Magnet (2.6.0)" }
   - { id: 682658836, name: "GarageBand (10.4.4)" }
+  - { id: 1352778147, name: "Bitwarden   (1.29.1)" }
