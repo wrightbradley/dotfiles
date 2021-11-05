@@ -165,6 +165,7 @@ homebrew_cask_apps:
   # - adoptopenjdk11 # requires Rosetta 2
   - authy
   - backblaze
+  - bartender
   #- bitwarden # use the App store version
   - docker
   - firefox
@@ -191,4 +192,9 @@ homebrew_cask_apps:
 mas_installed_apps:
   - { id: 441258766, name: "Magnet (2.6.0)" }
   - { id: 682658836, name: "GarageBand (10.4.4)" }
-  - { id: 1352778147, name: "Bitwarden   (1.29.1)" }
+  - { id: 1352778147, name: "Bitwarden (1.29.1)" }
+  - { id: 1319778037, name: "iStat Menus (6.60)" }
+  - { id: 966085870, name: "TickTick (4.0.21)" }
+  - { id: 1451685025, name: "WireGuard (1.0.15)" }
+  - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
+

@@ -39,27 +39,12 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt HIST_BEEP                 # Beep when accessing nonexistent history.
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ -f /usr/bin/fzf ]] && export FZF_BASE="/usr/bin/fzf"
-[[ -f /usr/local/bin/fzf ]] && export FZF_BASE="/usr/local/bin/fzf"
-[[ -f /opt/homebrew/bin/fzf ]] && export FZF_BASE="/opt/homebrew/bin/fzf"
-
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-  export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
-fi
-
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-  export FZF_DEFAULTS_OPTS='--ansi -m --height 50% --border'
-fi
-
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf git kubectl zsh-autosuggestions zsh-completions zsh-syntax-highlighting history-substring-search)
+plugins=(git kubectl zsh-autosuggestions zsh-completions zsh-syntax-highlighting history-substring-search)
 autoload -U compinit && compinit
 
 # ssh-agent plugin setting
@@ -115,6 +100,21 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$HOME/.local/bin"
 [[ -f $HOME/_istioctl ]] && export PATH=$PATH:$HOME/.istioctl/bin && source ~/_istioctl
+
+[[ -f /usr/bin/fzf ]] && export FZF_BASE="/usr/bin/fzf"
+[[ -f /usr/local/bin/fzf ]] && export FZF_BASE="/usr/local/bin/fzf"
+[[ -f /opt/homebrew/bin/fzf ]] && export FZF_BASE="/opt/homebrew/bin/fzf"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
+fi
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  export FZF_DEFAULTS_OPTS='--ansi -m --height 50% --border'
+fi
 
 export KUBECONFIG="$HOME/.kube/config"
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
