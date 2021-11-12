@@ -112,6 +112,7 @@ homebrew_installed_packages:
   - postgresql
   - prettier
   - pyenv
+  - pylint
   - python@3.8
   - ripgrep
   - rsync
@@ -138,6 +139,7 @@ homebrew_installed_packages:
   # - wireshark # requires Rosetta 2
   - wireguard-tools
   - yarn
+  - yapf
   - yq
   - zsh
 
@@ -197,4 +199,6 @@ mas_installed_apps:
   - { id: 966085870, name: "TickTick (4.0.21)" }
   - { id: 1451685025, name: "WireGuard (1.0.15)" }
   - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
+  - { id: 1176895641, name: "Spark (2.11.6)" }
+  - { id: 446243721, name: "Disk Space Analyzer Free  (3.6.3)" }
 
