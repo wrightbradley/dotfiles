@@ -151,12 +151,14 @@ homebrew_taps:
   - dbcli/tap
   - derailed/k9s
   - derailed/popeye
+  - exa
   # - FairwindsOps/tap
   - hashicorp/tap
   - homebrew/cask
   - homebrew/core
   - int128/kubelogin
   - mike-engel/jwt-cli
+  - proselint
   # - reactiveops/tap
   - tektoncd/tools
   - tilt-dev/tap
