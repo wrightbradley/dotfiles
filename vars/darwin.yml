@@ -142,29 +142,29 @@ homebrew_installed_packages:
   - yapf
   - yq
   - zsh
+  - vale
+  - cdk8s
+  - exa
+  - proselint
 
 homebrew_taps:
   # - adoptopenjdk/openjdk # requires Rosetta 2
   - aquasecurity/trivy
   - argoproj/tap
   - aws/tap
-  - cdk8s
   - dbcli/tap
   - derailed/k9s
   - derailed/popeye
-  - exa
   # - FairwindsOps/tap
   - hashicorp/tap
   - homebrew/cask
   - homebrew/core
   - int128/kubelogin
   - mike-engel/jwt-cli
-  - proselint
   # - reactiveops/tap
   - tektoncd/tools
   - tilt-dev/tap
   - weaveworks/tap
-  - vale
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
