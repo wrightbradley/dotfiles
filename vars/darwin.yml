@@ -148,6 +148,7 @@ homebrew_taps:
   - aquasecurity/trivy
   - argoproj/tap
   - aws/tap
+  - cdk8s
   - dbcli/tap
   - derailed/k9s
   - derailed/popeye
@@ -163,6 +164,7 @@ homebrew_taps:
   - tektoncd/tools
   - tilt-dev/tap
   - weaveworks/tap
+  - vale
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
