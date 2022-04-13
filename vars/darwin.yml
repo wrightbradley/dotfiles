@@ -16,6 +16,7 @@ setup_vim: True
 setup_vscode: True
 setup_zsh: True
 install_ycm: True
+setup_starship: True
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
