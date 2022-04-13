@@ -1,0 +1,229 @@
+---
+- name: Create project directories structure
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - ~/Projects/code/
+    - ~/Projects/code/schema-stores
+    - ~/Projects/code/vscode-workspaces
+
+- name: Git clone GitHub repos
+  import_tasks: repos.yml
+
+- name: Copy VS Code Workspace Config Files
+  copy:
+    src: "code/vscode-workspaces/{{ item }}"
+    dest: "~/Projects/code/vscode-workspaces/{{ item }}"
+    mode: "0644"
+  loop:
+    - dotfiles.code-workspace
+
+- name: Template out SSH config
+  template:
+    src: "ssh/config.j2"
+    dest: "~/.ssh/config"
+    mode: "0644"
+
+- name: Add SSH key to Apple Keychain
+  command: "ssh-add --apple-use-keychain ~/.ssh/{{ personal_ssh_key_name }}"
+
+- name: Enable Key Repeat for Vim Functionality in VS Code
+  command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+# https://github.com/SchemaStore/schemastore
+- name: Copy Json Schema Definitions
+  copy:
+    src: "code/schema-stores/{{ item }}"
+    dest: "~/Projects/code/schema-stores/{{ item }}"
+    mode: "0644"
+  loop:
+    - ansible-galaxy.json
+    - ansible-inventory.json
+    - ansible-meta-runtime.json
+    - ansible-playbook.json
+    - ansible-tasks.json
+    - argo-workflows-schema.json
+    - kustomization.json
+    - pipelines-schema.json
+
+- name: Install VS Code Extensions
+  command: "code --install-extension {{ item }}"
+  loop:
+    - AdamCaviness.theme-monokai-dark-soda
+    - BeardedBear.beardedtheme
+    - DavidAnson.vscode-markdownlint
+    - DotJoshJohnson.xml
+    - EliverLara.andromeda
+    - GitHub.github-vscode-theme
+    - GitHub.vscode-pull-request-github
+    - Gruntfuggly.todo-tree
+    - IBM.output-colorizer
+    - PKief.material-icon-theme
+    - PatrykPeszko.vscode-proselint
+    - Pivotal.vscode-boot-dev-pack
+    - Pivotal.vscode-spring-boot
+    - Sebbia.jsonnetng
+    - Tchoupinax.tilt
+    - VSpaceCode.whichkey
+    - VisualStudioExptTeam.vscodeintellicode
+    - aaron-bond.better-comments
+    - alefragnani.project-manager
+    - asciidoctor.asciidoctor-vscode
+    - asvetliakov.vscode-neovim
+    - atlassian.atlascode
+    - azemoh.one-monokai
+    - bierner.markdown-emoji
+    - bierner.markdown-footnotes
+    - bierner.markdown-mermaid
+    - eamodio.gitlens
+    - errata-ai.vale-server
+    - esbenp.prettier-vscode
+    - exiasr.hadolint
+    - fabiospampinato.vscode-monokai-night
+    - foxundermoon.shell-format
+    - golang.go
+    - hashicorp.terraform
+    - johnpapa.vscode-peacock
+    - jprestidge.theme-material-theme
+    - kamikillerto.vscode-colorize
+    - mindaro-dev.file-downloader
+    - monokai.theme-monokai-pro-vscode
+    - mrmlnc.vscode-apache
+    - ms-azuretools.vscode-docker
+    - ms-kubernetes-tools.vscode-kubernetes-tools
+    - ms-ossdata.vscode-postgresql
+    - ms-python.python
+    - ms-python.vscode-pylance
+    - ms-vscode-remote.remote-containers
+    - ms-vscode-remote.remote-ssh
+    - ms-vscode-remote.remote-ssh-edit
+    - ms-vscode.cmake-tools
+    - mtxr.sqltools
+    - njpwerner.autodocstring
+    - pnp.polacode
+    - redhat.fabric8-analytics
+    - redhat.java
+    - redhat.vscode-commons
+    - redhat.vscode-xml
+    - redhat.vscode-yaml
+    - richterger.perl
+    - rid9.datetime
+    - run-at-scale.terraform-doc-snippets
+    - sdras.night-owl
+    - shanoor.vscode-nginx
+    - shardulm94.trailing-spaces
+    - sleistner.vscode-fileutils
+    - softwaredotcom.music-time
+    - softwaredotcom.swdc-vscode
+    - timonwong.shellcheck
+    - tsandall.opa
+    - twxs.cmake
+    - vangware.dark-plus-material
+    - vscjava.vscode-java-debug
+    - vscjava.vscode-java-dependency
+    - vscjava.vscode-java-pack
+    - vscjava.vscode-maven
+    - vscjava.vscode-spring-boot-dashboard
+    - vscjava.vscode-spring-initializr
+    - vscode-icons-team.vscode-icons
+    - wayou.vscode-todo-highlight
+    - wholroyd.jinja
+    - yzhang.markdown-all-in-one
+  tags: pm
+
+# - name: Copy VS Code Settings Files
+#   template:
+#     src: "vscode/{{ item }}.j2"
+#     dest: "~/Library/Application\ Support/Code/User/{{ item }}"
+#     mode: "0644"
+#   loop:
+#     - keybindings.json
+#     - settings.json
+#   tags: pm
+
+- name: Check if VS Code project-manager directory exists
+  stat:
+    path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
+  register: pm_state
+
+- name: Create VS Code globalStorage directory
+  file:
+    path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
+    state: directory
+    mode: "0755"
+  when: not pm_state.stat.exists
+
+- name: Copy VS Code Project Manager File
+  template:
+    src: "vscode/project-manager/projects.json.j2"
+    dest: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager/projects.json"
+    mode: "0644"
+
+- name: Install pip3 dependency for kubernetes.core.helm_repository
+  command: pip3 install PyYAML
+  tags: helm
+
+- name: Add Helm repos
+  kubernetes.core.helm_repository:
+    name: "{{ item.name }}"
+    repo_url: "{{ item.url }}"
+  loop:
+    - { name: "falcosecurity", url: "https://falcosecurity.github.io/charts" }
+    - { name: "harbor", url: "https://helm.goharbor.io" }
+    - { name: "fairwinds-stable", url: "https://charts.fairwinds.com/stable" }
+    - { name: "kiali", url: "https://kiali.org/helm-charts" }
+    - {
+        name: "prometheus-community",
+        url: "https://prometheus-community.github.io/helm-charts",
+      }
+    - { name: "kubecost", url: "https://kubecost.github.io/cost-analyzer/" }
+    - { name: "grafana", url: "https://grafana.github.io/helm-charts" }
+    - { name: "oauth2-proxy", url: "https://oauth2-proxy.github.io/manifests" }
+    - { name: "dandydev", url: "https://dandydeveloper.github.io/charts" }
+    - { name: "pomerium", url: "https://helm.pomerium.io" }
+    - {
+        name: "prometheus-community",
+        url: "https://prometheus-community.github.io/helm-charts",
+      }
+    - { name: "sorry-cypress", url: "https://sorry-cypress.github.io/charts" }
+    - { name: "zooz", url: "https://zooz.github.io/helm/" }
+    - { name: "kedacore", url: "https://kedacore.github.io/charts" }
+    - { name: "deliveryhero", url: "https://charts.deliveryhero.io/" }
+    - { name: "eks", url: "https://aws.github.io/eks-charts" }
+    - {
+        name: "sealed-secrets",
+        url: "https://bitnami-labs.github.io/sealed-secrets",
+      }
+    - {
+        name: "aws-ebs-csi-driver",
+        url: "https://kubernetes-sigs.github.io/aws-ebs-csi-driver",
+      }
+    - {
+        name: "descheduler",
+        url: "https://kubernetes-sigs.github.io/descheduler/",
+      }
+    - {
+        name: "metrics-server",
+        url: "https://kubernetes-sigs.github.io/metrics-server/",
+      }
+    - {
+        name: "bitnami",
+        url: "https://charts.bitnami.com/bitnami",
+      }
+    - {
+        name: "deepfence",
+        url: "https://deepfence-helm-charts.s3.amazonaws.com/threatmapper",
+    }
+  tags: helm
+
+- name: Run helm repo update
+  command: helm repo update
+  tags: helm
+
+- name: Link ZSH completions to oh-my-zsh completions directory
+  ansible.builtin.file:
+    src: /opt/homebrew/share/zsh/site-functions
+    dest: ~/.oh-my-zsh/completions
+    state: link

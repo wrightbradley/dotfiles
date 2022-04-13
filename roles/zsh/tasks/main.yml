@@ -1,5 +1,4 @@
 ---
-
 # TODO ensure zsh is installed, ensure oh-my-zsh is installed, template out config files
 - name: Setup ZSH and Oh-my-Zsh
   block:
@@ -13,16 +12,25 @@
         repo: "{{ item.repo }}"
         dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/{{ item.dir }}"
       loop:
-        - { repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git", dir: "zsh-syntax-highlighting" }
-        - { repo: "https://github.com/zsh-users/zsh-autosuggestions", dir: "zsh-autosuggestions" }
-        - { repo: "https://github.com/zsh-users/zsh-completions", dir: "zsh-completions" }
+        - {
+            repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git",
+            dir: "zsh-syntax-highlighting",
+          }
+        - {
+            repo: "https://github.com/zsh-users/zsh-autosuggestions",
+            dir: "zsh-autosuggestions",
+          }
+        - {
+            repo: "https://github.com/zsh-users/zsh-completions",
+            dir: "zsh-completions",
+          }
         - { repo: "https://github.com/agkozak/zsh-z", dir: "zsh-z" }
 
     - name: Template out .zshrc file
       template:
         src: zshrc.j2
         dest: "{{ lookup('env', 'HOME') }}/.dotfiles/zshrc"
-        mode: '0444'
+        mode: "0444"
 
     - name: Remove any existing .zshrc file
       file:
@@ -39,18 +47,21 @@
       file:
         path: "{{ lookup('env', 'HOME') }}/.config"
         state: directory
-        mode: '0755'
+        mode: "0755"
 
-    - name: Copy over starship file
-      copy:
-        src: starship
-        dest: "{{ lookup('env', 'HOME') }}/.dotfiles/starship.toml"
-        mode: '0444'
+    - name: Starship Terminal Setup
+      block:
+        - name: Copy over starship file
+          copy:
+            src: starship.toml
+            dest: "{{ lookup('env', 'HOME') }}/.dotfiles/starship.toml"
+            mode: "0444"
 
-    - name: Symlink starship file
-      file:
-        src: "{{ lookup('env', 'HOME') }}/.dotfiles/starship.toml"
-        dest: "{{ lookup('env', 'HOME') }}/.config/starship.toml"
-        state: link
+        - name: Symlink starship file
+          file:
+            src: "{{ lookup('env', 'HOME') }}/.dotfiles/starship.toml"
+            dest: "{{ lookup('env', 'HOME') }}/.config/starship.toml"
+            state: link
+      when: setup_starship
 
   when: setup_zsh

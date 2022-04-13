@@ -1,5 +1,4 @@
 ---
-
 # TODO ensure vim 8 is installed and template out vim file
 - name: Template out vimrc and setup vim plugin
   block:
@@ -7,7 +6,7 @@
       copy:
         src: vimrc
         dest: "{{ lookup('env', 'HOME') }}/.dotfiles/vimrc"
-        mode: '0444'
+        mode: "0444"
 
     - name: Symlink .vimrc file
       file:
@@ -19,40 +18,131 @@
       file:
         path: "{{ lookup('env', 'HOME') }}/.vim/pack/plugins/start"
         state: directory
-        mode: '0744'
+        mode: "0744"
 
     - name: Install vim plugins
       git:
         repo: "{{ item.repo }}"
         dest: "{{ lookup('env', 'HOME') }}/.vim/pack/plugins/start/{{ item.dir }}"
       loop:
-        - { repo: "https://github.com/ekalinin/Dockerfile.vim.git", dir: "Dockerfile.vim" }
-        - { repo: "https://github.com/chriskempson/base16-vim.git", dir: "base16-vim" }
-        - { repo: "https://github.com/Asheq/close-buffers.vim.git", dir: "close-buffers" }
+        - {
+            repo: "https://github.com/ekalinin/Dockerfile.vim.git",
+            dir: "Dockerfile.vim",
+          }
+        - {
+            repo: "https://github.com/chriskempson/base16-vim.git",
+            dir: "base16-vim",
+          }
+        - {
+            repo: "https://github.com/Asheq/close-buffers.vim.git",
+            dir: "close-buffers",
+          }
         - { repo: "https://github.com/junegunn/fzf.vim.git", dir: "fzf.vim" }
-        - { repo: "https://github.com/scrooloose/nerdcommenter.git", dir: "nerdcommenter" }
-        - { repo: "https://github.com/scrooloose/nerdtree.git", dir: "nerdtree" }
-        - { repo: "https://github.com/Xuyuanp/nerdtree-git-plugin.git", dir: "nerdtree-git-plugin" }
+        - {
+            repo: "https://github.com/scrooloose/nerdcommenter.git",
+            dir: "nerdcommenter",
+          }
+        - {
+            repo: "https://github.com/scrooloose/nerdtree.git",
+            dir: "nerdtree",
+          }
+        - {
+            repo: "https://github.com/Xuyuanp/nerdtree-git-plugin.git",
+            dir: "nerdtree-git-plugin",
+          }
         - { repo: "https://github.com/chr4/nginx.vim.git", dir: "nginx.vim" }
         - { repo: "https://github.com/godlygeek/tabular.git", dir: "tabular" }
-        - { repo: "https://github.com/vim-airline/vim-airline.git", dir: "vim-airline" }
-        - { repo: "https://github.com/vim-airline/vim-airline-themes.git", dir: "vim-airline-themes" }
-        - { repo: "https://github.com/ConradIrwin/vim-bracketed-paste.git", dir: "vim-bracketed-paste" }
-        - { repo: "https://github.com/gko/vim-coloresque.git", dir: "vim-coloresque" }
-        - { repo: "https://github.com/ryanoasis/vim-devicons.git", dir: "vim-devicons" }
-        - { repo: "https://github.com/tpope/vim-fugitive.git", dir: "vim-fugitive" }
-        - { repo: "https://github.com/airblade/vim-gitgutter.git", dir: "vim-gitgutter" }
+        - {
+            repo: "https://github.com/vim-airline/vim-airline.git",
+            dir: "vim-airline",
+          }
+        - {
+            repo: "https://github.com/vim-airline/vim-airline-themes.git",
+            dir: "vim-airline-themes",
+          }
+        - {
+            repo: "https://github.com/ConradIrwin/vim-bracketed-paste.git",
+            dir: "vim-bracketed-paste",
+          }
+        - {
+            repo: "https://github.com/gko/vim-coloresque.git",
+            dir: "vim-coloresque",
+          }
+        - {
+            repo: "https://github.com/ryanoasis/vim-devicons.git",
+            dir: "vim-devicons",
+          }
+        - {
+            repo: "https://github.com/tpope/vim-fugitive.git",
+            dir: "vim-fugitive",
+          }
+        - {
+            repo: "https://github.com/airblade/vim-gitgutter.git",
+            dir: "vim-gitgutter",
+          }
         - { repo: "https://github.com/fatih/vim-go.git", dir: "vim-go" }
-        - { repo: "https://github.com/nathanaelkane/vim-indent-guides.git", dir: "vim-indent-guides" }
-        - { repo: "https://github.com/google/vim-jsonnet.git", dir: "vim-jsonnet" }
-        - { repo: "https://github.com/plasticboy/vim-markdown.git", dir: "vim-markdown" }
-        - { repo: "https://github.com/tpope/vim-obsession.git", dir: "vim-obession" }
-        - { repo: "https://github.com/hashivim/vim-packer.git", dir: "vim-packer" }
-        - { repo: "https://github.com/sheerun/vim-polyglot", dir: "vim-polyglot" }
-        - { repo: "https://github.com/prettier/vim-prettier.git", dir: "vim-prettier" }
+        - {
+            repo: "https://github.com/nathanaelkane/vim-indent-guides.git",
+            dir: "vim-indent-guides",
+          }
+        - {
+            repo: "https://github.com/google/vim-jsonnet.git",
+            dir: "vim-jsonnet",
+          }
+        - {
+            repo: "https://github.com/plasticboy/vim-markdown.git",
+            dir: "vim-markdown",
+          }
+        - {
+            repo: "https://github.com/tpope/vim-obsession.git",
+            dir: "vim-obession",
+          }
+        - {
+            repo: "https://github.com/hashivim/vim-packer.git",
+            dir: "vim-packer",
+          }
+        - {
+            repo: "https://github.com/sheerun/vim-polyglot",
+            dir: "vim-polyglot",
+          }
+        - {
+            repo: "https://github.com/prettier/vim-prettier.git",
+            dir: "vim-prettier",
+          }
         - { repo: "https://github.com/tpope/vim-surround", dir: "vim-surround" }
-        - { repo: "https://github.com/hashivim/vim-terraform.git", dir: "vim-terraform" }
-        - { repo: "https://github.com/christoomey/vim-tmux-navigator.git", dir: "vim-tmux-navigator" }
-        - { repo: "https://github.com/hashivim/vim-vaultproject.git", dir: "vim-vaultproject" }
+        - {
+            repo: "https://github.com/hashivim/vim-terraform.git",
+            dir: "vim-terraform",
+          }
+        - {
+            repo: "https://github.com/christoomey/vim-tmux-navigator.git",
+            dir: "vim-tmux-navigator",
+          }
+        - {
+            repo: "https://github.com/hashivim/vim-vaultproject.git",
+            dir: "vim-vaultproject",
+          }
 
   when: setup_vim
+
+- name: Template out nvim config
+  block:
+    - name: Copy out init.vim file
+      copy:
+        src: init.vim
+        dest: "{{ lookup('env', 'HOME') }}/.dotfiles/init.vim"
+        mode: "0444"
+
+    - name: Make nvim config directory
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.config/nvim"
+        state: directory
+        mode: "0744"
+
+    - name: Symlink init.vim file
+      file:
+        src: "{{ lookup('env', 'HOME') }}/.dotfiles/init.vim"
+        dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
+        state: link
+
+  when: setup_nvim

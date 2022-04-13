@@ -1,1 +1,3 @@
 get-pip.py
+.vscode
+roles/git/vars

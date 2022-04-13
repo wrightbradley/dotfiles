@@ -147,9 +147,9 @@ debug_daemonset() {
 
     for node in $(kubectl get nodes --no-headers | awk '{print $1}'); do
       if kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName="$node" --no-headers | awk '{print $2}' | grep -q "$daemonsetString"; then
-        echo -e "${BOLD_GREEN}Found daemonset pod on: $node.${ENDCOLOR}"
+        echo -e "${BOLD_GREEN}Found daemonset pod on: $node${ENDCOLOR}"
       else
-        echo -e "${BOLD_RED}Missing daemonset pod on: $node.${ENDCOLOR}"
+        echo -e "${BOLD_RED}Missing daemonset pod on: $node${ENDCOLOR}"
       fi
     done
   fi
@@ -169,7 +169,7 @@ find_istio_proxy() {
       istioVersion=$(kubectl get pod "$pod" -o jsonpath="{.spec.containers[*].image}" |tr -s '[:space:]' '\n' | grep "istio" | cut -d ":" -f2)
       echo -e "${BOLD_GREEN}$pod has istio-proxy injected using version: $istioVersion${ENDCOLOR}"
     else
-      echo -e "${BOLD_RED}$pod is missing istio-proxy.${ENDCOLOR}"
+      echo -e "${BOLD_RED}$pod is missing istio-proxy${ENDCOLOR}"
     fi
   done
 
@@ -212,5 +212,45 @@ alias kdp="kubectl describe pod"
 alias kdd="kubectl desribe deployment"
 alias kds="kubectl describe service"
 alias kdn="kubectl describe node"
+
+# Get All Non-Running Pods
+kpnr() {
+  kubectl get pods -A --field-selector=status.phase!=Running | grep -v "Complete"
+}
+
+# Get list of nodes and their memory size
+knmem() {
+  kubectl get no -o json | jq -r '.items | sort_by(.status.capacity.memory)[] | [.metadata.name,.status.capacity.memory] | @tsv'
+}
+
+# Get list of nodes and the number of pods running on them
+knpc() {
+  kubectl get po -o json --all-namespaces | jq '.items | group_by(.spec.nodeName) | map({"nodeName": .[0].spec.nodeName, "count": length}) | sort_by(.count)'
+}
+
+# Get top pods based on cpu
+kptc() {
+  kubectl top pods -A | sort --reverse --key 3 --numeric
+}
+
+# Get top pods based on mem
+kptm() {
+  kubectl top pods -A | sort --reverse --key 4 --numeric
+}
+
+# Print limits and requests for pods
+kplr() {
+  kubectl get pods -A -o=custom-columns='NAME:spec.containers[*].name,MEMREQ:spec.containers[*].resources.requests.memory,MEMLIM:spec.containers[*].resources.limits.memory,CPUREQ:spec.containers[*].resources.requests.cpu,CPULIM:spec.containers[*].resources.limits.cpu'
+}
+
+# Get internal IP addresses of cluster nodes
+knip() {
+  kubectl get nodes -o json | jq -r '.items[].status.addresses[]? | select (.type == "InternalIP") | .address' | paste -sd "\n" -
+}
+
+# Get all unique container images across cluster
+kgca() {
+  kubectl get pods --all-namespaces -o jsonpath="{.items[*].spec.containers[*].image}" | tr -s '[[:space:]]' '\n' | sort | uniq -c
+}
 
 {% endif %}

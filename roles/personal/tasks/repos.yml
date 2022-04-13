@@ -1,0 +1,11 @@
+---
+- name: Git clone GitHub Repos
+  git:
+    repo: "git@github.com:wrightbradley/{{ item }}.git"
+    dest: "~/Projects/code/{{ item }}"
+    version: HEAD
+    accept_hostkey: yes
+  loop:
+    - dotfiles
+    - itdad
+  ignore_errors: True

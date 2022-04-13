@@ -3,26 +3,24 @@
 - name: Install ruby with homebrew
   homebrew:
     name: ruby
-    state: latest
   when: setup_brew
 
 - name: Install ruby with system package manager
   package:
     name: "{{ item }}"
-    state: latest
+    state: present
   loop:
     - ruby
     - ruby-dev
     - ruby-colorize
     - libncurses5-dev
     - libtinfo-dev
-  become: yes
+  become: True
   when: not setup_brew
 
 - name: Install colorls
   gem:
     name: "{{ item }}"
-    state: latest
   loop:
     - colorls
     - rainbow

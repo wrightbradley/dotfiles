@@ -27,15 +27,27 @@
         format: gz
       loop:
   roles:
-    - { role: elliotweiser.osx-command-line-tools, tags: osx-command-line-tools, when: ansible_os_family == 'Darwin' }
-    - { role: linuxbrew, tags: linuxbrew, when: ansible_os_family != 'Darwin' and setup_brew}
-    - { role: geerlingguy.mac.homebrew, tags: homebrew, when: ansible_os_family == 'Darwin'}
+    - {
+        role: elliotweiser.osx-command-line-tools,
+        tags: osx-command-line-tools,
+        when: ansible_os_family == 'Darwin',
+      }
+    - {
+        role: linuxbrew,
+        tags: linuxbrew,
+        when: ansible_os_family != 'Darwin' and setup_brew,
+      }
+    - {
+        role: geerlingguy.mac.homebrew,
+        tags: homebrew,
+        when: ansible_os_family == 'Darwin',
+      }
     - role: geerlingguy.mac.mas
       when: ansible_os_family == 'Darwin' and (mas_installed_apps or mas_installed_app_ids)
-      tags: ['mas']
+      tags: ["mas"]
     - role: geerlingguy.mac.dock
       when: ansible_os_family == 'Darwin' and configure_dock
-      tags: ['dock']
+      tags: ["dock"]
     - { role: system, tags: system }
     - { role: aliases, tags: aliases }
     - { role: git, tags: git }
@@ -43,28 +55,29 @@
     - { role: zsh, tags: zsh }
     - { role: chromebook, tags: chromebook, when: setup_chromebook }
     - { role: color_icons_fonts, tags: color_icons_fonts }
-    - { role: gantsign.golang, tags: go, when: not setup_brew}
+    - { role: gantsign.golang, tags: go, when: not setup_brew }
     - { role: geerlingguy.pip, tags: python-pip, when: not setup_brew }
     - { role: screenrc_tmux, tags: screenrc_tmux }
     - { role: vim, tags: vim }
-    - { role: kubernetes, tags: kubernetes}
+    - { role: kubernetes, tags: kubernetes }
+    - { role: personal, tags: personal }
     #- { role: vscode, tags: vscode }
   post_tasks:
     - name: Change shell
       user:
         name: "{{ lookup('env', 'USER') }}"
         shell: /bin/zsh
-      become: yes
+      become: True
       when: setup_zsh and not setup_brew
     - name: Change shell
       user:
         name: "{{ lookup('env', 'USER') }}"
         shell: /usr/local/bin/zsh
-      become: yes
+      become: True
       when: setup_zsh and setup_brew and ansible_architecture != "arm64"
     - name: Change shell
       user:
         name: "{{ lookup('env', 'USER') }}"
         shell: /opt/homebrew/bin/zsh
-      become: yes
+      become: True
       when: setup_zsh and setup_brew and ansible_architecture == "arm64"

@@ -1,0 +1,44 @@
+##### SSH HOSTS #####
+
+# Bitbucket does not support SSH multiplexing: https://jira.atlassian.com/browse/BCLOUD-13465
+Host bitbucket.???  # .org and .com
+    ControlMaster no
+
+Host k3s-control
+    Hostname 192.168.0.10
+    User ubuntu
+
+Host k3s-node01
+    ProxyCommand ssh -q k3s-control -W %h:%p
+    User ubuntu
+
+Host k3s-node02
+    ProxyCommand ssh -q k3s-control -W %h:%p
+    User ubuntu
+
+Host k3s-node03
+    ProxyCommand ssh -q k3s-control -W %h:%p
+    User ubuntu
+
+Host k3s-node04
+    ProxyCommand ssh -q k3s-control -W %h:%p
+    User ubuntu
+
+Host k3s-node05
+    ProxyCommand ssh -q k3s-control -W %h:%p
+    User ubuntu
+
+### Global Configuration ###
+Host *
+    UseKeychain yes
+    AddKeysToAgent yes
+    ForwardAgent yes
+    IdentityFile ~/.ssh/{{ personal_ssh_key_name }}
+    ControlMaster auto
+    ControlPersist 1h
+    ControlPath ~/.ssh/control-%C
+    ServerAliveInterval 10
+    ServerAliveCountMax 3
+    GSSAPIAuthentication no
+    ForwardX11 no
+    CanonicalizeHostname always

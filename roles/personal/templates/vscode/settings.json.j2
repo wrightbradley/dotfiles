@@ -55,7 +55,11 @@
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   },
   "extensions.autoCheckUpdates": true,
+{% if ansible_machine == "arm64" and ansible_os_family == "Darwin" %}
+  "hadolint.hadolintPath": "/opt/hombrew/bin/hadolint",
+{% else %}
   "hadolint.hadolintPath": "/usr/local/bin/hadolint",
+{% endif %}
   "redhat.telemetry.enabled": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "workbench.list.automaticKeyboardNavigation": false,
@@ -101,6 +105,17 @@
   // ** JAVA **
   // **********
   "java.configuration.checkProjectSettingsExclusions": false,
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "/Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home",
+      "default": true
+    },
+    {
+      "name": "JavaSE-17",
+      "path": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home"
+    },
+  ],
 
   // ****************
   // ** JAVASCRIPT **
@@ -118,12 +133,21 @@
   // ****************
   // ** KUBERNETES **
   // ****************
+{% if ansible_machine == "arm64" and ansible_os_family == "Darwin" %}
+  "vs-kubernetes": {
+    "vs-kubernetes.helm-path": "/opt/homebrew/bin/helm",
+    "vs-kubernetes.kubectl-path": "/opt/homebrew/bin/kubectl"
+  },
+  "vscode-kubernetes.helm-path.mac": "/opt/homebrew/bin/helm",
+  "vscode-kubernetes.kubectl-path.mac": "/opt/homebrew/bin/kubectl",
+{% else %}
   "vs-kubernetes": {
     "vs-kubernetes.helm-path": "/usr/local/bin/helm",
     "vs-kubernetes.kubectl-path": "/usr/local/bin/kubectl"
   },
   "vscode-kubernetes.helm-path.mac": "/usr/local/bin/helm",
   "vscode-kubernetes.kubectl-path.mac": "/usr/local/bin/kubectl",
+{% endif %}
 
   // **************
   // ** MARKDOWN **
@@ -140,10 +164,13 @@
   // ************
   // ** NEOVIM **
   // ************
-  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim", // "/opt/homebrew/bin/nvim", //"/usr/local/bin/nvim"
+{% if ansible_machine == "arm64" and ansible_os_family == "Darwin" %}
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+{% else %}
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+{% endif %}
   "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
   "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/init.vim",
-  //"vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/vimscript/nv-vscode/init.vim",
   "vscode-neovim.neovimInitVimPaths.linux": "$HOME/.config/nvim/init.vim",
 
   // ***********
@@ -234,13 +261,12 @@
   // ** Python **
   // ************
   "python.linting.enabled": true,
-  "python.linting.pylintPath": "/usr/local/bin/pylint",
+  "python.linting.pylintPath": "pylint",
   "python.linting.pylintEnabled": true,
   "python.envFile": "${workspaceFolder}/.env",
   // "python.languageServer": "Microsoft",
   "python.languageServer": "Pylance",
   "python.formatting.provider": "yapf",
-  "python.formatting.yapfPath": "/usr/local/bin/yapf",
   "python.formatting.yapfArgs": [
     "--style",
     "{based_on_style: pep8, indent_width: 2}"
@@ -257,7 +283,12 @@
   // ******************
   // ** Shell Format **
   // ******************
+{% if ansible_machine == "arm64" and ansible_os_family == "Darwin" %}
+  "shellcheck.executablePath": "/opt/homebrew/bin/shellcheck",
   "shellformat.path": "/opt/homebrew/bin/shfmt",
+{% else %}
+  "shellformat.path": "/usr/local/bin/shfmt",
+{% endif %}
   "shellformat.flag": "-i 2 -ci",
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
@@ -1337,7 +1368,7 @@
   "workbench.panel.defaultLocation": "right",
   "workbench.preferredDarkColorTheme": "One Monokai",
   "workbench.settings.editor": "json",
-  "workbench.startupEditor": "readme",
+  "workbench.startupEditor": "none",
   "workbench.tips.enabled": true,
   "workbench.editor.wrapTabs": true,
   "workbench.editor.decorations.colors": true,
@@ -1361,23 +1392,27 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "yaml.schemas": {
-    "file:///Users/{{ username }}/.vscode/yaml_schemas/argo-workflows.json": "argo-workflows/**/workflows/*.yaml",
-    "file:///Users/{{ username }}/.vscode/yaml_schemas/ansible-playbook.json": [
+    "file:///Users/{{ username }}/Projects/code/schema-stores/argo-workflows-schema.json": [
+      "argo-workflows/**/workflows/*.yaml"
+    ],
+    "file:///Users/{{ username }}/Projects/code/schema-stores/ansible-playbook.json": [
       "^/*.yml"
     ],
-    "file:///Users/{{ username }}/.vscode/yaml_schemas/ansible-role-2.9.json": [
+    "file:///Users/{{ username }}/Projects/code/schema-stores/ansible-tasks.json": [
       "^/roles/*/tasks/*.yml",
       "^/tasks/*.yml"
     ],
-    "file:///Users/{{ username }}/.vscode/yaml_schemas/ansible-inventory.json": [
+    "file:///Users/{{ username }}/Projects/code/schema-stores/ansible-inventory.json": [
       "^/inventory/*.yml",
       "^/inventories/*/*.yml",
       "inventory.yaml"
     ],
-    "file:///Users/{{ username }}/.vscode/yaml_schemas/kustomization.json": [
+    "file:///Users/{{ username }}/Projects/code/schema-stores/kustomization.json": [
       "kustomization.yaml"
     ],
-    "file:///Users/{{ username }}/.vscode/extensions/atlassian.atlascode-2.10.3/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    "file:///Users/{{ username }}/Projects/code/schema-stores/pipelines-schema.json": [
+      "bitbucket-pipelines.yml"
+    ]
   },
   "projectManager.git.baseFolders": ["~/Projects"],
   "editor.minimap.enabled": false,
@@ -1385,5 +1420,6 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   "vale.core.useCLI": true,
+  "vale.valeCLI.path": "/opt/homebrew/bin/vale",
   "editor.acceptSuggestionOnEnter": "off"
 }

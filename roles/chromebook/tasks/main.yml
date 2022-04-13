@@ -1,8 +1,7 @@
 ---
-
 - name: Install Signal Desktop Apt Key
   shell: curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
-  become: yes
+  become: True
 
 - name: Copy over Apt Repo List
   copy:
@@ -11,20 +10,19 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: True
 
 - name: Install Signal
   apt:
     name: signal-desktop
     state: latest
     update_cache: yes
-  become: yes
-
+  become: True
 # - name: Install gnome-terminal
 #   apt:
 #     name: gnome-terminal
 #     state: latest
-#   become: yes
+#   become: True
 #
 # - name: Copy over gnome-terminal icon
 #   copy:
@@ -33,4 +31,4 @@
 #     owner: root
 #     group: root
 #     mode: 0644
-#   become: yes
+#   become: True

@@ -1,5 +1,4 @@
 ---
-
 - name: Install default packages using system package manager
   package:
     name: "{{ item }}"
@@ -26,7 +25,7 @@
     - colordiff
     - jq
     - nodejs
-  become: yes
+  become: True
   become_user: root
   when: not setup_brew and ansible_os_family != 'Darwin'
 
@@ -35,5 +34,11 @@
     src: https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-gnu.tar.gz
     dest: /usr/local/bin
     remote_src: yes
-  become: yes
+  become: True
   when: not setup_brew
+
+- name: Install nvm
+  shell: >
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  args:
+    creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"

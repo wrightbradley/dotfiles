@@ -20,35 +20,43 @@ install_ycm: True
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
 dockitems_remove:
-- Launchpad
-- Safari
-- Messages
-- Mail
-- Maps
-- Photos
-- FaceTime
-- Calendar
-- Contacts
-- Reminders
-- Notes
-- TV
-- Music
-- Podcasts
-- News
-- 'App Store'
-- 'System Preferences'
+  - "App Store"
+  - "System Preferences"
+  - Calendar
+  - Contacts
+  - FaceTime
+  - Launchpad
+  - Maps
+  - Messages
+  - Music
+  - News
+  - Notes
+  - Numbers
+  - Pages
+  - Photos
+  - Podcasts
+  - Reminders
+  - Safari
+  - TV
 dockitems_persist:
-- name: "Google Chrome"
-  path: "/Applications/Google Chrome.app/"
-  pos: 1
-- name: "iTerm"
-  path: "/Applications/iTerm.app/"
-  pos: 2
-- name: "Visual Studio Code"
-  path: "/Applications/Visual Studio Code.app/"
-  pos: 3
+  - name: "Google Chrome"
+    path: "/Applications/Google Chrome.app/"
+    pos: 1
+  - name: "iTerm"
+    path: "/Applications/iTerm.app/"
+    pos: 2
+  - name: "Visual Studio Code"
+    path: "/Applications/Visual Studio Code.app/"
+    pos: 3
+  - name: "Slack"
+    path: "/Applications/Slack.app/"
+    pos: 4
+  - name: "Mail"
+    path: "/Applications/Mail.app/"
+    pos: 5
 
 homebrew_installed_packages:
+  - asciidoctor
   - ansible
   - ansible-lint
   - ant
@@ -58,6 +66,7 @@ homebrew_installed_packages:
   - awscli
   - bash
   - { name: bash-completion, install_options: "force" }
+  - cdk8s
   - cli53
   - cmake
   - colordiff
@@ -65,9 +74,11 @@ homebrew_installed_packages:
   - dive
   - docker
   - docker-slim
+  - docker-credential-helper-ecr
   - dos2unix
   - ec2-instance-selector
   - eksctl
+  - exa
   - expect
   - faas-cli
   - fzf
@@ -82,6 +93,7 @@ homebrew_installed_packages:
   - grpcurl
   - hadolint
   - helm
+  - hey
   - htop
   - httrack
   - jinja2-cli
@@ -111,9 +123,11 @@ homebrew_installed_packages:
   - popeye
   - postgresql
   - prettier
+  - proselint
   - pyenv
   - pylint
   - python@3.8
+  - rename
   - ripgrep
   - rsync
   - ruby
@@ -131,6 +145,7 @@ homebrew_installed_packages:
   - tmux
   - tree
   - trivy
+  - vale
   - vault
   - vim
   - watch
@@ -142,10 +157,6 @@ homebrew_installed_packages:
   - yapf
   - yq
   - zsh
-  - vale
-  - cdk8s
-  - exa
-  - proselint
 
 homebrew_taps:
   # - adoptopenjdk/openjdk # requires Rosetta 2
@@ -158,6 +169,7 @@ homebrew_taps:
   # - FairwindsOps/tap
   - hashicorp/tap
   - homebrew/cask
+  - homebrew/cask-versions
   - homebrew/core
   - int128/kubelogin
   - mike-engel/jwt-cli
@@ -205,4 +217,3 @@ mas_installed_apps:
   - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
   - { id: 1176895641, name: "Spark (2.11.6)" }
   - { id: 446243721, name: "Disk Space Analyzer Free  (3.6.3)" }
-
