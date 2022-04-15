@@ -1420,6 +1420,11 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   "vale.core.useCLI": true,
-  "vale.valeCLI.path": "/opt/homebrew/bin/vale",
-  "editor.acceptSuggestionOnEnter": "off"
+{% if ansible_machine == "arm64" and ansible_os_family == "Darwin" %}
+  "vale.valeCLI.path": "/opt/hombrew/bin/vale",
+{% else %}
+  "vale.valeCLI.path": "/usr/local/bin/vale",
+{% endif %}
+  "editor.acceptSuggestionOnEnter": "off",
+  "svg.preview.mode": "svg"
 }

@@ -12,10 +12,9 @@
         repo: "{{ item.repo }}"
         dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/{{ item.dir }}"
       loop:
-        - {
-            repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git",
-            dir: "zsh-syntax-highlighting",
-          }
+        - { repo: "https://github.com/agkozak/zsh-z", dir: "zsh-z" }
+        - { repo: "https://github.com/kubermatic/fubectl", dir: "fubectl" }
+        - { repo: "https://github.com/lukechilds/zsh-nvm", dir: "zsh-nvm" }
         - {
             repo: "https://github.com/zsh-users/zsh-autosuggestions",
             dir: "zsh-autosuggestions",
@@ -24,7 +23,10 @@
             repo: "https://github.com/zsh-users/zsh-completions",
             dir: "zsh-completions",
           }
-        - { repo: "https://github.com/agkozak/zsh-z", dir: "zsh-z" }
+        - {
+            repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git",
+            dir: "zsh-syntax-highlighting",
+          }
 
     - name: Template out .zshrc file
       template:

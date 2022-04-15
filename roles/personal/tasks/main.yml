@@ -19,6 +19,7 @@
     mode: "0644"
   loop:
     - dotfiles.code-workspace
+    - itdad.code-workspace
 
 - name: Template out SSH config
   template:
@@ -77,6 +78,8 @@
     - bierner.markdown-emoji
     - bierner.markdown-footnotes
     - bierner.markdown-mermaid
+    - bradlc.vscode-tailwindcss
+    - cssho.vscode-svgviewer
     - eamodio.gitlens
     - errata-ai.vale-server
     - esbenp.prettier-vscode
@@ -85,6 +88,7 @@
     - foxundermoon.shell-format
     - golang.go
     - hashicorp.terraform
+    - jock.svg
     - johnpapa.vscode-peacock
     - jprestidge.theme-material-theme
     - kamikillerto.vscode-colorize
@@ -100,6 +104,9 @@
     - ms-vscode-remote.remote-ssh
     - ms-vscode-remote.remote-ssh-edit
     - ms-vscode.cmake-tools
+    - ms-vsliveshare.vsliveshare
+    - ms-vsliveshare.vsliveshare-audio
+    - ms-vsliveshare.vsliveshare-pack
     - mtxr.sqltools
     - njpwerner.autodocstring
     - pnp.polacode
@@ -117,6 +124,7 @@
     - sleistner.vscode-fileutils
     - softwaredotcom.music-time
     - softwaredotcom.swdc-vscode
+    - tilt-dev.tilt-status
     - timonwong.shellcheck
     - tsandall.opa
     - twxs.cmake
@@ -208,14 +216,11 @@
         name: "metrics-server",
         url: "https://kubernetes-sigs.github.io/metrics-server/",
       }
-    - {
-        name: "bitnami",
-        url: "https://charts.bitnami.com/bitnami",
-      }
+    - { name: "bitnami", url: "https://charts.bitnami.com/bitnami" }
     - {
         name: "deepfence",
         url: "https://deepfence-helm-charts.s3.amazonaws.com/threatmapper",
-    }
+      }
   tags: helm
 
 - name: Run helm repo update
