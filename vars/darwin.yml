@@ -168,9 +168,6 @@ homebrew_taps:
   - dbcli/tap
   - derailed/k9s
   - derailed/popeye
-  - elgato-camera-hub
-  - elgato-control-center
-  - elgato-stream-deck
   # - FairwindsOps/tap
   - hashicorp/tap
   - homebrew/cask
@@ -188,9 +185,13 @@ homebrew_cask_apps:
   # - adoptopenjdk11 # requires Rosetta 2
   - authy
   - backblaze
+  - balenaetcher
   - bartender
   #- bitwarden # use the App store version
   - docker
+  - elgato-camera-hub
+  - elgato-control-center
+  - elgato-stream-deck
   - firefox
   - google-chrome
   - handbrake
@@ -201,8 +202,11 @@ homebrew_cask_apps:
   # - homebrew/cask-fonts/font-sourcecodepro-nerd-font
   - iterm2
   - lens
+  - logitech-options
+  - microsoft-teams
   - parallels
   - parallels-toolbox
+  - raspberry-pi-imager
   - slack
   - signal
   - spotify
