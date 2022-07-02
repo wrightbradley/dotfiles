@@ -168,6 +168,9 @@ homebrew_taps:
   - dbcli/tap
   - derailed/k9s
   - derailed/popeye
+  - elgato-camera-hub
+  - elgato-control-center
+  - elgato-stream-deck
   # - FairwindsOps/tap
   - hashicorp/tap
   - homebrew/cask
