@@ -194,6 +194,7 @@ homebrew_cask_apps:
   - elgato-stream-deck
   - firefox
   - google-chrome
+  - google-cloud-sdk
   - handbrake
   - homebrew/cask-fonts/font-caskaydia-cove-nerd-font
   - homebrew/cask-fonts/font-droid-sans-mono-nerd-font
