@@ -33,6 +33,9 @@
 - name: Enable Key Repeat for Vim Functionality in VS Code
   command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
+- name: Make macOS dock appear faster
+  command: defaults write com.apple.dock autohide-delay -float 0; killall Dock
+
 # https://github.com/SchemaStore/schemastore
 - name: Copy Json Schema Definitions
   copy:
@@ -79,7 +82,6 @@
     - bierner.markdown-footnotes
     - bierner.markdown-mermaid
     - bradlc.vscode-tailwindcss
-    - cssho.vscode-svgviewer
     - eamodio.gitlens
     - errata-ai.vale-server
     - esbenp.prettier-vscode
@@ -124,7 +126,6 @@
     - sleistner.vscode-fileutils
     - softwaredotcom.music-time
     - softwaredotcom.swdc-vscode
-    - tilt-dev.tilt-status
     - timonwong.shellcheck
     - tsandall.opa
     - twxs.cmake
