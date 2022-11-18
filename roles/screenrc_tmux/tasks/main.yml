@@ -19,15 +19,10 @@
 # TODO ensure tmux is installed and template out tmux file
 - name: "Setup Tmux"
   block:
-    - name: Template out .tmux.conf file
-      template:
-        src: tmux.conf.j2
-        dest: "{{ lookup('env', 'HOME') }}/.dotfiles/tmux.conf"
+    - name: Copy out tmux configs
+      copy:
+        src: tmux
+        dest: "{{ lookup('env', 'HOME') }}/.config/tmux"
         mode: '0444'
 
-    - name: Symlink .tmux.conf file
-      file:
-        src: "{{ lookup('env', 'HOME') }}/.dotfiles/tmux.conf"
-        dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
-        state: link
   when: setup_tmux
