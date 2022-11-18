@@ -1,15 +1,15 @@
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+" call plug#begin('~/.vim/plugged')
 
 " If installed using Homebrew
 set rtp+=/usr/local/opt/fzf
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
-call plug#end()
+" call plug#end()
 
 " Set compatibility to Vim only.
 set nocompatible

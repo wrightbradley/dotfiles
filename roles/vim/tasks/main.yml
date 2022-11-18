@@ -145,4 +145,13 @@
         dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
         state: link
 
+    - name: Install LunarVim
+      command: LV_BRANCH='release-1.2/neovim-0.8' bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+
+    - name: Copy out config.lua file
+      copy:
+        src: config.lua
+        dest: "{{ lookup('env', 'HOME') }}/.config/lvim/config.lua"
+        mode: "0444"
+
   when: setup_nvim
