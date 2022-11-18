@@ -32,7 +32,7 @@ git submodule init
 git submodule update --init --recursive --remote
 
 if [[ $OSTYPE == 'darwin'* ]]; then
-  export PATH="$HOME/Library/Python/3.8/bin:/opt/homebrew/bin:$PATH"
+  export PATH="$HOME/Library/Python/3.10/bin:/opt/homebrew/bin:$PATH"
 fi
 
 echo "Installing Ansible Galaxy Dependencies"
