@@ -42,3 +42,15 @@
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
   args:
     creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+
+- name: Install Pip packages
+  ansible.builtin.pip:
+    name: pynvim
+
+- name: Install NPM packages
+  community.general.npm:
+    name: "{{ item }}"
+    global: true
+  loop:
+    - neovim
+    - alacritty

@@ -7,5 +7,6 @@ roles:
 collections:
   - name: geerlingguy.mac
   - name: kubernetes.core
+  - name: community.general
   # https://github.com/geerlingguy/ansible-collection-mac
   # https://github.com/geerlingguy/mac-dev-playbook/blob/master/default.config.yml

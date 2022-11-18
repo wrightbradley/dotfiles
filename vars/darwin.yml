@@ -67,10 +67,12 @@ homebrew_installed_packages:
   - aws-iam-authenticator
   - awscli
   - bash
+  - black
   - { name: bash-completion, install_options: "force" }
   - cdk8s
   - cli53
   - cmake
+  - codespell
   - colordiff
   - coreutils
   - dive
@@ -80,9 +82,11 @@ homebrew_installed_packages:
   - dos2unix
   - ec2-instance-selector
   - eksctl
+  - entr
   - exa
   - expect
   - faas-cli
+  - flake8
   - fzf
   - git
   - glances
@@ -98,6 +102,7 @@ homebrew_installed_packages:
   - hey
   - htop
   - httrack
+  - husky
   - jinja2-cli
   - jq
   - jwt-cli
@@ -118,12 +123,16 @@ homebrew_installed_packages:
   - node
   - openjdk
   - packer
+  - pdm
   - perl
   - pgcli
   # - pluto
   # - polaris
+  - podman-desktop
+  - poetry
   - popeye
   - postgresql
+  - pre-commit
   - prettier
   - proselint
   - pyenv
@@ -133,6 +142,7 @@ homebrew_installed_packages:
   - ripgrep
   - rsync
   - ruby
+  - rust
   - screen
   - shellcheck
   - shfmt
@@ -142,6 +152,7 @@ homebrew_installed_packages:
   - stern
   - terraform
   - terrascan
+  - tflint
   - tfsec
   - tilt
   - tmux
@@ -171,6 +182,7 @@ homebrew_taps:
   # - FairwindsOps/tap
   - hashicorp/tap
   - homebrew/cask
+  - homebrew/cask-drivers
   - homebrew/cask-versions
   - homebrew/core
   - int128/kubelogin
@@ -183,15 +195,16 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   # - adoptopenjdk11 # requires Rosetta 2
+  - alacritty
   - authy
   - backblaze
   - balenaetcher
   - bartender
   #- bitwarden # use the App store version
-  - docker
-  - elgato-camera-hub
-  - elgato-control-center
-  - elgato-stream-deck
+  - { name: elgato-camera-hub }
+  - { name: elgato-control-center }
+  - { name: elgato-stream-deck }
+  - { name: elgato-wave-link }
   - firefox
   - google-chrome
   - google-cloud-sdk
@@ -200,17 +213,19 @@ homebrew_cask_apps:
   - homebrew/cask-fonts/font-droid-sans-mono-nerd-font
   - homebrew/cask-fonts/font-fira-code-nerd-font
   - homebrew/cask-fonts/font-hack-nerd-font
-  # - homebrew/cask-fonts/font-sourcecodepro-nerd-font
+  - homebrew/cask-fonts/font-jetbrains-mono-nerd-font
   - iterm2
   - lens
-  - logitech-options
+  - { name: logitech-options }
   - microsoft-teams
   - parallels
   - parallels-toolbox
+  - podman-desktop
   - raspberry-pi-imager
   - slack
   - signal
   - spotify
+  - tailscale
   - ticktick
   - visual-studio-code
   - vlc
@@ -227,3 +242,12 @@ mas_installed_apps:
   - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
   - { id: 1176895641, name: "Spark (2.11.6)" }
   - { id: 446243721, name: "Disk Space Analyzer Free  (3.6.3)" }
+
+#TODO: pip and npm installs
+
+## pip
+- pynvim
+
+## npm
+- alacritty-themes
+- neovim

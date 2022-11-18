@@ -76,19 +76,20 @@ else
 fi
 
 #---- Color Config ----
-export TERM=xterm-256color
+# export TERM=xterm-256color
+export TERM=alacritty
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# BASE16_SHELL="$HOME/.config/base16-shell"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
-_base16 "$HOME/.config/base16-shell/scripts/base16-material-vivid.sh" material-vivid
+# base16_material-vivid
 
-if command -v dircolors &> /dev/null; then
-  test -e ~/.dircolors && eval $(dircolors -b ~/.dircolors)
-fi
+# if command -v dircolors &> /dev/null; then
+#   test -e ~/.dircolors && eval $(dircolors -b ~/.dircolors)
+# fi
 
 #---- Export ----
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -105,6 +106,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOMEBREW_PREFIX/opt/mysql-client/bin:$PATH"
 export PATH="$HOMEBREW_PREFIX/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/bin:$PATH"
 export PATH="$HOMEBREW_PREFIX/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
@@ -138,6 +140,12 @@ fi
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
   export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
+fi
+
+if [ -n "$PYTHONPATH" ]; then
+  export PYTHONPATH='/opt/homebrew/Cellar/pdm/2.2.1/libexec/lib/python3.11/site-packages/pdm/pep582':$PYTHONPATH
+else
+  export PYTHONPATH='/opt/homebrew/Cellar/pdm/2.2.1/libexec/lib/python3.11/site-packages/pdm/pep582'
 fi
 
 [ -f ~/bin/fubectl.source ] && source ~/bin/fubectl.source
