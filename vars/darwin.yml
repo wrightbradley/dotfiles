@@ -102,7 +102,6 @@ homebrew_installed_packages:
   - hey
   - htop
   - httrack
-  - husky
   - jinja2-cli
   - jq
   - jwt-cli
@@ -128,7 +127,6 @@ homebrew_installed_packages:
   - pgcli
   # - pluto
   # - polaris
-  - podman-desktop
   - poetry
   - popeye
   - postgresql
@@ -242,12 +240,3 @@ mas_installed_apps:
   - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
   - { id: 1176895641, name: "Spark (2.11.6)" }
   - { id: 446243721, name: "Disk Space Analyzer Free  (3.6.3)" }
-
-#TODO: pip and npm installs
-
-## pip
-- pynvim
-
-## npm
-- alacritty-themes
-- neovim

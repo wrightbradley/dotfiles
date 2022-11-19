@@ -3,8 +3,8 @@
 # TODO check for screen package and template out screen file
 - name: "Setup Screen"
   block:
-    - name: Template out .screenrc file
-      template:
+    - name: Copy over .screenrc file
+      copy:
         src: screenrc.j2
         dest: "{{ lookup('env', 'HOME') }}/.dotfiles/screenrc"
         mode: '0444'
@@ -19,10 +19,30 @@
 # TODO ensure tmux is installed and template out tmux file
 - name: "Setup Tmux"
   block:
+    - name: Create a tmux and alacritty directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.config/{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - alacritty
+        - tmux
+
     - name: Copy out tmux configs
       copy:
         src: tmux
         dest: "{{ lookup('env', 'HOME') }}/.config/tmux"
+        mode: '0444'
+
+    - name: Clone Tmux Plugin Manager
+      git:
+        repo: https://github.com/tmux-plugins/tpm
+        dest: "{{ lookup('env', 'HOME') }}/.config/tmux/plugins/tpm"
+
+    - name: Copy out alacritty config
+      copy:
+        src: alacritty.yml
+        dest: "{{ lookup('env', 'HOME') }}/.config/alacritty/alacritty.yml"
         mode: '0444'
 
   when: setup_tmux

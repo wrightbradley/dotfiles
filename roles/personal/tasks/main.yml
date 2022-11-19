@@ -34,7 +34,7 @@
   command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 - name: Make macOS dock appear faster
-  command: defaults write com.apple.dock autohide-delay -float 0; killall Dock
+  shell: defaults write com.apple.dock autohide-delay -float 0 && killall Dock
 
 # https://github.com/SchemaStore/schemastore
 - name: Copy Json Schema Definitions
