@@ -31,7 +31,7 @@
     - name: Copy out tmux configs
       copy:
         src: tmux
-        dest: "{{ lookup('env', 'HOME') }}/.config/tmux"
+        dest: "{{ lookup('env', 'HOME') }}/.config/"
         mode: '0444'
 
     - name: Clone Tmux Plugin Manager

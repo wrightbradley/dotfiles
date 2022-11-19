@@ -151,7 +151,7 @@
     - name: Copy out config.lua file
       copy:
         src: config.lua
-        dest: "{{ lookup('env', 'HOME') }}/.config/lvim/config.lua"
+        dest: "{{ lookup('env', 'HOME') }}/.config/lvim/"
         mode: "0444"
 
   when: setup_nvim
