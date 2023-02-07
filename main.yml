@@ -1,16 +1,17 @@
----
-- hosts: all
+# vim:ft=yaml.ansible
+- name: Dotfile Bootstrap
+  hosts: all
   vars:
     date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
   pre_tasks:
     - name: Git clone into ~/dotfiles if not already
-      git:
+      ansible.builtin.git:
         repo: "{{ dotfiles_repo }}"
         dest: "{{ dotfiles_repo_local_destination }}"
         version: "{{ dotfiles_repo_version }}"
-        accept_hostkey: yes
+        accept_hostkey: true
     - name: Backup files
-      archive:
+      community.general.archive:
         path:
           - ~/.bashrc
           - ~/.zshrc
@@ -27,57 +28,47 @@
         format: gz
       loop:
   roles:
-    - {
-        role: elliotweiser.osx-command-line-tools,
-        tags: osx-command-line-tools,
-        when: ansible_os_family == 'Darwin',
-      }
-    - {
-        role: linuxbrew,
-        tags: linuxbrew,
-        when: ansible_os_family != 'Darwin' and setup_brew,
-      }
-    - {
-        role: geerlingguy.mac.homebrew,
-        tags: homebrew,
-        when: ansible_os_family == 'Darwin',
-      }
+    - {role: elliotweiser.osx-command-line-tools, tags: osx-command-line-tools, when: ansible_os_family
+        == 'Darwin'}
+    - {role: linuxbrew, tags: linuxbrew, when: ansible_os_family != 'Darwin' and setup_brew}
+    - {role: geerlingguy.mac.homebrew, tags: homebrew, when: ansible_os_family ==
+        'Darwin'}
     - role: geerlingguy.mac.mas
       when: ansible_os_family == 'Darwin' and (mas_installed_apps or mas_installed_app_ids)
       tags: ["mas"]
     - role: geerlingguy.mac.dock
       when: ansible_os_family == 'Darwin' and configure_dock
       tags: ["dock"]
-    - { role: system, tags: system }
-    - { role: aliases, tags: aliases }
-    - { role: git, tags: git }
-    - { role: bash, tags: bash }
-    - { role: zsh, tags: zsh }
-    - { role: chromebook, tags: chromebook, when: setup_chromebook }
-    - { role: color_icons_fonts, tags: color_icons_fonts }
-    - { role: gantsign.golang, tags: go, when: not setup_brew }
-    - { role: geerlingguy.pip, tags: python-pip, when: not setup_brew }
-    - { role: screenrc_tmux, tags: screenrc_tmux }
-    - { role: vim, tags: vim }
-    - { role: kubernetes, tags: kubernetes }
-    - { role: personal, tags: personal }
+    - {role: system, tags: system}
+    - {role: aliases, tags: aliases}
+    - {role: git, tags: git}
+    - {role: bash, tags: bash}
+    - {role: zsh, tags: zsh}
+    - {role: chromebook, tags: chromebook, when: setup_chromebook}
+    - {role: color_icons_fonts, tags: color_icons_fonts}
+    - {role: gantsign.golang, tags: go, when: not setup_brew}
+    - {role: geerlingguy.pip, tags: python-pip, when: not setup_brew}
+    - {role: screenrc_tmux, tags: screenrc_tmux}
+    - {role: vim, tags: vim}
+    - {role: kubernetes, tags: kubernetes}
+    - {role: personal, tags: personal}
     #- { role: vscode, tags: vscode }
   post_tasks:
     - name: Change shell
-      user:
+      ansible.builtin.user:
         name: "{{ lookup('env', 'USER') }}"
         shell: /bin/zsh
-      become: True
+      become: true
       when: setup_zsh and not setup_brew
     - name: Change shell
-      user:
+      ansible.builtin.user:
         name: "{{ lookup('env', 'USER') }}"
         shell: /usr/local/bin/zsh
-      become: True
+      become: true
       when: setup_zsh and setup_brew and ansible_architecture != "arm64"
     - name: Change shell
-      user:
+      ansible.builtin.user:
         name: "{{ lookup('env', 'USER') }}"
         shell: /opt/homebrew/bin/zsh
-      become: True
+      become: true
       when: setup_zsh and setup_brew and ansible_architecture == "arm64"
