@@ -1,0 +1,226 @@
+format = """
+$username\
+$hostname\
+$kubernetes\
+$aws\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$golang\
+$helm\
+$java\
+$kotlin\
+$nodejs\
+$perl\
+$python\
+$terraform\
+$jobs\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]      # The name of the module we are configuring is "character"
+success_symbol = "[ ➜ ](bold green)"     # The "symbol" segment is being set to "➜"
+error_symbol = "[✗](bold red)"
+
+[username]
+disabled = true
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[aws]
+format = '[$symbol($profile )(\($region\) )]($style)'
+#symbol = " "
+symbol = " "
+#displayed_items = "profile region"
+
+[aws.region_aliases]
+us-east-1 = "VA"
+
+[git_branch]
+symbol = "🌱 " #\U0001F331
+# truncation_length = 4
+# truncation_symbol = ""
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
+[git_status]
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+deleted = "🗑"
+ahead = "⇡${count}"
+diverged = "😵⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+[hostname]
+ssh_only = true
+format = "⟫"
+trim_at = ".companyname.com"
+disabled = false
+
+[jobs]
+symbol = "+ "
+threshold = 4
+
+[docker_context]
+symbol = ' '
+style = 'blue bold'
+format = 'via [$symbol$context]($style) '
+only_with_files = true
+disabled = false
+detect_extensions = []
+detect_files = [
+    'docker-compose.yml',
+    'docker-compose.yaml',
+    'Dockerfile',
+]
+detect_folders = []
+
+[kubernetes]
+# symbol = "⛵ "
+#symbol = ""
+style = "bold blue"
+disabled = false
+format = '[$context \($namespace\)](bold blue) '
+
+[helm]
+format = 'via [$symbol($version )]($style)'
+symbol = '⎈ '
+style = 'bold white'
+disabled = false
+detect_extensions = []
+detect_files = [
+    'helmfile.yaml',
+    'Chart.yaml',
+]
+detect_folders = []
+
+[python]
+pyenv_version_name = false
+pyenv_prefix = 'pyenv '
+python_binary = [
+    'python',
+    'python3',
+    'python2',
+]
+format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+version_format = 'v${raw}'
+style = 'yellow bold'
+symbol = ' '
+disabled = false
+detect_extensions = ['py']
+detect_files = [
+    'requirements.txt',
+    '.python-version',
+    'pyproject.toml',
+    'Pipfile',
+    'tox.ini',
+    'setup.py',
+    '__init__.py',
+]
+detect_folders = []
+
+[perl]
+symbol = '🐪 '
+style = '149 bold'
+format = 'via [$symbol($version )]($style)'
+disabled = false
+detect_extensions = [
+    'pl',
+    'pm',
+    'pod',
+]
+detect_files = [
+    'Makefile.PL',
+    'Build.PL',
+    'cpanfile',
+    'cpanfile.snapshot',
+    'META.json',
+    'META.yml',
+    '.perl-version',
+]
+detect_folders = []
+
+[status]
+format = '[$symbol$status]($style) '
+symbol = '✖'
+not_executable_symbol = '🚫'
+not_found_symbol = '🔍'
+sigint_symbol = '🧱'
+signal_symbol = '⚡'
+style = 'bold red'
+map_symbol = false
+recognize_signal_code = true
+disabled = false
+
+[terraform]
+format = 'via [$symbol$workspace]($style) '
+symbol = '🌎 '
+style = 'bold 105'
+disabled = false
+detect_extensions = [
+    'tf',
+    'hcl',
+]
+detect_files = []
+detect_folders = ['.terraform']
+
+[golang]
+#symbol = "🦦 "
+symbol = "ﳑ "
+
+[java]
+disabled = false
+format = 'via [$symbol($version )]($style)'
+version_format = 'v${raw}'
+style = 'red dimmed'
+symbol = '♨️  '
+detect_extensions = [
+    'java',
+    'class',
+    'jar',
+    'gradle',
+    'clj',
+    'cljc',
+]
+detect_files = [
+    'pom.xml',
+    'build.gradle.kts',
+    'build.sbt',
+    '.java-version',
+    'deps.edn',
+    'project.clj',
+    'build.boot',
+]
+detect_folders = []
+
+[nodejs]
+disabled = true
+# symbol = "🤖 "
+
+[openstack]
+disabled=true
+
+[gcloud]
+disabled=true

@@ -1,0 +1,178 @@
+# Python Aliases
+alias freeze='pip freeze > requirements.txt'
+alias cenv='virtualenv venv'
+alias getreqs='pip install -r requirements.txt'
+alias python='python3'
+
+# File and Directory Listing Aliases
+
+alias ls='ls --color=always'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lr='ls -ltr'
+alias lS='ls -lSh'
+alias lcr='ls -cr'
+alias lc='ls -c'
+
+# Navigation Aliases
+alias home='cd ~'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# File Operation Aliases
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -iv'
+alias mkdir='mkdir -p'
+alias grep='grep --color=always'
+alias egrep='egrep --color=always'
+alias cdiff='colordiff -yW"`tput cols`"'
+
+# Viewing/Editing Aliases
+alias less='less -R'
+alias cls='clear'
+alias vi='vim'
+alias svi='sudo vim'
+alias view='vim -R'
+
+# Tmux
+alias t='tmux'
+alias ta='t a -t'
+alias tls='t ls'
+alias tn='t new -t'
+
+##############
+# MY ALIASES #
+##############
+# check if homebrew is in use or not
+if command -v brew 2>&1 > /dev/null
+then
+  alias screen='/usr/local/Cellar/screen/4.6.2/bin/screen'
+else
+  alias screen='/bin/screen'
+fi
+
+# Network Aliases
+alias ping='ping -c 10'
+alias ss='ss -lntu'
+alias ltcp='lsof -n -i -P | grep -i TCP'
+alias lisn='lsof -n -i -P | grep -i LISTEN'
+alias lssh='lsof -n -i -P | grep -i ":22"'
+alias tdump='tcpdump -i eth1 "port 8080"'
+alias tdumpv='tcpdump -vv -x -X -s 1500 -i eth1 "port 8080"'
+
+# Navigation Aliases
+alias scr='cd ~/Documents/scripts'
+alias cdn='cd ~/Documents/notes'
+
+grsub () {
+    if [ -z "$1" ]; then
+        echo "Please provide a submodule path/name"
+    else
+        git submodule deinit -f -- $1
+        rm -rf .git/modules/$1
+        git rm -f $1
+    fi
+}
+
+bak () {
+    LOGDATE=`date +%Y%m%dT%H%M%S`
+    cp "$1" "$1.bak.$LOGDATE"
+}
+
+# fshow - git commit browser (enter for show, ctrl-d for diff, ` toggles sort)
+fshow() {
+  local out shas sha q k
+  while out=$(
+      git log --graph --color=always \
+          --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+      fzf --ansi --multi --no-sort --reverse --query="$q" --tiebreak=index \
+          --print-query --expect=ctrl-d --toggle-sort=\`); do
+    q=$(head -1 <<< "$out")
+    k=$(head -2 <<< "$out" | tail -1)
+    shas=$(sed '1,2d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
+    [ -z "$shas" ] && continue
+    if [ "$k" = 'ctrl-d' ]; then
+      git diff --color=always $shas | less -R
+    else
+      for sha in $shas; do
+        git show --color=always $sha | less -R
+      done
+    fi
+  done
+}
+
+whoip() {
+  curl ip-api.com/$1
+}
+
+debug_daemonset() {
+  RED="31m"
+  GREEN="32m"
+  BOLD_RED="\e[1;${RED}"
+  BOLD_GREEN="\e[1;${GREEN}"
+  ENDCOLOR="\e[0m"
+
+  if [ -z "$1" ]; then
+      echo "Please provide a Daemonset pod name string value"
+  else
+    daemonsetString=$1
+
+    echo "Checking for Daemonset pods with string: $daemonsetString"
+
+    for node in $(kubectl get nodes --no-headers | awk '{print $1}'); do
+      if kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName="$node" --no-headers | awk '{print $2}' | grep -q "$daemonsetString"; then
+        echo -e "${BOLD_GREEN}Found daemonset pod on: $node${ENDCOLOR}"
+      else
+        echo -e "${BOLD_RED}Missing daemonset pod on: $node${ENDCOLOR}"
+      fi
+    done
+  fi
+}
+
+find_istio_proxy() {
+  RED="31m"
+  GREEN="32m"
+  BOLD_RED="\e[1;${RED}"
+  BOLD_GREEN="\e[1;${GREEN}"
+  ENDCOLOR="\e[0m"
+
+  echo "Checking pods for istio proxy"
+
+  for pod in $(kubectl get pods --no-headers | awk '{print $1}'); do
+    if kubectl get pod "$pod" -o jsonpath="{.spec.containers[*].name}" |tr -s '[:space:]' '\n' | grep -q "istio-proxy"; then
+      istioVersion=$(kubectl get pod "$pod" -o jsonpath="{.spec.containers[*].image}" |tr -s '[:space:]' '\n' | grep "istio" | cut -d ":" -f2)
+      echo -e "${BOLD_GREEN}$pod has istio-proxy injected using version: $istioVersion${ENDCOLOR}"
+    else
+      echo -e "${BOLD_RED}$pod is missing istio-proxy${ENDCOLOR}"
+    fi
+  done
+
+}
+
+# The rest of my fun git aliases
+alias gl='git pull --prune'
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gp='git push origin HEAD'
+
+# Remove `+` and `-` from start of diff lines; just rely upon color.
+alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
+
+alias gc='git commit'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gcb='git copy-branch-name'
+alias gb='git branch'
+alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias gac='git add -A && git commit -m'
+alias ge='git-edit-new'
+
+alias sup='git submodule update --init --recursive'
+
+# Git quick
+alias prep='git submodule init && git submaster && git subup && git pull origin master'
+
+

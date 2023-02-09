@@ -1,0 +1,823 @@
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+" call plug#begin('~/.vim/plugged')
+
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
+
+" Initialize plugin system
+" call plug#end()
+
+" Set compatibility to Vim only.
+set nocompatible
+
+" allow plugins and indentation by file type
+filetype plugin indent on
+
+" Turn on syntax highlighting and colorscheme.
+syntax enable
+
+if exists("$TMUX")
+	set t_Co=256
+	set notermguicolors
+else
+	set termguicolors
+endif
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+" Turn off modelines
+set modelines=0
+
+" copy the previous indentation on autoindenting
+set copyindent
+
+" Auto read when a file is changed on disk
+set autoread
+
+set nofoldenable
+
+" Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
+"set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set noshiftround
+set autoindent
+set smartindent
+set smarttab
+set colorcolumn=85
+highlight ColorColumn ctermbg=235 guibg=#2c2d27
+
+augroup filetypedetect
+  command! -nargs=* -complete=help Help vertical belowright help <args>
+  autocmd FileType help wincmd L
+
+  autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* setf tmux
+  autocmd BufNewFile,BufRead .nginx.conf*,nginx.conf* setf nginx
+  autocmd BufNewFile,BufRead *.hcl setf conf
+
+  autocmd BufRead,BufNewFile *.gotmpl set filetype=gotexttmpl
+
+  autocmd BufNewFile,BufRead *.ino setlocal noet ts=4 sw=4 sts=4
+  autocmd BufNewFile,BufRead *.txt setlocal noet ts=4 sw=4
+  autocmd BufNewFile,BufRead *.md setlocal noet ts=4 sw=4
+  autocmd BufNewFile,BufRead *.html setlocal noet ts=4 sw=4
+  autocmd BufNewFile,BufRead *.vim setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd BufNewFile,BufRead *.hcl setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd BufNewFile,BufRead *.sh setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd BufNewFile,BufRead *.proto setlocal expandtab shiftwidth=2 tabstop=2
+
+  autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4
+  autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd Filetype yml setlocal ts=2 sw=2 expandtab
+  autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
+  autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+augroup END
+
+let g:polyglot_disabled = ['go']
+
+" Display 5 lines above/below the cursor when scrolling with a mouse.
+set scrolloff=5
+
+" Fixes common backspace problems
+set backspace=indent,eol,start
+
+" Speed up scrolling in Vim
+set ttyfast
+
+" We show the mode with airline or lightline
+set noshowmode
+
+" Show me what I'm typing
+set showcmd
+
+" Use visual bell (no beeping)
+set visualbell
+
+" No beeps
+set noerrorbells
+
+" Window management
+set splitright               " Split vertical windows right to the current windows
+set splitbelow               " Split horizontal windows below to the current windows
+
+"Max out the height of the current split
+" ctrl + w _
+
+"Max out the width of the current split
+" ctrl + w |
+
+"Normalize all split sizes, which is very handy when resizing terminal
+" ctrl + w =
+
+"Swap top/bottom or left/right split
+" ctrl + w R
+
+"Break out current window into a new tabview
+" ctrl + w T
+
+"Close every window in the current tabview but the current one
+" ctrl + w o
+
+" Show row and column ruler information
+set ruler
+
+" Highlight matching pairs of brackets. Use the '%' character to jump between them.
+set matchpairs+=<:>
+
+" Display different types of white spaces.
+set list
+"set listchars=tab:\›\ ,trail:•,extends:#,nbsp:.
+set listchars=trail:~,extends:>,precedes:<,nbsp:.,tab:\|\  "trailing
+set nocursorcolumn " speed up syntax highlighting
+set nocursorline
+set updatetime=300
+set pumheight=10 " Completion window max size
+set conceallevel=2 " Concealed text is completely hidden
+set shortmess+=c " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
+set lazyredraw
+
+" Show line numbers
+set number
+set relativenumber
+
+" autocompletion
+set completeopt+=preview
+set completeopt+=menuone
+set completeopt+=noinsert
+set shortmess+=c " turn off completion messages
+
+" Encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set bomb
+set binary
+set fileformats=unix,dos,mac " Prefer UNIX over Windows over OS 9 formats
+
+" Highlight matching search patterns
+set hlsearch
+" Enable incremental search
+set incsearch
+" Include matching uppercase words with lowercase search term
+set ignorecase
+" Include only uppercase words with uppercase search term
+set smartcase
+
+" Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
+set viminfo='100,<9999,s100
+
+" Number of undo levels
+set undolevels=1000
+
+" Code from plugin: vim-bracketed-paste
+" Code from:
+" http://stackoverflow.com/questions/5585129/pasting-code-into-terminal-window-into-vim-on-mac-os-x
+" then https://coderwall.com/p/if9mda
+" and then https://github.com/aaronjensen/vimfiles/blob/59a7019b1f2d08c70c28a41ef4e2612470ea0549/plugin/terminaltweaks.vim
+" to fix the escape time problem with insert mode.
+"
+" Docs on bracketed paste mode:
+" http://www.xfree86.org/current/ctlseqs.html
+" Docs on mapping fast escape codes in vim
+" http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
+
+if exists("g:loaded_bracketed_paste")
+  finish
+endif
+let g:loaded_bracketed_paste = 1
+
+let &t_ti .= "\<Esc>[?2004h"
+let &t_te = "\e[?2004l" . &t_te
+
+function! XTermPasteBegin(ret)
+  set pastetoggle=<f29>
+  set paste
+  return a:ret
+endfunction
+
+execute "set <f28>=\<Esc>[200~"
+execute "set <f29>=\<Esc>[201~"
+map <expr> <f28> XTermPasteBegin("i")
+imap <expr> <f28> XTermPasteBegin("")
+vmap <expr> <f28> XTermPasteBegin("c")
+cmap <f28> <nop>
+cmap <f29> <nop>
+
+" This plugin causes all trailing whitespace to be highlighted in red.
+" *FixWhitespace*
+" To fix the whitespace errors, just call :FixWhitespace.  By default it
+" operates on the entire file.  Pass a range (or use V to select some lines)
+" to restrict the portion of the file that gets fixed.
+" The repo is at http://github.com/bronson/vim-trailing-whitespace
+" Originally based on http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" VARIABLES
+" g:extra_whitespace_ignored_filetypes
+" g:extra_whitespace_ignored_filetypes
+" You can set filetypes to be ignored for highlight into this variable.
+" let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
+" The default value is [].
+
+let loaded_trailing_whitespace_plugin = 1
+
+if !exists('g:extra_whitespace_ignored_filetypes')
+    let g:extra_whitespace_ignored_filetypes = []
+endif
+
+function! ShouldMatchWhitespace()
+    for ft in g:extra_whitespace_ignored_filetypes
+        if ft ==# &filetype | return 0 | endif
+    endfor
+    return 1
+endfunction
+
+" Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
+autocmd ColorScheme * highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
+autocmd BufRead,BufNew * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+$/ | else | match ExtraWhitespace /^^/ | endif
+
+" The above flashes annoyingly while typing, be calmer in insert mode
+autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+$/ | endif
+autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+\%#\@<!$/ | endif
+
+function! s:FixWhitespace(line1,line2)
+    silent! keepjumps execute ':' . a:line1 . ',' . a:line2 . 's/\\\@<!\s\+$//'
+endfunction
+
+" Run :FixWhitespace to remove end of line white space
+command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+
+" Code from plugin: vim-bracketed-paste
+" Code from:
+" http://stackoverflow.com/questions/5585129/pasting-code-into-terminal-window-into-vim-on-mac-os-x
+" then https://coderwall.com/p/if9mda
+" and then https://github.com/aaronjensen/vimfiles/blob/59a7019b1f2d08c70c28a41ef4e2612470ea0549/plugin/terminaltweaks.vim
+" to fix the escape time problem with insert mode.
+"
+" Docs on bracketed paste mode:
+" http://www.xfree86.org/current/ctlseqs.html
+" Docs on mapping fast escape codes in vim
+" http://vim.wikia.com/wiki/Mapping_fast_keycodes_in_terminal_Vim
+
+if exists("g:loaded_bracketed_paste")
+  finish
+endif
+let g:loaded_bracketed_paste = 1
+
+let &t_ti .= "\<Esc>[?2004h"
+let &t_te = "\e[?2004l" . &t_te
+
+function! XTermPasteBegin(ret)
+  set pastetoggle=<f29>
+  set paste
+  return a:ret
+endfunction
+
+execute "set <f28>=\<Esc>[200~"
+execute "set <f29>=\<Esc>[201~"
+map <expr> <f28> XTermPasteBegin("i")
+imap <expr> <f28> XTermPasteBegin("")
+vmap <expr> <f28> XTermPasteBegin("c")
+cmap <f28> <nop>
+cmap <f29> <nop>
+
+" This plugin causes all trailing whitespace to be highlighted in red.
+" *FixWhitespace*
+" To fix the whitespace errors, just call :FixWhitespace.  By default it
+" operates on the entire file.  Pass a range (or use V to select some lines)
+" to restrict the portion of the file that gets fixed.
+" The repo is at http://github.com/bronson/vim-trailing-whitespace
+" Originally based on http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" VARIABLES
+" g:extra_whitespace_ignored_filetypes
+" g:extra_whitespace_ignored_filetypes
+" You can set filetypes to be ignored for highlight into this variable.
+" let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
+" The default value is [].
+
+let loaded_trailing_whitespace_plugin = 1
+
+if !exists('g:extra_whitespace_ignored_filetypes')
+    let g:extra_whitespace_ignored_filetypes = []
+endif
+
+function! ShouldMatchWhitespace()
+    for ft in g:extra_whitespace_ignored_filetypes
+        if ft ==# &filetype | return 0 | endif
+    endfor
+    return 1
+endfunction
+
+" Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
+autocmd ColorScheme * highlight default ExtraWhitespace ctermbg=darkred guibg=darkred
+autocmd BufRead,BufNew * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+$/ | else | match ExtraWhitespace /^^/ | endif
+
+" The above flashes annoyingly while typing, be calmer in insert mode
+autocmd InsertLeave * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+$/ | endif
+autocmd InsertEnter * if ShouldMatchWhitespace() | match ExtraWhitespace /\\\@<![\u3000[:space:]]\+\%#\@<!$/ | endif
+
+function! s:FixWhitespace(line1,line2)
+    silent! keepjumps execute ':' . a:line1 . ',' . a:line2 . 's/\\\@<!\s\+$//'
+endfunction
+
+" Run :FixWhitespace to remove end of line white space
+command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
+
+" better backup, swap and undos storage
+set autowrite " automatically save before :next, :make etc
+set directory=~/.vim/dirs/tmp     " directory to place swap files in
+set backup                        " make backup files
+set backupdir=~/.vim/dirs/backups " where to put backup files
+set undofile                      " persistent undos - undo after you re-open the file
+set undodir=~/.vim/dirs/undos
+set viminfo+=n~/.vim/dirs/viminfo
+" store yankring history file there too
+"let g:yankring_history_dir = '~/.vim/dirs/'
+
+" create needed directories if they don't exist
+if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+endif
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+endif
+
+" increase max memory to show syntax highlighting for large files
+set maxmempattern=20000
+
+" Automatically save and load folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview"
+
+" Map leader to ,
+let mapleader=","
+
+" Remap ESC key to jj
+inoremap jj <Esc>
+
+" Fast saving
+nnoremap <leader>w :w!<cr>
+nnoremap <silent> <leader>q :q!<CR>
+
+" Enable hidden buffers
+set hidden
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>bt :enew<cr>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
+set title
+set titleold="Terminal"
+set titlestring=%F
+
+"=====================================================
+"===================== STATUSLINE ====================
+let s:modes = {
+      \ 'n': 'NORMAL',
+      \ 'i': 'INSERT',
+      \ 'R': 'REPLACE',
+      \ 'v': 'VISUAL',
+      \ 'V': 'V-LINE',
+      \ "\<C-v>": 'V-BLOCK',
+      \ 'c': 'COMMAND',
+      \ 's': 'SELECT',
+      \ 'S': 'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ 't': 'TERMINAL'
+      \}
+
+let s:prev_mode = ""
+function! StatusLineMode()
+  let cur_mode = get(s:modes, mode(), '')
+
+  " do not update higlight if the mode is the same
+  if cur_mode == s:prev_mode
+    return cur_mode
+  endif
+
+  if cur_mode == "NORMAL"
+    exe 'hi! StatusLine ctermfg=236'
+    exe 'hi! myModeColor cterm=bold ctermbg=148 ctermfg=22'
+  elseif cur_mode == "INSERT"
+    exe 'hi! myModeColor cterm=bold ctermbg=23 ctermfg=231'
+  elseif cur_mode == "VISUAL" || cur_mode == "V-LINE" || cur_mode == "V_BLOCK"
+    exe 'hi! StatusLine ctermfg=236'
+    exe 'hi! myModeColor cterm=bold ctermbg=208 ctermfg=88'
+  endif
+
+  let s:prev_mode = cur_mode
+  return cur_mode
+endfunction
+
+function! StatusLineFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! StatusLinePercent()
+  return (100 * line('.') / line('$')) . '%'
+endfunction
+
+function! StatusLineLeftInfo()
+ let branch = fugitive#head()
+ let filename = '' != expand('%:t') ? expand('%:t') : '[No Name]'
+ if branch !=# ''
+   return printf("%s | %s", branch, filename)
+ endif
+ return filename
+endfunction
+
+exe 'hi! myInfoColor ctermbg=240 ctermfg=252'
+
+" start building our statusline
+set statusline=
+
+" mode with custom colors
+set statusline+=%#myModeColor#
+set statusline+=%{StatusLineMode()}
+set statusline+=%*
+
+" left information bar (after mode)
+set statusline+=%#myInfoColor#
+set statusline+=\ %{StatusLineLeftInfo()}
+set statusline+=\ %*
+
+" go command status (requires vim-go)
+set statusline+=%#goStatuslineColor#
+set statusline+=%{go#statusline#Show()}
+set statusline+=%*
+
+" right section seperator
+set statusline+=%=
+
+" filetype, percentage, line number and column number
+set statusline+=%#myInfoColor#
+set statusline+=\ %{StatusLineFiletype()}\ %{StatusLinePercent()}\ %l:%v
+set statusline+=\ %*
+
+" vim-airline
+let g:airline_theme = 'powerlineish'
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+
+" Enabel the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+
+let g:airline#extensions#tagbar#enabled = 1
+let g:airline_skip_empty_sections = 1
+
+"*****************************************************************************
+"" Convenience variables
+"*****************************************************************************
+
+" vim-airline
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+if !exists('g:airline_powerline_fonts')
+  let g:airline#extensions#tabline#left_sep = ' '
+  let g:airline#extensions#tabline#left_alt_sep = '|'
+  let g:airline_left_sep          = '▶'
+  let g:airline_left_alt_sep      = '»'
+  let g:airline_right_sep         = '◀'
+  let g:airline_right_alt_sep     = '«'
+  let g:airline#extensions#branch#prefix     = '⤴' "➔, ➥, ⎇
+  let g:airline#extensions#readonly#symbol   = '⊘'
+  let g:airline#extensions#linecolumn#prefix = '¶'
+  let g:airline#extensions#paste#symbol      = 'ρ'
+  let g:airline_symbols.linenr    = '␊'
+  let g:airline_symbols.branch    = '⎇'
+  let g:airline_symbols.paste     = 'ρ'
+  let g:airline_symbols.paste     = 'Þ'
+  let g:airline_symbols.paste     = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+else
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+endif
+
+" Hide what you're typing using rot13 live as you enter text
+" Obviously, you need to type accurately since you can't see your entered text
+" Use F3 to toggle plaintext view and review your work
+
+" Toggle Rot13 on whole file in normal mode
+"map <leader>rotn mmggg?G`m|
+"map <leader>rotn ggg?G
+
+" Toggle Rot13 while in insert mode
+" imap <leader>roti ggg?G``
+
+"Toggle Rot13 on whole file in normal mode
+map <leader>rn mmggg?G`m|
+"Toggle Rot13 while in insert mode
+imap <leader>ri <ESC>mmggg?G`ma|
+imap <leader>rc <C-R>Incognito()<CR>
+imap <leader>rr <C-R>IncognitoRevert()<CR>
+
+function! s:Incognito()
+	inoremap a n
+	inoremap b o
+	inoremap c p
+	inoremap d q
+	inoremap e r
+	inoremap f s
+	inoremap g t
+	inoremap h u
+	inoremap i v
+	inoremap j w
+	inoremap k x
+	inoremap l y
+	inoremap m z
+	inoremap n a
+	inoremap o b
+	inoremap p c
+	inoremap q d
+	inoremap r e
+	inoremap s f
+	inoremap t g
+	inoremap u h
+	inoremap v i
+	inoremap w j
+	inoremap x k
+	inoremap y l
+	inoremap z m
+
+	inoremap A N
+	inoremap B O
+	inoremap C P
+	inoremap D Q
+	inoremap E R
+	inoremap F S
+	inoremap G T
+	inoremap H U
+	inoremap I V
+	inoremap J W
+	inoremap K X
+	inoremap L Y
+	inoremap M Z
+	inoremap N A
+	inoremap O B
+	inoremap P C
+	inoremap Q D
+	inoremap R E
+	inoremap S F
+	inoremap T G
+	inoremap U H
+	inoremap V I
+	inoremap W J
+	inoremap X K
+	inoremap Y L
+	inoremap Z M
+endfunction
+
+function! s:IncognitoRevert()
+	inoremap n a
+	inoremap o b
+	inoremap p c
+	inoremap q d
+	inoremap r e
+	inoremap s f
+	inoremap t g
+	inoremap u h
+	inoremap v i
+	inoremap w j
+	inoremap x k
+	inoremap y l
+	inoremap z m
+	inoremap a n
+	inoremap b p
+	inoremap c p
+	inoremap d q
+	inoremap e r
+	inoremap f s
+	inoremap g t
+	inoremap h u
+	inoremap i v
+	inoremap j w
+	inoremap k x
+	inoremap l y
+	inoremap m z
+
+	inoremap N A
+	inoremap O B
+	inoremap P C
+	inoremap Q D
+	inoremap R E
+	inoremap S F
+	inoremap T G
+	inoremap U H
+	inoremap V I
+	inoremap W J
+	inoremap X K
+	inoremap Y L
+	inoremap Z M
+	inoremap A N
+	inoremap B O
+	inoremap C P
+	inoremap D Q
+	inoremap E R
+	inoremap F S
+	inoremap G T
+	inoremap H U
+	inoremap I V
+	inoremap J W
+	inoremap K X
+	inoremap L Y
+	inoremap M Z
+endfunction
+
+"===================== PLUGINS ======================
+
+" ==================== Fugitive ====================
+vnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gb :Gblame<CR>
+
+" ==================== FZF ====================
+" set rtp+=/usr/local/opt/fzf
+let g:fzf_command_prefix = 'Fzf'
+let g:fzf_layout = { 'down': '~20%' }
+
+" search
+nmap <C-p> :FzfHistory<cr>
+imap <C-p> <esc>:<C-u>FzfHistory<cr>
+
+" search across files in the current directory
+nmap <C-b> :FzfFiles<cr>
+imap <C-b> <esc>:<C-u>FzfFiles<cr>
+
+" nmap <Leader>f :FzfGFiles<CR>
+" nmap <Leader>F :FzfFiles<CR>
+
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+" ==================== NERDTree ====================
+" Open by default with vim
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+let g:NERDTreeChDirMode=2
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
+let g:NERDTreeShowBookmarks=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
+let g:NERDTreeWinSize = 50
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+" For toggling
+noremap <Leader>nt :NERDTreeToggle<cr>
+noremap <Leader>nf :NERDTreeFind<cr>
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" Automatically close NerdTree when you open a file
+" let NERDTreeQuitOnOpen = 1
+
+" Automatically close a tab if the only remaining window is NerdTree
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" NERDCommenter configuration
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+"let g:NERDAltDelims_java = 1
+
+"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+" HUGO Functions
+" create a hugo front matter in toml format to the beginning of a file. Open
+" empty markdown file, i.e: '2018-02-05-speed-up-vim.markdown'. Calling this
+" function will generate the following front matter under the cursor:
+"
+"   +++
+"   author = "Bradley Wright"
+"   date = 2018-02-03 08:41:20
+"   title = "Speed up vim"
+"   slug = "speed-up-vim"
+"   url = "/2018/02/03/speed-up-vim/"
+"   featured_image = ""
+"   description =  ""
+"   +++
+"
+function! s:create_front_matter()
+  let fm = ["+++"]
+  call add(fm, 'author = "Bradley Wright"')
+  call add(fm, printf("date = \"%s\"", strftime("%Y-%m-%d %X")))
+
+  let filename = expand("%:r")
+  let tl = split(filename, "-")
+  " in case the file is in form of foo.md instead of
+  " year-month-day-foo.markdown
+  if !empty(str2nr(tl[0]))
+    let tl = split(filename, "-")[3:]
+  endif
+
+  let title = join(tl, " ")
+  let title = toupper(title[0]) . title[1:]
+  call add(fm, printf("title = \"%s\"", title))
+
+  let slug = join(tl, "-")
+  call add(fm, printf("slug = \"%s\"", slug))
+  call add(fm, printf("url = \"%s/%s/\"", strftime("%Y/%m/%d"), slug))
+
+  call add(fm, 'featured_image = ""')
+  call add(fm, 'description = ""')
+  call add(fm, "+++")
+  call append(0, fm)
+endfunction
+
+" create a shortcode that inserts an image holder with caption or class
+" attribute that defines on how to set the layout.
+function! s:create_figure()
+  let fig = ["{{< figure"]
+  call add(fig, 'src="/images/image.jpg"')
+  call add(fig, 'class="left"')
+  call add(fig, 'caption="This looks good!"')
+  call add(fig, ">}}")
+
+  let res = [join(fig, " ")]
+  call append(line("."), res)
+endfunction
+
+augroup md
+  autocmd!
+  autocmd Filetype markdown command! -bang HugoFrontMatter call <SID>create_front_matter()
+  autocmd Filetype markdown command! -bang HugoFig call <SID>create_figure()
+augroup END
+
+let g:vim_markdown_conceal = 0
+
+" Prettier
+packloadall
+
+" source ~/.fzf/plugin/fzf.vim
+" let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+nmap <Leader>f :FzfGFiles<CR>
+nmap <Leader>F :FzfFiles<CR>
