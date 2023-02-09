@@ -58,38 +58,46 @@ dockitems_persist:
     pos: 5
 
 homebrew_installed_packages:
-  - asciidoctor
+  - alacritty-themes
   - ansible
   - ansible-lint
   - ant
   - argo
   - argocd
+  - asciidoctor
   - aws-iam-authenticator
   - awscli
   - bash
-  - black
   - { name: bash-completion, install_options: "force" }
+  - bitwarden-cli
+  - black
   - cdk8s
+  - chezmoi
   - cli53
   - cmake
   - codespell
   - colordiff
+  - container-diff
   - coreutils
   - dive
   - docker
-  - docker-slim
   - docker-credential-helper-ecr
+  - docker-slim
   - dos2unix
+  - earthly
   - ec2-instance-selector
   - eksctl
   - entr
   - exa
   - expect
   - faas-cli
+  - fd
   - flake8
   - fzf
+  - gh
   - git
   - glances
+  - glow
   - gnu-sed
   - gnupg
   - gnutls
@@ -100,12 +108,15 @@ homebrew_installed_packages:
   - hadolint
   - helm
   - hey
+  - hopenpgp-tools
   - htop
   - httrack
+  - iperf3
   - jinja2-cli
   - jq
   - jwt-cli
   - k9s
+  - keycastr
   - krew
   - kube-linter
   - kube-ps1
@@ -113,23 +124,30 @@ homebrew_installed_packages:
   - kubernetes-cli
   - kubernetes-helm
   - kubeseal
+  - kubeval
   - kustomize
+  - lazygit
   - maven
+  - mosh
   - mtr
   - mysql-client
   - neofetch
+  - { name: neovim, install_options: "HEAD" }
+  - nerdctl
   - nmap
   - node
   - openjdk
+  - openssh
   - packer
   - pdm
   - perl
   - pgcli
-  # - pluto
-  # - polaris
+  - pinentry-mac
+  - poetry
   - poetry
   - popeye
   - postgresql
+  - powerline-status
   - pre-commit
   - prettier
   - proselint
@@ -149,6 +167,7 @@ homebrew_installed_packages:
   - starship
   - stern
   - terraform
+  - terraform-docs
   - terrascan
   - tflint
   - tfsec
@@ -156,48 +175,52 @@ homebrew_installed_packages:
   - tmux
   - tree
   - trivy
+  - twingate
   - vale
   - vault
   - vim
   - watch
   - wget
   - whois
-  # - wireshark # requires Rosetta 2
   - wireguard-tools
-  - yarn
+  - yamlfmt
+  - yamllint
   - yapf
+  - yarn
+  - ykman
   - yq
+  - yubikey-personalization
+  - zoxide
   - zsh
 
 homebrew_taps:
-  # - adoptopenjdk/openjdk # requires Rosetta 2
   - aquasecurity/trivy
   - argoproj/tap
   - aws/tap
   - dbcli/tap
   - derailed/k9s
   - derailed/popeye
-  # - FairwindsOps/tap
+  - earthly/earthly
   - hashicorp/tap
   - homebrew/cask
   - homebrew/cask-drivers
   - homebrew/cask-versions
   - homebrew/core
+  - instrumenta/instrumenta
   - int128/kubelogin
   - mike-engel/jwt-cli
-  # - reactiveops/tap
   - tektoncd/tools
   - tilt-dev/tap
   - weaveworks/tap
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  # - adoptopenjdk11 # requires Rosetta 2
   - alacritty
   - authy
   - backblaze
   - balenaetcher
   - bartender
+  - discord
   #- bitwarden # use the App store version
   - { name: elgato-camera-hub }
   - { name: elgato-control-center }
@@ -219,6 +242,7 @@ homebrew_cask_apps:
   - parallels
   - parallels-toolbox
   - podman-desktop
+  - rancher-desktop
   - raspberry-pi-imager
   - slack
   - signal

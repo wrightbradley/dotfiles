@@ -12,10 +12,7 @@ $hg_branch\
 $docker_context\
 $golang\
 $helm\
-$java\
-$kotlin\
 $nodejs\
-$perl\
 $python\
 $terraform\
 $jobs\
@@ -35,8 +32,10 @@ add_newline = false
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]      # The name of the module we are configuring is "character"
-success_symbol = "[ ➜ ](bold green)"     # The "symbol" segment is being set to "➜"
+success_symbol = "[➜](bold green)"     # The "symbol" segment is being set to "➜"
+# success_symbol = "[I➜](bold green)"     # The "symbol" segment is being set to "➜"
 error_symbol = "[✗](bold red)"
+vicmd_symbol = "[V➜](bold green)"
 
 [username]
 disabled = true
@@ -53,6 +52,7 @@ symbol = " "
 
 [aws.region_aliases]
 us-east-1 = "VA"
+us-west-2 = "OR"
 
 [git_branch]
 symbol = "🌱 " #\U0001F331
@@ -64,7 +64,7 @@ commit_hash_length = 4
 tag_symbol = "🔖 "
 
 [git_status]
-untracked = "🤷‍"
+untracked = "🤷"
 stashed = "📦"
 modified = "📝"
 staged = '[++\($count\)](green)'
@@ -145,7 +145,7 @@ detect_folders = []
 symbol = '🐪 '
 style = '149 bold'
 format = 'via [$symbol($version )]($style)'
-disabled = false
+disabled = true
 detect_extensions = [
     'pl',
     'pm',
@@ -191,7 +191,7 @@ detect_folders = ['.terraform']
 symbol = "ﳑ "
 
 [java]
-disabled = false
+disabled = true
 format = 'via [$symbol($version )]($style)'
 version_format = 'v${raw}'
 style = 'red dimmed'
