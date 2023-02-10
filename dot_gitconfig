@@ -9,5 +9,3 @@
 [core]
     excludesfile = ~/.gitignore
     editor = nvim
-[user]
-	signingkey = 0x3BFB70FB14D1D029
