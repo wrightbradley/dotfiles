@@ -3,6 +3,7 @@ alias freeze='pip freeze > requirements.txt'
 alias cenv='virtualenv venv'
 alias getreqs='pip install -r requirements.txt'
 alias python='python3'
+
 # File and Directory Listing Aliases
 # alias ls='ls --color=always'
 # alias ll='ls -alF'
@@ -12,12 +13,14 @@ alias python='python3'
 # alias lS='ls -lSh'
 # alias lcr='ls -cr'
 # alias lc='ls -c'
+
 # Navigation Aliases
 alias home='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
 # File Operation Aliases
 alias cp='cp -i'
 alias mv='mv -i'
@@ -26,6 +29,7 @@ alias mkdir='mkdir -p'
 alias grep='grep --color=always'
 alias egrep='egrep --color=always'
 alias cdiff='colordiff -yW"`tput cols`"'
+
 # Viewing/Editing Aliases
 alias less='less -R'
 alias cls='clear'
@@ -33,14 +37,17 @@ alias vi='nvim'
 alias vim='nvim'
 alias svi='sudo nvim'
 alias view='nvim -R'
+
 # Tmux
 alias t='tmux'
 alias ta='t a -t'
 alias tls='t ls'
 alias tn='t new -t'
+
 ##############
 # MY ALIASES #
 ##############
+
 # Network Aliases
 alias ping='ping -c 10'
 alias ss='ss -lntu'
@@ -49,8 +56,10 @@ alias lisn='lsof -n -i -P | grep -i LISTEN'
 alias lssh='lsof -n -i -P | grep -i ":22"'
 alias tdump='tcpdump -i eth1 "port 8080"'
 alias tdumpv='tcpdump -vv -x -X -s 1500 -i eth1 "port 8080"'
+
 # Navigation Aliases
 alias cdc='cd ~/Projects/code'
+
 grsub() {
   if [ -z "$1" ]; then
     echo "Please provide a submodule path/name"
@@ -60,10 +69,12 @@ grsub() {
     git rm -f $1
   fi
 }
+
 bak() {
   LOGDATE=$(date +%Y%m%dT%H%M%S)
   cp "$1" "$1.bak.$LOGDATE"
 }
+
 # fshow - git commit browser (enter for show, ctrl-d for diff, ` toggles sort)
 fshow() {
   local out shas sha q k
@@ -86,9 +97,11 @@ fshow() {
     fi
   done
 }
+
 whoip() {
   curl ip-api.com/$1
 }
+
 debug_daemonset() {
   RED="31m"
   GREEN="32m"
@@ -109,6 +122,7 @@ debug_daemonset() {
     done
   fi
 }
+
 find_istio_proxy() {
   RED="31m"
   GREEN="32m"
@@ -125,13 +139,13 @@ find_istio_proxy() {
     fi
   done
 }
+
 # The rest of my fun git aliases
 # alias gl='git pull --prune'
 # alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 # alias gp='git push origin HEAD'
 # Remove `+` and `-` from start of diff lines; just rely upon color.
 # alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
-#
 # alias gc='git commit'
 # alias gca='git commit -a'
 # alias gco='git checkout'
@@ -143,3 +157,6 @@ find_istio_proxy() {
 # alias sup='git submodule update --init --recursive'
 # Git quick
 # alias prep='git submodule init && git submaster && git subup && git pull origin master'
+
+# https://github.com/instrumenta/kubeval/issues/301#issuecomment-1079674123
+alias kubeval="kubeval --schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master "
