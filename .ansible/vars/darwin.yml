@@ -57,8 +57,13 @@ dockitems_persist:
     path: "/Applications/Mail.app/"
     pos: 5
 
+    # TODO: Install these without brew
+    # - alacritty-themes
+    # - nerdctl
+    # - go install github.com/google/yamlfmt/cmd/yamlfmt@latest
+    # - powerline-status
+
 homebrew_installed_packages:
-  - alacritty-themes
   - ansible
   - ansible-lint
   - ant
@@ -80,7 +85,6 @@ homebrew_installed_packages:
   - container-diff
   - coreutils
   - dive
-  - docker
   - docker-credential-helper-ecr
   - docker-slim
   - dos2unix
@@ -116,7 +120,6 @@ homebrew_installed_packages:
   - jq
   - jwt-cli
   - k9s
-  - keycastr
   - krew
   - kube-linter
   - kube-ps1
@@ -133,7 +136,6 @@ homebrew_installed_packages:
   - mysql-client
   - neofetch
   - { name: neovim, install_options: "HEAD" }
-  - nerdctl
   - nmap
   - node
   - openjdk
@@ -147,7 +149,6 @@ homebrew_installed_packages:
   - poetry
   - popeye
   - postgresql
-  - powerline-status
   - pre-commit
   - prettier
   - proselint
@@ -175,7 +176,6 @@ homebrew_installed_packages:
   - tmux
   - tree
   - trivy
-  - twingate
   - vale
   - vault
   - vim
@@ -236,13 +236,13 @@ homebrew_cask_apps:
   - homebrew/cask-fonts/font-hack-nerd-font
   - homebrew/cask-fonts/font-jetbrains-mono-nerd-font
   - iterm2
+  - keycastr
   - lens
   - { name: logitech-options }
   - microsoft-teams
   - parallels
   - parallels-toolbox
-  - podman-desktop
-  - rancher-desktop
+  - rancher
   - raspberry-pi-imager
   - slack
   - signal
