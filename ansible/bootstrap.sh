@@ -61,5 +61,5 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 #     sudo softwareupdate --install-rosetta
 #   fi
 
-  ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/darwin.yml" -K
+  ansible-playbook -i inventory.txt main.yml --extra-vars "@vars/darwin.yml" -K
 fi

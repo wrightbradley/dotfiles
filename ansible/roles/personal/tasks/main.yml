@@ -21,14 +21,8 @@
     - dotfiles.code-workspace
     - itdad.code-workspace
 
-- name: Template out SSH config
-  template:
-    src: "ssh/config.j2"
-    dest: "~/.ssh/config"
-    mode: "0644"
-
-- name: Add SSH key to Apple Keychain
-  command: "ssh-add --apple-use-keychain ~/.ssh/{{ personal_ssh_key_name }}"
+# - name: Add SSH key to Apple Keychain
+#   command: "ssh-add --apple-use-keychain ~/.ssh/{{ personal_ssh_key_name }}"
 
 - name: Enable Key Repeat for Vim Functionality in VS Code
   command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
@@ -170,10 +164,6 @@
     dest: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager/projects.json"
     mode: "0644"
 
-- name: Install pip3 dependency for kubernetes.core.helm_repository
-  command: pip3 install PyYAML
-  tags: helm
-
 - name: Add Helm repos
   kubernetes.core.helm_repository:
     name: "{{ item.name }}"
@@ -228,8 +218,3 @@
   command: helm repo update
   tags: helm
 
-- name: Link ZSH completions to oh-my-zsh completions directory
-  ansible.builtin.file:
-    src: /opt/homebrew/share/zsh/site-functions
-    dest: ~/.oh-my-zsh/completions
-    state: link

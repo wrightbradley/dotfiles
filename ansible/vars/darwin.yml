@@ -57,12 +57,6 @@ dockitems_persist:
     path: "/Applications/Mail.app/"
     pos: 5
 
-    # TODO: Install these without brew
-    # - alacritty-themes
-    # - nerdctl
-    # - go install github.com/google/yamlfmt/cmd/yamlfmt@latest
-    # - powerline-status
-
 homebrew_installed_packages:
   - ansible
   - ansible-lint
@@ -213,6 +207,7 @@ homebrew_taps:
   - tilt-dev/tap
   - weaveworks/tap
 
+# TODO: add yubikey, propresenter, logitech, atem mini apps
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - alacritty
@@ -221,6 +216,7 @@ homebrew_cask_apps:
   - balenaetcher
   - bartender
   - discord
+  - disk-inventory-x
   #- bitwarden # use the App store version
   - { name: elgato-camera-hub }
   - { name: elgato-control-center }
