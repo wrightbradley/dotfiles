@@ -5,6 +5,7 @@ alias getreqs='pip install -r requirements.txt'
 alias python='python3'
 
 # File and Directory Listing Aliases
+# exa supersedes these
 # alias ls='ls --color=always'
 # alias ll='ls -alF'
 # alias la='ls -A'
@@ -15,15 +16,14 @@ alias python='python3'
 # alias lc='ls -c'
 
 # Navigation Aliases
-alias home='cd ~'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 # File Operation Aliases
-alias cp='cp -i'
-alias mv='mv -i'
+alias cp='cp -iv'
+alias mv='mv -iv'
 alias rm='rm -iv'
 alias mkdir='mkdir -p'
 alias grep='grep --color=always'
@@ -41,12 +41,7 @@ alias view='nvim -R'
 # Tmux
 alias t='tmux'
 alias ta='t a -t'
-alias tls='t ls'
 alias tn='t new -t'
-
-##############
-# MY ALIASES #
-##############
 
 # Network Aliases
 alias ping='ping -c 10'
@@ -56,10 +51,11 @@ alias lisn='lsof -n -i -P | grep -i LISTEN'
 alias lssh='lsof -n -i -P | grep -i ":22"'
 alias tdump='tcpdump -i eth1 "port 8080"'
 alias tdumpv='tcpdump -vv -x -X -s 1500 -i eth1 "port 8080"'
+whoip() {
+  curl ip-api.com/$1
+}
 
-# Navigation Aliases
-alias cdc='cd ~/Projects/code'
-
+# Misc Functions
 grsub() {
   if [ -z "$1" ]; then
     echo "Please provide a submodule path/name"
@@ -69,12 +65,10 @@ grsub() {
     git rm -f $1
   fi
 }
-
 bak() {
   LOGDATE=$(date +%Y%m%dT%H%M%S)
   cp "$1" "$1.bak.$LOGDATE"
 }
-
 # fshow - git commit browser (enter for show, ctrl-d for diff, ` toggles sort)
 fshow() {
   local out shas sha q k
@@ -98,10 +92,7 @@ fshow() {
   done
 }
 
-whoip() {
-  curl ip-api.com/$1
-}
-
+# Kubernetes Aliases
 debug_daemonset() {
   RED="31m"
   GREEN="32m"
@@ -122,7 +113,6 @@ debug_daemonset() {
     done
   fi
 }
-
 find_istio_proxy() {
   RED="31m"
   GREEN="32m"
@@ -139,24 +129,46 @@ find_istio_proxy() {
     fi
   done
 }
-
-# The rest of my fun git aliases
-# alias gl='git pull --prune'
-# alias glog="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-# alias gp='git push origin HEAD'
-# Remove `+` and `-` from start of diff lines; just rely upon color.
-# alias gd='git diff --color | sed "s/^\([^-+ ]*\)[-+ ]/\\1/" | less -r'
-# alias gc='git commit'
-# alias gca='git commit -a'
-# alias gco='git checkout'
-# alias gcb='git copy-branch-name'
-# alias gb='git branch'
-# alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
-# alias gac='git add -A && git commit -m'
-# alias ge='git-edit-new'
-# alias sup='git submodule update --init --recursive'
-# Git quick
-# alias prep='git submodule init && git submaster && git subup && git pull origin master'
+alias kgn="kubectl get nodes -o wide"
+alias kgp="kubectl get pods -o wide"
+alias kgd="kubectl get deployment -o wide"
+alias kgs="kubectl get svc -o wide"
+alias kdp="kubectl describe pod"
+alias kdd="kubectl desribe deployment"
+alias kds="kubectl describe service"
+alias kdn="kubectl describe node"
+# Get All Non-Running Pods
+kpnr() {
+  kubectl get pods -A --field-selector=status.phase!=Running | grep -v "Complete"
+}
+# Get list of nodes and their memory size
+knmem() {
+  kubectl get no -o json | jq -r '.items | sort_by(.status.capacity.memory)[] | [.metadata.name,.status.capacity.memory] | @tsv'
+}
+# Get list of nodes and the number of pods running on them
+knpc() {
+  kubectl get po -o json --all-namespaces | jq '.items | group_by(.spec.nodeName) | map({"nodeName": .[0].spec.nodeName, "count": length}) | sort_by(.count)'
+}
+# Get top pods based on cpu
+kptc() {
+  kubectl top pods -A | sort --reverse --key 3 --numeric
+}
+# Get top pods based on mem
+kptm() {
+  kubectl top pods -A | sort --reverse --key 4 --numeric
+}
+# Print limits and requests for pods
+kplr() {
+  kubectl get pods -A -o=custom-columns='NAME:spec.containers[*].name,MEMREQ:spec.containers[*].resources.requests.memory,MEMLIM:spec.containers[*].resources.limits.memory,CPUREQ:spec.containers[*].resources.requests.cpu,CPULIM:spec.containers[*].resources.limits.cpu'
+}
+# Get internal IP addresses of cluster nodes
+knip() {
+  kubectl get nodes -o json | jq -r '.items[].status.addresses[]? | select (.type == "InternalIP") | .address' | paste -sd "\n" -
+}
+# Get all unique container images across cluster
+kgca() {
+  kubectl get pods --all-namespaces -o jsonpath="{.items[*].spec.containers[*].image}" | tr -s '[[:space:]]' '\n' | sort | uniq -c
+}
 
 # https://github.com/instrumenta/kubeval/issues/301#issuecomment-1079674123
 alias kubeval="kubeval --schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master "
