@@ -168,7 +168,7 @@ else
   chmod 700 "$HOME/.ssh"
 fi
 #---- Color Config ----
-export TERM=alacritty
+# export TERM=alacritty
 export GREP_COLOR='1;33;40'
 # export TERM=xterm-256color
 # Base16 Shell
