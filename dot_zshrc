@@ -249,6 +249,11 @@ source $HOME/.aliases
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
+
+# Terraform Completion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
 #---- END CUSTOM ----
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval "$(zoxide init zsh)"
