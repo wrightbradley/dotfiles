@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import re
+import sys
+from subprocess import check_output
+
+# Collect the parameters
+COMMIT_MSG_FILEPATH = sys.argv[1]
+
+# Figure out which branch we're on
+branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).strip()
+
+# Extract Jira ticket details from the branch name
+ticket = re.search(r".*[A-Z]\d]+\-\d+.*", branch.decode("utf-8"))
+
+if ticket is None:
+    print("commit-msg: unable to extract Jira ticket from branch name.")
+else:
+    required_message = f"{ticket.group()}"
+    with open(COMMIT_MSG_FILEPATH, "r", encoding="utf-8") as f:
+        content = f.read()
+        if content.startswith(required_message) or content.startswith(
+            f"[{required_message}]"
+        ):
+            print("commit-msg: committing.")
+        else:
+            print(
+                f"commit-msg: ERROR! The commit msg \
+                        must start with '{required_message}'"
+            )
+            sys.exit(1)
