@@ -3,6 +3,8 @@
     templatedir = ~/.git-templates
 [include]
     path = ~/.gitconfig.local
+[alias]
+    delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master|dev|main|staging'  | xargs git branch -d"
 [color]
     diff = auto
     status = auto
@@ -11,3 +13,5 @@
 [core]
     excludesfile = ~/.gitignore
     editor = nvim
+[fetch]
+    prune = true
