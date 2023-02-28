@@ -27,7 +27,7 @@ except subprocess.CalledProcessError as e:
     sys.exit(0)
 
 # Extract Jira ticket details from the branch name
-ticket = re.search(r"[A-Z]{2,}-\d+", branch.decode("utf-8"))
+ticket = re.search(r".*[A-Z]\d]+\-\d+.*", branch.decode("utf-8"))
 
 if ticket is None:
     print("prepare-commit-msg: unable to extract Jira ticket from branch name.")
