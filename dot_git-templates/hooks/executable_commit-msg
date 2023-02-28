@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
 
 import re
+import subprocess
 import sys
-from subprocess import check_output
 
 # Collect the parameters
 COMMIT_MSG_FILEPATH = sys.argv[1]
+if len(sys.argv) > 2:
+    COMMIT_TYPE = sys.argv[2]
+else:
+    COMMIT_TYPE = ""
+if len(sys.argv) > 3:
+    COMMIT_HASH = sys.argv[3]
+else:
+    COMMIT_HASH = ""
+
+print(
+    f"prepare-commit-msg: File: {COMMIT_MSG_FILEPATH}\nType: {COMMIT_TYPE}\nHash: {COMMIT_HASH}"
+)
 
 # Figure out which branch we're on
-branch = check_output(["git", "symbolic-ref", "--short", "HEAD"]).strip()
+try:
+    output = subprocess.check_output(["git", "symbolic-ref", "--short", "HEAD"])
+    branch = output.strip()
+except subprocess.CalledProcessError as e:
+    sys.exit(0)
 
 # Extract Jira ticket details from the branch name
 ticket = re.search(r".*[A-Z]\d]+\-\d+.*", branch.decode("utf-8"))
