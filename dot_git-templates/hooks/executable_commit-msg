@@ -16,10 +16,10 @@ else:
     COMMIT_HASH = ""
 
 print(
-    f"commit-msg: \
-            File: {COMMIT_MSG_FILEPATH}\n \
-            Type: {COMMIT_TYPE}\n \
-            Hash: {COMMIT_HASH}"
+    f"commit-msg: "
+    f"File: {COMMIT_MSG_FILEPATH}\n"
+    f"Type: {COMMIT_TYPE}\n"
+    f"Hash: {COMMIT_HASH}"
 )
 
 # Figure out which branch we're on
@@ -46,7 +46,7 @@ else:
             print("commit-msg: committing.")
         else:
             print(
-                f"commit-msg: ERROR! The commit msg \
-                        must start with '{required_message}'"
+                f"commit-msg: ERROR! The commit msg "
+                f"must start with '{required_message}'"
             )
             sys.exit(1)
