@@ -31,6 +31,7 @@ except subprocess.CalledProcessError as e:
     sys.exit(0)
 
 # Extract Jira ticket details from the branch name
+# https://stackoverflow.com/a/73914895
 ticket = re.search(r"\b[A-Z][A-Z0-9_]+-[1-9][0-9]*", branch.decode("utf-8"))
 
 if ticket is None:
