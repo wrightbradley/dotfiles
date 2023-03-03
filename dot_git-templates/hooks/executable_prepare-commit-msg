@@ -16,21 +16,26 @@ else:
     COMMIT_HASH = ""
 
 print(
-    f"prepare-commit-msg: File: {COMMIT_MSG_FILEPATH}\nType: {COMMIT_TYPE}\nHash: {COMMIT_HASH}"
+    f"prepare-commit-msg: \
+            File: {COMMIT_MSG_FILEPATH}\n \
+            Type: {COMMIT_TYPE}\n \
+            Hash: {COMMIT_HASH}"
 )
 
 # Figure out which branch we're on
 try:
-    output = subprocess.check_output(["git", "symbolic-ref", "--short", "HEAD"])
+    output = subprocess.check_output(
+        ["git", "symbolic-ref", "--short", "HEAD"])
     branch = output.strip()
 except subprocess.CalledProcessError as e:
     sys.exit(0)
 
 # Extract Jira ticket details from the branch name
-ticket = re.search(r".*[A-Z]\d]+\-\d+.*", branch.decode("utf-8"))
+ticket = re.search(r"\b[A-Z][A-Z0-9_]+-[1-9][0-9]*", branch.decode("utf-8"))
 
 if ticket is None:
-    print("prepare-commit-msg: unable to extract Jira ticket from branch name.")
+    print("prepare-commit-msg: unable to extract Jira ticket \
+            from branch name.")
 else:
     # Populate the commit message with the ticket #, if there is one
     with open(COMMIT_MSG_FILEPATH, "r+", encoding="utf-8") as f:
