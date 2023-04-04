@@ -1,0 +1,4 @@
+{
+  "# Commitizen Installation Instructions": "npm install -g commitizen && npm install -g cz-conventional-changelog && npm install -g @digitalroute/cz-conventional-changelog-for-jiraid-detection",
+  "path": "cz-conventional-changelog"
+}
