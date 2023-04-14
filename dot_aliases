@@ -172,3 +172,21 @@ kgca() {
 
 # https://github.com/instrumenta/kubeval/issues/301#issuecomment-1079674123
 alias kubeval="kubeval --schema-location https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master "
+
+docker() {
+  # Determine if containerd or docker is running
+  evalCmd=$(nerdctl info &>/dev/null && echo nerdctl || echo docker)
+  cntrCmd=("$evalCmd")
+  for var in "$@"
+  do
+    # strip docker from command
+    if [[ $var == "docker" ]]; then
+      continue
+    fi
+    # add each argument to the array
+    cntrCmd+=("$var")
+  done
+
+  # execute the command with the arguments
+  command "${cntrCmd[@]}"
+}
