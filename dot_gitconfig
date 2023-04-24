@@ -1,6 +1,7 @@
 # Local/private config goes in the include
 [init]
     templatedir = ~/.git-templates
+    defaultBranch = main
 [include]
     path = ~/.gitconfig.local
 [alias]
