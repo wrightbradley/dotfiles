@@ -190,3 +190,8 @@ docker() {
   # execute the command with the arguments
   command "${cntrCmd[@]}"
 }
+
+kdebug() {
+  POD=$1
+  kubectl debug -it $POD --image=730998372749.dkr.ecr.us-west-2.amazonaws.com/debian:11-debug --image-pull-policy='Always' --profile=netadmin
+}
