@@ -265,5 +265,13 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/bwright/.rd/bin:$PATH"
+export PATH="/Users/bwright/.rd/bin/docker:$PATH"
+export PATH="/Users/bwright/.rd/bin/docker-buildx:$PATH"
+export PATH="/Users/bwright/.rd/bin/docker-compose:$PATH"
+export PATH="/Users/bwright/.rd/bin/docker-credential-ecr-login:$PATH"
+export PATH="/Users/bwright/.rd/bin/docker-credential-ecr-none:$PATH"
+export PATH="/Users/bwright/.rd/bin/docker-credential-osxkeychain:$PATH"
+export PATH="/Users/bwright/.rd/bin/kuberlr:$PATH"
+export PATH="/Users/bwright/.rd/bin/nerdctl:$PATH"
+export PATH="/Users/bwright/.rd/bin/rdctl:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
