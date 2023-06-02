@@ -7,7 +7,7 @@ os:
   editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
 customCommands:
   - key: "<c-r>"
-    command: "gh pr create --fill --web"
+    command: "gh pr create --fill --assignee @me"
     context: "global"
     loadingText: "Creating pull request on GitHub"
   - key: "<c-p>"
@@ -26,3 +26,8 @@ customCommands:
     context: "files"
     loadingText: "opening commitizen commit tool"
     subprocess: true
+  - key: "P"
+    command: "git push --set-upstream origin '$(git-branch-current 2>/dev/null)'"
+    context: "localBranches"
+    loadingText: "Pushing..."
+    description: "Push changes to upstream origin"
