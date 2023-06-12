@@ -1854,7 +1854,6 @@ terragrunt-debug.tfvars.json
 [Ll]ib
 [Ll]ib64
 [Ll]ocal
-[Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
 
@@ -2337,4 +2336,3 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,xcode,vim,database,ansible,java,lamp,sass,yarn,bazel,maven,backup,packer,vagrant,lua,mean,cmake,react,django,reactnative,localstack,terraform,terragrunt,visualstudio,homeassistant,virtualenv,diskimage,compressedarchive,certificates,executable,homebrew,sonarqube,c,c++,archive,vercel,lighthouseci,visualstudiocode,direnv,dotenv,pydev,redis,godot,helm,perl,venv,nextjs,vuejs,serverless,node,autohotkey,dotfilessh,firebase,latex,rust,grunt,compressed,git,jsonnet,python,go
 
 # Temporary Ignore Files
-modules/irsa/
