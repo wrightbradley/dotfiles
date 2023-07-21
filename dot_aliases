@@ -195,3 +195,8 @@ kdebug() {
   POD=$1
   kubectl debug -it $POD --image=730998372749.dkr.ecr.us-west-2.amazonaws.com/debian:11-debug --image-pull-policy='Always' --profile=netadmin
 }
+
+kdrun() {
+  POD=ephemeral-debug-$(date -u +"%Y-%m-%dt%H-%M-%Sz")
+  kubectl run $POD --image=730998372749.dkr.ecr.us-west-2.amazonaws.com/debian:11-debug --restart=Never --attach=true --image-pull-policy=Always --tty=true --privileged=true --rm=true --stdin=true --port=8080 -- /bin/bash
+}
