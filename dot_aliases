@@ -200,3 +200,11 @@ kdrun() {
   POD=ephemeral-debug-$(date -u +"%Y-%m-%dt%H-%M-%Sz")
   kubectl run $POD --image=730998372749.dkr.ecr.us-west-2.amazonaws.com/debian:11-debug --restart=Never --attach=true --image-pull-policy=Always --tty=true --privileged=true --rm=true --stdin=true --port=8080 -- /bin/bash
 }
+
+awsprof() {
+  if [ -z "$1" ]; then
+    export AWS_PROFILE="$(perl -nle '/\[profile (.+)\]/ && print "$1"' < "$HOME/.aws/config" | fzf)"
+  else
+    export AWS_PROFILE="$1"
+  fi
+}
