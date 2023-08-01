@@ -7,7 +7,7 @@ os:
   editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
 customCommands:
   - key: "<c-g>"
-    command: "gh pr create --fill --assignee @me {{.Form.DRAFT}} {{.Form.DEVOPS}} {{.Form.SRE}}"
+    command: "unset GITHUB_TOKEN; gh pr create --fill --assignee @me {{.Form.DRAFT}} {{.Form.DEVOPS}} {{.Form.SRE}}"
     context: "global"
     loadingText: "Creating pull request on GitHub"
     prompts:
