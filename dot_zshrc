@@ -193,6 +193,9 @@ export GOPATH="$HOME/go"
 export KUBECONFIG="$HOME/.kube/config"
 export LDFLAGS="-L$HOMEBREW_PREFIX/opt/curl/lib"
 export PATH="$GOPATH/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="$HOME/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
 export PATH="$HOMEBREW_PREFIX/opt/mysql-client/bin:$PATH"
