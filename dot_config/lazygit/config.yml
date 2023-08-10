@@ -1,10 +1,21 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
+gui:
+  nerdFontsVersion: "3"
 git:
   commit:
     signOff: true
   overrideGpg: true
+  mainBranches:
+    - "main"
+    - "master"
+  skipHookPrefix: WIP
+  commitPrefixes:
+    "tackle-io/.*": # This is repository folder name
+      pattern: "^\\w+\\/(\\w+-\\w+).*"
+      replace: "[$1] "
 os:
-  editCommand: "nvim"
-  editCommandTemplate: "{{editor}} +{{line}} -- {{filename}}"
+  open: "open {{filename}}"
+  editPreset: "nvim"
 customCommands:
   - key: "<c-g>"
     command: "unset GITHUB_TOKEN; gh pr create --fill --assignee @me {{.Form.DRAFT}} {{.Form.DEVOPS}} {{.Form.SRE}}"
@@ -15,32 +26,32 @@ customCommands:
         title: "Open a Draft PR?"
         key: "DRAFT"
         options:
-          - value: ""
+          - value: " "
             name: "No"
             description: "Do not open a Draft PR"
           - value: "--draft"
             name: "Yes"
             description: "Open a Draft PR"
       - type: "menu"
-        title: "Add DevOps Reviewers?"
-        key: "DEVOPS"
-        options:
-          - value: ""
-            name: "No"
-            description: "Do not add DevOps as a Reviewer"
-          - value: "--reviewer tackle-io/devops"
-            name: "Yes"
-            description: "Add DevOps as a Reviewer"
-      - type: "menu"
         title: "Add SRE Reviewers?"
         key: "SRE"
         options:
-          - value: ""
+          - value: " "
             name: "No"
             description: "Do not add SRE as a Reviewer"
           - value: "--reviewer tackle-io/sre"
             name: "Yes"
             description: "Add SRE as a Reviewer"
+      - type: "menu"
+        title: "Add DevOps Reviewers?"
+        key: "DEVOPS"
+        options:
+          - value: " "
+            name: "No"
+            description: "Do not add DevOps as a Reviewer"
+          - value: "--reviewer tackle-io/devops"
+            name: "Yes"
+            description: "Add DevOps as a Reviewer"
   #   command: "git remote prune {{.SelectedRemote.Name}}"
   #   context: "remotes"
   #   loadingText: "Pruning..."
@@ -50,12 +61,12 @@ customCommands:
     context: "localBranches"
     loadingText: "Pruning..."
     description: "prune local branches that have been merged to master"
-  - key: "C"
-    command: "git cz -S"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    subprocess: true
+  # - key: "C"
+  #   command: "git cz -S"
+  #   description: "commit with commitizen"
+  #   context: "files"
+  #   loadingText: "opening commitizen commit tool"
+  #   subprocess: true
   - key: "P"
     command: "git push --set-upstream origin '$(git-branch-current 2>/dev/null)'"
     context: "localBranches"
