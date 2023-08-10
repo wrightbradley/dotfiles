@@ -208,3 +208,12 @@ awsprof() {
     export AWS_PROFILE="$1"
   fi
 }
+
+hbuild() {
+  helm template base .
+}
+
+htest() {
+  helm template base . | kubeconform -schema-location default -schema-location 'https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/{{.Group}}/{{.ResourceKind}}_{{.ResourceAPIVersion}}.json' -strict -verbose
+}
+
