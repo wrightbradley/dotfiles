@@ -39,8 +39,6 @@ zmodule prompt-pwd
 # Productivity
 #
 
-# Adds aliases and better defaults for exa.
-zmodule exa
 # Configures fzf for faster fetching of files and directories names.
 zmodule fzf
 # All kubectl aliases in one function.
