@@ -15,19 +15,25 @@ if len(sys.argv) > 3:
 else:
     COMMIT_HASH = ""
 
-print(
-    f"commit-msg: "
-    f"File: {COMMIT_MSG_FILEPATH}\n"
-    f"Type: {COMMIT_TYPE}\n"
-    f"Hash: {COMMIT_HASH}"
-)
+# print(
+#     f"commit-msg: "
+#     f"File: {COMMIT_MSG_FILEPATH}\n"
+#     f"Type: {COMMIT_TYPE}\n"
+#     f"Hash: {COMMIT_HASH}"
+# )
+
+print("commit-msg: starting.")
 
 # Figure out which branch we're on
 try:
     output = subprocess.check_output(
         ["git", "symbolic-ref", "--short", "HEAD"])
     branch = output.strip()
-except subprocess.CalledProcessError as e:
+except subprocess.CalledProcessError:
+    # Not all git processes will be able to run the subprocess step above
+    # an example is lazygit's rebasing process.
+    # Therefore, we gracefully exit with a message.
+    print("commit-msg: unable to execute git symbolic-ref command.")
     sys.exit(0)
 
 # Extract Jira ticket details from the branch name
@@ -35,18 +41,18 @@ except subprocess.CalledProcessError as e:
 ticket = re.search(r"\b[A-Z][A-Z0-9_]+-[1-9][0-9]*", branch.decode("utf-8"))
 
 if ticket is None:
+    # Not every project will have a Jira ticket associated with it.
+    # So we gracefully exit with a message.
     print("commit-msg: unable to extract Jira ticket from branch name.")
 else:
-    required_message = f"{ticket.group()}"
+    # Populate the commit message with the ticket #, if there is one
     with open(COMMIT_MSG_FILEPATH, "r", encoding="utf-8") as f:
-        content = f.read()
-        if content.startswith(required_message) or content.startswith(
-            f"[{required_message}]"
-        ):
-            print("commit-msg: committing.")
+        # check the commit message for ticket #
+        commit_message_line = f.readline()
+        commit_content = f.read()
+        # Check if the commit message contains the ticket #
+        if f"{ticket.group()}" not in commit_message_line:
+            raise Exception(f"commit-msg: the commit message must contain {ticket.group()}")
         else:
-            print(
-                f"commit-msg: ERROR! The commit msg "
-                f"must start with '{required_message}'"
-            )
-            sys.exit(1)
+            print("commit-msg: committing.")
+        print("commit-msg: done.")

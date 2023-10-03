@@ -15,19 +15,26 @@ if len(sys.argv) > 3:
 else:
     COMMIT_HASH = ""
 
-print(
-    f"prepare-commit-msg: "
-    f"File: {COMMIT_MSG_FILEPATH}\n"
-    f"Type: {COMMIT_TYPE}\n"
-    f"Hash: {COMMIT_HASH}"
-)
+# use below print for debugging
+# print(
+#     f"prepare-commit-msg: "
+#     f"File: {COMMIT_MSG_FILEPATH}\n"
+#     f"Type: {COMMIT_TYPE}\n"
+#     f"Hash: {COMMIT_HASH}"
+# )
+
+print("prepare-commit-msg: starting.")
 
 # Figure out which branch we're on
 try:
     output = subprocess.check_output(
         ["git", "symbolic-ref", "--short", "HEAD"])
     branch = output.strip()
-except subprocess.CalledProcessError as e:
+except subprocess.CalledProcessError:
+    # Not all git processes will be able to run the subprocess step above
+    # an example is lazygit's rebasing process.
+    # Therefore, we gracefully exit with a message.
+    print("prepare-commit-msg: unable to execute git symbolic-ref command.")
     sys.exit(0)
 
 # Extract Jira ticket details from the branch name
@@ -35,11 +42,20 @@ except subprocess.CalledProcessError as e:
 ticket = re.search(r"\b[A-Z][A-Z0-9_]+-[1-9][0-9]*", branch.decode("utf-8"))
 
 if ticket is None:
-    print("prepare-commit-msg: unable to extract Jira ticket"
-          "from branch name.")
+    # Not every project will have a Jira ticket associated with it.
+    # So we gracefully exit with a message.
+    print("prepare-commit-msg: unable to extract Jira ticket from branch name.")
 else:
     # Populate the commit message with the ticket #, if there is one
     with open(COMMIT_MSG_FILEPATH, "r+", encoding="utf-8") as f:
-        content = f.read()
-        f.seek(0, 0)
-        f.write(f"[{ticket.group()}] {content}")
+        # check the commit message for ticket #
+        commit_message_line = f.readline()
+        commit_content = f.read()
+        # Check if the commit message contains the ticket #
+        if f"{ticket.group()}" not in commit_message_line:
+            f.seek(0, 0)
+            print(f"prepare-commit-msg: prepending {ticket.group()} to commit message")
+            f.write(f"[{ticket.group()}] {commit_message_line}{commit_content}")
+        else:
+            print(f"prepare-commit-msg: {ticket.group()} already in commit message")
+        print("prepare-commit-msg: done.")
