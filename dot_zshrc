@@ -199,9 +199,11 @@ export PATH="$HOME/.rd/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
 export PATH="$HOMEBREW_PREFIX/opt/mysql-client/bin:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/python@3.10/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/python@3.8/Frameworks/Python.framework/Versions/3.8/bin:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/lib/python3.12/site-packages:$PATH"
+export PATH="$HOMEBREW_PREFIX/lib/python3.11/site-packages:$PATH"
+export PATH="$HOMEBREW_PREFIX/lib/python3.10/site-packages:$PATH"
+export PATH="$HOMEBREW_PREFIX/lib/python3.9/site-packages:$PATH"
+export PATH="$HOMEBREW_PREFIX/lib/python3.8/site-packages:$PATH"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -268,6 +270,11 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 export XDG_CONFIG_HOME="$HOME/.config"
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+eval "$(fnm env --use-on-cd)"
 
 eval "$(direnv hook zsh)"
 
