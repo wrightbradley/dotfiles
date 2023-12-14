@@ -240,3 +240,16 @@ kgfj() {
 kdfj() {
   kubectl get job --all-namespaces -o=jsonpath='{range .items[?(@.status.failed==1)]}{.metadata.namespace} {.metadata.name}{"\n"}{end}' | xargs -n 2 kubectl delete job -n
 }
+
+tf () {
+	if [ -f terragrunt.hcl ]
+	then
+		terragrunt "$@"
+	else
+		terraform "$@"
+	fi
+}
+
+tffmt () {
+	terraform fmt -recursive && tf_vars_sort **/{outputs,variables}.tf(N) && terragrunt hclfmt
+}
