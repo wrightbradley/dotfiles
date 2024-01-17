@@ -232,24 +232,32 @@ fi
 [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 [[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# eval "$(fnm env --use-on-cd)"
+source "$(brew --prefix asdf)/libexec/asdf.sh"
+
 [[ -f /usr/bin/fzf ]] && export FZF_BASE="/usr/bin/fzf"
 [[ -f /usr/local/bin/fzf ]] && export FZF_BASE="/usr/local/bin/fzf"
 [[ -f /opt/homebrew/bin/fzf ]] && export FZF_BASE="/opt/homebrew/bin/fzf"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
   export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
 fi
+
 # if [ -n "$PYTHONPATH" ]; then
 #   export PYTHONPATH='/opt/homebrew/Cellar/pdm/2.2.1/libexec/lib/python3.11/site-packages/pdm/pep582':$PYTHONPATH
 # else
 #   export PYTHONPATH='/opt/homebrew/Cellar/pdm/2.2.1/libexec/lib/python3.11/site-packages/pdm/pep582'
 # fi
+
 [ -f ~/bin/fubectl.source ] && source ~/bin/fubectl.source
 source $HOME/.aliases
+
 # source $(dirname $(gem which colorls))/tab_complete.sh
 # source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Only changing the escape key to `jj` in insert mode, we still
@@ -270,11 +278,6 @@ export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
 
 export XDG_CONFIG_HOME="$HOME/.config"
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-eval "$(fnm env --use-on-cd)"
 
 eval "$(direnv hook zsh)"
 
