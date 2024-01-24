@@ -253,3 +253,34 @@ tf () {
 tffmt () {
 	terraform fmt -recursive && tf_vars_sort **/{outputs,variables}.tf(N) && terragrunt hclfmt
 }
+
+flushdns(){
+  sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder
+
+cat << EOF
+Google Chrome:
+
+    Open Chrome and type "chrome://net-internals/#dns" into the address bar.
+    Press Enter to access the DNS page.
+    Click on the "Clear host cache" button to clear the resolver cache.
+
+Microsoft Edge (Chromium-based):
+
+    Launch Edge and type "edge://net-internals/#dns" in the address bar.
+    Press Enter to go to the DNS page.
+    Click on the "Clear host cache" button to clear the resolver cache.
+
+Mozilla Firefox:
+
+    Open Firefox and type "about:networking#dns" in the address bar.
+    Press Enter to access the DNS page.
+    Click on the "Clear DNS Cache" button to clear the resolver cache.
+
+Opera:
+
+    Launch Opera and type "opera://net-internals/#dns" in the address bar.
+    Press Enter to go to the DNS page.
+    Click on the "Clear host cache" button to clear the resolver cache.
+EOF
+}
+
