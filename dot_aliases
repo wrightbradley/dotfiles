@@ -225,6 +225,11 @@ awsprof() {
   fi
 }
 
+esanno() {
+  SECRET=$1
+  kubectl annotate es $SECRET force-sync=$(date +%s) --overwrite
+}
+
 hbuild() {
   helm template base .
 }
