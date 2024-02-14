@@ -255,6 +255,11 @@ tf () {
 	fi
 }
 
+check-ignore(){
+  FILE_PATH=$1
+  git check-ignore -v "$FILE_PATH"
+}
+
 tffmt () {
 	terraform fmt -recursive && tf_vars_sort **/{outputs,variables}.tf(N) && terragrunt hclfmt
 }
