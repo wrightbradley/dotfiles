@@ -186,6 +186,12 @@ export GREP_COLOR='1;33;40'
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
+
+# Homebrew PATH setup
+[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+[[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 # MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/curl/include"
@@ -228,10 +234,6 @@ fi
 
 [[ -f $HOME/_istioctl ]] && export PATH=$PATH:$HOME/.istioctl/bin && source ~/_istioctl
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-# Homebrew PATH setup
-[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-[[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
-[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # export NVM_DIR="$HOME/.nvm"
 #   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
