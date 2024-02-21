@@ -59,3 +59,19 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 - Hook Ansible into chezmoi bootstrap step
 - Move Homebrew package install from Ansible to chezmoi. Standardize on chezmoi.
 - Support downloading project code repos with chezmoi.
+
+## MacOS Tiling
+
+### yabai tiling window manager
+
+```bash
+brew install koekeishiya/formulae/yabai
+yabai --start-service
+```
+
+### skhd Hotkey Daemon
+
+```bash
+brew install koekeishiya/formulae/skhd
+skhd --start-service
+```
