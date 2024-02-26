@@ -18,7 +18,7 @@ os:
   editPreset: "nvim"
 customCommands:
   - key: "<c-g>"
-    command: "unset GITHUB_TOKEN; gh pr create --fill --title $(git symbolic-ref --short HEAD | grep -e '\\b[A-Z][A-Z0-9_]\\+-[1-9][0-9]\\+' -o) --assignee @me {{.Form.DRAFT}} {{.Form.DEVOPS}} {{.Form.SRE}}"
+    command: "unset GITHUB_TOKEN; JIRA_ID=$(git symbolic-ref --short HEAD | grep -e '\\b[A-Z][A-Z0-9_]\\+-[1-9][0-9]\\+' -o); TITLE=$(python ~/bin/get-jira-title.py ${JIRA_ID}); BODY=$(git log --graph --pretty=format:'%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)' origin/main..HEAD | sed 's/\"//g'); echo $BODY > /tmp/body.txt; gh pr create --body \"${BODY}\" --title \"${TITLE}\" --assignee @me {{.Form.DRAFT}} {{.Form.DEVOPS}} {{.Form.SRE}}"
     context: "global"
     loadingText: "Creating pull request on GitHub"
     prompts:
