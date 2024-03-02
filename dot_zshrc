@@ -216,6 +216,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig"
+export TERRAFORM_BINARY_NAME="tofu"
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
