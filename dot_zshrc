@@ -284,5 +284,5 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 #---- END CUSTOM ----
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(zoxide init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
