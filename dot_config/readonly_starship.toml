@@ -1,185 +1,162 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
+[](surface0)\
+$os\
 $username\
-$hostname\
+[](bg:blue fg:surface0)\
 $kubernetes\
+[](bg:orange fg:blue)\
 $aws\
+[](bg:purple fg:orange)\
 $directory\
+[](bg:green fg:purple)\
 $git_branch\
-$git_commit\
-$git_state\
 $git_status\
-$hg_branch\
-$docker_context\
-$golang\
-$helm\
-$nodejs\
-$python\
-$terraform\
-$jobs\
-$cmd_duration\
-$line_break\
-$jobs\
-$battery\
-$time\
-$status\
-$character"""
+[ ](fg:green)\
+$line_break$character"""
 
-# Wait 10 milliseconds for starship to check files under the current directory.
-scan_timeout = 10
+palette = 'tokyo_night'
 
-# Timeout for commands executed by starship (in milliseconds).
-command_timeout = 200
+# # Wait 10 milliseconds for starship to check files under the current directory.
+# scan_timeout = 10
+#
+# # Timeout for commands executed by starship (in milliseconds).
+# command_timeout = 200
 
 # Disable the blank line at the start of the prompt
 add_newline = false
 
-# Replace the "❯" symbol in the prompt with "➜"
-[character]      # The name of the module we are configuring is "character"
-success_symbol = "[➜](bold green)"     # The "symbol" segment is being set to "➜"
-# success_symbol = "[I➜](bold green)"     # The "symbol" segment is being set to "➜"
-error_symbol = "[✗](bold red)"
-vicmd_symbol = "[V➜](bold green)"
+[palettes.gruvbox_dark]
+color_fg0 = '#fbf1c7'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+[palettes.tokyo_night]
+rosewater = "#c0caf5" # Lighter blue for a soft accent
+flamingo = "#f7768e" # Bright pink/red
+pink = "#bb9af7" # Purple, as Tokyo Night uses various shades of purple
+orange = "#ff9e64" # Brighter orange for contrast
+red = "#f7768e" # Tokyo Night's red
+maroon = "#7aa2f7" # Blue as a substitute for maroon
+peach = "#ff9e64" # Reusing the brighter orange for peach
+yellow = "#e0af68" # Yellow with a bit of an orange tint
+green = "#9ece6a" # Vibrant green
+teal = "#1abc9c" # A teal/cyan color
+sky = "#7aa2f7" # Blue for the sky
+sapphire = "#7aa2f7" # Another shade of blue for sapphire
+blue = "#7aa2f7" # Tokyo Night's signature blue
+lavender = "#bb9af7" # Purple, similar to pink but more subdued
+text = "#c0caf5" # Light blue for text
+subtext1 = "#a9b1d6" # Subdued blue for subtext
+subtext0 = "#9aa5ce" # Even more subdued blue
+overlay2 = "#414868" # Dark blue for overlays
+overlay1 = "#3b4261" # Darker blue for overlays
+overlay0 = "#333a4d" # Even darker blue
+surface2 = "#2a2e3e" # Dark surface color
+surface1 = "#24283b" # Darker surface color
+surface0 = "#1f2335" # Darkest surface color, close to the base
+base = "#1a1b26" # Base color of Tokyo Night, very dark blue
+mantle = "#16161e" # Slightly lighter than base
+crust = "#131419" # Slightly darker than base, for the crust
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+orange = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
+
+[os]
+disabled = false
+style = "bg:surface0 fg:text"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
 
 [username]
-disabled = true
+show_always = true
+style_user = "bg:surface0 fg:text"
+style_root = "bg:surface0 fg:text"
+format = '[ $user ]($style)'
 
-# Disable the package module, hiding it from the prompt completely
-[package]
-disabled = true
+[directory]
+style = "fg:mantle bg:purple"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
 
 [aws]
-format = '[$symbol($profile )(\($region\) )]($style)'
-#symbol = " "
+format = '[$symbol\[$profile\($region\)\]]($style)'
+style = "fg:mantle bg:orange"
 symbol = " "
-#displayed_items = "profile region"
 
 [aws.region_aliases]
 us-east-1 = "VA"
 us-west-2 = "OR"
 
-[git_branch]
-symbol = "🌱 " #\U0001F331
-# truncation_length = 4
-# truncation_symbol = ""
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = "🔖 "
-
-[git_status]
-untracked = "🤷"
-stashed = "📦"
-modified = "📝"
-staged = '[++\($count\)](green)'
-deleted = "🗑"
-ahead = "⇡${count}"
-diverged = "😵⇕⇡${ahead_count}⇣${behind_count}"
-behind = "⇣${count}"
-
-[hostname]
-ssh_only = true
-format = "⟫"
-trim_at = ".companyname.com"
-disabled = false
-
-[jobs]
-symbol = "+ "
-threshold = 4
-
-[docker_context]
-symbol = ' '
-style = 'blue bold'
-format = 'via [$symbol$context]($style) '
-only_with_files = true
-disabled = false
-detect_extensions = []
-detect_files = [
-    'docker-compose.yml',
-    'docker-compose.yaml',
-    'Dockerfile',
-]
-detect_folders = []
-
 [kubernetes]
-# symbol = "⛵ "
-#symbol = ""
-style = "bold blue"
-disabled = false
-format = '[$context \($namespace\)](bold blue) '
-
-[helm]
-format = 'via [$symbol($version )]($style)'
 symbol = '⎈ '
-style = 'bold white'
+style = "fg:mantle bg:blue"
 disabled = false
-detect_extensions = []
-detect_files = [
-    'helmfile.yaml',
-    'Chart.yaml',
-]
-detect_folders = []
-
-[python]
-pyenv_version_name = false
-pyenv_prefix = 'pyenv '
-python_binary = [
-    'python',
-    'python3',
-    'python2',
-]
-format = 'via [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-version_format = 'v${raw}'
-style = 'yellow bold'
-symbol = ' '
-disabled = false
-detect_extensions = ['py']
-detect_files = [
-    'requirements.txt',
-    '.python-version',
-    'pyproject.toml',
-    'Pipfile',
-    'tox.ini',
-    'setup.py',
-    '__init__.py',
-]
-detect_folders = []
-
-[perl]
-symbol = '🐪 '
-style = '149 bold'
-format = 'via [$symbol($version )]($style)'
-disabled = true
-detect_extensions = [
-    'pl',
-    'pm',
-    'pod',
-]
-detect_files = [
-    'Makefile.PL',
-    'Build.PL',
-    'cpanfile',
-    'cpanfile.snapshot',
-    'META.json',
-    'META.yml',
-    '.perl-version',
-]
-detect_folders = []
-
-[status]
-format = '[$symbol$status]($style) '
-symbol = '✖'
-not_executable_symbol = '🚫'
-not_found_symbol = '🔍'
-sigint_symbol = '🧱'
-signal_symbol = '⚡'
-style = 'bold red'
-map_symbol = false
-recognize_signal_code = true
-disabled = false
+format = '[$symbol$context \($namespace\)]($style)'
 
 [terraform]
 format = 'via [$symbol$workspace]($style) '
-symbol = '🌎 '
+symbol = '󱁢'
 style = 'bold 105'
 disabled = false
 detect_extensions = [
@@ -189,41 +166,89 @@ detect_extensions = [
 detect_files = []
 detect_folders = ['.terraform']
 
-[golang]
-#symbol = "🦦 "
-symbol = "ﳑ "
+[git_branch]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol $branch ](fg:base bg:green)]($style)'
 
-[java]
-disabled = true
-format = 'via [$symbol($version )]($style)'
-version_format = 'v${raw}'
-style = 'red dimmed'
-symbol = '♨️  '
-detect_extensions = [
-    'java',
-    'class',
-    'jar',
-    'gradle',
-    'clj',
-    'cljc',
-]
-detect_files = [
-    'pom.xml',
-    'build.gradle.kts',
-    'build.sbt',
-    '.java-version',
-    'deps.edn',
-    'project.clj',
-    'build.boot',
-]
-detect_folders = []
+[git_status]
+style = "bg:teal"
+format = '[[($all_status$ahead_behind )](fg:base bg:green)]($style)'
 
 [nodejs]
 disabled = true
-# symbol = "🤖 "
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
-[openstack]
-disabled=true
+[c]
+disabled = true
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
-[gcloud]
-disabled=true
+[rust]
+disabled = true
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[golang]
+disabled = true
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[php]
+disabled = true
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[java]
+disabled = true
+symbol = " "
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[kotlin]
+disabled = true
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[haskell]
+disabled = true
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[python]
+disabled = true
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[docker_context]
+disabled = true
+symbol = ""
+style = "bg:mantle"
+format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
+
+[time]
+disabled = true
+time_format = "%R"
+style = "bg:peach"
+format = '[[  $time ](fg:mantle bg:purple)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[](bold fg:green)'
+error_symbol = '[✗](bold fg:red)'
+vimcmd_symbol = '[](bold fg:creen)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[](bold fg:lavender)'
