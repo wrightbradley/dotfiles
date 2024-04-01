@@ -38,7 +38,7 @@ tmux set -g status-left-length 120
 tmux set -g status-position bottom
 tmux set -g status-right-length 120
 tmux set -g status-style "bg=$color_fg"
-set-window-option -g mode-style bg=$color_green,fg=$color_bg
+tmux set -g mode-style set-window-option bg=$color_green,fg=$color_bg
 tmux set -g mode-style "fg=$color_purple,bg=$color_gray"
 tmux set -g message-style "bg=$color_blue,fg=$color_gray"
 tmux set -g message-command-style "fg=$color_buffer,bg=$color_gray"
@@ -46,42 +46,42 @@ tmux set -g pane-border-style "fg=$color_gray"
 tmux set -g pane-active-border-style "fg=$color_blue"
 tmux set -g status-style bg="$color_bg"
 
-set -g @mode_indicator_prefix_prompt " WAIT "
-set -g @mode_indicator_prefix_mode_style "fg=$color_bg,bg=$color_blue,bold"
-set -g @mode_indicator_copy_prompt " COPY "
-set -g @mode_indicator_copy_mode_style "fg=$color_bg,bg=$color_yellow,bold"
-set -g @mode_indicator_sync_prompt " SYNC "
-set -g @mode_indicator_sync_mode_style "fg=$color_bg,bg=$color_red,bold"
-set -g @mode_indicator_empty_prompt " TMUX "
-set -g @mode_indicator_empty_mode_style fg=$color_green,bold
+tmux set -g @mode_indicator_prefix_prompt " WAIT "
+tmux set -g @mode_indicator_prefix_mode_style "fg=$color_bg,bg=$color_blue,bold"
+tmux set -g @mode_indicator_copy_prompt " COPY "
+tmux set -g @mode_indicator_copy_mode_style "fg=$color_bg,bg=$color_yellow,bold"
+tmux set -g @mode_indicator_sync_prompt " SYNC "
+tmux set -g @mode_indicator_sync_mode_style "fg=$color_bg,bg=$color_red,bold"
+tmux set -g @mode_indicator_empty_prompt " TMUX "
+tmux set -g @mode_indicator_empty_mode_style fg=$color_green,bold
 
 # tmux cpu
-set -g @cpu_percentage_format "%3.0f%%"
+tmux set -g @cpu_percentage_format "%3.0f%%"
 
 # tmux-online-status
-set -g @route_to_ping "verizon.com"
-set -g @online_icon "#[fg=$color_gray]📶"
-set -g @offline_icon "#[fg=$color_red]🔺"
+tmux set -g @route_to_ping "verizon.com"
+tmux set -g @online_icon "#[fg=$color_gray]📶"
+tmux set -g @offline_icon "#[fg=$color_red]🔺"
 
 # tmux-pomodoro
-set -g @pomodoro_on " | #[fg=$color_red] "
-set -g @pomodoro_complete " | #[fg=$color_green] "
+tmux set -g @pomodoro_on " | #[fg=$color_red] "
+tmux set -g @pomodoro_complete " | #[fg=$color_green] "
 
 # tmux-battery
-set -g @batt_icon_charge_tier8 ""
-set -g @batt_icon_charge_tier7 ""
-set -g @batt_icon_charge_tier6 ""
-set -g @batt_icon_charge_tier5 ""
-set -g @batt_icon_charge_tier4 ""
-set -g @batt_icon_charge_tier3 ""
-set -g @batt_icon_charge_tier2 ""
-set -g @batt_icon_charge_tier1 ""
-set -g @batt_icon_status_charged " "
-set -g @batt_icon_status_charging "  "
-set -g @batt_icon_status_discharging " "
-set -g @batt_icon_status_attached " "
-set -g @batt_icon_status_unknown " "
-set -g @batt_remain_short true
+tmux set -g @batt_icon_charge_tier8 ""
+tmux set -g @batt_icon_charge_tier7 ""
+tmux set -g @batt_icon_charge_tier6 ""
+tmux set -g @batt_icon_charge_tier5 ""
+tmux set -g @batt_icon_charge_tier4 ""
+tmux set -g @batt_icon_charge_tier3 ""
+tmux set -g @batt_icon_charge_tier2 ""
+tmux set -g @batt_icon_charge_tier1 ""
+tmux set -g @batt_icon_status_charged " "
+tmux set -g @batt_icon_status_charging "  "
+tmux set -g @batt_icon_status_discharging " "
+tmux set -g @batt_icon_status_attached " "
+tmux set -g @batt_icon_status_unknown " "
+tmux set -g @batt_remain_short true
 
 #+--- Bars LEFT ---+
 # Session name
