@@ -100,4 +100,5 @@ tmux set -g window-status-format "#[fg=$color_buffer,bg=default,none,dim]   $
 #+--- Bars RIGHT ---+
 # tmux set -g status-right "$cmus_status#[fg=#a9b1d6,bg=#24283B]$netspeed$git_status$wb_git_status$date_and_time"
 # tmux set -g status-right "#[fg=$color_gray]#{battery_icon_charge}  #{battery_percentage}#{battery_icon_status}#{battery_remain} | CPU:#{cpu_percentage}"
-tmux set -g status-right "#[fg=$color_gray,bg=$color_bg] $git_status$wb_git_status$date_and_time"
+# tmux set -g status-right "#[fg=$color_gray,bg=$color_bg] $git_status$wb_git_status$date_and_time"
+tmux set -g status-right "#[fg=$color_gray,bg=$color_bg] $date_and_time"
