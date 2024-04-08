@@ -10,7 +10,9 @@ $kubernetes\
 $aws\
 [](bg:purple fg:orange)\
 $directory\
-[](bg:green fg:purple)\
+[](bg:yellow fg:purple)\
+$python\
+[](bg:green fg:yellow)\
 $git_branch\
 $git_status\
 [ ](fg:green)\
@@ -41,31 +43,31 @@ color_yellow = '#d79921'
 
 [palettes.tokyo_night]
 rosewater = "#c0caf5" # Lighter blue for a soft accent
-flamingo = "#f7768e" # Bright pink/red
-pink = "#bb9af7" # Purple, as Tokyo Night uses various shades of purple
-orange = "#ff9e64" # Brighter orange for contrast
-red = "#f7768e" # Tokyo Night's red
-maroon = "#7aa2f7" # Blue as a substitute for maroon
-peach = "#ff9e64" # Reusing the brighter orange for peach
-yellow = "#e0af68" # Yellow with a bit of an orange tint
-green = "#9ece6a" # Vibrant green
-teal = "#1abc9c" # A teal/cyan color
-sky = "#7aa2f7" # Blue for the sky
-sapphire = "#7aa2f7" # Another shade of blue for sapphire
-blue = "#7aa2f7" # Tokyo Night's signature blue
-lavender = "#bb9af7" # Purple, similar to pink but more subdued
-text = "#c0caf5" # Light blue for text
-subtext1 = "#a9b1d6" # Subdued blue for subtext
-subtext0 = "#9aa5ce" # Even more subdued blue
-overlay2 = "#414868" # Dark blue for overlays
-overlay1 = "#3b4261" # Darker blue for overlays
-overlay0 = "#333a4d" # Even darker blue
-surface2 = "#2a2e3e" # Dark surface color
-surface1 = "#24283b" # Darker surface color
-surface0 = "#1f2335" # Darkest surface color, close to the base
-base = "#1a1b26" # Base color of Tokyo Night, very dark blue
-mantle = "#16161e" # Slightly lighter than base
-crust = "#131419" # Slightly darker than base, for the crust
+flamingo = "#f7768e"  # Bright pink/red
+pink = "#bb9af7"      # Purple, as Tokyo Night uses various shades of purple
+orange = "#ff9e64"    # Brighter orange for contrast
+red = "#f7768e"       # Tokyo Night's red
+maroon = "#7aa2f7"    # Blue as a substitute for maroon
+peach = "#ff9e64"     # Reusing the brighter orange for peach
+yellow = "#e0af68"    # Yellow with a bit of an orange tint
+green = "#9ece6a"     # Vibrant green
+teal = "#1abc9c"      # A teal/cyan color
+sky = "#7aa2f7"       # Blue for the sky
+sapphire = "#7aa2f7"  # Another shade of blue for sapphire
+blue = "#7aa2f7"      # Tokyo Night's signature blue
+lavender = "#bb9af7"  # Purple, similar to pink but more subdued
+text = "#c0caf5"      # Light blue for text
+subtext1 = "#a9b1d6"  # Subdued blue for subtext
+subtext0 = "#9aa5ce"  # Even more subdued blue
+overlay2 = "#414868"  # Dark blue for overlays
+overlay1 = "#3b4261"  # Darker blue for overlays
+overlay0 = "#333a4d"  # Even darker blue
+surface2 = "#2a2e3e"  # Dark surface color
+surface1 = "#24283b"  # Darker surface color
+surface0 = "#1f2335"  # Darkest surface color, close to the base
+base = "#1a1b26"      # Base color of Tokyo Night, very dark blue
+mantle = "#16161e"    # Slightly lighter than base
+crust = "#131419"     # Slightly darker than base, for the crust
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
@@ -159,10 +161,7 @@ format = 'via [$symbol$workspace]($style) '
 symbol = '󱁢'
 style = 'bold 105'
 disabled = false
-detect_extensions = [
-    'tf',
-    'hcl',
-]
+detect_extensions = ['tf', 'hcl']
 detect_files = []
 detect_folders = ['.terraform']
 
@@ -224,10 +223,10 @@ style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
 [python]
-disabled = true
+disabled = false
 symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+style = "bg:yellow"
+format = '[[ $symbol( $version) ](fg:base bg:yellow)]($style)'
 
 [docker_context]
 disabled = true
