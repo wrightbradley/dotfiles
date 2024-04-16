@@ -305,3 +305,7 @@ jira() {
 ukctx() {
   kubectl config unset current-context
 }
+
+ktn() {
+  kubectl drain --ignore-daemonsets --delete-emptydir-data $1
+}
