@@ -1,5 +1,4 @@
 # Python Aliases
-alias freeze='pip freeze > requirements.txt'
 alias cenv='virtualenv venv'
 alias getreqs='pip install -r requirements.txt'
 alias python='python3'
