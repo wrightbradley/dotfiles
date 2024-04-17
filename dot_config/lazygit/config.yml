@@ -73,7 +73,7 @@ customCommands:
     loadingText: "Pushing..."
     description: "Push changes to upstream origin"
   - key: "<c-v>"
-    command: "gh pr view --web"
+    command: "unset GITHUB_TOKEN; gh pr view --web"
     context: "global"
     loadingText: "Opening GH PR..."
     description: "Open GH PR in Browser"
