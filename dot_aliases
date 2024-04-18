@@ -70,6 +70,8 @@ whoip() {
   curl ip-api.com/$1
 }
 
+alias pbcopy='gcopy'
+
 # Misc Functions
 grsub() {
   if [ -z "$1" ]; then
