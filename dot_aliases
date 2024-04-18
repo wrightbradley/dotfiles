@@ -254,7 +254,7 @@ tf () {
 	fi
 }
 
-check-ignore(){
+git-check-ignore(){
   FILE_PATH=$1
   git check-ignore -v "$FILE_PATH"
 }
