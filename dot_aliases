@@ -247,6 +247,8 @@ kdfj() {
   kubectl get job --all-namespaces -o=jsonpath='{range .items[?(@.status.failed==1)]}{.metadata.namespace} {.metadata.name}{"\n"}{end}' | xargs -n 2 kubectl delete job -n
 }
 
+alias terraform='tofu'
+
 tf () {
 	if [ -f terragrunt.hcl ]
 	then
