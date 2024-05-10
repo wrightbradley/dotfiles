@@ -1,6 +1,6 @@
 [".config/nvim"]
   type = "git-repo"
-  url = "git@github.com:wrightbradley/lzvim.git"
+  url = "git@github.com:wrightbradley/nvim.git"
   refreshPeriod = "168h"
 [".config/alacritty/themes"]
   type = "git-repo"
