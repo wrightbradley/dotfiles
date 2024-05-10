@@ -316,3 +316,8 @@ oldman() {
   # source: https://media3.giphy.com/media/LvtKS6f1WatQ4/giphy-downsized.gif?cid=6104955ev42b150we7z0cd8shnoeh02cyopzgojz3uwzy5bn&ep=v1_gifs_translate&rid=giphy-downsized.gif&ct=g
   echo "https://tinyurl.com/3e63z8dz" | pbcopy
 }
+
+brewls() {
+  # https://apple.stackexchange.com/a/438632
+  brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name'
+}
