@@ -16,17 +16,23 @@
   \______(_______;;; __;;;
 ```
 
-Setups and configures various dotfiles, installs packages, and configures the host machine.
-This repo strives to be as declarative and idempotent as possible while keeping configurations up-to-date and in sync across many different hosts.
+Setups and configures various dotfiles, installs packages, and configures the
+host machine. This repo strives to be as declarative and idempotent as possible
+while keeping configurations up-to-date and in sync across many different hosts.
 
-To facilitate these goals, this repo uses [chezmoi](https://www.chezmoi.io/) and [ansible](https://docs.ansible.com/ansible/latest/getting_started/index.html).
+To facilitate these goals, this repo uses [chezmoi](https://www.chezmoi.io/) and
+[ansible](https://docs.ansible.com/ansible/latest/getting_started/index.html).
 
 ## To Execute
 
-You need to create a chezmoi config file under the XDG Base Directory. For macOS, that would be: `~/.config/chezmoi/`
-Chezmoi supports different [file formats](https://www.chezmoi.io/reference/configuration-file/), but I currently use TOML.
+You need to create a chezmoi config file under the XDG Base Directory. For
+macOS, that would be: `~/.config/chezmoi/` Chezmoi supports different
+[file formats](https://www.chezmoi.io/reference/configuration-file/), but I
+currently use TOML.
 
-My config file for chezmoi is pretty simple. There are a few unique components related to GPG encryption support for chezmoi. (NOTE: replace the example email address with the correct email address used for the GPG keys)
+My config file for chezmoi is pretty simple. There are a few unique components
+related to GPG encryption support for chezmoi. (NOTE: replace the example email
+address with the correct email address used for the GPG keys)
 
 ```toml
 encryption = "gpg"
@@ -48,7 +54,8 @@ ghuser = "wrightbradley"
 hwkey = "0xABCDEF1234567XYZ"
 ```
 
-With this config in place, you can then install chezmoi and use your GitHub dotfiles repo to bootstrap a new machine:
+With this config in place, you can then install chezmoi and use your GitHub
+dotfiles repo to bootstrap a new machine:
 
 ```bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
