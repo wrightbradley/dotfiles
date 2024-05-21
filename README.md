@@ -49,7 +49,9 @@ recipient = "me@example.com"
 command = "pinentry"
 
 [data]
-recipient = "me@example.com"
+system = "person"
+email_work = "me@work.com"
+email_personal = "me@personal.com"
 ghuser = "wrightbradley"
 hwkey = "0xABCDEF1234567XYZ"
 ```
@@ -84,6 +86,11 @@ skhd --start-service
 ```
 
 ## TODO
+
+```bash
+brew info --json=v2 --installed \
+    | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name'
+```
 
 ```brew
 ansible
@@ -283,4 +290,52 @@ zlib
 zoxide
 zsh
 zsh-vi-mode
+```
+
+### Homebrew Casks
+
+```bash
+brew list --cask
+```
+
+```brew
+alacritty
+anytype
+authy
+backblaze
+bartender
+blackhole-2ch
+discord
+elgato-camera-hub
+elgato-control-center
+elgato-stream-deck
+elgato-wave-link
+firefox
+font-caskaydia-cove-nerd-font
+font-droid-sans-mono-nerd-font
+font-fira-code-nerd-font
+font-hack-nerd-font
+font-symbols-only-nerd-font
+google-cloud-sdk
+handbrake
+iterm2
+keycastr
+keymapp
+lens
+logi-options-plus
+logitech-options
+logseq
+microsoft-teams
+noto
+obs
+obsidian
+parallels-toolbox
+rancher
+signal
+spotify
+tailscale
+todoist
+visual-studio-code
+vlc
+zoom
 ```
