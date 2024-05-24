@@ -1,21 +1,20 @@
 ---
 # Setup Var Flags
-setup_aliases: True
-setup_brew: True
-setup_bash: True
-setup_chromebook: False
-setup_color: True
-setup_fonts: True
-setup_git: False
-setup_icons: True
-setup_system: True
-setup_python: False
-setup_screen: False
-setup_tmux: False
-setup_vim: False
-setup_vscode: False
-setup_zsh: True
-install_ycm: False
+setup_aliases: true
+setup_brew: true
+setup_bash: true
+setup_color: true
+setup_fonts: true
+setup_git: true
+setup_icons: true
+setup_system: true
+setup_python: false
+setup_tmux: true
+setup_vim: true
+setup_vscode: true
+setup_zsh: true
+setup_starship: true
+setup_nvim: true
 
 # Configure shell rc files
 linuxbrew_init_shell: false
