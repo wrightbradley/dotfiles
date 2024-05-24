@@ -1,3 +1,6 @@
 LICENSE
 README.md
 ansible
+{{- if ne .system "work" }}
+.work-aliases
+{{- end }}
