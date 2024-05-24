@@ -1,63 +1,184 @@
 #!/bin/bash
 
-# https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-dotfiles-for-codespaces
+set -Eeuo pipefail
 
-# https://packaging.python.org/guides/installing-using-linux-tools/
-echo "Install pip"
-if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release >/dev/null 2>&1)" ]; then
-	sudo apt-get update
-	sudo apt-get -y install python3-pip
-fi
+trap cleanup SIGINT SIGTERM ERR EXIT
+[[ ! -x "$(command -v date)" ]] && echo "💥 date command not found." && exit 1
 
-if [ "$(grep -Ei 'fedora|redhat' /etc/*release >/dev/null 2>&1)" ]; then
-	sudo dnf install python3-pip python3-wheel
-fi
+# export initial variables
+export_metadata() {
+	export TODAY=$(date +"%Y-%m-%d")
 
-if [[ $OSTYPE == 'darwin'* ]]; then
-	# Check if xcode is installed as it is needed for python3 support
-	if [ "$(xcode-select -p >/dev/null 2>&1)" ]; then
-		echo "Install xcode"
-		xcode-select --install
+	if [ -f /etc/os-release ]; then
+		. /etc/os-release
+		case "$ID" in
+		debian | ubuntu | linuxmint)
+			log "This system is Debian-based."
+			export SYSTEM="debian"
+            export PATH="$HOME/linuxbrew/.linuxbrew/bin:$PATH"
+			;;
+		fedora | centos | rhel)
+			log "This system is RHEL-based."
+			export SYSTEM="rhel"
+            export PATH="$HOME/linuxbrew/.linuxbrew/bin:$PATH"
+			;;
+		*)
+			die "This system's distribution is not identified by this script."
+			;;
+		esac
+	elif [[ "$(uname)" == "Darwin" ]]; then
+		log "This system is Darwin-based (macOS)."
+		export SYSTEM="darwin"
+        export PATH="/opt/homebrew/bin:$PATH"
+	else
+		die "This system's distribution is not identified by this script."
+	fi
+}
+
+# help text
+usage() {
+	cat <<EOF
+Usage: bootstrap.sh [-h] [-v]
+
+This script will set up dependencies and run ansible to configure the system.
+
+Available options:
+
+-h, --help                Print this help and exit
+
+-v, --verbose             Print script debug info
+
+EOF
+	exit
+}
+
+# Parse command line args and set flags accordingly
+parse_params() {
+	while :; do
+		case "${1-}" in
+		-h | --help) usage ;;
+		-v | --verbose) set -x ;;
+		-?*) die "Unknown option: $1" ;;
+		*) break ;;
+		esac
+		shift
+	done
+
+	log "Starting up..."
+
+	return 0
+}
+
+# verify that system dependancies are in-place
+verify_deps() {
+	log "Checking for required utilities..."
+	[[ ! -x "$(command -v python3)" ]] && log "python3 is not installed." && install_system_deps python3
+	[[ ! -x "$(command -v pip3)" ]] && log "pip3 is not installed." && install_system_deps pip3
+	[[ ! -x "$(command -v git)" ]] && log "git is not installed." && install_system_deps git
+
+	log "All required utilities are installed."
+}
+
+install_system_deps() {
+	MISSING_PACKAGE=$1
+	if [ $SYSTEM == 'debian' ]; then
+		if [ "$MISSING_PACKAGE" == 'python3' ]; then
+			log "Installing python3..."
+			sudo apt-get update && sudo apt-get -y install python3
+		elif [ "$MISSING_PACKAGE" == 'pip3' ]; then
+			log "Installing pip..."
+			sudo apt-get update && sudo apt-get -y install python3-pip
+		elif [ "$MISSING_PACKAGE" == 'git' ]; then
+			log "Installing git..."
+			sudo apt-get update && sudo apt-get -y install git
+		fi
 	fi
 
-	# curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-	# python3 get-pip.py --user
-	sudo pip3 install --upgrade pip
-fi
-
-echo "Install ansible"
-pip3 install --user ansible
-
-git submodule init
-git submodule update --init --recursive --remote
-
-# if [[ $OSTYPE == 'darwin'* ]]; then
-#   export PATH="$HOME/Library/Python/3.10/bin:/opt/homebrew/bin:$PATH"
-# fi
-
-echo "Installing Ansible Galaxy Dependencies"
-ansible-galaxy install -r requirements.yml
-
-echo "BOOTSTRAP RAN" >>$HOME/.config/chezmoi/ansible_bootstrap.log
-
-if [ "$(grep -Ei 'debian|buntu|mint' /etc/*release >/dev/null 2>&1)" ]; then
-	if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
-		ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/codespaces.yml"
+	if [ $SYSTEM == 'rhel' ]; then
+		if [ "$MISSING_PACKAGE" == 'python3' ]; then
+			log "Installing python3..."
+			sudo dnf install python3
+		elif [ "$MISSING_PACKAGE" == 'pip3' ]; then
+			log "Installing pip..."
+			sudo dnf install python3-pip python3-wheel
+		elif [ "$MISSING_PACKAGE" == 'git' ]; then
+			log "Installing git..."
+			sudo dnf install git
+		fi
 	fi
-fi
 
-if [ "$(grep -Ei 'fedora|redhat' /etc/*release >/dev/null 2>&1)" ]; then
-	ansible-playbook -i inventories/personal/inventory main.yml --extra-vars "@vars/rhel.yml" -K
-fi
+	if [ $SYSTEM == 'darwin' ]; then
+		if [ "$MISSING_PACKAGE" == 'python3' ]; then
+			die "macOS is missing python3..."
+		elif [ "$MISSING_PACKAGE" == 'pip3' ]; then
+			die "macOS is missing pip3..."
+		elif [ "$MISSING_PACKAGE" == 'git' ]; then
+			if [ "$(xcode-select -p >/dev/null 2>&1)" ]; then
+				log "Installing git through xcode..."
+				xcode-select --install
+			else
+				die "macOS is missing git..."
+			fi
+		fi
+	fi
+}
 
-if [[ $OSTYPE == 'darwin'* ]]; then
-	wget https://github.com/kcrawford/dockutil/releases/download/3.0.2/dockutil-3.0.2.pkg
-	sudo installer -pkg dockutil-3.0.2.pkg -target /
-	rm -f dockutil-3.0.2.pkg
+init_ansible_deps() {
+	log "Installing ansible..."
+	python3 -m venv /tmp/bootstrap/venv
+	source /tmp/bootstrap/venv/bin/activate
+	pip install ansible-core
+	log "Installing git submodules..."
+	git submodule init
+	git submodule update --init --recursive --remote
+	log "Installing Ansible Galaxy dependencies..."
+	ansible-galaxy install -r requirements.yml
+}
 
-	#   if [[ $(arch) == 'arm64' ]]; then
-	#     sudo softwareupdate --install-rosetta
-	#   fi
+run_ansible_playbook() {
+	if [ $SYSTEM == 'debian' ]; then
+		if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
+			ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/codespaces.yml"
+		fi
+	fi
+	if [ $SYSTEM == 'rhel' ]; then
+		ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/rhel.yml" -K
+	fi
+	if [ $SYSTEM == 'darwin' ]; then
+		ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/darwin.yml" -K
+	fi
+}
 
-	ansible-playbook -i inventory.txt main.yml --extra-vars "@vars/darwin.yml" -K
-fi
+# Cleanup folders we created
+cleanup() {
+	trap - SIGINT SIGTERM ERR EXIT
+	# if [ -n "${TMP_DIR+x}" ]; then
+	# 	#rm -rf "${TMP_DIR}"
+	# 	#rm -rf "${BUILD_DIR}"
+	# 	log "Deleted temporary working directory ${TMP_DIR}"
+	# fi
+}
+
+# Logging method
+log() {
+	echo >&2 -e "[$(date +"%Y-%m-%d %H:%M:%S")] ${1-}"
+}
+
+# kill on error
+die() {
+	local MSG=$1
+	local CODE=${2-1} # Bash parameter expansion - default exit status 1. See https://wiki.bash-hackers.org/syntax/pe#use_a_default_value
+	log "${MSG}"
+	exit "${CODE}"
+}
+
+main() {
+	export_metadata
+	parse_params "$@"
+	verify_deps
+	init_ansible_deps
+	run_ansible_playbook
+	cleanup
+}
+
+main "$@"

@@ -1,12 +1,11 @@
 ---
-roles:
-  - name: elliotweiser.osx-command-line-tools
-  - name: geerlingguy.pip # https://galaxy.ansible.com/geerlingguy/pip
-  - name: gantsign.golang # https://galaxy.ansible.com/gantsign/golang
-
+# https://github.com/geerlingguy/ansible-collection-mac
+# https://github.com/geerlingguy/mac-dev-playbook/blob/master/default.config.yml
 collections:
   - name: geerlingguy.mac
+    version: ">=4"
   - name: kubernetes.core
+    version: ">=3"
   - name: community.general
-  # https://github.com/geerlingguy/ansible-collection-mac
-  # https://github.com/geerlingguy/mac-dev-playbook/blob/master/default.config.yml
+    # version: ">=9"
+    version: "8.4.0"

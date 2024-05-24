@@ -4,8 +4,7 @@
     repo: "git@github.com:wrightbradley/{{ item }}.git"
     dest: "~/Projects/code/{{ item }}"
     version: HEAD
-    accept_hostkey: yes
+    accept_hostkey: true
   loop:
     - dotfiles
-    - itdad
-  ignore_errors: True
+    - nvim

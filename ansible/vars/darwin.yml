@@ -326,6 +326,7 @@ homebrew_cask_apps:
   - spotify
   - tailscale
   - vlc
+  - visual-studio-code
   - zoom
 
 mas_installed_apps:

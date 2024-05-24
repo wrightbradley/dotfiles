@@ -60,8 +60,6 @@
     - IBM.output-colorizer
     - PKief.material-icon-theme
     - PatrykPeszko.vscode-proselint
-    - Pivotal.vscode-boot-dev-pack
-    - Pivotal.vscode-spring-boot
     - Sebbia.jsonnetng
     - Tchoupinax.tilt
     - VSpaceCode.whichkey
@@ -77,7 +75,7 @@
     - bierner.markdown-mermaid
     - bradlc.vscode-tailwindcss
     - eamodio.gitlens
-    - errata-ai.vale-server
+    # - errata-ai.vale-server
     - esbenp.prettier-vscode
     - exiasr.hadolint
     - fabiospampinato.vscode-monokai-night
@@ -102,7 +100,7 @@
     - ms-vscode.cmake-tools
     - ms-vsliveshare.vsliveshare
     - ms-vsliveshare.vsliveshare-audio
-    - ms-vsliveshare.vsliveshare-pack
+    # - ms-vsliveshare.vsliveshare-pack
     - mtxr.sqltools
     - njpwerner.autodocstring
     - pnp.polacode
@@ -123,7 +121,7 @@
     - timonwong.shellcheck
     - tsandall.opa
     - twxs.cmake
-    - vangware.dark-plus-material
+    # - vangware.dark-plus-material
     - vscjava.vscode-java-debug
     - vscjava.vscode-java-dependency
     - vscjava.vscode-java-pack
@@ -146,23 +144,23 @@
 #     - settings.json
 #   tags: pm
 
-- name: Check if VS Code project-manager directory exists
-  stat:
-    path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
-  register: pm_state
-
-- name: Create VS Code globalStorage directory
-  file:
-    path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
-    state: directory
-    mode: "0755"
-  when: not pm_state.stat.exists
-
-- name: Copy VS Code Project Manager File
-  template:
-    src: "vscode/project-manager/projects.json.j2"
-    dest: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager/projects.json"
-    mode: "0644"
+# - name: Check if VS Code project-manager directory exists
+#   stat:
+#     path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
+#   register: pm_state
+#
+# - name: Create VS Code globalStorage directory
+#   file:
+#     path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
+#     state: directory
+#     mode: "0755"
+#   when: not pm_state.stat.exists
+#
+# - name: Copy VS Code Project Manager File
+#   template:
+#     src: "vscode/project-manager/projects.json.j2"
+#     dest: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager/projects.json"
+#     mode: "0644"
 
 - name: Add Helm repos
   kubernetes.core.helm_repository:
@@ -173,48 +171,26 @@
     - { name: "harbor", url: "https://helm.goharbor.io" }
     - { name: "fairwinds-stable", url: "https://charts.fairwinds.com/stable" }
     - { name: "kiali", url: "https://kiali.org/helm-charts" }
-    - {
-        name: "prometheus-community",
-        url: "https://prometheus-community.github.io/helm-charts",
-      }
+    - { name: "prometheus-community", url: "https://prometheus-community.github.io/helm-charts"}
     - { name: "kubecost", url: "https://kubecost.github.io/cost-analyzer/" }
     - { name: "grafana", url: "https://grafana.github.io/helm-charts" }
     - { name: "oauth2-proxy", url: "https://oauth2-proxy.github.io/manifests" }
     - { name: "dandydev", url: "https://dandydeveloper.github.io/charts" }
     - { name: "pomerium", url: "https://helm.pomerium.io" }
-    - {
-        name: "prometheus-community",
-        url: "https://prometheus-community.github.io/helm-charts",
-      }
+    - { name: "prometheus-community", url: "https://prometheus-community.github.io/helm-charts" }
     - { name: "sorry-cypress", url: "https://sorry-cypress.github.io/charts" }
     - { name: "zooz", url: "https://zooz.github.io/helm/" }
     - { name: "kedacore", url: "https://kedacore.github.io/charts" }
     - { name: "deliveryhero", url: "https://charts.deliveryhero.io/" }
     - { name: "eks", url: "https://aws.github.io/eks-charts" }
-    - {
-        name: "sealed-secrets",
-        url: "https://bitnami-labs.github.io/sealed-secrets",
-      }
-    - {
-        name: "aws-ebs-csi-driver",
-        url: "https://kubernetes-sigs.github.io/aws-ebs-csi-driver",
-      }
-    - {
-        name: "descheduler",
-        url: "https://kubernetes-sigs.github.io/descheduler/",
-      }
-    - {
-        name: "metrics-server",
-        url: "https://kubernetes-sigs.github.io/metrics-server/",
-      }
+    - { name: "sealed-secrets", url: "https://bitnami-labs.github.io/sealed-secrets"}
+    - { name: "aws-ebs-csi-driver", url: "https://kubernetes-sigs.github.io/aws-ebs-csi-driver"}
+    - { name: "descheduler", url: "https://kubernetes-sigs.github.io/descheduler/"}
+    - { name: "metrics-server", url: "https://kubernetes-sigs.github.io/metrics-server/"}
     - { name: "bitnami", url: "https://charts.bitnami.com/bitnami" }
-    - {
-        name: "deepfence",
-        url: "https://deepfence-helm-charts.s3.amazonaws.com/threatmapper",
-      }
+    - { name: "deepfence", url: "https://deepfence-helm-charts.s3.amazonaws.com/threatmapper"}
   tags: helm
 
 - name: Run helm repo update
   command: helm repo update
   tags: helm
-
