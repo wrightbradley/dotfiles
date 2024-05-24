@@ -9,7 +9,6 @@ setup_git: true
 setup_icons: true
 setup_system: true
 setup_python: false
-setup_screen: true
 setup_tmux: true
 setup_vim: true
 setup_vscode: true
@@ -25,6 +24,7 @@ dockitems_remove:
   - Calendar
   - Contacts
   - FaceTime
+  - Freeform
   - Launchpad
   - Maps
   - Messages
@@ -42,43 +42,49 @@ dockitems_persist:
   - name: "Google Chrome"
     path: "/Applications/Google Chrome.app/"
     pos: 1
-  - name: "iTerm"
-    path: "/Applications/iTerm.app/"
+  - name: "Alacritty"
+    path: "/Applications/Alacritty.app/"
     pos: 2
-  - name: "Visual Studio Code"
-    path: "/Applications/Visual Studio Code.app/"
-    pos: 3
   - name: "Slack"
     path: "/Applications/Slack.app/"
-    pos: 4
+    pos: 3
   - name: "Mail"
     path: "/Applications/Mail.app/"
-    pos: 5
+    pos: 4
 
 homebrew_installed_packages:
+  - agg
+  - ankitpokhrel/jira-cli/jira-cli
   - ansible
   - ansible-lint
   - ant
+  - aquasecurity/trivy/trivy
   - argo
   - argocd
+  - asciinema
   - asdf
   - asitop
-  # - asciidoctor
+  - autoconf-archive
+  - autogen
+  - automake
   - aws-iam-authenticator
+  - aws/tap/ec2-instance-selector
+  - aws/tap/eks-node-viewer
   - awscli
   - bash
-  - { name: bash-completion, install_options: "force" }
+  - bash-completion
   - bitwarden-cli
-  - oven-sh/bun/bun
-  # - black
+  - bzip2
   - cdk8s
-  - miniscruff/changie/changie
+  - charmbracelet/tap/freeze
   - chart-testing
   - checkov
   - chezmoi
+  - cirruslabs/cli/tart
   - cli53
-  - cmake
+  - cmctl
   - codespell
+  - colima
   - colordiff
   - container-diff
   - cookiecutter
@@ -86,28 +92,30 @@ homebrew_installed_packages:
   - cue
   - curl
   - cypher-shell
+  - derailed/popeye/popeye
   - detect-secrets
   - direnv
   - dive
-  - docker
+  - { name: docker, install_options: "formula" }
   - docker-credential-helper
   - docker-credential-helper-ecr
   - docker-slim
+  - dockutil
   - dos2unix
-  - earthly/earthly/earthly
-  - aws/tap/ec2-instance-selector
-  - aws/tap/eks-node-viewer
   - eksctl
   - entr
+  - eslint
   - expect
   - eza
   - faas-cli
+  - fairwindsops/tap/nova
+  - fairwindsops/tap/polaris
   - fd
   - ffmpeg
-  - charmbracelet/tap/freeze
+  - flake8
   - fzf
-  - theden/gcopy/gcopy
   - gh
+  - gifsicle
   - gifski
   - git
   - git-cliff
@@ -120,58 +128,70 @@ homebrew_installed_packages:
   - go
   - go-jsonnet
   - goreleaser/tap/goreleaser
+  - gradle
+  - grafana
   - grafana-agent
   - grep
   - grpcurl
+  - gstreamer
   - hadolint
   - helm
-  - norwoodj/tap/helm-docs
-  - hey
+  - { name: hey, install_options: "formula" }
+  - hidapi
   - hopenpgp-tools
   - htop
   - httrack
   - iperf3
+  - jdupes
   - jinja2-cli
-  - ankitpokhrel/jira-cli/jira-cli
   - jq
   - jsonnet-bundler
-  - mike-engel/jwt-cli/jwt-cli
   - k2tf
   - k3d
+  - k3sup
   - k9s
+  - koekeishiya/formulae/skhd
+  - koekeishiya/formulae/yabai
   - krew
   - kube-linter
   - kube-ps1
   - kubeconform
   - kubectx
   - kubernetes-cli
-  - kubescape
   - kubescape/tap/kubescape-cli
-  - kubernetes-helm
   - kubeseal
-  - kubeval
   - kustomize
   - kwok
   - lazygit
+  - libfido2
+  - libpq
+  - lindell/multi-gitter/multi-gitter
   - logcli
   - luarocks
   - make
+  - mas
+  - maven
+  - mike-engel/jwt-cli/jwt-cli
   - mimirtool
   - minikube
   - mosh
   - mtr
-  - lindell/multi-gitter/multi-gitter
   - mysql-client
   - ncurses
   - neofetch
   - neomutt
   - neovim
   - nmap
-  - fairwindsops/tap/nova
+  - node
+  - norwoodj/tap/helm-docs
   - nvm
+  - openjdk
   - openssh
   - openssl@3
+  - ossp-uuid
   - osx-cpu-temp
+  - oven-sh/bun/bun
+  - packer
   - pandoc
   - parallel
   - pdm
@@ -180,15 +200,16 @@ homebrew_installed_packages:
   - pinentry-mac
   - pipenv
   - pngpaste
-  - fairwindsops/tap/polaris
+  - poetry
   - popeye
-  - postgresql
+  - postgresql@14
   - pre-commit
   - prettier
   - proselint
   - pwgen
   - pyenv
   - pyenv-virtualenv
+  - pyyaml
   - readline
   - rename
   - ripgrep
@@ -196,25 +217,26 @@ homebrew_installed_packages:
   - ruby
   - rust
   - rye
+  - screen
   - shellcheck
   - shfmt
   - skaffold
-  - koekeishiya/formulae/skhd
   - skopeo
-  - spark
+  - socat
+  - { name: spark, install_options: "formula" }
   - sqlite
   - starship
   - stern
   - stylua
   - tcl-tk
-  - veeso/termscp/termscp
   - terraform
   - terraform-docs
   - terragrunt
   - terrascan
   - tflint
   - tfsec
-  - tilt
+  - theden/gcopy/gcopy
+  - tilt-dev/tap/tilt
   - tmux
   - tree
   - trippy
@@ -222,6 +244,7 @@ homebrew_installed_packages:
   - uv
   - vale
   - vcluster
+  - veeso/termscp/termscp
   - velero
   - vhs
   - vim
@@ -230,11 +253,12 @@ homebrew_installed_packages:
   - whois
   - wireguard-tools
   - xz
-  - koekeishiya/formulae/yabai
   - yamlfmt
   - yamllint
+  - yapf
   - yarn
   - ykman
+  - ykpers
   - yq
   - yubikey-personalization
   - zlib
@@ -243,23 +267,23 @@ homebrew_installed_packages:
   - zsh-vi-mode
 
 homebrew_taps:
+  - ankitpokhrel/jira-cli
   - aquasecurity/trivy
-  - argoproj/tap
   - aws/tap
-  - dbcli/tap
-  - derailed/k9s
+  - charmbracelet/tap
+  - cirruslabs/cli
   - derailed/popeye
-  - earthly/earthly
-  - hashicorp/tap
-  - homebrew/cask
-  - homebrew/cask-drivers
-  - homebrew/cask-versions
-  - homebrew/core
-  - instrumenta/instrumenta
-  - int128/kubelogin
+  - fairwindsops/tap
+  - goreleaser/tap
+  - koekeishiya/formulae
+  - kubescape/tap
+  - lindell/multi-gitter
   - mike-engel/jwt-cli
-  - tektoncd/tools
+  - norwoodj/tap
+  - oven-sh/bun
+  - theden/gcopy
   - tilt-dev/tap
+  - veeso/termscp
   - weaveworks/tap
 
 # TODO: add yubikey, propresenter, logitech, atem mini apps
@@ -270,41 +294,39 @@ homebrew_cask_apps:
   - backblaze
   - balenaetcher
   - bartender
+  - blackhole-2ch
   - discord
   - disk-inventory-x
-  #- bitwarden # use the App store version
-  - { name: elgato-camera-hub }
-  - { name: elgato-control-center }
-  - { name: elgato-stream-deck }
-  - { name: elgato-wave-link }
+  - elgato-camera-hub
+  - elgato-control-center
+  - elgato-stream-deck
+  - elgato-wave-link
   - firefox
+  - font-caskaydia-cove-nerd-font
+  - font-droid-sans-mono-nerd-font
+  - font-fira-code-nerd-font
+  - font-hack-nerd-font
+  - font-jetbrains-mono-nerd-font
+  - font-symbols-only-nerd-font
   - google-chrome
   - google-cloud-sdk
   - handbrake
   - hiddenbar
-  - homebrew/cask-fonts/font-caskaydia-cove-nerd-font
-  - homebrew/cask-fonts/font-droid-sans-mono-nerd-font
-  - homebrew/cask-fonts/font-fira-code-nerd-font
-  - homebrew/cask-fonts/font-hack-nerd-font
-  - homebrew/cask-fonts/font-jetbrains-mono-nerd-font
   - iterm2
   - keycastr
+  - keymapp
   - lens
-  - { name: logitech-options }
-  - microsoft-teams
-  - parallels
-  - parallels-toolbox
+  - logi-options-plus
+  - obs
+  - obsidian
   - rancher
   - raspberry-pi-imager
-  - slack
   - signal
+  - slack
   - spotify
   - tailscale
-  - ticktick
-  - visual-studio-code
   - vlc
   - zoom
-  # - wireshark # requires Rosetta 2
 
 mas_installed_apps:
   - { id: 441258766, name: "Magnet (2.6.0)" }
