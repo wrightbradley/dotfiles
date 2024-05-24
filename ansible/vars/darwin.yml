@@ -1,23 +1,21 @@
 ---
 # Setup Var Flags
-setup_aliases: True
-setup_brew: True
-setup_bash: True
-setup_chromebook: False
-setup_color: True
-setup_fonts: True
-setup_git: True
-setup_icons: True
-setup_system: True
-setup_python: False
-setup_screen: True
-setup_tmux: True
-setup_vim: True
-setup_vscode: True
-setup_zsh: True
-install_ycm: True
-setup_starship: True
-setup_nvim: True
+setup_aliases: true
+setup_brew: true
+setup_bash: true
+setup_color: true
+setup_fonts: true
+setup_git: true
+setup_icons: true
+setup_system: true
+setup_python: false
+setup_screen: true
+setup_tmux: true
+setup_vim: true
+setup_vscode: true
+setup_zsh: true
+setup_starship: true
+setup_nvim: true
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
@@ -63,37 +61,57 @@ homebrew_installed_packages:
   - ant
   - argo
   - argocd
-  - asciidoctor
+  - asdf
+  - asitop
+  # - asciidoctor
   - aws-iam-authenticator
   - awscli
   - bash
   - { name: bash-completion, install_options: "force" }
   - bitwarden-cli
-  - black
+  - oven-sh/bun/bun
+  # - black
   - cdk8s
+  - miniscruff/changie/changie
+  - chart-testing
+  - checkov
   - chezmoi
   - cli53
   - cmake
   - codespell
   - colordiff
   - container-diff
+  - cookiecutter
   - coreutils
+  - cue
+  - curl
+  - cypher-shell
+  - detect-secrets
+  - direnv
   - dive
+  - docker
+  - docker-credential-helper
   - docker-credential-helper-ecr
   - docker-slim
   - dos2unix
-  - earthly
-  - ec2-instance-selector
+  - earthly/earthly/earthly
+  - aws/tap/ec2-instance-selector
+  - aws/tap/eks-node-viewer
   - eksctl
   - entr
-  - exa
   - expect
+  - eza
   - faas-cli
   - fd
-  - flake8
+  - ffmpeg
+  - charmbracelet/tap/freeze
   - fzf
+  - theden/gcopy/gcopy
   - gh
+  - gifski
   - git
+  - git-cliff
+  - git-xargs
   - glances
   - glow
   - gnu-sed
@@ -101,91 +119,128 @@ homebrew_installed_packages:
   - gnutls
   - go
   - go-jsonnet
-  - gradle
+  - goreleaser/tap/goreleaser
+  - grafana-agent
+  - grep
   - grpcurl
   - hadolint
   - helm
+  - norwoodj/tap/helm-docs
   - hey
   - hopenpgp-tools
   - htop
   - httrack
   - iperf3
   - jinja2-cli
+  - ankitpokhrel/jira-cli/jira-cli
   - jq
-  - jwt-cli
+  - jsonnet-bundler
+  - mike-engel/jwt-cli/jwt-cli
+  - k2tf
+  - k3d
   - k9s
   - krew
   - kube-linter
   - kube-ps1
+  - kubeconform
   - kubectx
   - kubernetes-cli
+  - kubescape
+  - kubescape/tap/kubescape-cli
   - kubernetes-helm
   - kubeseal
   - kubeval
   - kustomize
+  - kwok
   - lazygit
-  - maven
+  - logcli
+  - luarocks
+  - make
+  - mimirtool
+  - minikube
   - mosh
   - mtr
+  - lindell/multi-gitter/multi-gitter
   - mysql-client
+  - ncurses
   - neofetch
-  - { name: neovim, install_options: "HEAD" }
+  - neomutt
+  - neovim
   - nmap
-  - node
-  - openjdk
+  - fairwindsops/tap/nova
+  - nvm
   - openssh
-  - packer
+  - openssl@3
+  - osx-cpu-temp
+  - pandoc
+  - parallel
   - pdm
   - perl
   - pgcli
   - pinentry-mac
-  - poetry
-  - poetry
+  - pipenv
+  - pngpaste
+  - fairwindsops/tap/polaris
   - popeye
   - postgresql
   - pre-commit
   - prettier
   - proselint
+  - pwgen
   - pyenv
-  - pylint
-  - python@3.8
+  - pyenv-virtualenv
+  - readline
   - rename
   - ripgrep
   - rsync
   - ruby
   - rust
-  - screen
+  - rye
   - shellcheck
   - shfmt
   - skaffold
+  - koekeishiya/formulae/skhd
+  - skopeo
+  - spark
   - sqlite
   - starship
   - stern
+  - stylua
+  - tcl-tk
+  - veeso/termscp/termscp
   - terraform
   - terraform-docs
+  - terragrunt
   - terrascan
   - tflint
   - tfsec
   - tilt
   - tmux
   - tree
+  - trippy
   - trivy
+  - uv
   - vale
-  - vault
+  - vcluster
+  - velero
+  - vhs
   - vim
   - watch
   - wget
   - whois
   - wireguard-tools
+  - xz
+  - koekeishiya/formulae/yabai
   - yamlfmt
   - yamllint
-  - yapf
   - yarn
   - ykman
   - yq
   - yubikey-personalization
+  - zlib
   - zoxide
   - zsh
+  - zsh-vi-mode
 
 homebrew_taps:
   - aquasecurity/trivy
@@ -226,6 +281,7 @@ homebrew_cask_apps:
   - google-chrome
   - google-cloud-sdk
   - handbrake
+  - hiddenbar
   - homebrew/cask-fonts/font-caskaydia-cove-nerd-font
   - homebrew/cask-fonts/font-droid-sans-mono-nerd-font
   - homebrew/cask-fonts/font-fira-code-nerd-font
@@ -255,8 +311,8 @@ mas_installed_apps:
   - { id: 682658836, name: "GarageBand (10.4.4)" }
   - { id: 1352778147, name: "Bitwarden (1.29.1)" }
   - { id: 1319778037, name: "iStat Menus (6.60)" }
-  - { id: 966085870, name: "TickTick (4.0.21)" }
-  - { id: 1451685025, name: "WireGuard (1.0.15)" }
-  - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
-  - { id: 1176895641, name: "Spark (2.11.6)" }
-  - { id: 446243721, name: "Disk Space Analyzer Free  (3.6.3)" }
+  # - { id: 966085870, name: "TickTick (4.0.21)" }
+  # - { id: 1451685025, name: "WireGuard (1.0.15)" }
+  # - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
+  # - { id: 1176895641, name: "Spark (2.11.6)" }
+  # - { id: 446243721, name: "Disk Space Analyzer Free  (3.6.3)" }
