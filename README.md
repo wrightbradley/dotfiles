@@ -325,3 +325,21 @@ visual-studio-code
 vlc
 zoom
 ```
+
+### Fix Bash PS1
+
+```bash
+bash: _kube_ps1_update_cache: command not found
+bash: __git_ps1: command not found
+bash: __git_ps1: command not found
+bash: __git_ps1: command not found
+bash: __git_ps1: command not found
+bash: kube_ps1: command not found
+bash: __git_ps1: command not found
+```
+
+### Add zsh to shells on linux
+
+```bash
+command -v zsh | sudo tee -a /etc/shells
+```

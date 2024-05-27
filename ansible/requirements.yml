@@ -1,6 +1,8 @@
 ---
 # https://github.com/geerlingguy/ansible-collection-mac
 # https://github.com/geerlingguy/mac-dev-playbook/blob/master/default.config.yml
+roles:
+  - name: ctorgalson.nerdfonts
 collections:
   - name: geerlingguy.mac
     version: ">=4"

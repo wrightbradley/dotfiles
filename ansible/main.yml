@@ -22,9 +22,15 @@
     - name: Change shell
       ansible.builtin.user:
         name: "{{ lookup('env', 'USER') }}"
+        shell: /home/linuxbrew/.linuxbrew/bin/zsh
+      become: true
+      when: setup_zsh and setup_brew and ansible_architecture != "arm64" and ansible_os_family != 'Darwin'
+    - name: Change shell
+      ansible.builtin.user:
+        name: "{{ lookup('env', 'USER') }}"
         shell: /usr/local/bin/zsh
       become: true
-      when: setup_zsh and setup_brew and ansible_architecture != "arm64"
+      when: setup_zsh and setup_brew and ansible_architecture != "arm64" and ansible_os_family == 'Darwin'
     - name: Change shell
       ansible.builtin.user:
         name: "{{ lookup('env', 'USER') }}"
