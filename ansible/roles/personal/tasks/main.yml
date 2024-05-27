@@ -20,15 +20,18 @@
   loop:
     - dotfiles.code-workspace
     - itdad.code-workspace
+  when: ansible_os_family == "Darwin"
 
 # - name: Add SSH key to Apple Keychain
 #   command: "ssh-add --apple-use-keychain ~/.ssh/{{ personal_ssh_key_name }}"
 
 - name: Enable Key Repeat for Vim Functionality in VS Code
   command: defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+  when: ansible_os_family == "Darwin"
 
 - name: Make macOS dock appear faster
   shell: defaults write com.apple.dock autohide-delay -float 0 && killall Dock
+  when: ansible_os_family == "Darwin"
 
 # https://github.com/SchemaStore/schemastore
 - name: Copy Json Schema Definitions
@@ -133,6 +136,7 @@
     - wholroyd.jinja
     - yzhang.markdown-all-in-one
   tags: pm
+  when: ansible_os_family == "Darwin"
 
 # - name: Copy VS Code Settings Files
 #   template:

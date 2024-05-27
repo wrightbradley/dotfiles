@@ -11,14 +11,257 @@ setup_system: true
 setup_python: false
 setup_tmux: true
 setup_vim: true
-setup_vscode: true
+setup_vscode: false
 setup_zsh: true
 setup_starship: true
 setup_nvim: true
 
-# Configure shell rc files
+# Configure linuxbrew
 linuxbrew_init_shell: false
 linuxbrew_user: linuxbrew
 linuxbrew_use_installer: true
 linuxbrew_install_url: "https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
-linuxbrew_install_checksum: "sha256:586d9ddff4c8a3ab0c1e9ab3e26a4cb5e4453fe43970207c215d329531921527"
+linuxbrew_install_checksum: "sha256sum:67b0989bd0a404cdd32c1df20e3fb724b7c278c83a068fd5a16dac6f8d317a79"
+
+homebrew_installed_packages:
+  - agg
+  - ankitpokhrel/jira-cli/jira-cli
+  - ansible
+  - ansible-lint
+  - ant
+  - aquasecurity/trivy/trivy
+  - argo
+  - argocd
+  - asciinema
+  - asdf
+# - asitop
+  - autoconf-archive
+  - autogen
+  - automake
+  - aws-iam-authenticator
+  - aws/tap/ec2-instance-selector
+  - aws/tap/eks-node-viewer
+  - awscli
+  - bash
+# - bash-completion
+  - bitwarden-cli
+  - bzip2
+  - cdk8s
+  - charmbracelet/tap/freeze
+  - chart-testing
+  - checkov
+  - chezmoi
+# - cirruslabs/cli/tart
+  - cli53
+  - cmctl
+  - codespell
+# - colima
+  - colordiff
+  - container-diff
+  - cookiecutter
+  - coreutils
+  - cue
+  - curl
+  - cypher-shell
+  - derailed/popeye/popeye
+  - detect-secrets
+  - direnv
+  - dive
+  - { name: docker, install_options: "formula" }
+  - docker-credential-helper
+  - docker-credential-helper-ecr
+  - docker-slim
+# - dockutil
+  - dos2unix
+  - eksctl
+  - entr
+  - eslint
+  - expect
+  - eza
+  - faas-cli
+  - fairwindsops/tap/nova
+  - fairwindsops/tap/polaris
+  - fd
+  - ffmpeg
+  - flake8
+  - fzf
+  - gh
+  - gifsicle
+  - gifski
+  - git
+  - git-cliff
+  - git-xargs
+  - glances
+  - glow
+  - gnu-sed
+  - gnupg
+  - gnutls
+  - go
+  - go-jsonnet
+  - goreleaser/tap/goreleaser
+  - gradle
+  - grafana
+  - grafana-agent
+  - grep
+  - grpcurl
+  - gstreamer
+  - hadolint
+  - helm
+  - { name: hey, install_options: "formula" }
+  - hidapi
+  - hopenpgp-tools
+  - htop
+  - httrack
+  - iperf3
+  - jdupes
+  - jinja2-cli
+  - jq
+  - jsonnet-bundler
+  - k2tf
+  - k3d
+  - k3sup
+  - k9s
+# - koekeishiya/formulae/skhd
+# - koekeishiya/formulae/yabai
+  - krew
+  - kube-linter
+  - kube-ps1
+  - kubeconform
+  - kubectx
+  - kubernetes-cli
+# - kubescape/tap/kubescape-cli
+  - kubeseal
+  - kustomize
+  - kwok
+  - lazygit
+  - libfido2
+  - libpq
+  - lindell/multi-gitter/multi-gitter
+  - logcli
+  - luarocks
+  - make
+# - mas
+  - maven
+  - mike-engel/jwt-cli/jwt-cli
+  - mimirtool
+  - minikube
+  - mosh
+  - mtr
+  - mysql-client
+  - ncurses
+  - neofetch
+  - neomutt
+  - neovim
+  - nmap
+  - node
+  - norwoodj/tap/helm-docs
+  - nvm
+  - openjdk
+  - openssh
+  - openssl@3
+# - ossp-uuid
+# - osx-cpu-temp
+  - oven-sh/bun/bun
+  - packer
+  - pandoc
+  - parallel
+  - pdm
+  - perl
+  - pgcli
+# - pinentry-mac
+  - pipenv
+# - pngpaste
+  - poetry
+  - popeye
+  - postgresql@14
+  - pre-commit
+  - prettier
+  - proselint
+  - pwgen
+  - pyenv
+  - pyenv-virtualenv
+  - pyyaml
+  - readline
+# - rename
+  - ripgrep
+  - rsync
+  - ruby
+  - rust
+  - rye
+# - screen
+  - shellcheck
+  - shfmt
+  - skaffold
+  - skopeo
+  - socat
+  - { name: spark, install_options: "formula" }
+  - sqlite
+  - starship
+  - stern
+  - stylua
+  - tcl-tk
+  - terraform
+  - terraform-docs
+  - terragrunt
+  - terrascan
+  - tflint
+  - tfsec
+# - theden/gcopy/gcopy
+  - tilt-dev/tap/tilt
+  - tmux
+  - tree
+  - trippy
+  - uv
+  - vale
+  - vcluster
+  - veeso/termscp/termscp
+  - velero
+  - vhs
+  - vim
+  - watch
+  - wget
+  - whois
+  - wireguard-tools
+  - xz
+  - yamlfmt
+  - yamllint
+  - yapf
+  - yarn
+  - ykman
+  - ykpers
+  - yq
+  - yubikey-personalization
+  - zlib
+  - zoxide
+  - zsh
+  - zsh-vi-mode
+
+homebrew_taps:
+  - ankitpokhrel/jira-cli
+  - aquasecurity/trivy
+  - aws/tap
+  - charmbracelet/tap
+  - cirruslabs/cli
+  - derailed/popeye
+  - fairwindsops/tap
+  - goreleaser/tap
+  - koekeishiya/formulae
+  - kubescape/tap
+  - lindell/multi-gitter
+  - mike-engel/jwt-cli
+  - norwoodj/tap
+  - oven-sh/bun
+  - theden/gcopy
+  - tilt-dev/tap
+  - veeso/termscp
+  - weaveworks/tap
+
+nf_user: "bwright"
+nf_group: "{{ nf_user }}"
+nf_single_fonts:
+ - "CascadiaCode/Regular/CaskaydiaCoveNerdFont-Regular.ttf"
+ - "CascadiaCode/Regular/CaskaydiaCoveNerdFont-Italic.ttf"
+ - "CascadiaCode/Regular/CaskaydiaCoveNerdFontMono-Regular.ttf"
+ - "CascadiaCode/Regular/CaskaydiaCoveNerdFontMono-Italic.ttf"
+ - "NerdFontsSymbolsOnly/SymbolsNerdFont-Regular.ttf"
+ - "NerdFontsSymbolsOnly/SymbolsNerdFontMono-Regular.ttf"

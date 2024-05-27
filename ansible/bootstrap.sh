@@ -87,7 +87,7 @@ install_system_deps() {
 			sudo apt-get update && sudo apt-get -y install python3
 		elif [ "$MISSING_PACKAGE" == 'pip3' ]; then
 			log "Installing pip..."
-			sudo apt-get update && sudo apt-get -y install python3-pip
+			sudo apt-get update && sudo apt-get -y install python3-venv
 		elif [ "$MISSING_PACKAGE" == 'git' ]; then
 			log "Installing git..."
 			sudo apt-get update && sudo apt-get -y install git
