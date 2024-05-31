@@ -5,14 +5,18 @@
 # -----------------
 # Zsh configuration
 # -----------------
+
 #
 # History
 #
+
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
+
 #
 # Input/output
 #
+
 # Set editor default keymap to emacs (`-e`) or vi (`-v`)
 bindkey -v
 # Prompt for spelling correction of commands.
@@ -21,48 +25,29 @@ setopt CORRECT
 SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
+
 # -----------------
 # Zim configuration
 # -----------------
-# Use degit instead of git as the default tool to install and update modules.
-#zstyle ':zim:zmodule' use 'degit'
-# --------------------
-# Module configuration
-# --------------------
-#
-# input
-#
-# Append `../` to your input for each `.` you type after an initial `..`
-#zstyle ':zim:input' double-dot-expand yes
-#
-# termtitle
-#
-# Set a custom terminal title format using prompt expansion escape sequences.
-# See http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
-# If none is provided, the default '%n@%m: %~' is used.
-#zstyle ':zim:termtitle' format '%1~'
-#
-# zsh-autosuggestions
-#
+
 # Disable automatic widget re-binding on each precmd. This can be set when
 # zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # Customize the style that the suggestions are shown with.
 # See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
-#
+
 # zsh-syntax-highlighting
-#
 # Set what highlighters will be used.
 # See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
 # Customize the main highlighter styles.
 # See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
 # typeset -A ZSH_HIGHLIGHT_STYLES
 # ZSH_HIGHLIGHT_STYLES[comments]='fg=242'
-# ------------------
+
 # Initialize modules
-# ------------------
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
@@ -74,18 +59,16 @@ if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
         https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
   fi
 fi
+
 # Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
-# Initialize modules.
+
+# Load modules
 source ${ZIM_HOME}/init.zsh
-# ------------------------------
-# Post-init module configuration
-# ------------------------------
-#
+
 # zsh-history-substring-search
-#
 zmodload -F zsh/terminfo +p:terminfo
 # Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
 for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
@@ -93,7 +76,9 @@ for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search
 for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
-# }}} End configuration added by Zim install
+
+###########################################################################################################
+# OH-MY-ZSH CONFIG
 # This is used for profiling the speed of zsh shell loading
 # zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
@@ -160,17 +145,15 @@ unset key
 # bindkey -v
 #
 # source $ZSH/oh-my-zsh.sh
+###########################################################################################################
+
 # User configuration
-if [ ! -d "$HOME/.ssh" ]; then
-  mkdir "$HOME/.ssh"
-  chmod 700 "$HOME/.ssh"
-else
-  chmod 700 "$HOME/.ssh"
-fi
+
 #---- Color Config ----
 # export TERM=alacritty
-export GREP_COLOR='1;33;40'
 # export TERM=xterm-256color
+export GREP_COLOR='1;33;40'
+
 # Base16 Shell
 # BASE16_SHELL="$HOME/.config/base16-shell/"
 # [ -n "$PS1" ] && \
@@ -181,42 +164,33 @@ export GREP_COLOR='1;33;40'
 # if command -v dircolors &> /dev/null; then
 #   test -e ~/.dircolors && eval $(dircolors -b ~/.dircolors)
 # fi
+
 #---- Export ----
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 
 # Homebrew PATH setup
 [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 [[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/curl/include"
-export GOPATH="$HOME/go"
+# export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/curl/include"
+# export GOPATH="$HOME/go"
 export KUBECONFIG="$HOME/.kube/config"
 export LDFLAGS="-L$HOMEBREW_PREFIX/opt/curl/lib"
-export PATH="$GOPATH/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
-export PATH="$HOMEBREW_PREFIX/opt/mysql-client/bin:$PATH"
-# export PATH="$HOMEBREW_PREFIX/lib/python3.12/site-packages:$PATH"
-# export PATH="$HOMEBREW_PREFIX/lib/python3.11/site-packages:$PATH"
-# export PATH="$HOMEBREW_PREFIX/lib/python3.10/site-packages:$PATH"
-# export PATH="$HOMEBREW_PREFIX/lib/python3.9/site-packages:$PATH"
-# export PATH="$HOMEBREW_PREFIX/lib/python3.8/site-packages:$PATH"
-export PATH="$PATH:$HOME/.cargo/bin"
+# export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
+# export PATH="$HOMEBREW_PREFIX/opt/mysql-client/bin:$PATH"
+# export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig"
-export TERRAFORM_BINARY_NAME="tofu"
+# export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig"
+
+# Terraform Completion
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# export TERRAFORM_BINARY_NAME="tofu"
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
@@ -224,17 +198,12 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-  export KUBE_EDITOR='nvim'
-else
-  export EDITOR='nvim'
-  export KUBE_EDITOR='nvim'
-fi
+# Preferred editor
+export EDITOR='nvim'
+export KUBE_EDITOR='nvim'
 
-[[ -f $HOME/_istioctl ]] && export PATH=$PATH:$HOME/.istioctl/bin && source ~/_istioctl
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+# [[ -f $HOME/_istioctl ]] && export PATH=$PATH:$HOME/.istioctl/bin && source ~/_istioctl
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 # export NVM_DIR="$HOME/.nvm"
 #   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -252,7 +221,7 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
 fi
 
-[ -f ~/bin/fubectl.source ] && source ~/bin/fubectl.source
+# [ -f ~/bin/fubectl.source ] && source ~/bin/fubectl.source
 source $HOME/.aliases
 
 # source $(dirname $(gem which colorls))/tab_complete.sh
@@ -269,7 +238,7 @@ source $HOME/.aliases
 #   ZVM_INSERT_MODE_CURSOR=$icur'\e\e]12;red\a'
 #   ZVM_NORMAL_MODE_CURSOR=$ncur'\e\e]12;#008800\a'
 # }
-#---- End Export ----
+
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 gpgconf --launch gpg-agent
@@ -278,11 +247,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 eval "$(direnv hook zsh)"
 
-# Terraform Completion
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+eval "$(zoxide init --cmd cd zsh)"
 
 #---- END CUSTOM ----
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"

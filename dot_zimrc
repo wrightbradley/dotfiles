@@ -1,56 +1,52 @@
-# Start configuration added by Zim install {{{
-#
 # This is not sourced during shell startup, and it's only used to configure the
 # zimfw plugin manager.
 
 #
-#
 # Modules
 #
 
-# Sets sane Zsh built-in environment options.
+# Sets sane Zsh built-in environment options. https://github.com/zimfw/environment
 zmodule environment
-# Provides handy git aliases and functions.
-zmodule git
 # Applies correct bindkeys for input events.
 zmodule input
 # Sets a custom terminal title.
 zmodule termtitle
 # Utility aliases and functions. Adds colour to ls, grep and less.
 zmodule utility
+# Provides archive, unarchive and lsarchive functions for easy archive manipulation based on file extensions. https://github.com/zimfw/archive
+zmodule archive
+# Adds aliases for eza or exa. Also change default blue colors to blue bold (file's date, modified flag in Git).
+# This module must be sourced after the utility module, so this module can override the aliases set by that one.
+# https://github.com/zimfw/exa
+# zmodule exa
+zmodule z-shell/zsh-eza
+# Provides a convenient way to load ssh-agent. This enables one-time login and caching of ssh credentials per session. https://github.com/zimfw/ssh
+zmodule ssh
 
 #
-# Prompt
+# Productivity Modules
 #
 
-# Exposes to prompts how long the last command took to execute, used by asciiship.
-zmodule duration-info
-# Exposes git repository status information to prompts, used by asciiship.
-zmodule git-info
-# Formats the current working directory to be used by prompts.
-zmodule prompt-pwd
-# A heavily reduced, ASCII-only version of the Spaceship and Starship prompts.
-# zmodule asciiship
-# zmodule eriner
-# zmodule joke/zim-starship
-# zmodule spaceship-prompt/spaceship-prompt --name spaceship --no-submodules
-
-#
-# Productivity
-#
-
-# Configures fzf for faster fetching of files and directories names.
+# Provides handy git aliases and functions. https://github.com/zimfw/git
+zmodule git
+# Configures fzf for faster fetching of files and directories names. https://github.com/zimfw/fzf
 zmodule fzf
-# All kubectl aliases in one function.
+# All kubectl aliases in one function. https://github.com/zimfw/k
 zmodule k
-# Adds aliases for Homebrew.
+# Adds aliases for Homebrew. https://github.com/zimfw/homebrew
 zmodule homebrew
 
 #
 # Community Modules
 #
+
+# Sets up github-cli in zsh.
 zmodule joke/zim-github-cli
 zmodule joke/zim-yq
+# Sets up chezmoi in zsh.
+# zmodule joke/zim-chezmoi
+# Sets up starship in zsh.
+# zmodule joke/zim-starship
 
 #
 # Completion
@@ -65,6 +61,7 @@ fi
 
 # Enables and configures smart and extensive tab completion.
 # completion must be sourced after all modules that add completion definitions.
+# https://github.com/zimfw/completion
 zmodule completion
 
 
@@ -80,4 +77,3 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 # Fish-like autosuggestions for Zsh.
 zmodule zsh-users/zsh-autosuggestions
-# }}} End configuration added by Zim install
