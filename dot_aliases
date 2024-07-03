@@ -14,13 +14,8 @@
 # alias lcr='ls -cr'
 # alias lc='ls -c'
 
-# Ensure exa is available
-# if (( ! ${+commands[eza]} )); then
-#   return 1
-# fi
-#
 # export EZA_COLORS='da=1;34:gm=1;34'
-#
+
 # export LS_COLORS='di=34:fi=0:ln=36:pi=33:so=35:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43:'
 
 # Customize LS colors: https://github.com/eza-community/eza/blob/main/man/eza_colors.5.md
@@ -39,6 +34,23 @@ export LS_COLORS="tr=37:tw=37:tx=37;1:$LS_COLORS" # world file permissions
 # alias lk='ll -ssize'          # Long format, largest file size last
 # alias lt='ll -smodified'      # Long format, newest modification time last
 # alias lc='ll -schanged'       # Long format, newest status change (ctime) largest
+
+export EXA_COLORS='da=1;34:gm=1;34'
+
+alias ls='eza --group-directories-first'
+
+if eza --git /dev/null &>/dev/null; then
+  alias ll='ls -l --git'      # Long format, git status
+else
+  alias ll='ls -l'            # Long format
+fi
+
+alias l='ll -a'               # Long format, all files
+alias lr='ll -T'              # Long format, recursive as a tree
+alias lx='ll -sextension'     # Long format, sort by extension
+alias lk='ll -ssize'          # Long format, largest file size last
+alias lt='ll -smodified'      # Long format, newest modification time last
+alias lc='ll -schanged'       # Long format, newest status change (ctime) last
 
 # Navigation Aliases
 alias ..='cd ..'
