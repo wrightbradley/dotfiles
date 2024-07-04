@@ -237,6 +237,7 @@ homebrew_installed_packages:
   - tfsec
   - theden/gcopy/gcopy
   - tilt-dev/tap/tilt
+  - tldr
   - tmux
   - tree
   - trippy
