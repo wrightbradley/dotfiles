@@ -113,6 +113,7 @@ homebrew_installed_packages:
   - fd
   - ffmpeg
   - flake8
+  - fluxcd/tap/flux
   - fzf
   - gh
   - gifsicle
