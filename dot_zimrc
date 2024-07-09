@@ -15,6 +15,11 @@ zmodule termtitle
 zmodule utility
 # Provides archive, unarchive and lsarchive functions for easy archive manipulation based on file extensions. https://github.com/zimfw/archive
 zmodule archive
+# Adds aliases for eza or exa. Also change default blue colors to blue bold (file's date, modified flag in Git).
+# This module must be sourced after the utility module, so this module can override the aliases set by that one.
+# https://github.com/zimfw/exa
+# zmodule exa
+# zmodule z-shell/zsh-eza
 # Provides a convenient way to load ssh-agent. This enables one-time login and caching of ssh credentials per session. https://github.com/zimfw/ssh
 zmodule ssh
 
