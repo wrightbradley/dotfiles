@@ -144,7 +144,8 @@ debug_daemonset() {
   if [ -z "$1" ]; then
     echo "Please provide a Daemonset pod name string value"
   else
-    daemonsetString=$1
+    daemonsetName=$1
+    daemonsetString="$daemonsetName-[^-]+$"
     echo "Checking for Daemonset pods with string: $daemonsetString"
     for node in $(kubectl get nodes --no-headers | awk '{print $1}'); do
       if kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName="$node" --no-headers | awk '{print $2}' | grep -q "$daemonsetString"; then
