@@ -96,6 +96,10 @@ whoip() {
   curl ip-api.com/$1
 }
 
+urldecode() {
+  echo $1 | python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()));"
+}
+
 grsub() {
   if [ -z "$1" ]; then
     echo "Please provide a submodule path/name"
