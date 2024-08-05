@@ -32,7 +32,7 @@ zmodule git
 # Configures fzf for faster fetching of files and directories names. https://github.com/zimfw/fzf
 zmodule fzf
 # All kubectl aliases in one function. https://github.com/zimfw/k
-zmodule k
+# zmodule k
 # Adds aliases for Homebrew. https://github.com/zimfw/homebrew
 zmodule homebrew
 
