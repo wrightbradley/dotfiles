@@ -187,10 +187,12 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="/usr/local/sbin:$PATH"
 # export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig"
 
-# Terraform Completion
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# Terraform Configuration
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # export TERRAFORM_BINARY_NAME="tofu"
+export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
+export TFENV_TERRAFORM_VERSION=1.5.7
 
 # pyenv setup
 export PYENV_ROOT="$HOME/.pyenv"
