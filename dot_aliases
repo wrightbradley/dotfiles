@@ -34,7 +34,7 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
 alias mkdir='mkdir -p'
-alias grep='grep --color=always'
+alias grep='rg'
 alias egrep='egrep --color=always'
 alias cdiff='delta'
 
