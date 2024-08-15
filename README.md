@@ -36,7 +36,7 @@ address with the correct email address used for the GPG keys)
 
 ```toml
 encryption = "gpg"
-pager = "less -R"
+pager = "delta"
 
 [edit]
 command = "nvim"

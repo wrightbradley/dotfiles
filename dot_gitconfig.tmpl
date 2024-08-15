@@ -16,6 +16,22 @@
 [core]
     excludesfile = ~/.gitignore
     editor = nvim
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    # use n and N to move between diff sections
+    navigate = true
+    side-by-side = true
+    diff-so-fancy = true
+    paging-mode = never
+    # https://dandavison.github.io/delta/supported-languages-and-themes.html
+    features = tokyonight_night
+    dark = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [fetch]
     prune = true
 [commit]
@@ -23,7 +39,7 @@
 [rebase]
     updateRefs = true
 [rerere]
-	enabled = true
+    enabled = true
 [include]
     {{- if eq .system "work" }}
     path = ~/.gitconfig.work
