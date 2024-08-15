@@ -10,8 +10,31 @@
 # History
 #
 
+
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
+
+# the detailed meaning of the below three variable can be found in `man zshparam`.
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000   # the number of items for the internal history list
+export SAVEHIST=1000000   # maximum number of items for the history file
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+export HIST_STAMPS="yyyy-mm-dd"
+
+# The meaning of these options can be found in man page of `zshoptions`.
+setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
+setopt HIST_FIND_NO_DUPS # Don't display duplicates when searching the history.
+setopt HIST_IGNORE_ALL_DUPS  # do not put duplicated command into history list
+setopt HIST_IGNORE_DUPS # Don't enter immediate duplicates into the history.
+setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
+setopt HIST_REDUCE_BLANKS  # remove unnecessary blanks
+setopt HIST_SAVE_NO_DUPS  # do not save duplicated command
+setopt HIST_VERIFY # Don't execute the command directly upon history expansion.
+setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY          # Share history between all sessions.
 
 #
 # Input/output
@@ -48,82 +71,12 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # ZSH_HIGHLIGHT_STYLES[comments]='fg=242'
 
 
-###########################################################################################################
-# OH-MY-ZSH CONFIG
-# This is used for profiling the speed of zsh shell loading
-# zmodload zsh/zprof
-# Path to your oh-my-zsh installation.
-# export ZSH=$HOME/.oh-my-zsh
-# This speeds up pasting w/ autosuggest
-# https://github.com/zsh-users/zsh-autosuggestions/issues/238
-# pasteinit() {
-#   OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-#   zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-# }
-# pastefinish() {
-#   zle -N self-insert $OLD_SELF_INSERT
-# }
-# zstyle :bracketed-paste-magic paste-init pasteinit
-# zstyle :bracketed-paste-magic paste-finish pastefinish
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HISTFILE=~/.zsh_history
-# HIST_STAMPS="yyyy-mm-dd"
-# HISTSIZE=10000000
-# SAVEHIST=10000000
-#
-# setopt BANG_HIST              # Treat the '!' character specially during expansion.
-# setopt COMPLETE_IN_WORD
-# setopt CORRECT
-# setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
-# setopt HIST_BEEP              # Beep when accessing nonexistent history.
-# setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
-# setopt HIST_FIND_NO_DUPS      # Do not display a line previously found.
-# setopt HIST_IGNORE_ALL_DUPS   # Delete old recorded entry if new entry is a duplicate.
-# setopt HIST_IGNORE_DUPS       # Don't record an entry that was just recorded again.
-# setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
-# setopt HIST_REDUCE_BLANKS     # Remove superfluous blanks before recording entry.
-# setopt HIST_SAVE_NO_DUPS      # Don't write duplicate entries in the history file.
-# setopt HIST_VERIFY            # Don't execute immediately upon history expansion.
-# setopt IGNORE_EOF
-# setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
-# setopt LOCAL_OPTIONS          # allow functions to have local options
-# setopt LOCAL_TRAPS            # allow functions to have local traps
-# setopt NO_BG_NICE             # don't nice background tasks
-# setopt NO_HUP
-# setopt NO_LIST_BEEP
-# setopt PROMPT_SUBST
-# setopt SHARE_HISTORY          # Share history between all sessions.
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# export NVM_LAZY_LOAD=true
-# export NVM_COMPLETION=true
-# plugins=(git kubectl zsh-autosuggestions zsh-completions zsh-syntax-highlighting history-substring-search zsh-nvm fubectl)
-# autoload -U compinit && compinit
-# ssh-agent plugin setting
-# zstyle :omz:plugins:ssh-agent agent-forwarding on
-# zstyle :omz:plugins:ssh-agent identities bwright-tackle
-# zstyle :omz:plugins:ssh-agent lifetime 8h
-# fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-#
-# bindkey -v
-#
-# source $ZSH/oh-my-zsh.sh
-###########################################################################################################
-
 # User configuration
 
 #---- Color Config ----
 # export TERM=alacritty
 # export TERM=xterm-256color
-export GREP_COLOR='1;33;40'
+# export GREP_COLOR='1;33;40'
 
 # Base16 Shell
 # BASE16_SHELL="$HOME/.config/base16-shell/"
@@ -145,22 +98,15 @@ export GREP_COLOR='1;33;40'
 
 # export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/curl/include"
 # export GOPATH="$HOME/go"
-export KUBECONFIG="$HOME/.kube/config"
-export LDFLAGS="-L$HOMEBREW_PREFIX/opt/curl/lib"
+# export LDFLAGS="-L$HOMEBREW_PREFIX/opt/curl/lib"
 # export PATH="$GOPATH/bin:$PATH"
+
+export KUBECONFIG="$HOME/.kube/config"
 export PATH="$HOME/bin:$PATH"
-# export PATH="$HOMEBREW_PREFIX/opt/curl/bin:$PATH"
-# export PATH="$HOMEBREW_PREFIX/opt/mysql-client/bin:$PATH"
-# export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/bin"
-# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-# export PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/curl/lib/pkgconfig"
 
 # Terraform Configuration
-# autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C /opt/homebrew/bin/terraform terraform
 # export TERRAFORM_BINARY_NAME="tofu"
 export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
 export TFENV_TERRAFORM_VERSION=1.5.7
@@ -174,9 +120,6 @@ eval "$(pyenv virtualenv-init -)"
 # Preferred editor
 export EDITOR='nvim'
 export KUBE_EDITOR='nvim'
-
-# [[ -f $HOME/_istioctl ]] && export PATH=$PATH:$HOME/.istioctl/bin && source ~/_istioctl
-# [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 # export NVM_DIR="$HOME/.nvm"
 #   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -194,8 +137,6 @@ if type rg &> /dev/null; then
   export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
 fi
 
-# [ -f ~/bin/fubectl.source ] && source ~/bin/fubectl.source
-source $HOME/.aliases
 
 # source $(dirname $(gem which colorls))/tab_complete.sh
 # source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
@@ -211,6 +152,51 @@ source $HOME/.aliases
 #   ZVM_INSERT_MODE_CURSOR=$icur'\e\e]12;red\a'
 #   ZVM_NORMAL_MODE_CURSOR=$ncur'\e\e]12;#008800\a'
 # }
+#
+# Generic options and environment settings
+#
+
+# Don't push multiple copies of the same directory to the stack.
+setopt PUSHD_IGNORE_DUPS
+
+# Don't print the directory stack after pushd or popd.
+setopt PUSHD_SILENT
+
+# Have pushd without arguments act like `pushd ${HOME}`.
+setopt PUSHD_TO_HOME
+
+#
+# Expansion and globbing
+#
+
+# Treat `#`, `~`, and `^` as patterns for filename globbing.
+setopt EXTENDED_GLOB
+
+#
+# Input/output
+#
+
+# Allow comments starting with `#` in the interactive shell.
+setopt INTERACTIVE_COMMENTS
+
+# Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
+setopt NO_CLOBBER
+
+#
+# Job control
+#
+
+# List jobs in verbose format by default.
+setopt LONG_LIST_JOBS
+
+# Prevent background jobs being given a lower priority.
+setopt NO_BG_NICE
+
+# Prevent status report of jobs on shell exit.
+setopt NO_CHECK_JOBS
+
+# Prevent SIGHUP to jobs on shell exit.
+setopt NO_HUP
 
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -252,6 +238,8 @@ for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search
 for key ('k') bindkey -M vicmd ${key} history-substring-search-up
 for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
+
+source $HOME/.aliases
 
 #---- END CUSTOM ----
 eval "$(starship init zsh)"

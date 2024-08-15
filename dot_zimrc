@@ -6,47 +6,22 @@
 #
 
 # Sets sane Zsh built-in environment options. https://github.com/zimfw/environment
-zmodule environment
+# zmodule environment
 # Applies correct bindkeys for input events.
 zmodule input
 # Sets a custom terminal title.
 zmodule termtitle
-# Utility aliases and functions. Adds colour to ls, grep and less.
-zmodule utility
 # Provides archive, unarchive and lsarchive functions for easy archive manipulation based on file extensions. https://github.com/zimfw/archive
 zmodule archive
-# Adds aliases for eza or exa. Also change default blue colors to blue bold (file's date, modified flag in Git).
-# This module must be sourced after the utility module, so this module can override the aliases set by that one.
-# https://github.com/zimfw/exa
-# zmodule exa
-# zmodule z-shell/zsh-eza
 # Provides a convenient way to load ssh-agent. This enables one-time login and caching of ssh credentials per session. https://github.com/zimfw/ssh
 zmodule ssh
-
-#
-# Productivity Modules
-#
-
 # Provides handy git aliases and functions. https://github.com/zimfw/git
 zmodule git
 # Configures fzf for faster fetching of files and directories names. https://github.com/zimfw/fzf
-zmodule fzf
-# All kubectl aliases in one function. https://github.com/zimfw/k
-# zmodule k
+# zmodule fzf
+zmodule https://github.com/unixorn/fzf-zsh-plugin.git
 # Adds aliases for Homebrew. https://github.com/zimfw/homebrew
 zmodule homebrew
-
-#
-# Community Modules
-#
-
-# Sets up github-cli in zsh.
-zmodule joke/zim-github-cli
-zmodule joke/zim-yq
-# Sets up chezmoi in zsh.
-# zmodule joke/zim-chezmoi
-# Sets up starship in zsh.
-# zmodule joke/zim-starship
 
 #
 # Completion
