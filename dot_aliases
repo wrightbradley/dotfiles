@@ -385,3 +385,10 @@ function yy() {
   fi
   rm -f -- "$tmp"
 }
+
+# Snippets
+# kubectl get pods -n apps -l app.kubernetes.io/name=app -o json | jq -r '.items[].metadata.name' | parallel -j 4 'echo {}; kubectl exec {} -- /bin/ash -c "ps -eo pid,etime,comm | grep python"'
+
+if [ -f ~/.work-aliases ]; then
+    source ~/.work-aliases
+fi
