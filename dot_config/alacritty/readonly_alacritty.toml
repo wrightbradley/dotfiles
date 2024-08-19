@@ -20,3 +20,4 @@ family = "JetBrainsMono Nerd Font"
 
 [window]
 decorations = "Buttonless"
+opacity = 0.9
