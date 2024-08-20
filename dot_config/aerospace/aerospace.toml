@@ -81,6 +81,14 @@ inherit-env-vars = true  # If you don't touch "exec" section,
 [exec.env-vars]          # it will fallback to "default-config.toml"
 PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
+# TODO: investigate Hyper/Meh key option
+#
+# [key-mapping.key-notation-to-key-code]
+# hyper = 'ctrl-alt-shift-cmd'
+#
+# [mode.main.binding]
+# hyper-c = 'workspace c'
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
