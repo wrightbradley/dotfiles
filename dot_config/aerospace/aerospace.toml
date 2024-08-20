@@ -1,3 +1,4 @@
+
 # Place a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
@@ -76,9 +77,9 @@ outer.top = 0
 outer.right = 0
 
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
-[exec]                   # Again, you don't need to copy all config sections to your config.
-inherit-env-vars = true  # If you don't touch "exec" section,
-[exec.env-vars]          # it will fallback to "default-config.toml"
+[exec] # Again, you don't need to copy all config sections to your config.
+inherit-env-vars = true # If you don't touch "exec" section,
+[exec.env-vars] # it will fallback to "default-config.toml"
 PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 
 # TODO: investigate Hyper/Meh key option
@@ -172,7 +173,7 @@ alt-t = 'workspace T'
 alt-w = 'workspace W'
 # alt-x = 'workspace X'
 # alt-y = 'workspace Y'
-# alt-z = 'workspace Z'
+alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -205,7 +206,7 @@ alt-shift-t = 'move-node-to-workspace T'
 alt-shift-w = 'move-node-to-workspace W'
 # alt-shift-x = 'move-node-to-workspace X'
 # alt-shift-y = 'move-node-to-workspace Y'
-# alt-shift-z = 'move-node-to-workspace Z'
+alt-shift-z = 'move-node-to-workspace Z'
 
 alt-shift-f = 'fullscreen'
 
@@ -238,16 +239,18 @@ enter = 'mode main'
 esc = 'mode main'
 
 [workspace-to-monitor-force-assignment]
-# 1 = 1                            # Monitor sequence number from left to right. 1-based indexing
-# 2 = 'main'                       # Main monitor
+1 = 'main'                           # Monitor sequence number from left to right. 1-based indexing
+2 = 'secondary'                       # Main monitor
 # 3 = 'secondary'                  # Non-main monitor in case when there are only two monitors
 # 4 = 'built-in'                   # Case insensitive regex substring
 # 5 = '^built-in retina display$'  # Case insensitive regex match
 # 6 = ['secondary', 'dell']        # You can specify multiple patterns. The first matching pattern will be used
 M = 'secondary'
+O = 'main'
 S = 'secondary'
-W = 'main'
 T = 'main'
+W = 'main'
+Z = 'main'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
