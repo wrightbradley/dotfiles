@@ -127,17 +127,6 @@ export KUBE_EDITOR='nvim'
 # eval "$(fnm env --use-on-cd)"
 source "$(brew --prefix asdf)/libexec/asdf.sh"
 
-[[ -f /usr/bin/fzf ]] && export FZF_BASE="/usr/bin/fzf"
-[[ -f /usr/local/bin/fzf ]] && export FZF_BASE="/usr/local/bin/fzf"
-[[ -f /opt/homebrew/bin/fzf ]] && export FZF_BASE="/opt/homebrew/bin/fzf"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-if type rg &> /dev/null; then
-  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
-  export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
-fi
-
-
 # source $(dirname $(gem which colorls))/tab_complete.sh
 # source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 # Only changing the escape key to `jj` in insert mode, we still
