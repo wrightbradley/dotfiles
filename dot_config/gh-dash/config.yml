@@ -54,10 +54,10 @@ keybindings:
   issues: []
   prs:
     - key: c
-      command: >
-        tmux new-window -c {{.RepoPath}}.git '
-          gh pr checkout {{.PrNumber}} &&
-          nvim -c ":DiffviewOpen main...{{.HeadRefName}}"
+      command: |
+        tmux new-window -c {{.RepoPath}}.git/main '
+        gh pr checkout {{.PrNumber}} &&
+        nvim -c ":DiffviewOpen main...{{.HeadRefName}}"
         '
 repoPaths:
   :owner/:repo: ~/Projects/code/github.com/:owner/:repo # template if you always clone github repos in a consistent location
