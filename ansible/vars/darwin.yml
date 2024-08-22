@@ -58,6 +58,7 @@ homebrew_installed_packages:
   - ansible
   - ansible-lint
   - ant
+  - aqua
   - aquasecurity/trivy/trivy
   - argo
   - argocd
@@ -73,6 +74,7 @@ homebrew_installed_packages:
   - awscli
   - bash
   - bash-completion
+  - bat
   - bitwarden-cli
   - bzip2
   - cdk8s
@@ -89,11 +91,13 @@ homebrew_installed_packages:
   - container-diff
   - cookiecutter
   - coreutils
+  - cosign
   - cue
   - curl
   - cypher-shell
   - derailed/popeye/popeye
   - detect-secrets
+  - diff
   - direnv
   - dive
   - { name: docker, install_options: "formula" }
@@ -116,10 +120,12 @@ homebrew_installed_packages:
   - fluxcd/tap/flux
   - fzf
   - gh
+  - ghq
   - gifsicle
   - gifski
   - git
   - git-cliff
+  - git-delta
   - git-xargs
   - glances
   - glow
@@ -151,6 +157,7 @@ homebrew_installed_packages:
   - k3d
   - k3sup
   - k9s
+  - keymapp
   - koekeishiya/formulae/skhd
   - koekeishiya/formulae/yabai
   - krew
@@ -189,6 +196,7 @@ homebrew_installed_packages:
   - openjdk
   - openssh
   - openssl@3
+  - opentofu
   - ossp-uuid
   - osx-cpu-temp
   - oven-sh/bun/bun
@@ -230,6 +238,7 @@ homebrew_installed_packages:
   - stern
   - stylua
   - tcl-tk
+  - tenv
   - terraform
   - terraform-docs
   - terragrunt
@@ -239,6 +248,7 @@ homebrew_installed_packages:
   - theden/gcopy/gcopy
   - tilt-dev/tap/tilt
   - tldr
+  - tlrc
   - tmux
   - tree
   - trippy
@@ -319,6 +329,7 @@ homebrew_cask_apps:
   - keymapp
   - lens
   - logi-options-plus
+  - nikitabobko/tap/aerospace
   - obs
   - obsidian
   - rancher
