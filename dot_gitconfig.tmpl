@@ -35,7 +35,11 @@
 [fetch]
     prune = true
 [commit]
+    {{- if eq .system "personl" }}
+    gpgsign = false
+    {{ else }}
     gpgsign = true
+    {{- end }}
 [rebase]
     updateRefs = true
 [rerere]
@@ -43,7 +47,9 @@
 [include]
     {{- if eq .system "work" }}
     path = ~/.gitconfig.work
-    {{- else }}
+    {{- else if eq .system "server" }}
+    path = ~/.gitconfig.server
+    {{ else }}
     path = ~/.gitconfig.personal
     {{- end }}
 {{- if eq .system "work" }}

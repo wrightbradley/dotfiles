@@ -1,0 +1,245 @@
+# Start configuration added by Zim install {{{
+#
+# User configuration sourced by interactive shells
+#
+# -----------------
+# Zsh configuration
+# -----------------
+
+#
+# History
+#
+
+
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
+
+# the detailed meaning of the below three variable can be found in `man zshparam`.
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000   # the number of items for the internal history list
+export SAVEHIST=1000000   # maximum number of items for the history file
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+export HIST_STAMPS="yyyy-mm-dd"
+
+# The meaning of these options can be found in man page of `zshoptions`.
+setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
+setopt HIST_FIND_NO_DUPS # Don't display duplicates when searching the history.
+setopt HIST_IGNORE_ALL_DUPS  # do not put duplicated command into history list
+setopt HIST_IGNORE_DUPS # Don't enter immediate duplicates into the history.
+setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
+setopt HIST_REDUCE_BLANKS  # remove unnecessary blanks
+setopt HIST_SAVE_NO_DUPS  # do not save duplicated command
+setopt HIST_VERIFY # Don't execute the command directly upon history expansion.
+setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY          # Share history between all sessions.
+
+#
+# Input/output
+#
+
+# Set editor default keymap to emacs (`-e`) or vi (`-v`)
+bindkey -v
+# Prompt for spelling correction of commands.
+setopt CORRECT
+# Customize spelling correction prompt.
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
+
+# -----------------
+# Zim configuration
+# -----------------
+
+# Disable automatic widget re-binding on each precmd. This can be set when
+# zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+# Customize the style that the suggestions are shown with.
+# See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+
+# zsh-syntax-highlighting
+# Set what highlighters will be used.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+# Customize the main highlighter styles.
+# See https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md#how-to-tweak-it
+# typeset -A ZSH_HIGHLIGHT_STYLES
+# ZSH_HIGHLIGHT_STYLES[comments]='fg=242'
+
+
+# User configuration
+
+#---- Color Config ----
+# export TERM=alacritty
+# export TERM=xterm-256color
+# export GREP_COLOR='1;33;40'
+
+# Base16 Shell
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         source "$BASE16_SHELL/profile_helper.sh"
+# base16_material-vivid
+#"$HOME/.config/base16-shell/scripts/base16-material-vivid.sh" material-vivid
+# if command -v dircolors &> /dev/null; then
+#   test -e ~/.dircolors && eval $(dircolors -b ~/.dircolors)
+# fi
+
+#---- Export ----
+
+# Homebrew PATH setup
+[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+[[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/curl/include"
+# export GOPATH="$HOME/go"
+# export LDFLAGS="-L$HOMEBREW_PREFIX/opt/curl/lib"
+# export PATH="$GOPATH/bin:$PATH"
+
+export KUBECONFIG="$HOME/.kube/config"
+export PATH="$HOME/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="/usr/local/sbin:$PATH"
+
+# Terraform Configuration
+# export TERRAFORM_BINARY_NAME="tofu"
+export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
+export TFENV_TERRAFORM_VERSION=1.5.7
+
+# pyenv setup
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# Preferred editor
+export EDITOR='nvim'
+export KUBE_EDITOR='nvim'
+
+# export NVM_DIR="$HOME/.nvm"
+#   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+#   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# eval "$(fnm env --use-on-cd)"
+source "$(brew --prefix asdf)/libexec/asdf.sh"
+
+[[ -f /usr/bin/fzf ]] && export FZF_BASE="/usr/bin/fzf"
+[[ -f /usr/local/bin/fzf ]] && export FZF_BASE="/usr/local/bin/fzf"
+[[ -f /opt/homebrew/bin/fzf ]] && export FZF_BASE="/opt/homebrew/bin/fzf"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if type rg &> /dev/null; then
+  export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+  export FZF_DEFAULT_OPTS='--ansi -m --height 50% --border'
+fi
+
+
+# source $(dirname $(gem which colorls))/tab_complete.sh
+# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# Only changing the escape key to `jj` in insert mode, we still
+# keep using the default keybindings `^[` in other modes
+# ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+# The plugin will auto execute this zvm_config function
+# zvm_config() {
+#   # Retrieve default cursor styles
+#   local ncur=$(zvm_cursor_style $ZVM_NORMAL_MODE_CURSOR)
+#   local icur=$(zvm_cursor_style $ZVM_INSERT_MODE_CURSOR)
+#   # Append your custom color for your cursor
+#   ZVM_INSERT_MODE_CURSOR=$icur'\e\e]12;red\a'
+#   ZVM_NORMAL_MODE_CURSOR=$ncur'\e\e]12;#008800\a'
+# }
+#
+# Generic options and environment settings
+#
+
+# Don't push multiple copies of the same directory to the stack.
+setopt PUSHD_IGNORE_DUPS
+
+# Don't print the directory stack after pushd or popd.
+setopt PUSHD_SILENT
+
+# Have pushd without arguments act like `pushd ${HOME}`.
+setopt PUSHD_TO_HOME
+
+#
+# Expansion and globbing
+#
+
+# Treat `#`, `~`, and `^` as patterns for filename globbing.
+setopt EXTENDED_GLOB
+
+#
+# Input/output
+#
+
+# Allow comments starting with `#` in the interactive shell.
+setopt INTERACTIVE_COMMENTS
+
+# Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
+setopt NO_CLOBBER
+
+#
+# Job control
+#
+
+# List jobs in verbose format by default.
+setopt LONG_LIST_JOBS
+
+# Prevent background jobs being given a lower priority.
+setopt NO_BG_NICE
+
+# Prevent status report of jobs on shell exit.
+setopt NO_CHECK_JOBS
+
+# Prevent SIGHUP to jobs on shell exit.
+setopt NO_HUP
+
+# export GPG_TTY="$(tty)"
+# export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+# gpgconf --launch gpg-agent
+
+export XDG_CONFIG_HOME="$HOME/.config"
+
+eval "$(direnv hook zsh)"
+
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+eval "$(zoxide init --cmd cd zsh)"
+
+# Initialize modules
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+
+# Load modules
+source ${ZIM_HOME}/init.zsh
+
+# zsh-history-substring-search
+zmodload -F zsh/terminfo +p:terminfo
+# Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
+for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
+for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
+for key ('k') bindkey -M vicmd ${key} history-substring-search-up
+for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+unset key
+
+source $HOME/.aliases
+
+#---- END CUSTOM ----
+eval "$(starship init zsh)"
