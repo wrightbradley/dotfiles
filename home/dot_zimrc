@@ -5,23 +5,13 @@
 # Modules
 #
 
-# Sets sane Zsh built-in environment options. https://github.com/zimfw/environment
-# zmodule environment
-# Applies correct bindkeys for input events.
-zmodule input
-# Sets a custom terminal title.
-zmodule termtitle
-# Provides archive, unarchive and lsarchive functions for easy archive manipulation based on file extensions. https://github.com/zimfw/archive
-zmodule archive
-# Provides a convenient way to load ssh-agent. This enables one-time login and caching of ssh credentials per session. https://github.com/zimfw/ssh
-zmodule ssh
-# Provides handy git aliases and functions. https://github.com/zimfw/git
-zmodule git
-# Configures fzf for faster fetching of files and directories names. https://github.com/zimfw/fzf
-# zmodule fzf
-zmodule https://github.com/unixorn/fzf-zsh-plugin.git
-# Adds aliases for Homebrew. https://github.com/zimfw/homebrew
-zmodule homebrew
+zmodule input   # Applies correct bindkeys for input events.
+zmodule termtitle   # Sets a custom terminal title.
+zmodule archive # Provides archive, unarchive and lsarchive functions for easy archive manipulation based on file extensions. https://github.com/zimfw/archive
+zmodule ssh # Provides a convenient way to load ssh-agent. This enables one-time login and caching of ssh credentials per session. https://github.com/zimfw/ssh
+zmodule git # Provides handy git aliases and functions. https://github.com/zimfw/git
+zmodule https://github.com/unixorn/fzf-zsh-plugin.git   # Configures fzf for faster fetching of files and directories names. https://github.com/zimfw/fzf
+zmodule homebrew    # Adds aliases for Homebrew. https://github.com/zimfw/homebrew
 
 #
 # Completion
@@ -44,11 +34,7 @@ zmodule completion
 # Modules that must be initialized last
 #
 
-# Fish-like syntax highlighting for Zsh.
-# zsh-users/zsh-syntax-highlighting must be sourced after completion
-zmodule zsh-users/zsh-syntax-highlighting
-# Fish-like history search (up arrow) for Zsh.
-# zsh-users/zsh-history-substring-search must be sourced after zsh-users/zsh-syntax-highlighting
-zmodule zsh-users/zsh-history-substring-search
-# Fish-like autosuggestions for Zsh.
-zmodule zsh-users/zsh-autosuggestions
+zmodule zsh-users/zsh-syntax-highlighting   # Fish-like syntax highlighting for Zsh. Must be sourced after completion
+zmodule zsh-users/zsh-history-substring-search  # Fish-like history search (up arrow) for Zsh. Must be sourced after zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions   # Fish-like autosuggestions for Zsh. Must be sourced at the very end of this file
+

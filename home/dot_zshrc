@@ -1,102 +1,56 @@
 # -----------------
-# Zsh configuration
+# Zsh Configuration
 # -----------------
 
-#
-# History
-#
+bindkey -v  # Set the editor default keymap to emacs (`-e`) or vi (`-v`)
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '  # Customize the spelling correction prompt.
+WORDCHARS=${WORDCHARS//[\/]}  # Remove path separator from WORDCHARS.
 
-# Remove older command from the history if a duplicate is to be added.
-setopt HIST_IGNORE_ALL_DUPS
-
-# the detailed meaning of the below three variable can be found in `man zshparam`.
+# The detailed meaning of the below three variables can be found in `man zshparam`.
 export HISTFILE=~/.zsh_history
-export HISTSIZE=1000000   # the number of items for the internal history list
-export SAVEHIST=1000000   # maximum number of items for the history file
+export HISTSIZE=1000000  # Number of items for the internal history list
+export SAVEHIST=1000000  # Maximum number of items for the history file
 
 # You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
+# "mm/dd/yyyy" | "dd.mm.yyyy" | "yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications.
+# See 'man strftime' for details.
 export HIST_STAMPS="yyyy-mm-dd"
 
-# The meaning of these options can be found in man page of `zshoptions`.
-setopt EXTENDED_HISTORY       # Write the history file in the ":start:elapsed;command" format.
-setopt HIST_FIND_NO_DUPS # Don't display duplicates when searching the history.
-setopt HIST_IGNORE_ALL_DUPS  # do not put duplicated command into history list
-setopt HIST_IGNORE_DUPS # Don't enter immediate duplicates into the history.
-setopt HIST_IGNORE_SPACE      # Don't record an entry starting with a space.
-setopt HIST_REDUCE_BLANKS  # remove unnecessary blanks
-setopt HIST_SAVE_NO_DUPS  # do not save duplicated command
-setopt HIST_VERIFY # Don't execute the command directly upon history expansion.
-setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY          # Share history between all sessions.
-
-#
-# Input/output
-#
-
-# Set editor default keymap to emacs (`-e`) or vi (`-v`)
-bindkey -v
-# Prompt for spelling correction of commands.
-setopt CORRECT
-# Customize spelling correction prompt.
-SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
-# Remove path separator from WORDCHARS.
-WORDCHARS=${WORDCHARS//[\/]}
-
-# Don't push multiple copies of the same directory to the stack.
-setopt PUSHD_IGNORE_DUPS
-
-# Don't print the directory stack after pushd or popd.
-setopt PUSHD_SILENT
-
-# Have pushd without arguments act like `pushd ${HOME}`.
-setopt PUSHD_TO_HOME
-
-#
-# Expansion and globbing
-#
-
-# Treat `#`, `~`, and `^` as patterns for filename globbing.
-setopt EXTENDED_GLOB
-
-#
-# Input/output
-#
-
-# Allow comments starting with `#` in the interactive shell.
-setopt INTERACTIVE_COMMENTS
-
-# Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
-setopt NO_CLOBBER
-
-#
-# Job control
-#
-
-# List jobs in verbose format by default.
-setopt LONG_LIST_JOBS
-
-# Prevent background jobs being given a lower priority.
-setopt NO_BG_NICE
-
-# Prevent status report of jobs on shell exit.
-setopt NO_CHECK_JOBS
-
-# Prevent SIGHUP to jobs on shell exit.
-setopt NO_HUP
+# The meaning of these options can be found in the man page of `zshoptions`.
+setopt CORRECT  # Prompt for spelling correction of commands.
+setopt EXTENDED_GLOB  # Treat `#`, `~`, and `^` as patterns for filename globbing.
+setopt EXTENDED_HISTORY  # Write the history file in the ":start:elapsed;command" format.
+setopt HIST_FIND_NO_DUPS  # Don't display duplicates when searching the history.
+setopt HIST_IGNORE_ALL_DUPS  # Do not put duplicated commands into the history list.
+setopt HIST_IGNORE_DUPS  # Don't enter immediate duplicates into the history.
+setopt HIST_IGNORE_SPACE  # Don't record an entry starting with a space.
+setopt HIST_REDUCE_BLANKS  # Remove unnecessary blanks.
+setopt HIST_SAVE_NO_DUPS  # Do not save duplicated commands.
+setopt HIST_VERIFY  # Don't execute the command directly upon history expansion.
+setopt INC_APPEND_HISTORY  # Write to the history file immediately, not when the shell exits.
+setopt INTERACTIVE_COMMENTS  # Allow comments starting with `#` in the interactive shell.
+setopt LONG_LIST_JOBS  # List jobs in verbose format by default.
+setopt NO_BG_NICE  # Prevent background jobs from being given a lower priority.
+setopt NO_CHECK_JOBS  # Prevent status report of jobs on shell exit.
+setopt NO_CLOBBER  # Disallow `>` to overwrite existing files. Use `>|` or `>!` instead.
+setopt NO_HUP  # Prevent SIGHUP to jobs on shell exit.
+setopt PUSHD_IGNORE_DUPS  # Don't push multiple copies of the same directory to the stack.
+setopt PUSHD_SILENT  # Don't print the directory stack after pushd or popd.
+setopt PUSHD_TO_HOME  # Have pushd without arguments act like `pushd ${HOME}`.
+setopt SHARE_HISTORY  # Share history between all sessions.
 
 # -----------------
-# Zim configuration
+# Zim Configuration
 # -----------------
 
 # Disable automatic widget re-binding on each precmd. This can be set when
 # zsh-users/zsh-autosuggestions is the last module in your ~/.zimrc.
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 # Customize the style that the suggestions are shown with.
 # See https://github.com/zsh-users/zsh-autosuggestions/blob/master/README.md#suggestion-highlight-style
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=242'
 
 # zsh-syntax-highlighting
 # Set what highlighters will be used.
@@ -108,10 +62,11 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # typeset -A ZSH_HIGHLIGHT_STYLES
 # ZSH_HIGHLIGHT_STYLES[comments]='fg=242'
 
+# -----------------
+# Personal Configuration
+# -----------------
 
-# User configuration
-
-#---- Color Config ----
+# ---- Color Config ----
 # export TERM=alacritty
 # export TERM=xterm-256color
 # export GREP_COLOR='1;33;40'
@@ -122,56 +77,31 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 #     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
 #         source "$BASE16_SHELL/profile_helper.sh"
 # base16_material-vivid
-#"$HOME/.config/base16-shell/scripts/base16-material-vivid.sh" material-vivid
+# "$HOME/.config/base16-shell/scripts/base16-material-vivid.sh" material-vivid
 # if command -v dircolors &> /dev/null; then
 #   test -e ~/.dircolors && eval $(dircolors -b ~/.dircolors)
 # fi
 
-# Homebrew PATH setup
+# Homebrew PATH Setup
 [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 [[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
 [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
 
+eval "$(direnv hook zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(mise activate zsh)"
+
 export KUBECONFIG="$HOME/.kube/config"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
-eval "$(direnv hook zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+export EDITOR='nvim'
+export KUBE_EDITOR='nvim'
 
 # Terraform Configuration
 # export TERRAFORM_BINARY_NAME="tofu"
 export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
 export TFENV_TERRAFORM_VERSION=1.5.7
 
-# pyenv setup
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# Preferred editor
-export EDITOR='nvim'
-export KUBE_EDITOR='nvim'
-
-# source $(dirname $(gem which colorls))/tab_complete.sh
-# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-# Only changing the escape key to `jj` in insert mode, we still
-# keep using the default keybindings `^[` in other modes
-# ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
-# The plugin will auto execute this zvm_config function
-# zvm_config() {
-#   # Retrieve default cursor styles
-#   local ncur=$(zvm_cursor_style $ZVM_NORMAL_MODE_CURSOR)
-#   local icur=$(zvm_cursor_style $ZVM_INSERT_MODE_CURSOR)
-#   # Append your custom color for your cursor
-#   ZVM_INSERT_MODE_CURSOR=$icur'\e\e]12;red\a'
-#   ZVM_NORMAL_MODE_CURSOR=$ncur'\e\e]12;#008800\a'
-# }
-#
-# Generic options and environment settings
-#
-
-# Check the operating system
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export GPG_TTY="$(tty)"
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
@@ -180,8 +110,13 @@ fi
 
 source $HOME/.aliases
 
+# -----------------
+# Zimfw Initialization
+# -----------------
+
 # Initialize modules
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   if (( ${+commands[curl]} )); then
@@ -203,13 +138,28 @@ source ${ZIM_HOME}/init.zsh
 
 # zsh-history-substring-search
 zmodload -F zsh/terminfo +p:terminfo
+
 # Bind ^[[A/^[[B manually so up/down works both before and after zle-line-init
-for key ('^[[A' '^P' ${terminfo[kcuu1]}) bindkey ${key} history-substring-search-up
-for key ('^[[B' '^N' ${terminfo[kcud1]}) bindkey ${key} history-substring-search-down
-for key ('k') bindkey -M vicmd ${key} history-substring-search-up
-for key ('j') bindkey -M vicmd ${key} history-substring-search-down
+for key ('^[[A' '^P' ${terminfo[kcuu1]}); do
+  bindkey ${key} history-substring-search-up
+done
+
+for key ('^[[B' '^N' ${terminfo[kcud1]}); do
+  bindkey ${key} history-substring-search-down
+done
+
+for key ('k'); do
+  bindkey -M vicmd ${key} history-substring-search-up
+done
+
+for key ('j'); do
+  bindkey -M vicmd ${key} history-substring-search-down
+done
+
 unset key
 
-
-#---- END CONFIG ----
+# -----------------
+# Starship Initialization
+# The starship init must be the last entry in this file
+# -----------------
 eval "$(starship init zsh)"
