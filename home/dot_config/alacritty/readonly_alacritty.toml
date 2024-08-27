@@ -1,7 +1,7 @@
 import = ["~/.config/alacritty/themes/themes/tokyo-night.toml"]
 
-[env]
-TERM = "alacritty"
+# [env]
+# TERM = "alacritty"
 
 [font]
 size = 16.0
