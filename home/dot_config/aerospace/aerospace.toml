@@ -240,8 +240,8 @@ esc = 'mode main'
 
 [workspace-to-monitor-force-assignment]
 1 = 'main'                           # Monitor sequence number from left to right. 1-based indexing
-2 = 'secondary'                       # Main monitor
-# 3 = 'secondary'                  # Non-main monitor in case when there are only two monitors
+2 = 'secondary'
+3 = 'secondary'
 # 4 = 'built-in'                   # Case insensitive regex substring
 # 5 = '^built-in retina display$'  # Case insensitive regex match
 # 6 = ['secondary', 'dell']        # You can specify multiple patterns. The first matching pattern will be used
