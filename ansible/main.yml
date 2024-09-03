@@ -4,15 +4,14 @@
   roles:
     - role: geerlingguy.mac.homebrew
       when: ansible_os_family == 'Darwin'
-      tags: ["homebrew"]
+      tags: ['homebrew']
     - role: geerlingguy.mac.mas
       when: ansible_os_family == 'Darwin' and (mas_installed_apps or mas_installed_app_ids)
-      tags: ["mas"]
+      tags: ['mas']
     - role: geerlingguy.mac.dock
       when: ansible_os_family == 'Darwin' and configure_dock
-      tags: ["dock"]
-    # - {role: packages, tags: packages}
-    - {role: personal, tags: personal}
+      tags: ['dock']
+    - { role: personal, tags: personal }
   post_tasks:
     - name: Change shell
       ansible.builtin.user:
