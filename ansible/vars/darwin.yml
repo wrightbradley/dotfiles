@@ -19,8 +19,8 @@ setup_nvim: true
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
 dockitems_remove:
-  - "App Store"
-  - "System Preferences"
+  - 'App Store'
+  - 'System Preferences'
   - Calendar
   - Contacts
   - FaceTime
@@ -39,17 +39,17 @@ dockitems_remove:
   - Safari
   - TV
 dockitems_persist:
-  - name: "Google Chrome"
-    path: "/Applications/Google Chrome.app/"
+  - name: 'Google Chrome'
+    path: '/Applications/Google Chrome.app/'
     pos: 1
-  - name: "Alacritty"
-    path: "/Applications/Alacritty.app/"
+  - name: 'Alacritty'
+    path: '/Applications/Alacritty.app/'
     pos: 2
-  - name: "Slack"
-    path: "/Applications/Slack.app/"
+  - name: 'Slack'
+    path: '/Applications/Slack.app/'
     pos: 3
-  - name: "Mail"
-    path: "/Applications/Mail.app/"
+  - name: 'Mail'
+    path: '/Applications/Mail.app/'
     pos: 4
 
 homebrew_installed_packages:
@@ -100,12 +100,13 @@ homebrew_installed_packages:
   - diff
   - direnv
   - dive
-  - { name: docker, install_options: "formula" }
+  - { name: docker, install_options: 'formula' }
   - docker-credential-helper
   - docker-credential-helper-ecr
   - docker-slim
   - dockutil
   - dos2unix
+  - dotenv-linter
   - eksctl
   - entr
   - eslint
@@ -143,7 +144,7 @@ homebrew_installed_packages:
   - gstreamer
   - hadolint
   - helm
-  - { name: hey, install_options: "formula" }
+  - { name: hey, install_options: 'formula' }
   - hidapi
   - hopenpgp-tools
   - htop
@@ -182,6 +183,7 @@ homebrew_installed_packages:
   - mike-engel/jwt-cli/jwt-cli
   - mimirtool
   - minikube
+  - mise
   - mosh
   - mtr
   - mysql-client
@@ -232,7 +234,7 @@ homebrew_installed_packages:
   - skaffold
   - skopeo
   - socat
-  - { name: spark, install_options: "formula" }
+  - { name: spark, install_options: 'formula' }
   - sqlite
   - starship
   - stern
@@ -253,6 +255,8 @@ homebrew_installed_packages:
   - tree
   - trippy
   - trivy
+  - updatecli
+  - usage
   - uv
   - vale
   - vcluster
@@ -273,6 +277,7 @@ homebrew_installed_packages:
   - ykpers
   - yq
   - yubikey-personalization
+  - zen-browser
   - zlib
   - zoxide
   - zsh
@@ -297,6 +302,7 @@ homebrew_taps:
   - tilt-dev/tap
   - veeso/termscp
   - weaveworks/tap
+  - zen-browser/browser
 
 # TODO: add yubikey, propresenter, logitech, atem mini apps
 homebrew_cask_appdir: /Applications
@@ -343,10 +349,10 @@ homebrew_cask_apps:
   - zoom
 
 mas_installed_apps:
-  - { id: 441258766, name: "Magnet (2.6.0)" }
-  - { id: 682658836, name: "GarageBand (10.4.4)" }
-  - { id: 1352778147, name: "Bitwarden (1.29.1)" }
-  - { id: 1319778037, name: "iStat Menus (6.60)" }
+  - { id: 441258766, name: 'Magnet (2.6.0)' }
+  - { id: 682658836, name: 'GarageBand (10.4.4)' }
+  - { id: 1352778147, name: 'Bitwarden (1.29.1)' }
+  - { id: 1319778037, name: 'iStat Menus (6.60)' }
   # - { id: 966085870, name: "TickTick (4.0.21)" }
   # - { id: 1451685025, name: "WireGuard (1.0.15)" }
   # - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
