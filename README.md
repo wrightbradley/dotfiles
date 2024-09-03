@@ -49,7 +49,7 @@ recipient = "me@example.com"
 command = "pinentry"
 
 [data]
-system = "person"
+system = "personal"
 email_work = "me@work.com"
 email_personal = "me@personal.com"
 ghuser = "wrightbradley"
@@ -69,23 +69,9 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 - Move Homebrew package install from Ansible to chezmoi. Standardize on chezmoi.
 - Support downloading project code repos with chezmoi.
 
-## MacOS Tiling
-
-### yabai tiling window manager
-
-```bash
-brew install koekeishiya/formulae/yabai
-yabai --start-service
-```
-
-### skhd Hotkey Daemon
-
-```bash
-brew install koekeishiya/formulae/skhd
-skhd --start-service
-```
-
 ## TODO
+
+Ensure all Homebrew taps and casks are managed by Ansible.
 
 ```bash
 brew info --json=v2 --installed \
