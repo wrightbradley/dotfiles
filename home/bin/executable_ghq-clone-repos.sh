@@ -57,7 +57,7 @@ process_directory() {
       ;;
     *)
       log_warning "Default branch is neither 'main' nor 'master'. No worktree created."
-      return 1
+      return 0
       ;;
     esac
 
