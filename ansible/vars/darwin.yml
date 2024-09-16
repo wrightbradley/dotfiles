@@ -235,6 +235,7 @@ homebrew_installed_packages:
   - socat
   - { name: spark, install_options: 'formula' }
   - sqlite
+  - sslscan
   - starship
   - stern
   - stylua
