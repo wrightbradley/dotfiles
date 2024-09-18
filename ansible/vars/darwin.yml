@@ -158,8 +158,8 @@ homebrew_installed_packages:
   - k3sup
   - k9s
   - keymapp
-  - koekeishiya/formulae/skhd
-  - koekeishiya/formulae/yabai
+  # - koekeishiya/formulae/skhd
+  # - koekeishiya/formulae/yabai
   - krew
   - kube-linter
   - kube-ps1
