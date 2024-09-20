@@ -119,13 +119,16 @@ init_chezmoi() {
 
 init_ansible_deps() {
   log "Installing git submodules..."
+  pushd .local/share/chezmoi/ansible
   git submodule init
   git submodule update --init --recursive --remote
   log "Installing Ansible Galaxy dependencies..."
   uvx --from ansible-core ansible-galaxy install -r requirements.yml
+  popd
 }
 
 run_ansible_playbook() {
+  pushd .local/share/chezmoi/ansible
   if [ $SYSTEM == 'debian' ]; then
     if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
       uvx --from ansible-core ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/codespaces.yml"
@@ -141,6 +144,7 @@ run_ansible_playbook() {
       uvx --from ansible-core ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/darwin.yml" -K
     fi
   fi
+  popd
 }
 
 # Cleanup folders we created
