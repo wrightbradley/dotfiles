@@ -1,0 +1,13 @@
+[".config/nvim"]
+type = "git-repo"
+url = "https://github.com/wrightbradley/nvim.git"
+refreshPeriod = "720h"                            # every 30 days
+[".config/alacritty/themes"]
+type = "git-repo"
+url = "https://github.com/alacritty/alacritty-theme.git"
+refreshPeriod = "720h"                                   # every 30 days
+[".config/bat/themes/tokyonight.nvim"]
+type = "git-repo"
+url = "https://github.com/folke/tokyonight.nvim.git"
+clone.args = ["--depth=1", "--no-checkout", "--filter=blob:none"]
+refreshPeriod = "720h"                                            # every 30 days
