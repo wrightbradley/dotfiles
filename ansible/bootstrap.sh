@@ -114,7 +114,7 @@ install_system_deps() {
 
 init_chezmoi() {
   log "Installing chezmoi and initializing..."
-  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB_USERNAME
 }
 
 init_ansible_deps() {

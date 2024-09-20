@@ -3,6 +3,4 @@ README.md
 ansible
 {{- if ne .system "work" }}
 .work-aliases.asc
-.work-aliases
-.encrypted_dot_work-aliases.asc
 {{- end }}
