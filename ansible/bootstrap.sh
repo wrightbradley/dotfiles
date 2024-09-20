@@ -73,7 +73,7 @@ parse_params() {
 verify_deps() {
   log "Checking for required utilities..."
   [[ ! -x "$(command -v uv)" ]] && log "uv is not installed." && install_system_deps uv
-  [[ ! -x "$(command -v git)" ]] && log "git is not installed." && install_system_deps git
+  [[ ! "$(git --version)" ]] && log "git is not installed." && install_system_deps git
 
   log "All required utilities are installed."
 }
@@ -96,12 +96,11 @@ install_system_deps() {
 
   if [ $SYSTEM == 'darwin' ]; then
     if [ "$MISSING_PACKAGE" == 'git' ]; then
-      if [ "$(xcode-select -p >/dev/null 2>&1)" ]; then
-        log "Installing git through xcode..."
-        xcode-select --install
-      else
-        die "macOS is missing git..."
-      fi
+      die "macOS is missing git...please run 'xcode-select --install'"
+      # if [ ! "$(xcode-select -p >/dev/null 2>&1)" ]; then
+      #   log "Installing git through xcode..."
+      #   xcode-select --install
+      # fi
     fi
   fi
 
