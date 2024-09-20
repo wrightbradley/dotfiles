@@ -1,10 +1,12 @@
 ---
 - name: Git clone GitHub Repos
   git:
-    repo: "git@github.com:wrightbradley/{{ item }}.git"
-    dest: "~/Projects/code/{{ item }}"
+    # TODO: handle SSH and HTTPS gracefully
+    # repo: 'git@github.com:{{ item }}.git'
+    repo: 'https://github.com/{{ item }}.git'
+    dest: '~/Projects/code/github.com/{{ item }}'
     version: HEAD
     accept_hostkey: true
   loop:
-    - dotfiles
-    - nvim
+    - wrightbradley/dotfiles
+    - wrightbradley/nvim
