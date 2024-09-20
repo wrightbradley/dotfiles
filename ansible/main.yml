@@ -11,7 +11,8 @@
     - role: geerlingguy.mac.dock
       when: ansible_os_family == 'Darwin' and configure_dock
       tags: ['dock']
-    - { role: personal, tags: personal }
+    - role: personal
+      tags: personal
   post_tasks:
     - name: Change shell
       ansible.builtin.user:

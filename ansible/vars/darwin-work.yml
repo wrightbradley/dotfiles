@@ -1,0 +1,330 @@
+---
+# Setup Var Flags
+setup_aliases: true
+setup_brew: true
+setup_bash: true
+setup_color: true
+setup_fonts: true
+setup_git: true
+setup_icons: true
+setup_system: true
+setup_python: false
+setup_tmux: true
+setup_vim: true
+setup_vscode: true
+setup_zsh: true
+setup_starship: true
+setup_nvim: true
+
+# Set to 'true' to configure the Dock via dockutil.
+configure_dock: true
+dockitems_remove:
+  - 'App Store'
+  - 'System Preferences'
+  - Calendar
+  - Contacts
+  - FaceTime
+  - Freeform
+  - Launchpad
+  - Mail
+  - Maps
+  - Messages
+  - Music
+  - News
+  - Notes
+  - Numbers
+  - Pages
+  - Photos
+  - Podcasts
+  - Reminders
+  - Safari
+  - TV
+dockitems_persist:
+  - name: 'Google Chrome'
+    path: '/Applications/Google Chrome.app/'
+    pos: 1
+  - name: 'Alacritty'
+    path: '/Applications/Alacritty.app/'
+    pos: 2
+  - name: 'Slack'
+    path: '/Applications/Slack.app/'
+    pos: 3
+
+homebrew_installed_packages:
+  - agg
+  - ankitpokhrel/jira-cli/jira-cli
+  - ansible
+  - ansible-lint
+  - ant
+  - aqua
+  - aquasecurity/trivy/trivy
+  - argo
+  - argocd
+  - asciinema
+  - asdf
+  - asitop
+  - autoconf-archive
+  - autogen
+  - automake
+  - aws-iam-authenticator
+  - aws/tap/ec2-instance-selector
+  - aws/tap/eks-node-viewer
+  - awscli
+  - bash
+  - bash-completion
+  - bat
+  - bzip2
+  - cdk8s
+  - charmbracelet/tap/freeze
+  - chart-testing
+  - checkov
+  - chezmoi
+  - cirruslabs/cli/tart
+  - cli53
+  - cmctl
+  - codespell
+  - colima
+  - colordiff
+  - container-diff
+  - cookiecutter
+  - coreutils
+  - cosign
+  - cue
+  - curl
+  - cypher-shell
+  - derailed/popeye/popeye
+  - detect-secrets
+  - direnv
+  - dive
+  - { name: docker, install_options: 'formula' }
+  - docker-credential-helper
+  - docker-credential-helper-ecr
+  - docker-slim
+  - dockutil
+  - dos2unix
+  - dotenv-linter
+  - eksctl
+  - entr
+  - eslint
+  - expect
+  - eza
+  - faas-cli
+  - fairwindsops/tap/nova
+  - fairwindsops/tap/polaris
+  - fd
+  - ffmpeg
+  - flake8
+  # - fluxcd/tap/flux
+  - fzf
+  - gh
+  - ghq
+  - gifsicle
+  - gifski
+  - git
+  - git-cliff
+  - git-delta
+  - git-xargs
+  - glances
+  - glow
+  - gnu-sed
+  - gnupg
+  - gnutls
+  - go
+  - go-jsonnet
+  - goreleaser/tap/goreleaser
+  - gradle
+  - grafana
+  - grafana-agent
+  - grep
+  - grpcurl
+  - gstreamer
+  - hadolint
+  - helm
+  - { name: hey, install_options: 'formula' }
+  - hidapi
+  - hopenpgp-tools
+  - htop
+  - httrack
+  - iperf3
+  - jdupes
+  - jinja2-cli
+  - jq
+  - jsonnet-bundler
+  - k2tf
+  - k3d
+  - k3sup
+  - k9s
+  - keymapp
+  - krew
+  - kube-linter
+  - kube-ps1
+  - kubeconform
+  - kubectx
+  - kubernetes-cli
+  - kubescape/tap/kubescape-cli
+  - kubeseal
+  - kustomize
+  - kwok
+  - lazygit
+  - libfido2
+  - libpq
+  - lindell/multi-gitter/multi-gitter
+  - logcli
+  - luarocks
+  - make
+  - mas
+  - maven
+  - mike-engel/jwt-cli/jwt-cli
+  - mimirtool
+  - minikube
+  - mise
+  - mosh
+  - mtr
+  - mysql-client
+  - ncurses
+  - neofetch
+  - neomutt
+  - neovim
+  - nmap
+  - node
+  - norwoodj/tap/helm-docs
+  - nvm
+  - openjdk
+  - openssh
+  - openssl@3
+  # - opentofu
+  - ossp-uuid
+  - osx-cpu-temp
+  - oven-sh/bun/bun
+  - packer
+  - pandoc
+  - parallel
+  - pdm
+  - perl
+  - pgcli
+  - pinentry-mac
+  - pipenv
+  - pngpaste
+  - poetry
+  - popeye
+  - postgresql@14
+  - pre-commit
+  - prettier
+  - proselint
+  - pwgen
+  - pyenv
+  - pyenv-virtualenv
+  - pyyaml
+  - readline
+  - rename
+  - ripgrep
+  - rsync
+  - ruby
+  - rust
+  - rye
+  - screen
+  - shellcheck
+  - shfmt
+  - skaffold
+  - skopeo
+  - socat
+  - { name: spark, install_options: 'formula' }
+  - sqlite
+  - sslscan
+  - starship
+  - stern
+  - stylua
+  - tcl-tk
+  - tenv
+  # - terraform
+  # - terraform-docs
+  # - terragrunt
+  - terrascan
+  - tflint
+  - tfsec
+  - theden/gcopy/gcopy
+  - tilt-dev/tap/tilt
+  - tlrc
+  - tmux
+  - tree
+  - trippy
+  - trivy
+  - updatecli
+  - usage
+  - uv
+  - vale
+  - vcluster
+  - veeso/termscp/termscp
+  - velero
+  - vhs
+  - vim
+  - watch
+  - wget
+  - whois
+  - wireguard-tools
+  - xz
+  - yamlfmt
+  - yamllint
+  - yapf
+  - yarn
+  - ykman
+  - ykpers
+  - yq
+  - yubikey-personalization
+  - zlib
+  - zoxide
+  - zsh
+  - zsh-vi-mode
+
+homebrew_taps:
+  - ankitpokhrel/jira-cli
+  - aquasecurity/trivy
+  - aws/tap
+  - charmbracelet/tap
+  - cirruslabs/cli
+  - derailed/popeye
+  - fairwindsops/tap
+  - goreleaser/tap
+  - kubescape/tap
+  - lindell/multi-gitter
+  - mike-engel/jwt-cli
+  - norwoodj/tap
+  - oven-sh/bun
+  - theden/gcopy
+  - tilt-dev/tap
+  - updatecli/updatecli
+  - veeso/termscp
+  - weaveworks/tap
+
+# TODO: add yubikey, propresenter, logitech, atem mini apps
+homebrew_cask_appdir: /Applications
+homebrew_cask_apps:
+  - alacritty
+  - elgato-camera-hub
+  - elgato-control-center
+  - elgato-stream-deck
+  - elgato-wave-link
+  - firefox
+  - font-caskaydia-cove-nerd-font
+  - font-droid-sans-mono-nerd-font
+  - font-fira-code-nerd-font
+  - font-hack-nerd-font
+  - font-jetbrains-mono-nerd-font
+  - font-symbols-only-nerd-font
+  - google-chrome
+  - google-cloud-sdk
+  - hiddenbar
+  - iterm2
+  - keycastr
+  - keymapp
+  - logi-options-plus
+  - nikitabobko/tap/aerospace
+  - obs
+  - obsidian
+  - slack
+  - spotify
+  - vlc
+  - visual-studio-code
+  - zoom
+
+mas_installed_apps: []
