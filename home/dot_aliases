@@ -389,6 +389,9 @@ function yy() {
 # Snippets
 # kubectl get pods -n apps -l app.kubernetes.io/name=app -o json | jq -r '.items[].metadata.name' | parallel -j 4 'echo {}; kubectl exec {} -- /bin/ash -c "ps -eo pid,etime,comm | grep python"'
 
+# Temp workaround to disable punycode deprecation logging to stderr
+alias cdktf='NODE_OPTIONS="--no-deprecation --max-old-space-size=4096" npx cdktf-cli'
+
 if [ -f ~/.work-aliases ]; then
     source ~/.work-aliases
 fi
