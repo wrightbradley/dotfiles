@@ -108,10 +108,14 @@ install_system_deps() {
   if [ "$MISSING_PACKAGE" == 'uv' ]; then
     log "Installing uv..."
     curl -LsSf https://astral.sh/uv/install.sh | sh
-    source $HOME/.cargo/env
     log "Installing python..."
     uv python install 3.12
   fi
+}
+
+init_chezmoi() {
+  log "Installing chezmoi and initializing..."
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
 }
 
 init_ansible_deps() {
@@ -164,9 +168,11 @@ die() {
 }
 
 main() {
+  export PATH="$HOME/.cargo/bin:$PATH"
   export_metadata
   parse_params "$@"
   verify_deps
+  init_chezmoi
   init_ansible_deps
   run_ansible_playbook
   cleanup
