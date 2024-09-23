@@ -73,6 +73,14 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB
 - Move Homebrew package install from Ansible to chezmoi. Standardize on chezmoi.
 - Support downloading project code repos with chezmoi.
 
+## MacOS Defaults
+
+```bash
+defaults write -g NSWindowShouldDragOnGesture -bool true
+defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+```
+
 ## Homebrew Info Gathering
 
 ### List installed formulae
