@@ -5,7 +5,7 @@
 ```bash
                 \||/
                 |  @___oo        DOTFILES INSTALLATION
-      /\  /\   / (__,,,,|        RELEASE: 2.0
+      /\  /\   / (__,,,,|        RELEASE: 2.1
      ) /^\) ^\/ _)
      )   /^\/   _)
      )   _ /  / _)
@@ -26,7 +26,7 @@ To facilitate these goals, this repo uses [chezmoi](https://www.chezmoi.io/) and
 ## To Execute
 
 You need to create a chezmoi config file under the XDG Base Directory. For
-macOS, that would be: `~/.config/chezmoi/` Chezmoi supports different
+macOS, that would be: `~/.config/chezmoi/chezmoi.toml` Chezmoi supports different
 [file formats](https://www.chezmoi.io/reference/configuration-file/), but I
 currently use TOML.
 
@@ -60,7 +60,11 @@ With this config in place, you can then install chezmoi and use your GitHub
 dotfiles repo to bootstrap a new machine:
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
+# To bootstrap chezmoi and run ansible:
+curl -sSL https://raw.githubusercontent.com/wrightbradley/dotfiles/refs/heads/main/ansible/bootstrap.sh | GITHUB_USERNAME=wrightbradley bash
+
+# To bootstrap chezmoi without ansible:
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB_USERNAME
 ```
 
 ## Task List

@@ -119,7 +119,7 @@ init_chezmoi() {
 
 init_ansible_deps() {
   log "Installing git submodules..."
-  pushd .local/share/chezmoi/ansible
+  pushd $HOME/.local/share/chezmoi/ansible
   git submodule init
   git submodule update --init --recursive --remote
   log "Installing Ansible Galaxy dependencies..."
@@ -128,7 +128,7 @@ init_ansible_deps() {
 }
 
 run_ansible_playbook() {
-  pushd .local/share/chezmoi/ansible
+  pushd $HOME/.local/share/chezmoi/ansible
   if [ $SYSTEM == 'debian' ]; then
     if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
       uvx --from ansible-core ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/codespaces.yml"
