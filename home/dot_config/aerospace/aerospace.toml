@@ -289,6 +289,11 @@ if.app-id = 'org.mozilla.firefox'
 run = ['layout tiling', 'move-node-to-workspace W']
 
 [[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser'
+# check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace W']
+
+[[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace S']
