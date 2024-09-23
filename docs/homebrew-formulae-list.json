@@ -1,0 +1,1180 @@
+{
+  "name": "agg",
+  "desc": "Asciicast to GIF converter",
+  "homepage": "https://github.com/asciinema/agg"
+}
+{
+  "name": "ansible",
+  "desc": "Automate deployment, configuration, and upgrading",
+  "homepage": "https://www.ansible.com/"
+}
+{
+  "name": "ansible-lint",
+  "desc": "Checks ansible playbooks for practices and behaviour",
+  "homepage": "https://ansible-lint.readthedocs.io/"
+}
+{
+  "name": "ant",
+  "desc": "Java build tool",
+  "homepage": "https://ant.apache.org/"
+}
+{
+  "name": "argo",
+  "desc": "Get stuff done with container-native workflows for Kubernetes",
+  "homepage": "https://argoproj.io"
+}
+{
+  "name": "argocd",
+  "desc": "GitOps Continuous Delivery for Kubernetes",
+  "homepage": "https://argoproj.github.io/cd"
+}
+{
+  "name": "asciinema",
+  "desc": "Record and share terminal sessions",
+  "homepage": "https://asciinema.org"
+}
+{
+  "name": "asdf",
+  "desc": "Extendable version manager with support for Ruby, Node.js, Erlang & more",
+  "homepage": "https://asdf-vm.com/"
+}
+{
+  "name": "asitop",
+  "desc": "Perf monitoring CLI tool for Apple Silicon",
+  "homepage": "https://tlkh.github.io/asitop/"
+}
+{
+  "name": "autoconf-archive",
+  "desc": "Collection of over 500 reusable autoconf macros",
+  "homepage": "https://savannah.gnu.org/projects/autoconf-archive/"
+}
+{
+  "name": "autogen",
+  "desc": "Automated text file generator",
+  "homepage": "https://autogen.sourceforge.net/"
+}
+{
+  "name": "aws-iam-authenticator",
+  "desc": "Use AWS IAM credentials to authenticate to Kubernetes",
+  "homepage": "https://github.com/kubernetes-sigs/aws-iam-authenticator"
+}
+{
+  "name": "awscli",
+  "desc": "Official Amazon AWS command-line interface",
+  "homepage": "https://aws.amazon.com/cli/"
+}
+{
+  "name": "bash",
+  "desc": "Bourne-Again SHell, a UNIX command interpreter",
+  "homepage": "https://www.gnu.org/software/bash/"
+}
+{
+  "name": "bash-completion",
+  "desc": "Programmable completion for Bash 3.2",
+  "homepage": "https://salsa.debian.org/debian/bash-completion"
+}
+{
+  "name": "bat",
+  "desc": "Clone of cat(1) with syntax highlighting and Git integration",
+  "homepage": "https://github.com/sharkdp/bat"
+}
+{
+  "name": "bitwarden-cli",
+  "desc": "Secure and free password manager for all of your devices",
+  "homepage": "https://bitwarden.com/"
+}
+{
+  "name": "bottom",
+  "desc": "Yet another cross-platform graphical process/system monitor",
+  "homepage": "https://clementtsang.github.io/bottom/"
+}
+{
+  "name": "oven-sh/bun/bun",
+  "desc": "Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.",
+  "homepage": "https://bun.sh/"
+}
+{
+  "name": "bzip2",
+  "desc": "Freely available high-quality data compressor",
+  "homepage": "https://sourceware.org/bzip2/"
+}
+{
+  "name": "cdk8s",
+  "desc": "Define k8s native apps and abstractions using object-oriented programming",
+  "homepage": "https://cdk8s.io/"
+}
+{
+  "name": "chafa",
+  "desc": "Versatile and fast Unicode/ASCII/ANSI graphics renderer",
+  "homepage": "https://hpjansson.org/chafa/"
+}
+{
+  "name": "miniscruff/changie/changie",
+  "desc": "Automated changelog tool for preparing releases with lots of customization options.",
+  "homepage": "https://changie.dev"
+}
+{
+  "name": "chart-testing",
+  "desc": "Testing and linting Helm charts",
+  "homepage": "https://github.com/helm/chart-testing"
+}
+{
+  "name": "checkov",
+  "desc": "Prevent cloud misconfigurations during build-time for IaC tools",
+  "homepage": "https://www.checkov.io/"
+}
+{
+  "name": "chezmoi",
+  "desc": "Manage your dotfiles across multiple diverse machines, securely",
+  "homepage": "https://chezmoi.io/"
+}
+{
+  "name": "cli53",
+  "desc": "Command-line tool for Amazon Route 53",
+  "homepage": "https://github.com/barnybug/cli53"
+}
+{
+  "name": "cmake",
+  "desc": "Cross-platform make",
+  "homepage": "https://www.cmake.org/"
+}
+{
+  "name": "cmctl",
+  "desc": "Command-line tool to manage cert-manager",
+  "homepage": "https://cert-manager.io"
+}
+{
+  "name": "codespell",
+  "desc": "Fix common misspellings in source code and text files",
+  "homepage": "https://github.com/codespell-project/codespell"
+}
+{
+  "name": "colima",
+  "desc": "Container runtimes on MacOS (and Linux) with minimal setup",
+  "homepage": "https://github.com/abiosoft/colima/blob/main/README.md"
+}
+{
+  "name": "colordiff",
+  "desc": "Color-highlighted diff(1) output",
+  "homepage": "https://www.colordiff.org/"
+}
+{
+  "name": "container-diff",
+  "desc": "Diff your Docker containers",
+  "homepage": "https://github.com/GoogleContainerTools/container-diff"
+}
+{
+  "name": "cookiecutter",
+  "desc": "Utility that creates projects from templates",
+  "homepage": "https://github.com/cookiecutter/cookiecutter"
+}
+{
+  "name": "coreutils",
+  "desc": "GNU File, Shell, and Text utilities",
+  "homepage": "https://www.gnu.org/software/coreutils/"
+}
+{
+  "name": "cosign",
+  "desc": "Container Signing",
+  "homepage": "https://github.com/sigstore/cosign"
+}
+{
+  "name": "csvlens",
+  "desc": "Command-line csv viewer",
+  "homepage": "https://github.com/YS-L/csvlens"
+}
+{
+  "name": "cue",
+  "desc": "Validate and define text-based and dynamic configuration",
+  "homepage": "https://cuelang.org/"
+}
+{
+  "name": "curl",
+  "desc": "Get a file from an HTTP, HTTPS or FTP server",
+  "homepage": "https://curl.se"
+}
+{
+  "name": "cypher-shell",
+  "desc": "Command-line shell where you can execute Cypher against Neo4j",
+  "homepage": "https://neo4j.com"
+}
+{
+  "name": "detect-secrets",
+  "desc": "Enterprise friendly way of detecting and preventing secrets in code",
+  "homepage": "https://github.com/Yelp/detect-secrets"
+}
+{
+  "name": "direnv",
+  "desc": "Load/unload environment variables based on $PWD",
+  "homepage": "https://direnv.net/"
+}
+{
+  "name": "dive",
+  "desc": "Tool for exploring each layer in a docker image",
+  "homepage": "https://github.com/wagoodman/dive"
+}
+{
+  "name": "docker",
+  "desc": "Pack, ship and run any application as a lightweight container",
+  "homepage": "https://www.docker.com/"
+}
+{
+  "name": "docker-credential-helper",
+  "desc": "Platform keystore credential helper for Docker",
+  "homepage": "https://github.com/docker/docker-credential-helpers"
+}
+{
+  "name": "docker-credential-helper-ecr",
+  "desc": "Docker Credential Helper for Amazon ECR",
+  "homepage": "https://github.com/awslabs/amazon-ecr-credential-helper"
+}
+{
+  "name": "docker-slim",
+  "desc": "Minify and secure Docker images",
+  "homepage": "https://slimtoolkit.org/"
+}
+{
+  "name": "dockutil",
+  "desc": "Tool for managing dock items",
+  "homepage": "https://github.com/kcrawford/dockutil"
+}
+{
+  "name": "dos2unix",
+  "desc": "Convert text between DOS, UNIX, and Mac formats",
+  "homepage": "https://waterlan.home.xs4all.nl/dos2unix.html"
+}
+{
+  "name": "dotenv-linter",
+  "desc": "Lightning-fast linter for .env files written in Rust",
+  "homepage": "https://dotenv-linter.github.io"
+}
+{
+  "name": "earthly/earthly/earthly",
+  "desc": "Build automation tool for the container era",
+  "homepage": "https://earthly.dev/"
+}
+{
+  "name": "aws/tap/ec2-instance-selector",
+  "desc": "EC2 Instance Selector is a tool to filter EC2 instance types based on resource criteria",
+  "homepage": "https://github.com/aws/amazon-ec2-instance-selector/"
+}
+{
+  "name": "aws/tap/eks-node-viewer",
+  "desc": "eks-node-viewer is a tool for visualizing dynamic node usage within an EKS cluster.",
+  "homepage": "https://github.com/awslabs/eks-node-viewer/"
+}
+{
+  "name": "eksctl",
+  "desc": "Simple command-line tool for creating clusters on Amazon EKS",
+  "homepage": "https://eksctl.io"
+}
+{
+  "name": "entr",
+  "desc": "Run arbitrary commands when files change",
+  "homepage": "https://eradman.com/entrproject/"
+}
+{
+  "name": "eslint",
+  "desc": "AST-based pattern checker for JavaScript",
+  "homepage": "https://eslint.org"
+}
+{
+  "name": "expect",
+  "desc": "Program that can automate interactive applications",
+  "homepage": "https://core.tcl-lang.org/expect/index"
+}
+{
+  "name": "eza",
+  "desc": "Modern, maintained replacement for ls",
+  "homepage": "https://github.com/eza-community/eza"
+}
+{
+  "name": "faas-cli",
+  "desc": "CLI for templating and/or deploying FaaS functions",
+  "homepage": "https://www.openfaas.com/"
+}
+{
+  "name": "fd",
+  "desc": "Simple, fast and user-friendly alternative to find",
+  "homepage": "https://github.com/sharkdp/fd"
+}
+{
+  "name": "ffmpeg",
+  "desc": "Play, record, convert, and stream audio and video",
+  "homepage": "https://ffmpeg.org/"
+}
+{
+  "name": "ffmpegthumbnailer",
+  "desc": "Create thumbnails for your video files",
+  "homepage": "https://github.com/dirkvdb/ffmpegthumbnailer"
+}
+{
+  "name": "flake8",
+  "desc": "Lint your Python code for style and logical errors",
+  "homepage": "https://flake8.pycqa.org/"
+}
+{
+  "name": "fluxcd/tap/flux",
+  "desc": "Flux CLI",
+  "homepage": "https://fluxcd.io/"
+}
+{
+  "name": "charmbracelet/tap/freeze",
+  "desc": "Generate images of code and terminal output.",
+  "homepage": "https://charm.sh/"
+}
+{
+  "name": "fzf",
+  "desc": "Command-line fuzzy finder written in Go",
+  "homepage": "https://github.com/junegunn/fzf"
+}
+{
+  "name": "theden/gcopy/gcopy",
+  "desc": "",
+  "homepage": "https://github.com/TheDen/gcopy"
+}
+{
+  "name": "gh",
+  "desc": "GitHub command-line tool",
+  "homepage": "https://cli.github.com/"
+}
+{
+  "name": "ghq",
+  "desc": "Remote repository management made easy",
+  "homepage": "https://github.com/x-motemen/ghq"
+}
+{
+  "name": "gifsicle",
+  "desc": "GIF image/animation creator/editor",
+  "homepage": "https://www.lcdf.org/gifsicle/"
+}
+{
+  "name": "gifski",
+  "desc": "Highest-quality GIF encoder based on pngquant",
+  "homepage": "https://gif.ski/"
+}
+{
+  "name": "git",
+  "desc": "Distributed revision control system",
+  "homepage": "https://git-scm.com"
+}
+{
+  "name": "git-cliff",
+  "desc": "Highly customizable changelog generator",
+  "homepage": "https://github.com/orhun/git-cliff"
+}
+{
+  "name": "git-delta",
+  "desc": "Syntax-highlighting pager for git and diff output",
+  "homepage": "https://github.com/dandavison/delta"
+}
+{
+  "name": "git-xargs",
+  "desc": "CLI for making updates across multiple Github repositories with a single command",
+  "homepage": "https://github.com/gruntwork-io/git-xargs"
+}
+{
+  "name": "glances",
+  "desc": "Alternative to top/htop",
+  "homepage": "https://nicolargo.github.io/glances/"
+}
+{
+  "name": "glow",
+  "desc": "Render markdown on the CLI",
+  "homepage": "https://github.com/charmbracelet/glow"
+}
+{
+  "name": "gnu-sed",
+  "desc": "GNU implementation of the famous stream editor",
+  "homepage": "https://www.gnu.org/software/sed/"
+}
+{
+  "name": "gnupg",
+  "desc": "GNU Pretty Good Privacy (PGP) package",
+  "homepage": "https://gnupg.org/"
+}
+{
+  "name": "go",
+  "desc": "Open source programming language to build simple/reliable/efficient software",
+  "homepage": "https://go.dev/"
+}
+{
+  "name": "go-jsonnet",
+  "desc": "Go implementation of configuration language for defining JSON data",
+  "homepage": "https://jsonnet.org/"
+}
+{
+  "name": "go@1.22",
+  "desc": "Open source programming language to build simple/reliable/efficient software",
+  "homepage": "https://go.dev/"
+}
+{
+  "name": "goreleaser/tap/goreleaser",
+  "desc": "Deliver Go binaries as fast and easily as possible",
+  "homepage": "https://goreleaser.com"
+}
+{
+  "name": "gradle",
+  "desc": "Open-source build automation tool based on the Groovy and Kotlin DSL",
+  "homepage": "https://www.gradle.org/"
+}
+{
+  "name": "grafana",
+  "desc": "Gorgeous metric visualizations and dashboards for timeseries databases",
+  "homepage": "https://grafana.com"
+}
+{
+  "name": "grafana-agent",
+  "desc": "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces",
+  "homepage": "https://grafana.com/docs/agent/"
+}
+{
+  "name": "graphviz",
+  "desc": "Graph visualization software from AT&T and Bell Labs",
+  "homepage": "https://graphviz.org/"
+}
+{
+  "name": "grep",
+  "desc": "GNU grep, egrep and fgrep",
+  "homepage": "https://www.gnu.org/software/grep/"
+}
+{
+  "name": "grpcurl",
+  "desc": "Like cURL, but for gRPC",
+  "homepage": "https://github.com/fullstorydev/grpcurl"
+}
+{
+  "name": "gstreamer",
+  "desc": "Development framework for multimedia applications",
+  "homepage": "https://gstreamer.freedesktop.org/"
+}
+{
+  "name": "hadolint",
+  "desc": "Smarter Dockerfile linter to validate best practices",
+  "homepage": "https://github.com/hadolint/hadolint"
+}
+{
+  "name": "helm",
+  "desc": "Kubernetes package manager",
+  "homepage": "https://helm.sh/"
+}
+{
+  "name": "norwoodj/tap/helm-docs",
+  "desc": "Automatically generate markdown documentation for helm charts",
+  "homepage": "https://github.com/norwoodj/helm-docs"
+}
+{
+  "name": "hey",
+  "desc": "HTTP load generator, ApacheBench (ab) replacement",
+  "homepage": "https://github.com/rakyll/hey"
+}
+{
+  "name": "hidapi",
+  "desc": "Library for communicating with USB and Bluetooth HID devices",
+  "homepage": "https://github.com/libusb/hidapi"
+}
+{
+  "name": "hopenpgp-tools",
+  "desc": "Command-line tools for OpenPGP-related operations",
+  "homepage": "https://hackage.haskell.org/package/hopenpgp-tools"
+}
+{
+  "name": "htop",
+  "desc": "Improved top (interactive process viewer)",
+  "homepage": "https://htop.dev/"
+}
+{
+  "name": "httrack",
+  "desc": "Website copier/offline browser",
+  "homepage": "https://www.httrack.com/"
+}
+{
+  "name": "iperf3",
+  "desc": "Update of iperf: measures TCP, UDP, and SCTP bandwidth",
+  "homepage": "https://github.com/esnet/iperf"
+}
+{
+  "name": "istioctl",
+  "desc": "Istio configuration command-line utility",
+  "homepage": "https://istio.io/"
+}
+{
+  "name": "jdupes",
+  "desc": "Duplicate file finder and an enhanced fork of 'fdupes'",
+  "homepage": "https://codeberg.org/jbruchon/jdupes"
+}
+{
+  "name": "jinja2-cli",
+  "desc": "CLI for the Jinja2 templating language",
+  "homepage": "https://github.com/mattrobenolt/jinja2-cli"
+}
+{
+  "name": "ankitpokhrel/jira-cli/jira-cli",
+  "desc": "Feature-rich interactive Jira command-line",
+  "homepage": "https://github.com/ankitpokhrel/jira-cli"
+}
+{
+  "name": "jq",
+  "desc": "Lightweight and flexible command-line JSON processor",
+  "homepage": "https://jqlang.github.io/jq/"
+}
+{
+  "name": "jsonnet-bundler",
+  "desc": "Package manager for Jsonnet",
+  "homepage": "https://github.com/jsonnet-bundler/jsonnet-bundler"
+}
+{
+  "name": "mike-engel/jwt-cli/jwt-cli",
+  "desc": "Super fast CLI tool to decode and encode JWTs built in Rust",
+  "homepage": "https://github.com/mike-engel/jwt-cli"
+}
+{
+  "name": "k2tf",
+  "desc": "Kubernetes YAML to Terraform HCL converter",
+  "homepage": "https://github.com/sl1pm4t/k2tf"
+}
+{
+  "name": "k3d",
+  "desc": "Little helper to run CNCF's k3s in Docker",
+  "homepage": "https://k3d.io"
+}
+{
+  "name": "k3sup",
+  "desc": "Utility to create k3s clusters on any local or remote VM",
+  "homepage": "https://k3sup.dev"
+}
+{
+  "name": "k9s",
+  "desc": "Kubernetes CLI To Manage Your Clusters In Style!",
+  "homepage": "https://k9scli.io/"
+}
+{
+  "name": "krew",
+  "desc": "Package manager for kubectl plugins",
+  "homepage": "https://sigs.k8s.io/krew/"
+}
+{
+  "name": "kube-linter",
+  "desc": "Static analysis tool for Kubernetes YAML files and Helm charts",
+  "homepage": "https://github.com/stackrox/kube-linter"
+}
+{
+  "name": "kube-ps1",
+  "desc": "Kubernetes prompt info for bash and zsh",
+  "homepage": "https://github.com/jonmosco/kube-ps1"
+}
+{
+  "name": "kubeconform",
+  "desc": "FAST Kubernetes manifests validator, with support for Custom Resources!",
+  "homepage": "https://github.com/yannh/kubeconform"
+}
+{
+  "name": "kubectx",
+  "desc": "Tool that can switch between kubectl contexts easily and create aliases",
+  "homepage": "https://github.com/ahmetb/kubectx"
+}
+{
+  "name": "kubernetes-cli",
+  "desc": "Kubernetes command-line interface",
+  "homepage": "https://kubernetes.io/docs/reference/kubectl/"
+}
+{
+  "name": "kubescape",
+  "desc": "Kubernetes testing according to Hardening Guidance by NSA and CISA",
+  "homepage": "https://kubescape.io"
+}
+{
+  "name": "kubescape/tap/kubescape-cli",
+  "desc": "Kubernetes misconfiguration testing",
+  "homepage": "https://github.com/kubescape/kubescape"
+}
+{
+  "name": "kubeseal",
+  "desc": "Kubernetes controller and tool for one-way encrypted Secrets",
+  "homepage": "https://github.com/bitnami-labs/sealed-secrets"
+}
+{
+  "name": "kustomize",
+  "desc": "Template-free customization of Kubernetes YAML manifests",
+  "homepage": "https://github.com/kubernetes-sigs/kustomize"
+}
+{
+  "name": "kwok",
+  "desc": "Kubernetes WithOut Kubelet - Simulates thousands of Nodes and Clusters",
+  "homepage": "https://kwok.sigs.k8s.io"
+}
+{
+  "name": "lazygit",
+  "desc": "Simple terminal UI for git commands",
+  "homepage": "https://github.com/jesseduffield/lazygit/"
+}
+{
+  "name": "logcli",
+  "desc": "Run LogQL queries against a Loki server",
+  "homepage": "https://grafana.com/loki"
+}
+{
+  "name": "luarocks",
+  "desc": "Package manager for the Lua programming language",
+  "homepage": "https://luarocks.org/"
+}
+{
+  "name": "make",
+  "desc": "Utility for directing compilation",
+  "homepage": "https://www.gnu.org/software/make/"
+}
+{
+  "name": "mas",
+  "desc": "Mac App Store command-line interface",
+  "homepage": "https://github.com/mas-cli/mas"
+}
+{
+  "name": "maven",
+  "desc": "Java-based project management",
+  "homepage": "https://maven.apache.org/"
+}
+{
+  "name": "mimirtool",
+  "desc": "CLI for interacting with Grafana Mimir",
+  "homepage": "https://grafana.com/docs/mimir/latest/operators-guide/tools/mimirtool/"
+}
+{
+  "name": "minikube",
+  "desc": "Run a Kubernetes cluster locally",
+  "homepage": "https://minikube.sigs.k8s.io/"
+}
+{
+  "name": "mise",
+  "desc": "Polyglot runtime manager (asdf rust clone)",
+  "homepage": "https://mise.jdx.dev/"
+}
+{
+  "name": "mosh",
+  "desc": "Remote terminal application",
+  "homepage": "https://mosh.org"
+}
+{
+  "name": "mtr",
+  "desc": "'traceroute' and 'ping' in a single tool",
+  "homepage": "https://www.bitwizard.nl/mtr/"
+}
+{
+  "name": "lindell/multi-gitter/multi-gitter",
+  "desc": "Update multiple repositories in bulk",
+  "homepage": "https://github.com/lindell/multi-gitter"
+}
+{
+  "name": "mysql-client",
+  "desc": "Open source relational database management system",
+  "homepage": "https://dev.mysql.com/doc/refman/9.0/en/"
+}
+{
+  "name": "ncurses",
+  "desc": "Text-based UI library",
+  "homepage": "https://invisible-island.net/ncurses/announce.html"
+}
+{
+  "name": "neofetch",
+  "desc": "Fast, highly customisable system info script",
+  "homepage": "https://github.com/dylanaraps/neofetch"
+}
+{
+  "name": "neomutt",
+  "desc": "E-mail reader with support for Notmuch, NNTP and much more",
+  "homepage": "https://neomutt.org/"
+}
+{
+  "name": "neovim",
+  "desc": "Ambitious Vim-fork focused on extensibility and agility",
+  "homepage": "https://neovim.io/"
+}
+{
+  "name": "nmap",
+  "desc": "Port scanning utility for large networks",
+  "homepage": "https://nmap.org/"
+}
+{
+  "name": "fairwindsops/tap/nova",
+  "desc": "Check installed Helm charts for updates",
+  "homepage": ""
+}
+{
+  "name": "nvm",
+  "desc": "Manage multiple Node.js versions",
+  "homepage": "https://github.com/nvm-sh/nvm"
+}
+{
+  "name": "openssh",
+  "desc": "OpenBSD freely-licensed SSH connectivity tools",
+  "homepage": "https://www.openssh.com/"
+}
+{
+  "name": "openssl@3",
+  "desc": "Cryptography and SSL/TLS Toolkit",
+  "homepage": "https://openssl-library.org"
+}
+{
+  "name": "ossp-uuid",
+  "desc": "ISO-C API and CLI for generating UUIDs",
+  "homepage": "http://www.ossp.org/pkg/lib/uuid/"
+}
+{
+  "name": "osx-cpu-temp",
+  "desc": "Outputs current CPU temperature for OSX",
+  "homepage": "https://github.com/lavoiesl/osx-cpu-temp"
+}
+{
+  "name": "packer",
+  "desc": "Tool for creating identical machine images for multiple platforms",
+  "homepage": "https://packer.io"
+}
+{
+  "name": "pandoc",
+  "desc": "Swiss-army knife of markup format conversion",
+  "homepage": "https://pandoc.org/"
+}
+{
+  "name": "parallel",
+  "desc": "Shell command parallelization utility",
+  "homepage": "https://savannah.gnu.org/projects/parallel/"
+}
+{
+  "name": "pdm",
+  "desc": "Modern Python package and dependency manager supporting the latest PEP standards",
+  "homepage": "https://pdm.fming.dev"
+}
+{
+  "name": "perl",
+  "desc": "Highly capable, feature-rich programming language",
+  "homepage": "https://www.perl.org/"
+}
+{
+  "name": "pgcli",
+  "desc": "CLI for Postgres with auto-completion and syntax highlighting",
+  "homepage": "https://pgcli.com/"
+}
+{
+  "name": "pinentry-mac",
+  "desc": "Pinentry for GPG on Mac",
+  "homepage": "https://github.com/GPGTools/pinentry"
+}
+{
+  "name": "pipenv",
+  "desc": "Python dependency management tool",
+  "homepage": "https://github.com/pypa/pipenv"
+}
+{
+  "name": "pngpaste",
+  "desc": "Paste PNG into files",
+  "homepage": "https://github.com/jcsalterego/pngpaste"
+}
+{
+  "name": "poetry",
+  "desc": "Python package management tool",
+  "homepage": "https://python-poetry.org/"
+}
+{
+  "name": "fairwindsops/tap/polaris",
+  "desc": "Open Source Best Practices for Kubernetes",
+  "homepage": ""
+}
+{
+  "name": "popeye",
+  "desc": "Kubernetes cluster resource sanitizer",
+  "homepage": "https://popeyecli.io"
+}
+{
+  "name": "poppler",
+  "desc": "PDF rendering library (based on the xpdf-3.0 code base)",
+  "homepage": "https://poppler.freedesktop.org/"
+}
+{
+  "name": "postgresql@14",
+  "desc": "Object-relational database system",
+  "homepage": "https://www.postgresql.org/"
+}
+{
+  "name": "pre-commit",
+  "desc": "Framework for managing multi-language pre-commit hooks",
+  "homepage": "https://pre-commit.com/"
+}
+{
+  "name": "prettier",
+  "desc": "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML",
+  "homepage": "https://prettier.io/"
+}
+{
+  "name": "proselint",
+  "desc": "Linter for prose",
+  "homepage": "https://github.com/amperser/proselint"
+}
+{
+  "name": "pwgen",
+  "desc": "Password generator",
+  "homepage": "https://pwgen.sourceforge.net/"
+}
+{
+  "name": "pyenv",
+  "desc": "Python version management",
+  "homepage": "https://github.com/pyenv/pyenv"
+}
+{
+  "name": "pyenv-virtualenv",
+  "desc": "Pyenv plugin to manage virtualenv",
+  "homepage": "https://github.com/pyenv/pyenv-virtualenv"
+}
+{
+  "name": "pylint",
+  "desc": "It's not just a linter that annoys you!",
+  "homepage": "https://github.com/pylint-dev/pylint"
+}
+{
+  "name": "python-argcomplete",
+  "desc": "Tab completion for Python argparse",
+  "homepage": "https://kislyuk.github.io/argcomplete/"
+}
+{
+  "name": "python-platformdirs",
+  "desc": "Python package for determining appropriate platform-specific dirs",
+  "homepage": "https://platformdirs.readthedocs.io/en/latest/"
+}
+{
+  "name": "python@3.10",
+  "desc": "Interpreted, interactive, object-oriented programming language",
+  "homepage": "https://www.python.org/"
+}
+{
+  "name": "python@3.11",
+  "desc": "Interpreted, interactive, object-oriented programming language",
+  "homepage": "https://www.python.org/"
+}
+{
+  "name": "python@3.12",
+  "desc": "Interpreted, interactive, object-oriented programming language",
+  "homepage": "https://www.python.org/"
+}
+{
+  "name": "pyyaml",
+  "desc": "YAML framework for Python",
+  "homepage": "https://pyyaml.org"
+}
+{
+  "name": "readline",
+  "desc": "Library for command-line editing",
+  "homepage": "https://tiswww.case.edu/php/chet/readline/rltop.html"
+}
+{
+  "name": "rename",
+  "desc": "Perl-powered file rename script with many helpful built-ins",
+  "homepage": "http://plasmasturm.org/code/rename"
+}
+{
+  "name": "ripgrep",
+  "desc": "Search tool like grep and The Silver Searcher",
+  "homepage": "https://github.com/BurntSushi/ripgrep"
+}
+{
+  "name": "rsync",
+  "desc": "Utility that provides fast incremental file transfer",
+  "homepage": "https://rsync.samba.org/"
+}
+{
+  "name": "ruby",
+  "desc": "Powerful, clean, object-oriented scripting language",
+  "homepage": "https://www.ruby-lang.org/"
+}
+{
+  "name": "ruff",
+  "desc": "Extremely fast Python linter, written in Rust",
+  "homepage": "https://docs.astral.sh/ruff/"
+}
+{
+  "name": "rust",
+  "desc": "Safe, concurrent, practical language",
+  "homepage": "https://www.rust-lang.org/"
+}
+{
+  "name": "rye",
+  "desc": "Experimental Package Management Solution for Python",
+  "homepage": "https://rye-up.com/"
+}
+{
+  "name": "screen",
+  "desc": "Terminal multiplexer with VT100/ANSI terminal emulation",
+  "homepage": "https://www.gnu.org/software/screen/"
+}
+{
+  "name": "shellcheck",
+  "desc": "Static analysis and lint tool, for (ba)sh scripts",
+  "homepage": "https://www.shellcheck.net/"
+}
+{
+  "name": "shfmt",
+  "desc": "Autoformat shell script source code",
+  "homepage": "https://github.com/mvdan/sh"
+}
+{
+  "name": "skaffold",
+  "desc": "Easy and Repeatable Kubernetes Development",
+  "homepage": "https://skaffold.dev/"
+}
+{
+  "name": "skopeo",
+  "desc": "Work with remote images registries",
+  "homepage": "https://github.com/containers/skopeo"
+}
+{
+  "name": "snyk-cli",
+  "desc": "Scans and monitors projects for security vulnerabilities",
+  "homepage": "https://snyk.io"
+}
+{
+  "name": "socat",
+  "desc": "SOcket CAT: netcat on steroids",
+  "homepage": "http://www.dest-unreach.org/socat/"
+}
+{
+  "name": "spark",
+  "desc": "Sparklines for the shell",
+  "homepage": "https://zachholman.com/spark/"
+}
+{
+  "name": "sqlite",
+  "desc": "Command-line interface for SQLite",
+  "homepage": "https://sqlite.org/index.html"
+}
+{
+  "name": "sslscan",
+  "desc": "Test SSL/TLS enabled services to discover supported cipher suites",
+  "homepage": "https://github.com/rbsec/sslscan"
+}
+{
+  "name": "starship",
+  "desc": "Cross-shell prompt for astronauts",
+  "homepage": "https://starship.rs"
+}
+{
+  "name": "stern",
+  "desc": "Tail multiple Kubernetes pods & their containers",
+  "homepage": "https://github.com/stern/stern"
+}
+{
+  "name": "stylua",
+  "desc": "Opinionated Lua code formatter",
+  "homepage": "https://github.com/JohnnyMorganz/StyLua"
+}
+{
+  "name": "cirruslabs/cli/tart",
+  "desc": "Run macOS and Linux VMs on Apple Hardware",
+  "homepage": "https://github.com/cirruslabs/tart"
+}
+{
+  "name": "tcl-tk",
+  "desc": "Tool Command Language",
+  "homepage": "https://www.tcl-lang.org"
+}
+{
+  "name": "tenv",
+  "desc": "OpenTofu / Terraform / Terragrunt / Atmos version manager",
+  "homepage": "https://tofuutils.github.io/tenv/"
+}
+{
+  "name": "veeso/termscp/termscp",
+  "desc": "A feature rich terminal file transfer and explorer with support for SCP/SFTP/FTP/S3/Kube/SMB/WebDAV",
+  "homepage": "https://termscp.veeso.dev/"
+}
+{
+  "name": "terraform-docs",
+  "desc": "Tool to generate documentation from Terraform modules",
+  "homepage": "https://github.com/terraform-docs/terraform-docs"
+}
+{
+  "name": "terrascan",
+  "desc": "Detect compliance and security violations across Infrastructure as Code",
+  "homepage": "https://runterrascan.io/"
+}
+{
+  "name": "tflint",
+  "desc": "Linter for Terraform files",
+  "homepage": "https://github.com/terraform-linters/tflint"
+}
+{
+  "name": "tfsec",
+  "desc": "Static analysis security scanner for your terraform code",
+  "homepage": "https://aquasecurity.github.io/tfsec/latest/"
+}
+{
+  "name": "tilt",
+  "desc": "Define your dev environment as code. For microservice apps on Kubernetes",
+  "homepage": "https://tilt.dev/"
+}
+{
+  "name": "tlrc",
+  "desc": "Official tldr client written in Rust",
+  "homepage": "https://github.com/tldr-pages/tlrc"
+}
+{
+  "name": "tmux",
+  "desc": "Terminal multiplexer",
+  "homepage": "https://tmux.github.io/"
+}
+{
+  "name": "morantron/tmux-fingers/tmux-fingers",
+  "desc": "mouseless terminal interaction",
+  "homepage": "https://github.com/morantron/tmux-fingers"
+}
+{
+  "name": "tokei",
+  "desc": "Program that allows you to count code, quickly",
+  "homepage": "https://github.com/XAMPPRocky/tokei"
+}
+{
+  "name": "tree",
+  "desc": "Display directories as trees (with optional color/HTML output)",
+  "homepage": "https://oldmanprogrammer.net/source.php?dir=projects/tree"
+}
+{
+  "name": "trippy",
+  "desc": "Network diagnostic tool, inspired by mtr",
+  "homepage": "https://trippy.cli.rs/"
+}
+{
+  "name": "trivy",
+  "desc": "Vulnerability scanner for container images, file systems, and Git repos",
+  "homepage": "https://aquasecurity.github.io/trivy/"
+}
+{
+  "name": "jstkdng/programs/ueberzugpp",
+  "desc": "Drop in replacement for ueberzug written in C++",
+  "homepage": "https://github.com/jstkdng/ueberzugpp"
+}
+{
+  "name": "unar",
+  "desc": "Command-line unarchiving tools supporting multiple formats",
+  "homepage": "https://theunarchiver.com/command-line"
+}
+{
+  "name": "updatecli/updatecli/updatecli",
+  "desc": "Updatecli is a declarative dependency management command line tool.",
+  "homepage": "https://updatecli.io/"
+}
+{
+  "name": "usage",
+  "desc": "Tool for working with usage-spec CLIs",
+  "homepage": "https://usage.jdx.dev/"
+}
+{
+  "name": "uv",
+  "desc": "Extremely fast Python package installer and resolver, written in Rust",
+  "homepage": "https://github.com/astral-sh/uv"
+}
+{
+  "name": "vale",
+  "desc": "Syntax-aware linter for prose",
+  "homepage": "https://vale.sh/"
+}
+{
+  "name": "vcluster",
+  "desc": "Creates fully functional virtual k8s cluster inside host k8s cluster's namespace",
+  "homepage": "https://www.vcluster.com"
+}
+{
+  "name": "velero",
+  "desc": "Disaster recovery for Kubernetes resources and persistent volumes",
+  "homepage": "https://velero.io/"
+}
+{
+  "name": "vhs",
+  "desc": "Your CLI home video recorder",
+  "homepage": "https://github.com/charmbracelet/vhs"
+}
+{
+  "name": "vim",
+  "desc": "Vi 'workalike' with many additional features",
+  "homepage": "https://www.vim.org/"
+}
+{
+  "name": "watch",
+  "desc": "Executes a program periodically, showing output fullscreen",
+  "homepage": "https://gitlab.com/procps-ng/procps"
+}
+{
+  "name": "wget",
+  "desc": "Internet file retriever",
+  "homepage": "https://www.gnu.org/software/wget/"
+}
+{
+  "name": "whois",
+  "desc": "Lookup tool for domain names and other internet resources",
+  "homepage": "https://github.com/rfc1036/whois"
+}
+{
+  "name": "wireguard-tools",
+  "desc": "Tools for the WireGuard secure network tunnel",
+  "homepage": "https://www.wireguard.com/"
+}
+{
+  "name": "xz",
+  "desc": "General-purpose data compression with high compression ratio",
+  "homepage": "https://tukaani.org/xz/"
+}
+{
+  "name": "yamlfmt",
+  "desc": "Extensible command-line tool to format YAML files",
+  "homepage": "https://github.com/google/yamlfmt"
+}
+{
+  "name": "yamllint",
+  "desc": "Linter for YAML files",
+  "homepage": "https://github.com/adrienverge/yamllint"
+}
+{
+  "name": "yapf",
+  "desc": "Formatter for python code",
+  "homepage": "https://github.com/google/yapf"
+}
+{
+  "name": "yarn",
+  "desc": "JavaScript package manager",
+  "homepage": "https://yarnpkg.com/"
+}
+{
+  "name": "yazi",
+  "desc": "Blazing fast terminal file manager written in Rust, based on async I/O",
+  "homepage": "https://github.com/sxyazi/yazi"
+}
+{
+  "name": "ykman",
+  "desc": "Tool for managing your YubiKey configuration",
+  "homepage": "https://developers.yubico.com/yubikey-manager/"
+}
+{
+  "name": "ykpers",
+  "desc": "YubiKey personalization library and tool",
+  "homepage": "https://developers.yubico.com/yubikey-personalization/"
+}
+{
+  "name": "yq",
+  "desc": "Process YAML, JSON, XML, CSV and properties documents from the CLI",
+  "homepage": "https://github.com/mikefarah/yq"
+}
+{
+  "name": "zlib",
+  "desc": "General-purpose lossless data-compression library",
+  "homepage": "https://zlib.net/"
+}
+{
+  "name": "zoxide",
+  "desc": "Shell extension to navigate your filesystem faster",
+  "homepage": "https://github.com/ajeetdsouza/zoxide"
+}
+{
+  "name": "zsh",
+  "desc": "UNIX shell (command interpreter)",
+  "homepage": "https://www.zsh.org/"
+}
+{
+  "name": "zsh-vi-mode",
+  "desc": "Better and friendly vi(vim) mode plugin for ZSH",
+  "homepage": "https://github.com/jeffreytse/zsh-vi-mode"
+}
