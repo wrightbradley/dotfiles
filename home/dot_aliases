@@ -372,6 +372,11 @@ oldman() {
   echo "https://tinyurl.com/3e63z8dz" | pbcopy
 }
 
+wednesday() {
+  # source: https://preview.redd.it/5n5dibawgvd61.jpg?width=960&height=831&crop=smart&auto=webp&s=a5afc53cdd81583a067d5a407a1ae8bdc42e58bd
+  echo "https://tinyurl.com/cvbteam9" | pbcopy
+}
+
 brewls() {
   # https://apple.stackexchange.com/a/438632
   brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name'
