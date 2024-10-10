@@ -12,6 +12,7 @@ zmodule ssh # Provides a convenient way to load ssh-agent. This enables one-time
 zmodule git # Provides handy git aliases and functions. https://github.com/zimfw/git
 zmodule https://github.com/unixorn/fzf-zsh-plugin.git   # Configures fzf for faster fetching of files and directories names. https://github.com/zimfw/fzf
 zmodule homebrew    # Adds aliases for Homebrew. https://github.com/zimfw/homebrew
+zmodule https://github.com/MichaelAquilina/zsh-you-should-use.git
 
 #
 # Completion
