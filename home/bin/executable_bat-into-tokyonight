@@ -12,22 +12,30 @@ BAT_THEMES_DIR="$(command bat --config-dir)/themes"
 
 cd "$BAT_THEMES_DIR"
 if [ ! -d "$REPO_NAME" ]; then
-	# Init
-	git clone --no-checkout --depth=1 --filter=blob:none "$REPO"
-	cd "$REPO_NAME"
-	git sparse-checkout set --no-cone '!/*' "$THEME_DIR"
-	git checkout
+  # Init
+  git clone --no-checkout --depth=1 --filter=blob:none "$REPO"
+  cd "$REPO_NAME"
+  git sparse-checkout set --no-cone '!/*' "$THEME_DIR"
+  git checkout
 else
-	# Update
-	cd "$REPO_NAME"
-	git fetch --filter=blob:none
-	updates="$(git rev-list HEAD..@{u} -- "$THEME_DIR")"
-	[ -n "$updates" ] && git merge --ff-only --log
+  # Update
+  cd "$REPO_NAME"
+  git fetch --filter=blob:none
+  updates="$(git rev-list HEAD..@{u} -- "$THEME_DIR")"
+  [ -n "$updates" ] && git merge --ff-only --log
 fi
 
 # Revalidate bat cache with mtime
 BAT_THEME_CACHE="$(command bat --cache-dir)/themes.bin"
-if [ ! -e "$BAT_THEME_CACHE" ] \
-|| [ -n "$(find "$BAT_THEMES_DIR" -name '*.tmTheme' -newer "$BAT_THEME_CACHE")" ]; then
-	command bat cache --build
+if [ ! -e "$BAT_THEME_CACHE" ] ||
+  [ -n "$(find "$BAT_THEMES_DIR" -name '*.tmTheme' -newer "$BAT_THEME_CACHE")" ]; then
+  command bat cache --build
 fi
+
+# OLD
+# mkdir -p "$(bat --config-dir)/themes"
+# cd "$(bat --config-dir)/themes" || exit
+# curl -O https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/sublime/tokyonight_night.tmTheme
+# bat cache --build
+# bat --list-themes | grep tokyo # should output "tokyonight_night"
+# echo '--theme="tokyonight_night"' >> "$(bat --config-dir)/config"

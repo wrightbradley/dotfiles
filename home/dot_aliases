@@ -382,14 +382,14 @@ brewls() {
   brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name'
 }
 
-function yy() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-      cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
-}
+# function yy() {
+#   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+#   yazi "$@" --cwd-file="$tmp"
+#   if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+#       cd -- "$cwd"
+#   fi
+#   rm -f -- "$tmp"
+# }
 
 # Snippets
 # kubectl get pods -n apps -l app.kubernetes.io/name=app -o json | jq -r '.items[].metadata.name' | parallel -j 4 'echo {}; kubectl exec {} -- /bin/ash -c "ps -eo pid,etime,comm | grep python"'
@@ -400,3 +400,7 @@ alias cdktf='NODE_OPTIONS="--no-deprecation --max-old-space-size=4096" npx cdktf
 if [ -f ~/.work-aliases ]; then
     source ~/.work-aliases
 fi
+
+secure_history() {
+  gsed -i '/base64 --decode/d; /base64 --encode/d; /base64 -d/d; /base64 -e/d;' ~/.zsh_history
+}
