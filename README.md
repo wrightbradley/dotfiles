@@ -76,9 +76,28 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB
 ## MacOS Defaults
 
 ```bash
+# For Aerospace
 defaults write -g NSWindowShouldDragOnGesture -bool true
 defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
 defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+
+# For Keyboard
+defaults write -g InitialKeyRepeat -int 20 # normal minimum is 15 (225 ms)
+defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+
+# For UI
+defaults write com.apple.dock "autohide" -bool "true" && killall Dock
+defaults write com.apple.dock "tilesize" -int "36" && killall Dock
+
+# For Screenshots
+mkdir -p ~/Pictures/Screenshots
+defaults write com.apple.screencapture location ~/Pictures/Screenshots
+defaults write com.apple.screencapture type jpg
+
+# Disable Smart Quotes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+# Disable Smart dashes
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 ```
 
 ## Homebrew Info Gathering
