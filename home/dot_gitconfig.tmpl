@@ -1,62 +1,87 @@
 # Local/private config goes in the include
 [init]
-    templatedir = ~/.git-templates
-    defaultBranch = main
+  templatedir = ~/.git-templates
+  defaultBranch = main
 [alias]
-    # https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/
-    gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
-    # all ignored and untracked files are also stashed and then cleaned up with git clean
-    staash = stash --all
-    bb = !~/bin/better-git-branch.sh
+  # https://www.erikschierboom.com/2020/02/17/cleaning-up-local-git-branches-deleted-on-a-remote/
+  gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+  # all ignored and untracked files are also stashed and then cleaned up with git clean
+  staash = stash --all
+  bb = !~/bin/better-git-branch.sh
+  yolo = !git commit -m "$(curl -s https://whatthecommit.com/index.txt)"
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
 [core]
-    excludesfile = ~/.gitignore
-    editor = nvim
-    pager = delta
+  excludesfile = ~/.gitignore
+  editor = nvim
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [delta]
-    # use n and N to move between diff sections
-    navigate = true
-    side-by-side = true
-    diff-so-fancy = true
-    paging-mode = never
-    # https://dandavison.github.io/delta/supported-languages-and-themes.html
-    features = tokyonight_night
-    dark = true
+  # use n and N to move between diff sections
+  navigate = true
+  side-by-side = true
+  diff-so-fancy = true
+  paging-mode = never
+  # https://dandavison.github.io/delta/supported-languages-and-themes.html
+  features = tokyonight_night
+  dark = true
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 [diff]
-    colorMoved = default
+  colorMoved = default
+  algorithm = histogram
 [fetch]
-    prune = true
+  prune = true
+[push]
+  default = current
+  autoSetupRemote = true
+[pager]
+  log = delta
+  reflog = delta
+  show = delta
+  difftool = true
+[difftool]
+  tool = nvimdiff
+  prompt = false
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+  tool = nvimdiff
+  conflictstyle = diff3
+[mergetool]
+  keepBackup = false
+[mergetool "nvimdiff"]
+  cmd = nvim -d $MERGED $LOCAL $BASE $REMOTE -c '$wincmd J' -c 'wincmd ='
+[log]
+  decorate = auto
+  abbrevCommit = true
+  showSignature = false
 [commit]
-    {{- if eq .system "server" }}
-    gpgsign = false
-    {{ else }}
-    gpgsign = true
-    {{- end }}
+  {{- if eq .system "server" }}
+  gpgsign = false
+  {{ else }}
+  gpgsign = true
+  {{- end }}
 [rebase]
-    updateRefs = true
+  updateRefs = true
 [rerere]
-    enabled = true
+  enabled = true
 [include]
-    {{- if eq .system "work" }}
-    path = ~/.gitconfig.work
-    {{- else if eq .system "server" }}
-    path = ~/.gitconfig.server
-    {{ else }}
-    path = ~/.gitconfig.personal
-    {{- end }}
+  {{- if eq .system "work" }}
+  path = ~/.gitconfig.work
+  {{- else if eq .system "server" }}
+  path = ~/.gitconfig.server
+  {{ else }}
+  path = ~/.gitconfig.personal
+  {{- end }}
 {{- if eq .system "work" }}
 [includeIf "gitdir:~/Projects/writing/obsidian-vault/"]
-    path = ~/.gitconfig.personal
+  path = ~/.gitconfig.personal
 [includeIf "gitdir:~/.local/share/chezmoi/"]
-    path = ~/.gitconfig.personal
+  path = ~/.gitconfig.personal
 [includeIf "gitdir:~/.config/nvim/"]
-    path = ~/.gitconfig.personal
+  path = ~/.gitconfig.personal
 {{- end }}
