@@ -311,7 +311,7 @@ run = ['layout tiling', 'move-node-to-workspace M']
 [[on-window-detected]]
 if.app-id = 'us.zoom.xos'
 # check-further-callbacks = true
-run = ['layout tiling', 'move-node-to-workspace Z']
+run = ['move-node-to-workspace Z']
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'

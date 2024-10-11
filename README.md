@@ -80,6 +80,8 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB
 defaults write -g NSWindowShouldDragOnGesture -bool true
 defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
 defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+# Aersopace window drag
+defaults write -g NSWindowShouldDragOnGesture -bool true
 
 # For Keyboard
 defaults write -g InitialKeyRepeat -int 20 # normal minimum is 15 (225 ms)
@@ -98,6 +100,7 @@ defaults write com.apple.screencapture type jpg
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 # Disable Smart dashes
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
 ```
 
 ## Homebrew Info Gathering
