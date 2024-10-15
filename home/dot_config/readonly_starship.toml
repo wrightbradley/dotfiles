@@ -132,6 +132,7 @@ format = '[ $user ]($style)'
 style = "fg:mantle bg:purple"
 format = "[ $path ]($style)"
 truncation_length = 3
+truncate_to_repo = false
 truncation_symbol = "…/"
 
 [directory.substitutions]
