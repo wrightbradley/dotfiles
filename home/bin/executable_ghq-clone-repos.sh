@@ -92,4 +92,4 @@ export -f log_info
 export -f log_error
 
 # Use find to get directories and parallel to process them
-find "$base_dir" -mindepth 1 -maxdepth 1 -type d | parallel -j 4 --halt-on-error 1 --no-notice 'process_directory {}'
+find "$base_dir" -mindepth 1 -maxdepth 1 -type d ! -name '*.archive' | parallel -j 4 --halt-on-error 1 --no-notice 'process_directory {}'
