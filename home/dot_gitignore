@@ -600,7 +600,6 @@ export_presets.cfg
 
 # Mono-specific ignores
 .mono/
-data_*/
 mono_crash.*.json
 
 ### grunt ###
