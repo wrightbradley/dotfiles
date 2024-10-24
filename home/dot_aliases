@@ -404,3 +404,7 @@ fi
 secure_history() {
   gsed -i '/base64 --decode/d; /base64 --encode/d; /base64 -d/d; /base64 -e/d;' ~/.zsh_history
 }
+
+pr_commits(){
+  git log --date-order --pretty=format:"%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)%n  * %b" origin/main..HEAD | grep -v Signed-off-by | pbcopy
+}

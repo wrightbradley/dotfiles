@@ -98,6 +98,7 @@ export EDITOR='nvim'
 export KUBE_EDITOR='nvim'
 export YSU_IGNORED_GLOBAL_ALIASES=()
 export YSU_IGNORED_ALIASES=("vi" "vim" "G")
+export NODE_OPTIONS="--no-deprecation --max-old-space-size=4096"
 
 # Terraform Configuration
 # export TERRAFORM_BINARY_NAME="tofu"
