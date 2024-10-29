@@ -269,8 +269,9 @@ kdebug() {
 }
 
 kdrun() {
+  IMAGE=$1
   POD=ephemeral-debug-$(date -u +"%Y-%m-%dt%H-%M-%Sz")
-  kubectl run $POD --image=730998372749.dkr.ecr.us-west-2.amazonaws.com/debug:debian --restart=Never --attach=true --image-pull-policy=Always --tty=true --privileged=true --rm=true --stdin=true --port=8080 -- /bin/bash
+  kubectl run $POD --image=$IMAGE --restart=Never --attach=true --image-pull-policy=Always --tty=true --privileged=true --rm=true --stdin=true --port=8080 -- /bin/bash
 }
 
 awsprof() {
