@@ -22,7 +22,7 @@ os:
   edit: 'nvim --server $NVIM --remote-tab {{filename}}'
 customCommands:
   - key: "<c-g>"
-    command: "unset GITHUB_TOKEN; JIRA_ID=$(git symbolic-ref --short HEAD | grep -e '\\b[A-Z][A-Z0-9_]\\+-[1-9][0-9]\\+' -o); TITLE=$(uv run ~/bin/get-jira-title.py ${JIRA_ID}); BODY=$(git log --graph --pretty=format:'%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)' origin/main..HEAD | sed 's/\"//g'); echo $BODY > /tmp/body.txt; gh pr create --body \"${BODY}\" --title \"${TITLE}\" --assignee @me {{.Form.DRAFT}} {{.Form.CLOUDOPS}}"
+    command: "unset GITHUB_TOKEN; JIRA_ID=$(git symbolic-ref --short HEAD | grep -e '\\b[A-Z][A-Z0-9_]\\+-[1-9][0-9]\\+' -o); TITLE=$(uv run ~/bin/get-jira-title.py ${JIRA_ID}); BODY=$(git log --date-order --pretty=format:'%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)%n  * %b' origin/main..HEAD | grep -v Signed-off-by | sed 's/\"//g'); echo $BODY > /tmp/body.txt; gh pr create --body \"${BODY}\" --title \"${TITLE}\" --assignee @me {{.Form.DRAFT}} {{.Form.CLOUDOPS}}"
     context: "global"
     loadingText: "Creating pull request on GitHub"
     prompts:
