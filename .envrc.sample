@@ -1,0 +1,7 @@
+####################################################################################
+# Manage dev environments https://direnv.net/
+
+# Customize your project layout here
+# https://github.com/direnv/direnv/wiki
+
+dotenv_if_exists

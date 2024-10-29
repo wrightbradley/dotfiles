@@ -1,5 +1,5 @@
 ---
-#https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md002
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md002
 comment: my-markdown-linting-rules
 
 # enable all default tagged rules
@@ -8,7 +8,7 @@ default: true
 # enable indentation rules by default
 indentation: true
 
-#MD004 - Unordered list style
+# MD004 - Unordered list style
 # Parameters: style ("consistent", "asterisk", "plus", "dash", "sublist"; default "consistent")
 # Defaults to dash
 MD004:
