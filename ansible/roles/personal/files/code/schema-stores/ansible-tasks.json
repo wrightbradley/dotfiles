@@ -176,9 +176,7 @@
         "with_subelements": {},
         "with_together": {}
       },
-      "required": [
-        "action"
-      ],
+      "required": ["action"],
       "title": "BeremothTaskModel",
       "type": "object"
     },
@@ -608,17 +606,12 @@
           "title": "With Together"
         }
       },
-      "required": [
-        "action"
-      ],
+      "required": ["action"],
       "title": "TaskModel",
       "type": "object"
     }
   },
-  "examples": [
-    "tasks/*.yml",
-    "handlers/*.yml"
-  ],
+  "examples": ["tasks/*.yml", "handlers/*.yml"],
   "items": {
     "anyOf": [
       {

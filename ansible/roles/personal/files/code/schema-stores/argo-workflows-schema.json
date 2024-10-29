@@ -4178,9 +4178,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ArtifactLocation": {
@@ -4305,9 +4303,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ArtifactRepository": {
@@ -4394,9 +4390,7 @@
           "description": "UsernameSecret is the secret selector to the repository username"
         }
       },
-      "required": [
-        "url"
-      ],
+      "required": ["url"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ArtifactoryArtifactRepository": {
@@ -4443,9 +4437,7 @@
           "description": "ConfigMap sets a ConfigMap-based cache"
         }
       },
-      "required": [
-        "configMap"
-      ],
+      "required": ["configMap"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplate": {
@@ -4468,10 +4460,7 @@
           "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.WorkflowTemplateSpec"
         }
       },
-      "required": [
-        "metadata",
-        "spec"
-      ],
+      "required": ["metadata", "spec"],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -4527,10 +4516,7 @@
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
         }
       },
-      "required": [
-        "metadata",
-        "items"
-      ],
+      "required": ["metadata", "items"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ClusterWorkflowTemplateUpdateRequest": {
@@ -4626,10 +4612,7 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerPort"
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "containerPort",
-            "protocol"
-          ],
+          "x-kubernetes-list-map-keys": ["containerPort", "protocol"],
           "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "containerPort",
           "x-kubernetes-patch-strategy": "merge"
@@ -4693,9 +4676,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ContainerSetTemplate": {
@@ -4713,9 +4694,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "containers"
-      ],
+      "required": ["containers"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ContinueOn": {
@@ -4738,9 +4717,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value"
-      ],
+      "required": ["value"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.CreateCronWorkflowRequest": {
@@ -4790,10 +4767,7 @@
           "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.CronWorkflowStatus"
         }
       },
-      "required": [
-        "metadata",
-        "spec"
-      ],
+      "required": ["metadata", "spec"],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -4827,10 +4801,7 @@
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
         }
       },
-      "required": [
-        "metadata",
-        "items"
-      ],
+      "required": ["metadata", "items"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.CronWorkflowResumeRequest": {
@@ -4884,10 +4855,7 @@
           "description": "WorkflowSpec is the spec of the workflow to be run"
         }
       },
-      "required": [
-        "workflowSpec",
-        "schedule"
-      ],
+      "required": ["workflowSpec", "schedule"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.CronWorkflowStatus": {
@@ -4912,11 +4880,7 @@
           "description": "LastScheduleTime is the last time the CronWorkflow was scheduled"
         }
       },
-      "required": [
-        "active",
-        "lastScheduledTime",
-        "conditions"
-      ],
+      "required": ["active", "lastScheduledTime", "conditions"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.CronWorkflowSuspendRequest": {
@@ -4999,9 +4963,7 @@
           "description": "WithSequence expands a task into a numeric sequence"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.DAGTemplate": {
@@ -5025,9 +4987,7 @@
           "x-kubernetes-patch-strategy": "merge"
         }
       },
-      "required": [
-        "tasks"
-      ],
+      "required": ["tasks"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.Data": {
@@ -5045,10 +5005,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "source",
-        "transformation"
-      ],
+      "required": ["source", "transformation"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.DataSource": {
@@ -5068,9 +5025,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "selector"
-      ],
+      "required": ["selector"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.EventResponse": {
@@ -5102,9 +5057,7 @@
           "description": "ServiceAccountKeySecret is the secret selector to the bucket's service account key"
         }
       },
-      "required": [
-        "key"
-      ],
+      "required": ["key"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.GCSArtifactRepository": {
@@ -5137,10 +5090,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value",
-        "realtime"
-      ],
+      "required": ["value", "realtime"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.GetUserInfoResponse": {
@@ -5212,9 +5162,7 @@
           "description": "UsernameSecret is the secret selector to the repository username"
         }
       },
-      "required": [
-        "repo"
-      ],
+      "required": ["repo"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.HDFSArtifact": {
@@ -5264,9 +5212,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "path"
-      ],
+      "required": ["path"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.HDFSArtifactRepository": {
@@ -5348,9 +5294,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "url"
-      ],
+      "required": ["url"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.HTTPArtifact": {
@@ -5368,9 +5312,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "url"
-      ],
+      "required": ["url"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.HTTPHeader": {
@@ -5385,9 +5327,7 @@
           "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.HTTPHeaderSource"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.HTTPHeaderSource": {
@@ -5410,10 +5350,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "value"
-      ],
+      "required": ["name", "value"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.Histogram": {
@@ -5431,10 +5368,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "value",
-        "buckets"
-      ],
+      "required": ["value", "buckets"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.InfoResponse": {
@@ -5517,9 +5451,7 @@
           "description": "TemplateRef is the reference to the template resource to execute by the hook"
         }
       },
-      "required": [
-        "template"
-      ],
+      "required": ["template"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.Link": {
@@ -5538,11 +5470,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "scope",
-        "url"
-      ],
+      "required": ["name", "scope", "url"],
       "type": "object",
       "x-kubernetes-patch-merge-key": "name",
       "x-kubernetes-patch-strategy": "merge"
@@ -5585,11 +5513,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "hit",
-        "key",
-        "cacheName"
-      ],
+      "required": ["hit", "key", "cacheName"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.Memoize": {
@@ -5608,11 +5532,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "key",
-        "cache",
-        "maxAge"
-      ],
+      "required": ["key", "cache", "maxAge"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.Metadata": {
@@ -5643,10 +5563,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "key",
-        "value"
-      ],
+      "required": ["key", "value"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.Metrics": {
@@ -5660,9 +5577,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "prometheus"
-      ],
+      "required": ["prometheus"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.Mutex": {
@@ -5835,11 +5750,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "id",
-        "name",
-        "type"
-      ],
+      "required": ["id", "name", "type"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.NodeSynchronizationStatus": {
@@ -5892,9 +5803,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "key"
-      ],
+      "required": ["key"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.OSSArtifactRepository": {
@@ -6022,9 +5931,7 @@
           "description": "ValueFrom is the source for the output parameter's value"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.PodGC": {
@@ -6076,10 +5983,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "help"
-      ],
+      "required": ["name", "help"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.RawArtifact": {
@@ -6090,9 +5994,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "data"
-      ],
+      "required": ["data"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ResourceTemplate": {
@@ -6130,9 +6032,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "action"
-      ],
+      "required": ["action"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.RetryAffinity": {
@@ -6357,10 +6257,7 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerPort"
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "containerPort",
-            "protocol"
-          ],
+          "x-kubernetes-list-map-keys": ["containerPort", "protocol"],
           "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "containerPort",
           "x-kubernetes-patch-strategy": "merge"
@@ -6428,10 +6325,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "image",
-        "source"
-      ],
+      "required": ["image", "source"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.SemaphoreHolding": {
@@ -6517,9 +6411,7 @@
           "description": "WorkflowTemplateRef the workflow template to submit"
         }
       },
-      "required": [
-        "workflowTemplateRef"
-      ],
+      "required": ["workflowTemplateRef"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.SubmitOpts": {
@@ -6867,9 +6759,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "expression"
-      ],
+      "required": ["expression"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.UpdateCronWorkflowRequest": {
@@ -6950,10 +6840,7 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerPort"
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "containerPort",
-            "protocol"
-          ],
+          "x-kubernetes-list-map-keys": ["containerPort", "protocol"],
           "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "containerPort",
           "x-kubernetes-patch-strategy": "merge"
@@ -7017,9 +6904,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.ValueFrom": {
@@ -7136,10 +7021,7 @@
           "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.WorkflowStatus"
         }
       },
-      "required": [
-        "metadata",
-        "spec"
-      ],
+      "required": ["metadata", "spec"],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -7193,10 +7075,7 @@
           "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec"
         }
       },
-      "required": [
-        "metadata",
-        "spec"
-      ],
+      "required": ["metadata", "spec"],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -7227,10 +7106,7 @@
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
         }
       },
-      "required": [
-        "metadata",
-        "items"
-      ],
+      "required": ["metadata", "items"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.WorkflowEventBindingSpec": {
@@ -7244,9 +7120,7 @@
           "description": "Submit is the workflow template to submit"
         }
       },
-      "required": [
-        "event"
-      ],
+      "required": ["event"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.WorkflowLintRequest": {
@@ -7281,10 +7155,7 @@
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
         }
       },
-      "required": [
-        "metadata",
-        "items"
-      ],
+      "required": ["metadata", "items"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.WorkflowResubmitRequest": {
@@ -7786,10 +7657,7 @@
           "$ref": "#/definitions/io.argoproj.workflow.v1alpha1.WorkflowTemplateSpec"
         }
       },
-      "required": [
-        "metadata",
-        "spec"
-      ],
+      "required": ["metadata", "spec"],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -7851,10 +7719,7 @@
           "$ref": "#/definitions/io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta"
         }
       },
-      "required": [
-        "metadata",
-        "items"
-      ],
+      "required": ["metadata", "items"],
       "type": "object"
     },
     "io.argoproj.workflow.v1alpha1.WorkflowTemplateRef": {
@@ -8132,9 +7997,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "volumeID"
-      ],
+      "required": ["volumeID"],
       "type": "object"
     },
     "io.k8s.api.core.v1.Affinity": {
@@ -8183,10 +8046,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "diskName",
-        "diskURI"
-      ],
+      "required": ["diskName", "diskURI"],
       "type": "object"
     },
     "io.k8s.api.core.v1.AzureFileVolumeSource": {
@@ -8205,10 +8065,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "secretName",
-        "shareName"
-      ],
+      "required": ["secretName", "shareName"],
       "type": "object"
     },
     "io.k8s.api.core.v1.CSIVolumeSource": {
@@ -8238,9 +8095,7 @@
           "type": "object"
         }
       },
-      "required": [
-        "driver"
-      ],
+      "required": ["driver"],
       "type": "object"
     },
     "io.k8s.api.core.v1.Capabilities": {
@@ -8294,9 +8149,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "monitors"
-      ],
+      "required": ["monitors"],
       "type": "object"
     },
     "io.k8s.api.core.v1.CinderVolumeSource": {
@@ -8319,9 +8172,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "volumeID"
-      ],
+      "required": ["volumeID"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ConfigMapEnvSource": {
@@ -8354,9 +8205,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "key"
-      ],
+      "required": ["key"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ConfigMapProjection": {
@@ -8464,10 +8313,7 @@
             "$ref": "#/definitions/io.k8s.api.core.v1.ContainerPort"
           },
           "type": "array",
-          "x-kubernetes-list-map-keys": [
-            "containerPort",
-            "protocol"
-          ],
+          "x-kubernetes-list-map-keys": ["containerPort", "protocol"],
           "x-kubernetes-list-type": "map",
           "x-kubernetes-patch-merge-key": "containerPort",
           "x-kubernetes-patch-strategy": "merge"
@@ -8531,9 +8377,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "image"
-      ],
+      "required": ["image"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ContainerPort": {
@@ -8560,9 +8404,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "containerPort"
-      ],
+      "required": ["containerPort"],
       "type": "object"
     },
     "io.k8s.api.core.v1.DownwardAPIProjection": {
@@ -8598,9 +8440,7 @@
           "description": "Selects a resource of the container: only resources limits and requests (limits.cpu, limits.memory, requests.cpu and requests.memory) are currently supported."
         }
       },
-      "required": [
-        "path"
-      ],
+      "required": ["path"],
       "type": "object"
     },
     "io.k8s.api.core.v1.DownwardAPIVolumeSource": {
@@ -8668,9 +8508,7 @@
           "description": "Source for the environment variable's value. Cannot be used if value is not empty."
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.k8s.api.core.v1.EnvVarSource": {
@@ -8777,10 +8615,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "metadata",
-        "involvedObject"
-      ],
+      "required": ["metadata", "involvedObject"],
       "type": "object",
       "x-kubernetes-group-version-kind": [
         {
@@ -8894,9 +8729,7 @@
           "description": "Optional: SecretRef is reference to the secret object containing sensitive information to pass to the plugin scripts. This may be empty if no secret object is specified. If the secret object contains more than one secret, all secrets are passed to the plugin scripts."
         }
       },
-      "required": [
-        "driver"
-      ],
+      "required": ["driver"],
       "type": "object"
     },
     "io.k8s.api.core.v1.FlockerVolumeSource": {
@@ -8933,9 +8766,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "pdName"
-      ],
+      "required": ["pdName"],
       "type": "object"
     },
     "io.k8s.api.core.v1.GitRepoVolumeSource": {
@@ -8954,9 +8785,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "repository"
-      ],
+      "required": ["repository"],
       "type": "object"
     },
     "io.k8s.api.core.v1.GlusterfsVolumeSource": {
@@ -8975,10 +8804,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "endpoints",
-        "path"
-      ],
+      "required": ["endpoints", "path"],
       "type": "object"
     },
     "io.k8s.api.core.v1.HTTPGetAction": {
@@ -9008,9 +8834,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "port"
-      ],
+      "required": ["port"],
       "type": "object"
     },
     "io.k8s.api.core.v1.HTTPHeader": {
@@ -9025,10 +8849,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "value"
-      ],
+      "required": ["name", "value"],
       "type": "object"
     },
     "io.k8s.api.core.v1.Handler": {
@@ -9078,9 +8899,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "path"
-      ],
+      "required": ["path"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ISCSIVolumeSource": {
@@ -9134,11 +8953,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "targetPortal",
-        "iqn",
-        "lun"
-      ],
+      "required": ["targetPortal", "iqn", "lun"],
       "type": "object"
     },
     "io.k8s.api.core.v1.KeyToPath": {
@@ -9157,10 +8972,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "key",
-        "path"
-      ],
+      "required": ["key", "path"],
       "type": "object"
     },
     "io.k8s.api.core.v1.Lifecycle": {
@@ -9203,10 +9015,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "server",
-        "path"
-      ],
+      "required": ["server", "path"],
       "type": "object"
     },
     "io.k8s.api.core.v1.NodeAffinity": {
@@ -9237,9 +9046,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "nodeSelectorTerms"
-      ],
+      "required": ["nodeSelectorTerms"],
       "type": "object"
     },
     "io.k8s.api.core.v1.NodeSelectorRequirement": {
@@ -9261,10 +9068,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "key",
-        "operator"
-      ],
+      "required": ["key", "operator"],
       "type": "object"
     },
     "io.k8s.api.core.v1.NodeSelectorTerm": {
@@ -9299,9 +9103,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "fieldPath"
-      ],
+      "required": ["fieldPath"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ObjectReference": {
@@ -9397,10 +9199,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "status"
-      ],
+      "required": ["type", "status"],
       "type": "object"
     },
     "io.k8s.api.core.v1.PersistentVolumeClaimSpec": {
@@ -9499,9 +9298,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "claimName"
-      ],
+      "required": ["claimName"],
       "type": "object"
     },
     "io.k8s.api.core.v1.PhotonPersistentDiskVolumeSource": {
@@ -9516,9 +9313,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "pdID"
-      ],
+      "required": ["pdID"],
       "type": "object"
     },
     "io.k8s.api.core.v1.PodAffinity": {
@@ -9560,9 +9355,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "topologyKey"
-      ],
+      "required": ["topologyKey"],
       "type": "object"
     },
     "io.k8s.api.core.v1.PodAntiAffinity": {
@@ -9686,9 +9479,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "volumeID"
-      ],
+      "required": ["volumeID"],
       "type": "object"
     },
     "io.k8s.api.core.v1.PreferredSchedulingTerm": {
@@ -9703,10 +9494,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "weight",
-        "preference"
-      ],
+      "required": ["weight", "preference"],
       "type": "object"
     },
     "io.k8s.api.core.v1.Probe": {
@@ -9762,9 +9550,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "sources"
-      ],
+      "required": ["sources"],
       "type": "object"
     },
     "io.k8s.api.core.v1.QuobyteVolumeSource": {
@@ -9795,10 +9581,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "registry",
-        "volume"
-      ],
+      "required": ["registry", "volume"],
       "type": "object"
     },
     "io.k8s.api.core.v1.RBDVolumeSource": {
@@ -9840,10 +9623,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "monitors",
-        "image"
-      ],
+      "required": ["monitors", "image"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ResourceFieldSelector": {
@@ -9862,9 +9642,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "resource"
-      ],
+      "required": ["resource"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ResourceRequirements": {
@@ -9953,11 +9731,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "gateway",
-        "system",
-        "secretRef"
-      ],
+      "required": ["gateway", "system", "secretRef"],
       "type": "object"
     },
     "io.k8s.api.core.v1.SecretEnvSource": {
@@ -9990,9 +9764,7 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "key"
-      ],
+      "required": ["key"],
       "type": "object"
     },
     "io.k8s.api.core.v1.SecretProjection": {
@@ -10103,9 +9875,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "path"
-      ],
+      "required": ["path"],
       "type": "object"
     },
     "io.k8s.api.core.v1.ServicePort": {
@@ -10132,9 +9902,7 @@
           "description": "Number or name of the port to access on the pods targeted by the service. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME. If this is a string, it will be looked up as a named port in the target Pod's container ports. If this is not specified, the value of the 'port' field is used (an identity map). This field is ignored for services with clusterIP=None, and should be omitted or set equal to the 'port' field. More info: https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service"
         }
       },
-      "required": [
-        "port"
-      ],
+      "required": ["port"],
       "type": "object"
     },
     "io.k8s.api.core.v1.StorageOSVolumeSource": {
@@ -10175,10 +9943,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "value"
-      ],
+      "required": ["name", "value"],
       "type": "object"
     },
     "io.k8s.api.core.v1.TCPSocketAction": {
@@ -10193,9 +9958,7 @@
           "description": "Number or name of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME."
         }
       },
-      "required": [
-        "port"
-      ],
+      "required": ["port"],
       "type": "object"
     },
     "io.k8s.api.core.v1.Toleration": {
@@ -10240,10 +10003,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "kind",
-        "name"
-      ],
+      "required": ["kind", "name"],
       "type": "object"
     },
     "io.k8s.api.core.v1.Volume": {
@@ -10366,9 +10126,7 @@
           "description": "VsphereVolume represents a vSphere volume attached and mounted on kubelets host machine"
         }
       },
-      "required": [
-        "name"
-      ],
+      "required": ["name"],
       "type": "object"
     },
     "io.k8s.api.core.v1.VolumeDevice": {
@@ -10383,10 +10141,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "devicePath"
-      ],
+      "required": ["name", "devicePath"],
       "type": "object"
     },
     "io.k8s.api.core.v1.VolumeMount": {
@@ -10417,10 +10172,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "mountPath"
-      ],
+      "required": ["name", "mountPath"],
       "type": "object"
     },
     "io.k8s.api.core.v1.VolumeProjection": {
@@ -10465,9 +10217,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "volumePath"
-      ],
+      "required": ["volumePath"],
       "type": "object"
     },
     "io.k8s.api.core.v1.WeightedPodAffinityTerm": {
@@ -10482,10 +10232,7 @@
           "type": "integer"
         }
       },
-      "required": [
-        "weight",
-        "podAffinityTerm"
-      ],
+      "required": ["weight", "podAffinityTerm"],
       "type": "object"
     },
     "io.k8s.api.core.v1.WindowsSecurityContextOptions": {
@@ -10646,10 +10393,7 @@
           "type": "array"
         }
       },
-      "required": [
-        "key",
-        "operator"
-      ],
+      "required": ["key", "operator"],
       "type": "object"
     },
     "io.k8s.apimachinery.pkg.apis.meta.v1.ListMeta": {
@@ -10825,12 +10569,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "apiVersion",
-        "kind",
-        "name",
-        "uid"
-      ],
+      "required": ["apiVersion", "kind", "name", "uid"],
       "type": "object"
     },
     "io.k8s.apimachinery.pkg.apis.meta.v1.StatusCause": {

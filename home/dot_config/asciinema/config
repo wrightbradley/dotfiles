@@ -32,4 +32,3 @@ speed = 2
 
 ; Limit replayed terminal inactivity to max n seconds, default: off
 idle_time_limit = 1
-

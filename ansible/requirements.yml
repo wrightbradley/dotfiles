@@ -3,9 +3,9 @@
 # https://github.com/geerlingguy/mac-dev-playbook/blob/master/default.config.yml
 collections:
   - name: geerlingguy.mac
-    version: ">=4"
+    version: '>=4'
   - name: kubernetes.core
-    version: ">=3"
+    version: '>=3'
   - name: community.general
     # version: ">=9"
-    version: "8.4.0"
+    version: '8.4.0'

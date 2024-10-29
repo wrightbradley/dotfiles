@@ -26,9 +26,9 @@ To facilitate these goals, this repo uses [chezmoi](https://www.chezmoi.io/) and
 ## To Execute
 
 You need to create a chezmoi config file under the XDG Base Directory. For
-macOS, that would be: `~/.config/chezmoi/chezmoi.toml` Chezmoi supports different
-[file formats](https://www.chezmoi.io/reference/configuration-file/), but I
-currently use TOML.
+macOS, that would be: `~/.config/chezmoi/chezmoi.toml` Chezmoi supports
+different [file formats](https://www.chezmoi.io/reference/configuration-file/),
+but I currently use TOML.
 
 My config file for chezmoi is pretty simple. There are a few unique components
 related to GPG encryption support for chezmoi. (NOTE: replace the example email

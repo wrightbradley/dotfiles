@@ -70,6 +70,7 @@ homebrew_installed_packages:
   - aws/tap/ec2-instance-selector
   - aws/tap/eks-node-viewer
   - awscli
+  - awslogs
   - bash
   - bash-completion
   - bat
@@ -91,12 +92,14 @@ homebrew_installed_packages:
   - cosign
   - cue
   - curl
+  - dasel
   - cypher-shell
   - derailed/popeye/popeye
   - detect-secrets
   - direnv
   - dive
-  - { name: docker, install_options: 'formula' }
+  - {name: docker, install_options: 'formula'}
+  - docker-compose
   - docker-credential-helper
   - docker-credential-helper-ecr
   - docker-slim
@@ -124,6 +127,7 @@ homebrew_installed_packages:
   - git-cliff
   - git-delta
   - git-xargs
+  - gitleaks
   - glances
   - glow
   - gnu-sed
@@ -140,7 +144,7 @@ homebrew_installed_packages:
   - gstreamer
   - hadolint
   - helm
-  - { name: hey, install_options: 'formula' }
+  - {name: hey, install_options: 'formula'}
   - hidapi
   - hopenpgp-tools
   - htop
@@ -228,7 +232,7 @@ homebrew_installed_packages:
   - skaffold
   - skopeo
   - socat
-  - { name: spark, install_options: 'formula' }
+  - {name: spark, install_options: 'formula'}
   - sqlite
   - sslscan
   - starship
@@ -300,6 +304,7 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - alacritty
+  - brave-browser
   - elgato-camera-hub
   - elgato-control-center
   - elgato-stream-deck
@@ -322,7 +327,7 @@ homebrew_cask_apps:
   - obs
   - obsidian
   - slack
-  - spotify
+  - syncthing
   - vlc
   - visual-studio-code
   - zoom

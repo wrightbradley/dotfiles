@@ -72,6 +72,7 @@ homebrew_installed_packages:
   - aws/tap/ec2-instance-selector
   - aws/tap/eks-node-viewer
   - awscli
+  - awslogs
   - bash
   - bash-completion
   - bat
@@ -95,11 +96,13 @@ homebrew_installed_packages:
   - cue
   - curl
   - cypher-shell
+  - dasel
   - derailed/popeye/popeye
   - detect-secrets
   - direnv
   - dive
-  - { name: docker, install_options: 'formula' }
+  - {name: docker, install_options: 'formula'}
+  - docker-compose
   - docker-credential-helper
   - docker-credential-helper-ecr
   - docker-slim
@@ -127,6 +130,7 @@ homebrew_installed_packages:
   - git-cliff
   - git-delta
   - git-xargs
+  - gitleaks
   - glances
   - glow
   - gnu-sed
@@ -143,7 +147,7 @@ homebrew_installed_packages:
   - gstreamer
   - hadolint
   - helm
-  - { name: hey, install_options: 'formula' }
+  - {name: hey, install_options: 'formula'}
   - hidapi
   - hopenpgp-tools
   - htop
@@ -233,7 +237,7 @@ homebrew_installed_packages:
   - skaffold
   - skopeo
   - socat
-  - { name: spark, install_options: 'formula' }
+  - {name: spark, install_options: 'formula'}
   - sqlite
   - sslscan
   - starship
@@ -313,6 +317,7 @@ homebrew_cask_apps:
   - balenaetcher
   - bartender
   - blackhole-2ch
+  - brave-browser
   - discord
   - disk-inventory-x
   - elgato-camera-hub
@@ -343,18 +348,14 @@ homebrew_cask_apps:
   - signal
   - slack
   - spotify
+  - syncthing
   - tailscale
   - vlc
   - visual-studio-code
   - zoom
 
 mas_installed_apps:
-  - { id: 441258766, name: 'Magnet (2.6.0)' }
-  - { id: 682658836, name: 'GarageBand (10.4.4)' }
-  - { id: 1352778147, name: 'Bitwarden (1.29.1)' }
-  - { id: 1319778037, name: 'iStat Menus (6.60)' }
-  # - { id: 966085870, name: "TickTick (4.0.21)" }
-  # - { id: 1451685025, name: "WireGuard (1.0.15)" }
-  # - { id: 1090488118, name: "Gemini 2 (2.8.11)" }
-  # - { id: 1176895641, name: "Spark (2.11.6)" }
-  # - { id: 446243721, name: "Disk Space Analyzer Free  (3.6.3)" }
+  - {id: 441258766, name: 'Magnet (2.6.0)'}
+  - {id: 682658836, name: 'GarageBand (10.4.4)'}
+  - {id: 1352778147, name: 'Bitwarden (1.29.1)'}
+  - {id: 1319778037, name: 'iStat Menus (6.60)'}

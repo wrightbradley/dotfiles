@@ -1,3 +1,4 @@
+---
 prSections:
   - title: My Pull Requests
     filters: is:open author:@me
@@ -61,16 +62,14 @@ keybindings:
   prs:
     - key: C
       command: >
-        tmux new-window -c {{.RepoPath}}.git '
-        if [ ! -d {{.HeadRefName}}-{{.PrNumber}} ]; then
+        tmux new-window -c {{.RepoPath}}.git ' if [ ! -d {{.HeadRefName}}-{{.PrNumber}} ]; then
           git worktree add {{.HeadRefName}}-{{.PrNumber}} {{.HeadRefName}}
           cd {{.HeadRefName}}-{{.PrNumber}}
           nvim -c ":silent Octo pr edit {{.PrNumber}}"
         else
           cd {{.HeadRefName}}-{{.PrNumber}}
           nvim -c ":silent Octo pr edit {{.PrNumber}}"
-        fi
-        '
+        fi '
 repoPaths:
   :owner/:repo: ~/Projects/code/github.com/:owner/:repo # template if you always clone github repos in a consistent location
   # wrightbradley/*: ~/code/repos/wrightbradley/* # will match dlvhdr/repo-name to ~/code/repos/dlvhdr/repo-name

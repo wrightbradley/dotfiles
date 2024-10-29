@@ -1,8 +1,8 @@
 {
-	"folders": [
-		{
-			"path": "../dotfiles"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "../dotfiles",
+    },
+  ],
+  "settings": {},
 }

@@ -177,9 +177,7 @@
         "with_subelements": {},
         "with_together": {}
       },
-      "required": [
-        "action"
-      ],
+      "required": ["action"],
       "title": "BeremothTaskModel",
       "type": "object"
     },
@@ -380,9 +378,7 @@
           "type": "object"
         }
       },
-      "required": [
-        "import_playbook"
-      ],
+      "required": ["import_playbook"],
       "title": "ImportPlaybookModel",
       "type": "object"
     },
@@ -602,9 +598,7 @@
           "title": "When"
         }
       },
-      "required": [
-        "hosts"
-      ],
+      "required": ["hosts"],
       "title": "PlayModel",
       "type": "object"
     },
@@ -737,9 +731,7 @@
           "title": "When"
         }
       },
-      "required": [
-        "role"
-      ],
+      "required": ["role"],
       "title": "RoleModel",
       "type": "object"
     },
@@ -988,18 +980,13 @@
           "title": "With Together"
         }
       },
-      "required": [
-        "action"
-      ],
+      "required": ["action"],
       "title": "TaskModel",
       "type": "object"
     },
     "TasksListModel": {
       "$schema": "http://json-schema.org/draft-07/schema",
-      "examples": [
-        "tasks/*.yml",
-        "handlers/*.yml"
-      ],
+      "examples": ["tasks/*.yml", "handlers/*.yml"],
       "items": {
         "anyOf": [
           {
@@ -1064,18 +1051,12 @@
           "type": "integer"
         }
       },
-      "required": [
-        "name",
-        "prompt"
-      ],
+      "required": ["name", "prompt"],
       "title": "VarsPromptModel",
       "type": "object"
     }
   },
-  "examples": [
-    "playbooks/*.yml",
-    "playbooks/*.yaml"
-  ],
+  "examples": ["playbooks/*.yml", "playbooks/*.yaml"],
   "items": {
     "anyOf": [
       {
