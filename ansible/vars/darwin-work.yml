@@ -322,6 +322,7 @@ homebrew_cask_apps:
   - iterm2
   - keycastr
   - keymapp
+  - kitty
   - logi-options-plus
   - nikitabobko/tap/aerospace
   - obs

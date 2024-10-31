@@ -276,6 +276,11 @@ if.app-id = 'org.alacritty'
 run = ['layout tiling', 'move-node-to-workspace T']
 
 [[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
+# check-further-callbacks = true
+run = ['layout tiling', 'move-node-to-workspace T']
+
+[[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace W']
