@@ -59,9 +59,9 @@ tmux set -g @mode_indicator_empty_mode_style fg=$color_green,bold
 tmux set -g @cpu_percentage_format "%3.0f%%"
 
 # tmux-online-status
-tmux set -g @route_to_ping "verizon.com"
 tmux set -g @online_icon "#[fg=$color_gray]📶"
 tmux set -g @offline_icon "#[fg=$color_red]🔺"
+tmux set -g @route_to_ping "www.google.com"
 
 # tmux-pomodoro
 tmux set -g @pomodoro_on " | #[fg=$color_red] "
