@@ -109,12 +109,14 @@ homebrew_installed_packages:
   - dockutil
   - dos2unix
   - dotenv-linter
+  - dust
   - eksctl
   - entr
   - eslint
   - expect
   - eza
   - faas-cli
+  - fastfetch
   - fairwindsops/tap/nova
   - fairwindsops/tap/polaris
   - fd
@@ -191,7 +193,6 @@ homebrew_installed_packages:
   - mtr
   - mysql-client
   - ncurses
-  - neofetch
   - neomutt
   - neovim
   - nmap
@@ -335,11 +336,13 @@ homebrew_cask_apps:
   - google-cloud-sdk
   - handbrake
   - hiddenbar
+  - homerow
   - iterm2
   - keycastr
   - keymapp
   - lens
   - logi-options-plus
+  - noehtop
   - nikitabobko/tap/aerospace
   - obs
   - obsidian
@@ -350,6 +353,7 @@ homebrew_cask_apps:
   - spotify
   - syncthing
   - tailscale
+  - topnotch
   - vlc
   - visual-studio-code
   - zoom
