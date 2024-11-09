@@ -7,6 +7,7 @@ configure_dock: true
 dockitems_remove:
   - 'App Store'
   - 'System Preferences'
+  - 'iPhone Mirroring'
   - Calendar
   - Contacts
   - FaceTime
@@ -25,8 +26,8 @@ dockitems_remove:
   - Safari
   - TV
 dockitems_persist:
-  - name: 'Google Chrome'
-    path: '/Applications/Google Chrome.app/'
+  - name: 'Brave Browser'
+    path: '/Applications/Brave Browser.app/'
     pos: 1
   - name: 'Alacritty'
     path: '/Applications/Alacritty.app/'
@@ -37,17 +38,19 @@ dockitems_persist:
   - name: 'Mail'
     path: '/Applications/Mail.app/'
     pos: 4
+  - name: 'Obsidian'
+    path: '/Applications/Obsidian.app/'
+    pos: 5
 
 homebrew_installed_packages:
   - agg
-  - ankitpokhrel/jira-cli/jira-cli
   - ansible
   - ansible-lint
   - ant
-  - aqua
+  - aquaproj/aqua/aqua
   - aquasecurity/trivy/trivy
-  - argo
   - argocd
+  - arping
   - asciinema
   - asdf
   - asitop
@@ -62,23 +65,22 @@ homebrew_installed_packages:
   - bash
   - bash-completion
   - bat
-  - bitwarden-cli
+  - bottom
   - bzip2
   - cdk8s
   - charmbracelet/tap/freeze
   - chart-testing
   - checkov
   - chezmoi
-  - cirruslabs/cli/tart
   - cli53
   - cmctl
   - codespell
-  - colima
   - colordiff
   - container-diff
   - cookiecutter
   - coreutils
   - cosign
+  - csvlens
   - cue
   - curl
   - cypher-shell
@@ -102,13 +104,12 @@ homebrew_installed_packages:
   - expect
   - eza
   - faas-cli
-  - fastfetch
   - fairwindsops/tap/nova
   - fairwindsops/tap/polaris
+  - fastfetch
   - fd
   - ffmpeg
-  - flake8
-  - fluxcd/tap/flux
+  - ffmpegthumbnailer
   - fzf
   - gh
   - ghq
@@ -124,7 +125,6 @@ homebrew_installed_packages:
   - gnu-sed
   - gnupg
   - gnutls
-  - go
   - go-jsonnet
   - goreleaser/tap/goreleaser
   - gradle
@@ -147,11 +147,7 @@ homebrew_installed_packages:
   - jsonnet-bundler
   - k2tf
   - k3d
-  - k3sup
   - k9s
-  - keymapp
-  # - koekeishiya/formulae/skhd
-  # - koekeishiya/formulae/yabai
   - krew
   - kube-linter
   - kube-ps1
@@ -164,7 +160,9 @@ homebrew_installed_packages:
   - kwok
   - lazygit
   - libfido2
+  - libheif
   - libpq
+  - libxml2
   - lindell/multi-gitter/multi-gitter
   - logcli
   - luarocks
@@ -174,8 +172,8 @@ homebrew_installed_packages:
   - mike-engel/jwt-cli/jwt-cli
   - mimirtool
   - minikube
+  - miniscruff/changie/changie
   - mise
-  - mosh
   - mtr
   - mysql-client
   - ncurses
@@ -192,7 +190,6 @@ homebrew_installed_packages:
   - ossp-uuid
   - osx-cpu-temp
   - oven-sh/bun/bun
-  - packer
   - pandoc
   - parallel
   - pdm
@@ -210,12 +207,12 @@ homebrew_installed_packages:
   - pwgen
   - pyenv
   - pyenv-virtualenv
-  - pyyaml
   - readline
   - rename
   - ripgrep
   - rsync
   - ruby
+  - ruff
   - rust
   - rye
   - screen
@@ -230,7 +227,6 @@ homebrew_installed_packages:
   - starship
   - stern
   - stylua
-  - tcl-tk
   - tenv
   # - terraform
   # - terraform-docs
@@ -239,18 +235,15 @@ homebrew_installed_packages:
   - tflint
   - tfsec
   - theden/gcopy/gcopy
-  - tilt-dev/tap/tilt
   - tlrc
   - tmux
+  - tokei
   - tree
   - trippy
-  - trivy
   - updatecli
   - usage
   - uv
   - vale
-  - vcluster
-  - veeso/termscp/termscp
   - velero
   - vhs
   - vim
@@ -263,50 +256,42 @@ homebrew_installed_packages:
   - yamllint
   - yapf
   - yarn
+  - yazi
   - ykman
   - ykpers
   - yq
+  - yubico-piv-tool
   - yubikey-personalization
-  # - zen-browser
   - zlib
   - zoxide
   - zsh
   - zsh-vi-mode
 
 homebrew_taps:
-  - ankitpokhrel/jira-cli
   - aquasecurity/trivy
   - aws/tap
   - charmbracelet/tap
-  - cirruslabs/cli
   - derailed/popeye
   - fairwindsops/tap
   - goreleaser/tap
-  - koekeishiya/formulae
   - kubescape/tap
   - lindell/multi-gitter
   - mike-engel/jwt-cli
   - norwoodj/tap
   - oven-sh/bun
   - theden/gcopy
-  - tilt-dev/tap
   - updatecli/updatecli
   - veeso/termscp
   - weaveworks/tap
-  # - zen-browser/browser
+  - name: miniscruff/changie
+    url: 'https://github.com/miniscruff/changie'
 
-# TODO: add yubikey, propresenter, logitech, atem mini apps
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - alacritty
-  - authy
-  - backblaze
-  - balenaetcher
-  - bartender
-  - blackhole-2ch
+  - betterdisplay
   - brave-browser
-  - discord
-  - disk-inventory-x
+  - deskpad
   - elgato-camera-hub
   - elgato-control-center
   - elgato-stream-deck
@@ -320,32 +305,27 @@ homebrew_cask_apps:
   - font-symbols-only-nerd-font
   - google-chrome
   - google-cloud-sdk
-  - handbrake
   - hiddenbar
   - homerow
   - iterm2
   - keycastr
   - keymapp
-  - lens
   - logi-options-plus
-  - noehtop
+  # - logitech-g-hub # There is an issue with install. Download link here: https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.zip
+  - maccy
+  - neohtop
   - nikitabobko/tap/aerospace
   - obs
   - obsidian
   - rancher
-  - raspberry-pi-imager
-  - signal
   - slack
-  - spotify
   - syncthing
-  - tailscale
+  - tad
   - topnotch
-  - vlc
   - visual-studio-code
+  - vlc
+  - yubico-authenticator
+  - yubico-yubikey-manager
   - zoom
 
-mas_installed_apps:
-  - {id: 441258766, name: 'Magnet (2.6.0)'}
-  - {id: 682658836, name: 'GarageBand (10.4.4)'}
-  - {id: 1352778147, name: 'Bitwarden (1.29.1)'}
-  - {id: 1319778037, name: 'iStat Menus (6.60)'}
+mas_installed_apps: []

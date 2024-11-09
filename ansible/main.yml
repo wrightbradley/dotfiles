@@ -2,6 +2,13 @@
 # vim:ft=yaml.ansible
 - name: Dotfile Bootstrap
   hosts: all
+  pre_tasks:
+    - name: Set host facts for Homebrew and MAS apps
+      ansible.builtin.set_fact:
+        homebrew_taps: '{{ (homebrew_taps | default([])) + (personal_homebrew_taps | default([])) + (work_homebrew_taps | default([])) }}'
+        homebrew_cask_apps: '{{ (homebrew_cask_apps | default([])) + (personal_homebrew_cask_apps | default([])) + (work_homebrew_cask_apps | default([])) }}'
+        mas_installed_apps: '{{ (mas_installed_apps | default([])) + (personal_mas_installed_apps | default([])) + (work_mas_installed_apps | default([])) }}'
+        homebrew_installed_packages: '{{ (homebrew_installed_packages | default([])) + (personal_homebrew_installed_packages | default([])) + (work_homebrew_installed_packages | default([])) }}'
   roles:
     - role: geerlingguy.mac.homebrew
       when: ansible_os_family == 'Darwin'
@@ -15,21 +22,19 @@
     - role: personal
       tags: personal
   post_tasks:
-    - name: Change shell
+    - name: Determine shell based on architecture and brew setup
+      ansible.builtin.set_fact:
+        zsh_shell: >-
+          {%- if ansible_architecture == "arm64" and setup_brew %}
+            /opt/homebrew/bin/zsh
+          {%- elif setup_brew %}
+            /usr/local/bin/zsh
+          {%- else %}
+            /bin/zsh
+          {%- endif %}
+    - name: Change shell to Zsh
       ansible.builtin.user:
         name: "{{ lookup('env', 'USER') }}"
-        shell: /bin/zsh
+        shell: '{{ zsh_shell }}'
       become: true
-      when: setup_zsh and not setup_brew
-    - name: Change shell
-      ansible.builtin.user:
-        name: "{{ lookup('env', 'USER') }}"
-        shell: /usr/local/bin/zsh
-      become: true
-      when: setup_zsh and setup_brew and ansible_architecture != "arm64"
-    - name: Change shell
-      ansible.builtin.user:
-        name: "{{ lookup('env', 'USER') }}"
-        shell: /opt/homebrew/bin/zsh
-      become: true
-      when: setup_zsh and setup_brew and ansible_architecture == "arm64"
+      when: setup_zsh

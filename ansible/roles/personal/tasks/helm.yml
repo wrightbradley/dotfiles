@@ -4,49 +4,28 @@
     name: '{{ item.name }}'
     repo_url: '{{ item.url }}'
   loop:
-    - { name: 'falcosecurity', url: 'https://falcosecurity.github.io/charts' }
-    - { name: 'harbor', url: 'https://helm.goharbor.io' }
-    - { name: 'fairwinds-stable', url: 'https://charts.fairwinds.com/stable' }
-    - { name: 'kiali', url: 'https://kiali.org/helm-charts' }
-    - {
-        name: 'prometheus-community',
-        url: 'https://prometheus-community.github.io/helm-charts',
-      }
-    - { name: 'kubecost', url: 'https://kubecost.github.io/cost-analyzer/' }
-    - { name: 'grafana', url: 'https://grafana.github.io/helm-charts' }
-    - { name: 'oauth2-proxy', url: 'https://oauth2-proxy.github.io/manifests' }
-    - { name: 'dandydev', url: 'https://dandydeveloper.github.io/charts' }
-    - { name: 'pomerium', url: 'https://helm.pomerium.io' }
-    - {
-        name: 'prometheus-community',
-        url: 'https://prometheus-community.github.io/helm-charts',
-      }
-    - { name: 'sorry-cypress', url: 'https://sorry-cypress.github.io/charts' }
-    - { name: 'zooz', url: 'https://zooz.github.io/helm/' }
-    - { name: 'kedacore', url: 'https://kedacore.github.io/charts' }
-    - { name: 'deliveryhero', url: 'https://charts.deliveryhero.io/' }
-    - { name: 'eks', url: 'https://aws.github.io/eks-charts' }
-    - {
-        name: 'sealed-secrets',
-        url: 'https://bitnami-labs.github.io/sealed-secrets',
-      }
-    - {
-        name: 'aws-ebs-csi-driver',
-        url: 'https://kubernetes-sigs.github.io/aws-ebs-csi-driver',
-      }
-    - {
-        name: 'descheduler',
-        url: 'https://kubernetes-sigs.github.io/descheduler/',
-      }
-    - {
-        name: 'metrics-server',
-        url: 'https://kubernetes-sigs.github.io/metrics-server/',
-      }
-    - { name: 'bitnami', url: 'https://charts.bitnami.com/bitnami' }
-    - {
-        name: 'deepfence',
-        url: 'https://deepfence-helm-charts.s3.amazonaws.com/threatmapper',
-      }
+    - {name: 'falcosecurity', url: 'https://falcosecurity.github.io/charts'}
+    - {name: 'harbor', url: 'https://helm.goharbor.io'}
+    - {name: 'fairwinds-stable', url: 'https://charts.fairwinds.com/stable'}
+    - {name: 'kiali', url: 'https://kiali.org/helm-charts'}
+    - {name: 'prometheus-community', url: 'https://prometheus-community.github.io/helm-charts'}
+    - {name: 'kubecost', url: 'https://kubecost.github.io/cost-analyzer/'}
+    - {name: 'grafana', url: 'https://grafana.github.io/helm-charts'}
+    - {name: 'oauth2-proxy', url: 'https://oauth2-proxy.github.io/manifests'}
+    - {name: 'dandydev', url: 'https://dandydeveloper.github.io/charts'}
+    - {name: 'pomerium', url: 'https://helm.pomerium.io'}
+    - {name: 'prometheus-community', url: 'https://prometheus-community.github.io/helm-charts'}
+    - {name: 'sorry-cypress', url: 'https://sorry-cypress.github.io/charts'}
+    - {name: 'zooz', url: 'https://zooz.github.io/helm/'}
+    - {name: 'kedacore', url: 'https://kedacore.github.io/charts'}
+    - {name: 'deliveryhero', url: 'https://charts.deliveryhero.io/'}
+    - {name: 'eks', url: 'https://aws.github.io/eks-charts'}
+    - {name: 'sealed-secrets', url: 'https://bitnami-labs.github.io/sealed-secrets'}
+    - {name: 'aws-ebs-csi-driver', url: 'https://kubernetes-sigs.github.io/aws-ebs-csi-driver'}
+    - {name: 'descheduler', url: 'https://kubernetes-sigs.github.io/descheduler/'}
+    - {name: 'metrics-server', url: 'https://kubernetes-sigs.github.io/metrics-server/'}
+    - {name: 'bitnami', url: 'https://charts.bitnami.com/bitnami'}
+    - {name: 'deepfence', url: 'https://deepfence-helm-charts.s3.amazonaws.com/threatmapper'}
   tags: helm
 
 - name: Run helm repo update

@@ -123,7 +123,7 @@
 - name: Copy VS Code Settings Files
   template:
     src: 'vscode/{{ item }}.j2'
-    dest: "~/Library/Application\ Support/Code/User/{{ item }}"
+    dest: "~/Library/Application Support/Code/User/{{ item }}"
     mode: '0644'
   loop:
     - keybindings.json
@@ -132,12 +132,12 @@
 
 - name: Check if VS Code project-manager directory exists
   stat:
-    path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
+    path: "~/Library/Application Support/Code/User/globalStorage/alefragnani.project-manager"
   register: pm_state
 
 - name: Create VS Code globalStorage directory
   file:
-    path: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager"
+    path: "~/Library/Application Support/Code/User/globalStorage/alefragnani.project-manager"
     state: directory
     mode: '0755'
   when: not pm_state.stat.exists
@@ -145,5 +145,5 @@
 - name: Copy VS Code Project Manager File
   template:
     src: 'vscode/project-manager/projects.json.j2'
-    dest: "~/Library/Application\ Support/Code/User/globalStorage/alefragnani.project-manager/projects.json"
+    dest: "~/Library/Application Support/Code/User/globalStorage/alefragnani.project-manager/projects.json"
     mode: '0644'

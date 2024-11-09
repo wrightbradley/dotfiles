@@ -70,38 +70,8 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB
 ## Task List
 
 - Hook Ansible into chezmoi bootstrap step
-- Move Homebrew package install from Ansible to chezmoi. Standardize on chezmoi.
-- Support downloading project code repos with chezmoi.
-
-## MacOS Defaults
-
-```bash
-# For Aerospace
-defaults write -g NSWindowShouldDragOnGesture -bool true
-defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
-defaults write com.apple.dock expose-group-apps -bool true && killall Dock
-# Aersopace window drag
-defaults write -g NSWindowShouldDragOnGesture -bool true
-
-# For Keyboard
-defaults write -g InitialKeyRepeat -int 20 # normal minimum is 15 (225 ms)
-defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
-
-# For UI
-defaults write com.apple.dock "autohide" -bool "true" && killall Dock
-defaults write com.apple.dock "tilesize" -int "36" && killall Dock
-
-# For Screenshots
-mkdir -p ~/Pictures/Screenshots
-defaults write com.apple.screencapture location ~/Pictures/Screenshots
-defaults write com.apple.screencapture type jpg
-
-# Disable Smart Quotes
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-# Disable Smart dashes
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-```
+- Identify how to install homebrew-less casks: ATEM Mini Pro, Akai Professional
+  MPK Mini III Program Editor, MPK mini Software Manager
 
 ## Homebrew Info Gathering
 

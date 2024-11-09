@@ -1,0 +1,13 @@
+---
+work_homebrew_installed_packages:
+  - ankitpokhrel/jira-cli/jira-cli
+  - colima
+
+work_homebrew_taps:
+  - ankitpokhrel/jira-cli
+
+work_homebrew_cask_apps:
+  - amazon-chime
+  - microsoft-teams
+
+work_mas_installed_apps: []

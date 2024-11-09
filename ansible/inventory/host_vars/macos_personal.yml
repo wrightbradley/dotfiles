@@ -1,0 +1,48 @@
+---
+personal_homebrew_installed_packages:
+  - argo
+  - bitwarden-cli
+  - cilium-cli
+  - cirruslabs/cli/tart
+  - fluxcd/tap/flux
+  - k3sup
+  - mosh
+  - packer
+  - tilt-dev/tap/tilt
+  - vcluster
+  - veeso/termscp/termscp
+  - xorriso
+  - yt-dlp
+  # - zen-browser
+
+personal_homebrew_taps:
+  - cirruslabs/cli
+  - tilt-dev/tap
+  # - zen-browser/browser
+
+personal_homebrew_cask_apps:
+  - authy
+  - backblaze
+  - balenaetcher
+  - blackhole-2ch
+  - discord
+  - disk-inventory-x
+  - handbrake
+  - mullvad-browser
+  - mullvadvpn
+  - propresenter
+  - raspberry-pi-imager
+  - rustdesk
+  - signal
+  - spotify
+
+personal_mas_installed_apps:
+  # - { id: 441258766, name: 'Magnet (2.6.0)' }
+  - {id: 1193539993, name: 'Brother iPrint&Scan (12.0.3)'}
+  - {id: 1319778037, name: 'iStat Menus (6.73)'}
+  - {id: 1352778147, name: 'Bitwarden (1.29.1)'}
+  - {id: 1444383602, name: 'Goodnotes (6.5.10)'}
+  - {id: 472790630, name: 'Bible Study (7.16.15)'}
+  - {id: 682658836, name: 'GarageBand (10.4.4)'}
+  - {id: 775737590, name: 'iA Writer (7.2.6)'}
+  - {id: 408981434, name: 'iMovie (10.4.2)'}

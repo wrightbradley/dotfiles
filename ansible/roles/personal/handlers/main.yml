@@ -1,6 +1,10 @@
 ---
 - name: Restart Dock
-  command: killall Dock
+  ansible.builtin.command: killall Dock
+  become: true
+  when: ansible_os_family == "Darwin" # Only run on macOS
 
 - name: Restart SystemUIServer
-  command: killall SystemUIServer
+  ansible.builtin.command: killall SystemUIServer
+  become: true
+  when: ansible_os_family == "Darwin" # Only run on macOS
