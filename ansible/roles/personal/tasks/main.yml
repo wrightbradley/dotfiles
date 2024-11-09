@@ -12,3 +12,6 @@
 
 - name: Configure Helm
   ansible.builtin.import_tasks: helm.yml
+
+- name: Configure MacOS
+  ansible.builtin.import_tasks: macos.yml

@@ -1,0 +1,178 @@
+---
+- name: Enable Key Repeat for Vim Functionality in VS Code
+  community.general.osx_defaults:
+    domain: com.microsoft.VSCode
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: false
+    state: present
+
+- name: Aerospace Configuration
+  block:
+    - name: NSWindowShouldDragOnGesture
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSWindowShouldDragOnGesture
+        type: bool
+        value: true
+        state: present
+    - name: Spaces - Span Displays
+      community.general.osx_defaults:
+        domain: com.apple.spaces
+        key: spans-displays
+        type: bool
+        value: true
+        state: present
+    - name: Dock - Expose Group Apps
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: expose-group-apps
+        type: bool
+        value: true
+        state: present
+      notify: Restart Dock
+    - name: Hide Menu Bar
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: _HIHideMenuBar
+        type: bool
+        value: true
+        state: present
+  notify: Restart SystemUIServer
+
+- name: Dock Configuration
+  block:
+    - name: Dock - Auto Hide
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide
+        type: bool
+        value: true
+        state: present
+    - name: Dock - Auto Hide Delay
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: autohide-delay
+        type: float
+        value: 0
+        state: present
+    - name: Dock - MRU Spaces
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: mru-spaces
+        type: bool
+        value: false
+        state: present
+    - name: Dock - Orientation
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: orientation
+        type: string
+        value: left
+        state: present
+    - name: Dock - Show Hidden Apps
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: showhidden
+        type: bool
+        value: true
+        state: present
+    - name: Dock - Tile Size
+      community.general.osx_defaults:
+        domain: com.apple.dock
+        key: tilesize
+        type: int
+        value: 36
+        state: present
+  notify: Restart Dock
+
+- name: Finder Configuration
+  block:
+    - name: Finder - Show All File Extensions
+      community.general.osx_defaults:
+        domain: com.apple.finder
+        key: AppleShowAllFiles
+        type: bool
+        value: true
+        state: present
+    - name: Finder - Quit Menu Item
+      community.general.osx_defaults:
+        domain: com.apple.finder
+        key: QuitMenuItem
+        type: bool
+        value: true
+        state: present
+    - name: Finder - Enable Extension Change Warning
+      community.general.osx_defaults:
+        domain: com.apple.finder
+        key: FXEnableExtensionChangeWarning
+        type: bool
+        value: false
+        state: present
+
+- name: Keyboard Configuration
+  block:
+    - name: Initial Key Repeat
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: InitialKeyRepeat
+        type: int
+        value: 20 # normal minimum is 15 (225 ms)
+        state: present
+    - name: Key Repeat
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: KeyRepeat
+        type: int
+        value: 1 # normal minimum is 2 (30 ms)
+        state: present
+    - name: Disable Smart Quotes
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSAutomaticQuoteSubstitutionEnabled
+        type: bool
+        value: false
+        state: present
+    - name: Disable Smart Dashes
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSAutomaticDashSubstitutionEnabled
+        type: bool
+        value: false
+        state: present
+    - name: Disable Automatic Spelling Correction
+      community.general.osx_defaults:
+        domain: NSGlobalDomain
+        key: NSAutomaticSpellingCorrectionEnabled
+        type: bool
+        value: false
+        state: present
+    # Generated from: https://hidutil-generator.netlify.app/
+    # Maps CapsLock to CTRl
+    - name: Copy com.keyboard.plist to LaunchAgents
+      ansible.builtin.copy:
+        src: Library/LaunchAgents/com.local.KeyRemapping.plist
+        dest: ~/Library/LaunchAgents/com.local.KeyRemapping.plist
+        mode: '0644'
+
+- name: Screenshot Configuration
+  block:
+    - name: Create Screenshots Directory
+      file:
+        path: ~/Pictures/Screenshots
+        state: directory
+        mode: '0755'
+    - name: Screencapture - Location
+      community.general.osx_defaults:
+        domain: com.apple.screencapture
+        key: location
+        type: string
+        value: ~/Pictures/Screenshots
+        state: present
+    - name: Screencapture - Type
+      community.general.osx_defaults:
+        domain: com.apple.screencapture
+        key: type
+        type: string
+        value: jpg
+        state: present
