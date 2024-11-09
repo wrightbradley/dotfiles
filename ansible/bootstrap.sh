@@ -9,18 +9,18 @@ trap cleanup SIGINT SIGTERM ERR EXIT
 export_metadata() {
   export TODAY=$(date +"%Y-%m-%d")
 
-  if [ -f /etc/os-release ]; then
+  if [[ -f /etc/os-release ]]; then
     . /etc/os-release
-    case "$ID" in
+    case "${ID}" in
     debian | ubuntu | linuxmint)
       log "This system is Debian-based."
       export SYSTEM="debian"
-      export PATH="$HOME/linuxbrew/.linuxbrew/bin:$PATH"
+      export PATH="${HOME}/linuxbrew/.linuxbrew/bin:${PATH}"
       ;;
     fedora | centos | rhel)
       log "This system is RHEL-based."
       export SYSTEM="rhel"
-      export PATH="$HOME/linuxbrew/.linuxbrew/bin:$PATH"
+      export PATH="${HOME}/linuxbrew/.linuxbrew/bin:${PATH}"
       ;;
     *)
       die "This system's distribution is not identified by this script."
@@ -29,7 +29,7 @@ export_metadata() {
   elif [[ "$(uname)" == "Darwin" ]]; then
     log "This system is Darwin-based (macOS)."
     export SYSTEM="darwin"
-    export PATH="/opt/homebrew/bin:$PATH"
+    export PATH="/opt/homebrew/bin:${PATH}"
   else
     die "This system's distribution is not identified by this script."
   fi
@@ -80,22 +80,22 @@ verify_deps() {
 
 install_system_deps() {
   MISSING_PACKAGE=$1
-  if [ $SYSTEM == 'debian' ]; then
-    if [ "$MISSING_PACKAGE" == 'git' ]; then
+  if [[ ${SYSTEM} == 'debian' ]]; then
+    if [[ "${MISSING_PACKAGE}" == 'git' ]]; then
       log "Installing git..."
       sudo apt-get update && sudo apt-get -y install git
     fi
   fi
 
-  if [ $SYSTEM == 'rhel' ]; then
-    if [ "$MISSING_PACKAGE" == 'git' ]; then
+  if [[ ${SYSTEM} == 'rhel' ]]; then
+    if [[ "${MISSING_PACKAGE}" == 'git' ]]; then
       log "Installing git..."
       sudo dnf install git
     fi
   fi
 
-  if [ $SYSTEM == 'darwin' ]; then
-    if [ "$MISSING_PACKAGE" == 'git' ]; then
+  if [[ ${SYSTEM} == 'darwin' ]]; then
+    if [[ "${MISSING_PACKAGE}" == 'git' ]]; then
       die "macOS is missing git...please run 'xcode-select --install'"
       # if [ ! "$(xcode-select -p >/dev/null 2>&1)" ]; then
       #   log "Installing git through xcode..."
@@ -104,7 +104,7 @@ install_system_deps() {
     fi
   fi
 
-  if [ "$MISSING_PACKAGE" == 'uv' ]; then
+  if [[ "${MISSING_PACKAGE}" == 'uv' ]]; then
     log "Installing uv..."
     curl -LsSf https://astral.sh/uv/install.sh | sh
     log "Installing python..."
@@ -114,47 +114,49 @@ install_system_deps() {
 
 init_chezmoi() {
   log "Installing chezmoi and initializing..."
-  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB_USERNAME
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply "$GITHUB_USERNAME"
 }
 
 init_ansible_deps() {
   log "Installing git submodules..."
-  pushd $HOME/.local/share/chezmoi/ansible
+  pushd "${HOME}"/.local/share/chezmoi/ansible || exit 1
   git submodule init
   git submodule update --init --recursive --remote
   log "Installing Ansible Galaxy dependencies..."
   uvx --from ansible-core ansible-galaxy install -r requirements.yml
-  popd
+  popd || exit 1
 }
 
 run_ansible_playbook() {
-  pushd $HOME/.local/share/chezmoi/ansible
-  if [ $SYSTEM == 'debian' ]; then
-    if [[ -n "$CODESPACES" ]] && [[ -n "$CODESPACE_VSCODE_FOLDER" ]]; then
-      uvx --from ansible-core ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/codespaces.yml"
-    fi
-  fi
-  if [ $SYSTEM == 'rhel' ]; then
-    uvx --from ansible-core ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/rhel.yml" -K
-  fi
-  if [ $SYSTEM == 'darwin' ]; then
-    if [ $WORK_MACHINE ]; then
-      uvx --from ansible-core ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/darwin-work.yml" -K
+  pushd "${HOME}"/.local/share/chezmoi/ansible || exit 1
+  if [[ "${SYSTEM}" == 'debian' ]]; then
+    if [[ -n "${CODESPACES}" ]] && [[ -n "${CODESPACE_VSCODE_FOLDER}" ]]; then
+      uvx --from ansible-core ansible-playbook -i inventory/hosts.ini main.yml --extra-vars "@vars/codespaces.yml"
     else
-      uvx --from ansible-core ansible-playbook -i inventory.ini main.yml --extra-vars "@vars/darwin.yml" -K
+      uvx --from ansible-core ansible-playbook -i inventory/hosts.ini main.yml
     fi
   fi
-  popd
+  if [[ "${SYSTEM}" == 'rhel' ]]; then
+    uvx --from ansible-core ansible-playbook -i inventory/hosts.ini main.yml --extra-vars "@vars/rhel.yml" -K
+  fi
+  if [[ "${SYSTEM}" == 'darwin' ]]; then
+    if [[ -n "${WORK_MACHINE}" ]]; then
+      uvx --from ansible-core ansible-playbook -i inventory/hosts.ini main.yml -K
+    else
+      uvx --from ansible-core ansible-playbook -i inventory/hosts.ini main.yml -K
+    fi
+  fi
+  popd || exit 1
 }
 
 # Cleanup folders we created
 cleanup() {
   trap - SIGINT SIGTERM ERR EXIT
-  # if [ -n "${TMP_DIR+x}" ]; then
-  # 	#rm -rf "${TMP_DIR}"
-  # 	#rm -rf "${BUILD_DIR}"
-  # 	log "Deleted temporary working directory ${TMP_DIR}"
-  # fi
+  if [[ -n "${TMP_DIR+x}" ]]; then
+    rm -rf "${TMP_DIR}"
+    rm -rf "${BUILD_DIR}"
+    log "Deleted temporary working directory ${TMP_DIR}"
+  fi
 }
 
 # Logging method
@@ -171,7 +173,7 @@ die() {
 }
 
 main() {
-  export PATH="$HOME/.cargo/bin:$PATH"
+  export PATH="${HOME}/.cargo/bin:${PATH}"
   export_metadata
   parse_params "$@"
   verify_deps
