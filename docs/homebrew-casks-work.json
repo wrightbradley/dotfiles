@@ -1,0 +1,222 @@
+[
+    {
+        "name": "alacritty",
+        "desc": "GPU-accelerated terminal emulator",
+        "homepage": "https://github.com/alacritty/alacritty/"
+    },
+    {
+        "name": "amazon-chime",
+        "desc": "Communications service",
+        "homepage": "https://chime.aws/"
+    },
+    {
+        "name": "betterdisplay",
+        "desc": "Display management tool",
+        "homepage": "https://betterdisplay.pro/"
+    },
+    {
+        "name": "brave-browser",
+        "desc": "Web browser focusing on privacy",
+        "homepage": "https://brave.com/"
+    },
+    {
+        "name": "bruno",
+        "desc": "Opensource IDE for exploring and testing api's",
+        "homepage": "https://www.usebruno.com/"
+    },
+    {
+        "name": "deskpad",
+        "desc": "Virtual monitor for screen sharing",
+        "homepage": "https://github.com/Stengo/DeskPad"
+    },
+    {
+        "name": "elgato-camera-hub",
+        "desc": "Elgato FACECAM configuration tool",
+        "homepage": "https://www.elgato.com/ww/en/s/downloads"
+    },
+    {
+        "name": "elgato-control-center",
+        "desc": "Control your Elgato key lights",
+        "homepage": "https://www.elgato.com/ww/en/s/downloads"
+    },
+    {
+        "name": "elgato-stream-deck",
+        "desc": "Assign keys, and then decorate and label them",
+        "homepage": "https://www.elgato.com/ww/en/s/downloads"
+    },
+    {
+        "name": "elgato-wave-link",
+        "desc": "Software custom-built for content creation",
+        "homepage": "https://www.elgato.com/ww/en/s/downloads"
+    },
+    {
+        "name": "firefox",
+        "desc": "Web browser",
+        "homepage": "https://www.mozilla.org/firefox/"
+    },
+    {
+        "name": "font-caskaydia-cove-nerd-font",
+        "desc": null,
+        "homepage": "https://github.com/ryanoasis/nerd-fonts"
+    },
+    {
+        "name": "font-droid-sans-mono-nerd-font",
+        "desc": null,
+        "homepage": "https://github.com/ryanoasis/nerd-fonts"
+    },
+    {
+        "name": "font-fira-code-nerd-font",
+        "desc": null,
+        "homepage": "https://github.com/ryanoasis/nerd-fonts"
+    },
+    {
+        "name": "font-hack-nerd-font",
+        "desc": null,
+        "homepage": "https://github.com/ryanoasis/nerd-fonts"
+    },
+    {
+        "name": "font-jetbrains-mono",
+        "desc": null,
+        "homepage": "https://www.jetbrains.com/lp/mono"
+    },
+    {
+        "name": "font-jetbrains-mono-nerd-font",
+        "desc": null,
+        "homepage": "https://github.com/ryanoasis/nerd-fonts"
+    },
+    {
+        "name": "font-symbols-only-nerd-font",
+        "desc": null,
+        "homepage": "https://github.com/ryanoasis/nerd-fonts"
+    },
+    {
+        "name": "google-chrome",
+        "desc": "Web browser",
+        "homepage": "https://www.google.com/chrome/"
+    },
+    {
+        "name": "google-cloud-sdk",
+        "desc": "Set of tools to manage resources and applications hosted on Google Cloud",
+        "homepage": "https://cloud.google.com/sdk/"
+    },
+    {
+        "name": "hiddenbar",
+        "desc": "Utility to hide menu bar items",
+        "homepage": "https://github.com/dwarvesf/hidden/"
+    },
+    {
+        "name": "homerow",
+        "desc": "Keyboard shortcuts for every button on your screen",
+        "homepage": "https://www.homerow.app/"
+    },
+    {
+        "name": "iterm2",
+        "desc": "Terminal emulator as alternative to Apple's Terminal app",
+        "homepage": "https://iterm2.com/"
+    },
+    {
+        "name": "keycastr",
+        "desc": "Open-source keystroke visualiser",
+        "homepage": "https://github.com/keycastr/keycastr"
+    },
+    {
+        "name": "keymapp",
+        "desc": "ZSA keyboard firmware flasher",
+        "homepage": "https://www.zsa.io/flash"
+    },
+    {
+        "name": "logi-options+",
+        "desc": "Software for Logitech devices",
+        "homepage": "https://www.logitech.com/en-us/software/logi-options-plus.html"
+    },
+    {
+        "name": "logitech-g-hub",
+        "desc": "Support for Logitech G gear",
+        "homepage": "https://www.logitechg.com/en-us/innovation/g-hub.html"
+    },
+    {
+        "name": "logitech-options",
+        "desc": "Software for Logitech devices",
+        "homepage": "https://support.logitech.com/software/options"
+    },
+    {
+        "name": "maccy",
+        "desc": "Clipboard manager",
+        "homepage": "https://maccy.app/"
+    },
+    {
+        "name": "microsoft-teams",
+        "desc": "Meet, chat, call, and collaborate in just one place",
+        "homepage": "https://www.microsoft.com/en/microsoft-teams/group-chat-software/"
+    },
+    {
+        "name": "neohtop",
+        "desc": "Htop on steroids",
+        "homepage": "https://abdenasser.github.io/neohtop/"
+    },
+    {
+        "name": "nikitabobko/tap/aerospace",
+        "desc": "AeroSpace is an i3-like tiling window manager for macOS",
+        "homepage": "https://github.com/nikitabobko/AeroSpace"
+    },
+    {
+        "name": "obs",
+        "desc": "Open-source software for live streaming and screen recording",
+        "homepage": "https://obsproject.com/"
+    },
+    {
+        "name": "obsidian",
+        "desc": "Knowledge base that works on top of a local folder of plain text Markdown files",
+        "homepage": "https://obsidian.md/"
+    },
+    {
+        "name": "rancher",
+        "desc": "Kubernetes and container management on the desktop",
+        "homepage": "https://rancherdesktop.io/"
+    },
+    {
+        "name": "slack",
+        "desc": "Team communication and collaboration software",
+        "homepage": "https://slack.com/"
+    },
+    {
+        "name": "syncthing",
+        "desc": "Real time file synchronisation software",
+        "homepage": "https://syncthing.net/"
+    },
+    {
+        "name": "tad",
+        "desc": "Desktop application for viewing and analyzing tabular data",
+        "homepage": "https://www.tadviewer.com/"
+    },
+    {
+        "name": "topnotch",
+        "desc": "Utility to hide the notch",
+        "homepage": "https://topnotch.app/"
+    },
+    {
+        "name": "visual-studio-code",
+        "desc": "Open-source code editor",
+        "homepage": "https://code.visualstudio.com/"
+    },
+    {
+        "name": "vlc",
+        "desc": "Multimedia player",
+        "homepage": "https://www.videolan.org/vlc/"
+    },
+    {
+        "name": "yubico-authenticator",
+        "desc": "Application for generating TOTP and HOTP codes",
+        "homepage": "https://developers.yubico.com/yubioath-flutter/"
+    },
+    {
+        "name": "yubico-yubikey-manager",
+        "desc": "Application for configuring any YubiKey",
+        "homepage": "https://developers.yubico.com/yubikey-manager-qt/"
+    },
+    {
+        "name": "zoom",
+        "desc": "Video communication and virtual meeting platform",
+        "homepage": "https://www.zoom.us/"
+    }
+]

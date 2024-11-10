@@ -1,20 +1,6 @@
 # dotfiles
 
-## Machine Bootstrapping
-
-```bash
-                \||/
-                |  @___oo        DOTFILES INSTALLATION
-      /\  /\   / (__,,,,|        RELEASE: 2.1
-     ) /^\) ^\/ _)
-     )   /^\/   _)
-     )   _ /  / _)
- /\  )/\/ ||  | )_)
-<  >      |(,,) )__)
- ||      /    \)___)\
- | \____(      )___) )___
-  \______(_______;;; __;;;
-```
+![fastfetch](docs/assets/fastfetch-demo.jpg)
 
 Setups and configures various dotfiles, installs packages, and configures the
 host machine. This repo strives to be as declarative and idempotent as possible
@@ -72,16 +58,25 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --exclude=encrypted --apply $GITHUB
 - Hook Ansible into chezmoi bootstrap step
 - Identify how to install homebrew-less casks: ATEM Mini Pro, Akai Professional
   MPK Mini III Program Editor, MPK mini Software Manager
+- Generate inventory file for Ansible
 
-## Homebrew Info Gathering
+## Info Gathering
 
-### List installed formulae
+### MAS Info Gathering
+
+```bash
+mas list
+```
+
+### Homebrew Info Gathering
+
+#### List installed formulae
 
 ```bash
 brew info --json=v2 --installed | jq -r '.formulae[]|{name:select(any(.installed[]; .installed_on_request)).full_name, desc: .desc, homepage:.homepage}'
 ```
 
-### List installed casks
+#### List installed casks
 
 ```bash
 brew info --json=v2 --installed | jq -r '.casks[]|{name:.full_token, full_name:.name, desc:.desc, homepage:.homepage,}'

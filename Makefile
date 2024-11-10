@@ -22,8 +22,12 @@ direnv: ## setup direnv for env
 	cp .envrc.sample .envrc && direnv allow .
 
 .PHONY: vale
-vale:
+vale: ## setup vale
 	vale sync --config .vale.ini
+
+.PHONY: pre-commit-init
+pre-commit-init: ## install pre-commit
+	pre-commit install
 
 ## Lint:
 .PHONY: lint
@@ -32,6 +36,15 @@ lint: pre-commit ## Run linters
 .PHONY: pre-commit
 pre-commit: ## Run pre-commit
 	pre-commit run -a
+
+## Docs:
+.PHONY: gen-brew-docs-personal
+gen-brew-docs-personal: ## Run scripts/gen-brew-docs.py
+	uv run scripts/gen-brew-docs.py --category personal
+
+.PHONY: gen-brew-docs-work
+gen-brew-docs-work: ## Run scripts/gen-brew-docs.py
+	uv run scripts/gen-brew-docs.py --category work
 
 ## Help:
 .PHONY: help
