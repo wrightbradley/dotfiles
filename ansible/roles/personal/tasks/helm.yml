@@ -1,5 +1,6 @@
 ---
 - name: Add Helm repos
+  delegate_to: 127.0.0.1
   kubernetes.core.helm_repository:
     name: '{{ item.name }}'
     repo_url: '{{ item.url }}'
