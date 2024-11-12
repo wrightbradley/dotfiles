@@ -64,6 +64,7 @@
 | asciinema | Record and share terminal sessions | [Link](https://asciinema.org) |
 | asdf | Extendable version manager with support for Ruby, Node.js, Erlang & more | [Link](https://asdf-vm.com/) |
 | asitop | Perf monitoring CLI tool for Apple Silicon | [Link](https://tlkh.github.io/asitop/) |
+| ast-grep | Code searching, linting, rewriting | [Link](https://github.com/ast-grep/ast-grep) |
 | autoconf-archive | Collection of over 500 reusable autoconf macros | [Link](https://savannah.gnu.org/projects/autoconf-archive/) |
 | autogen | Automated text file generator | [Link](https://autogen.sourceforge.net/) |
 | aws-iam-authenticator | Use AWS IAM credentials to authenticate to Kubernetes | [Link](https://github.com/kubernetes-sigs/aws-iam-authenticator) |
@@ -201,6 +202,7 @@
 | pgcli | CLI for Postgres with auto-completion and syntax highlighting | [Link](https://pgcli.com/) |
 | pinentry-mac | Pinentry for GPG on Mac | [Link](https://github.com/GPGTools/pinentry) |
 | pipenv | Python dependency management tool | [Link](https://github.com/pypa/pipenv) |
+| pkgconf | Package compiler and linker metadata toolkit | [Link](https://github.com/pkgconf/pkgconf) |
 | pngpaste | Paste PNG into files | [Link](https://github.com/jcsalterego/pngpaste) |
 | poetry | Python package management tool | [Link](https://python-poetry.org/) |
 | fairwindsops/tap/polaris | Open Source Best Practices for Kubernetes | [Link]() |

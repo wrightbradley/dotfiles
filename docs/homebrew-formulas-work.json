@@ -50,6 +50,11 @@
         "homepage": "https://tlkh.github.io/asitop/"
     },
     {
+        "name": "ast-grep",
+        "desc": "Code searching, linting, rewriting",
+        "homepage": "https://github.com/ast-grep/ast-grep"
+    },
+    {
         "name": "autoconf-archive",
         "desc": "Collection of over 500 reusable autoconf macros",
         "homepage": "https://savannah.gnu.org/projects/autoconf-archive/"
@@ -733,6 +738,11 @@
         "name": "pipenv",
         "desc": "Python dependency management tool",
         "homepage": "https://github.com/pypa/pipenv"
+    },
+    {
+        "name": "pkgconf",
+        "desc": "Package compiler and linker metadata toolkit",
+        "homepage": "https://github.com/pkgconf/pkgconf"
     },
     {
         "name": "pngpaste",
