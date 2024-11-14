@@ -8,7 +8,7 @@
   # all ignored and untracked files are also stashed and then cleaned up with git clean
   staash = stash --all
   bb = !~/bin/better-git-branch.sh
-  yolo = !git commit -m "$(curl -s https://whatthecommit.com/index.txt)"
+  yolo = !git commit -S -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
 [color]
   diff = auto
   status = auto
