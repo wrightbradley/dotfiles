@@ -265,7 +265,7 @@ docker() {
 
 kdebug() {
   POD=$1
-  kubectl debug -it $POD --image=730998372749.dkr.ecr.us-west-2.amazonaws.com/debug:debian --image-pull-policy='Always' --profile=netadmin
+  kubectl debug -it $POD --image=ubuntu:latest --image-pull-policy='Always' --profile=netadmin
 }
 
 kdrun() {
@@ -408,4 +408,9 @@ secure_history() {
 
 pr_commits(){
   git log --date-order --pretty=format:"%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)%n  * %b" origin/main..HEAD | grep -v Signed-off-by | pbcopy
+}
+
+ytdown(){
+  VIDEO=$1
+  yt-dlp -f bestvideo+bestaudio/best --add-metadata -o "%(title)s.%(ext)s" --embed-chapters --merge-output-format mp4 --embed-thumbnail $VIDEO
 }
