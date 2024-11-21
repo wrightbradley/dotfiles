@@ -8,6 +8,7 @@ work_homebrew_taps:
 
 work_homebrew_cask_apps:
   - amazon-chime
+  - loom
   - microsoft-teams
 
 work_mas_installed_apps: []
