@@ -32,6 +32,7 @@
 | logi-options+ | Software for Logitech devices | [Link](https://www.logitech.com/en-us/software/logi-options-plus.html) |
 | logitech-g-hub | Support for Logitech G gear | [Link](https://www.logitechg.com/en-us/innovation/g-hub.html) |
 | logitech-options | Software for Logitech devices | [Link](https://support.logitech.com/software/options) |
+| loom | Screen and video recording software | [Link](https://www.loom.com/) |
 | maccy | Clipboard manager | [Link](https://maccy.app/) |
 | microsoft-teams | Meet, chat, call, and collaborate in just one place | [Link](https://www.microsoft.com/en/microsoft-teams/group-chat-software/) |
 | neohtop | Htop on steroids | [Link](https://abdenasser.github.io/neohtop/) |
@@ -151,6 +152,7 @@
 | hopenpgp-tools | Command-line tools for OpenPGP-related operations | [Link](https://hackage.haskell.org/package/hopenpgp-tools) |
 | htop | Improved top (interactive process viewer) | [Link](https://htop.dev/) |
 | httrack | Website copier/offline browser | [Link](https://www.httrack.com/) |
+| hub | Add GitHub support to git on the command-line | [Link](https://hub.github.com/) |
 | iperf3 | Update of iperf: measures TCP, UDP, and SCTP bandwidth | [Link](https://github.com/esnet/iperf) |
 | jdupes | Duplicate file finder and an enhanced fork of 'fdupes' | [Link](https://codeberg.org/jbruchon/jdupes) |
 | jinja2-cli | CLI for the Jinja2 templating language | [Link](https://github.com/mattrobenolt/jinja2-cli) |
@@ -236,11 +238,11 @@
 | starship | Cross-shell prompt for astronauts | [Link](https://starship.rs) |
 | stern | Tail multiple Kubernetes pods & their containers | [Link](https://github.com/stern/stern) |
 | stylua | Opinionated Lua code formatter | [Link](https://github.com/JohnnyMorganz/StyLua) |
+| tealdeer | Very fast implementation of tldr in Rust | [Link](https://github.com/dbrgn/tealdeer) |
 | tenv | OpenTofu / Terraform / Terragrunt / Atmos version manager | [Link](https://tofuutils.github.io/tenv/) |
 | terrascan | Detect compliance and security violations across Infrastructure as Code | [Link](https://runterrascan.io/) |
 | tflint | Linter for Terraform files | [Link](https://github.com/terraform-linters/tflint) |
 | tfsec | Static analysis security scanner for your terraform code | [Link](https://aquasecurity.github.io/tfsec/latest/) |
-| tlrc | Official tldr client written in Rust | [Link](https://github.com/tldr-pages/tlrc) |
 | tmux | Terminal multiplexer | [Link](https://tmux.github.io/) |
 | tokei | Program that allows you to count code, quickly | [Link](https://github.com/XAMPPRocky/tokei) |
 | tree | Display directories as trees (with optional color/HTML output) | [Link](https://oldmanprogrammer.net/source.php?dir=projects/tree) |

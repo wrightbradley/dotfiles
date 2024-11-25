@@ -485,6 +485,11 @@
         "homepage": "https://www.httrack.com/"
     },
     {
+        "name": "hub",
+        "desc": "Add GitHub support to git on the command-line",
+        "homepage": "https://hub.github.com/"
+    },
+    {
         "name": "iperf3",
         "desc": "Update of iperf: measures TCP, UDP, and SCTP bandwidth",
         "homepage": "https://github.com/esnet/iperf"
@@ -910,6 +915,11 @@
         "homepage": "https://github.com/JohnnyMorganz/StyLua"
     },
     {
+        "name": "tealdeer",
+        "desc": "Very fast implementation of tldr in Rust",
+        "homepage": "https://github.com/dbrgn/tealdeer"
+    },
+    {
         "name": "tenv",
         "desc": "OpenTofu / Terraform / Terragrunt / Atmos version manager",
         "homepage": "https://tofuutils.github.io/tenv/"
@@ -928,11 +938,6 @@
         "name": "tfsec",
         "desc": "Static analysis security scanner for your terraform code",
         "homepage": "https://aquasecurity.github.io/tfsec/latest/"
-    },
-    {
-        "name": "tlrc",
-        "desc": "Official tldr client written in Rust",
-        "homepage": "https://github.com/tldr-pages/tlrc"
     },
     {
         "name": "tmux",

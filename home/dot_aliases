@@ -414,3 +414,6 @@ ytdown(){
   VIDEO=$1
   yt-dlp -f bestvideo+bestaudio/best --add-metadata -o "%(title)s.%(ext)s" --embed-chapters --merge-output-format mp4 --embed-thumbnail $VIDEO
 }
+
+# Fuzzy-search a list of TLDR pages, starting with an optional query.
+alias tldrf='tldr --list | fzf --reverse --preview "tldr --color always {1}" --preview-window=right,60% | xargs tldr --color always'

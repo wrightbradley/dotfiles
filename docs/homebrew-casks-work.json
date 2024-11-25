@@ -140,6 +140,11 @@
         "homepage": "https://support.logitech.com/software/options"
     },
     {
+        "name": "loom",
+        "desc": "Screen and video recording software",
+        "homepage": "https://www.loom.com/"
+    },
+    {
         "name": "maccy",
         "desc": "Clipboard manager",
         "homepage": "https://maccy.app/"

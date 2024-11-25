@@ -232,11 +232,12 @@ homebrew_installed_packages:
   # - terraform
   # - terraform-docs
   # - terragrunt
+  # - tlrc
+  - tealdeer
   - terrascan
   - tflint
   - tfsec
   - theden/gcopy/gcopy
-  - tlrc
   - tmux
   - tokei
   - tree
