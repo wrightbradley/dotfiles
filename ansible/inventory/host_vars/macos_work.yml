@@ -10,5 +10,6 @@ work_homebrew_cask_apps:
   - amazon-chime
   - loom
   - microsoft-teams
+  - twingate
 
 work_mas_installed_apps: []
