@@ -1,0 +1,4 @@
+# Set the PATH environment variable
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+# Set the default editor
+export EDITOR="vim"
