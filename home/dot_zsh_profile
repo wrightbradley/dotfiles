@@ -1,0 +1,8 @@
+# Set the PATH environment variable
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+# Set the default editor
+export EDITOR="vim"
+# Source the .zshrc file to include its configurations
+if [ -f "$HOME/.zshrc" ]; then
+    source "$HOME/.zshrc"
+fi
