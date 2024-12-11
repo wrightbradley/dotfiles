@@ -89,7 +89,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 eval "$(direnv hook zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(mise activate zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 export KUBECONFIG="$HOME/.kube/config"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH"
