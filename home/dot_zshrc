@@ -93,6 +93,7 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 export KUBECONFIG="$HOME/.kube/config"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export EDITOR='nvim'
 export KUBE_EDITOR='nvim'
