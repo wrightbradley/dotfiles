@@ -21,10 +21,10 @@ os:
   editPreset: 'nvim-remote'
   edit: 'nvim --server $NVIM --remote-tab {{filename}}'
 customCommands:
-  - key: "<c-g>"
+  - key: '<c-g>'
     command: "unset GITHUB_TOKEN; JIRA_ID=$(git symbolic-ref --short HEAD | grep -e '\\b[A-Z][A-Z0-9_]\\+-[1-9][0-9]\\+' -o); TITLE=$(uv run ~/bin/get-jira-title.py ${JIRA_ID}); BODY=$(git log --date-order --pretty=format:'%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)%n  * %b' origin/main..HEAD | grep -v Signed-off-by | sed 's/\"//g'); echo $BODY > /tmp/body.txt; gh pr create --body \"${BODY}\" --title \"${TITLE}\" --assignee @me {{.Form.DRAFT}} {{.Form.CLOUDOPS}}"
-    context: "global"
-    loadingText: "Creating pull request on GitHub"
+    context: 'global'
+    loadingText: 'Creating pull request on GitHub'
     prompts:
       - type: 'menu'
         title: 'Open a Draft PR?'
@@ -55,11 +55,11 @@ customCommands:
     context: 'localBranches'
     loadingText: 'Pruning...'
     description: 'prune local branches that have been merged to master'
-  # - key: "C"
-  #   command: "git cz -S"
-  #   description: "commit with commitizen"
-  #   context: "files"
-  #   loadingText: "opening commitizen commit tool"
+  # - key: 'C'
+  #   command: 'koji'
+  #   description: 'Create conventional commits, built on cocogitto and inspired by cz-cli.'
+  #   context: 'files'
+  #   loadingText: 'opening koji commit tool'
   #   subprocess: true
   - key: 'P'
     command: "git push --set-upstream origin '$(git-branch-current 2>/dev/null)'"
