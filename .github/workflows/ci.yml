@@ -1,0 +1,17 @@
+---
+name: 'CI'
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+    paths-ignore:
+      - '**/.gitignore'
+      - '**/host.ini'
+      - '**/.editorconfig'
+      - '**/LICENSE'
+jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
