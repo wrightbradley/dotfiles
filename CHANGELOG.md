@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.1.0] - 2024-12-20
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
@@ -133,8 +133,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add .zprofile  by @wrightbradley - ([34e1786](34e1786e246e92e05ff457c81d378a6288a93dd4))
 - Improve mise configuration  by @wrightbradley - ([8e5a4c1](8e5a4c1ced466b64b3a0131ba962cb790ce17db6))
 - Support ghq for personal repos  by @wrightbradley - ([3bfa0d3](3bfa0d3fe8c78aef7bba12107e8fe932a0b8d24f))
-- Add cargo to path  - ([0f60cfc](0f60cfc91f5a03d1b8cbd566d85b160b9a487569))
-- Add koji for conventional commits  - ([1f56f9b](1f56f9bf95c06e258efeff79d933516673767e89))
+- Add cargo to path  by @wrightbradley - ([0f60cfc](0f60cfc91f5a03d1b8cbd566d85b160b9a487569))
+- Add koji for conventional commits  by @wrightbradley - ([1f56f9b](1f56f9bf95c06e258efeff79d933516673767e89))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
@@ -345,11 +345,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove yabai and skhd as aerospace supercedes these  by @wrightbradley - ([e6230f3](e6230f39a59d546ee94e578a05d2cdc6049f5e0d))
 - Remove unneeded var file  by @wrightbradley - ([e42338e](e42338ebccd2e003b91092d065095ed49b72e0cb))
 - Remove unused vars  by @wrightbradley - ([8ec5f7f](8ec5f7f424ff8a9e4bbcd2095144534a76ce094e))
+- Migrate to git-cliff from changie  by @wrightbradley - ([a27538a](a27538a9ad3bab2ae6eb7108f7aca315d384fa37))
 
 ### <!-- 9 -->🤖 CI
 
 - Add github actions  by @wrightbradley - ([716e665](716e665697667516efc7aee47472b72e6bc822e0))
 - Initial setup of changie  by @wrightbradley - ([f0e4657](f0e46576b5ab582b62b0e410d458ff97b3373ae5))
+- Add release and linting workflows  by @wrightbradley - ([5d01fe8](5d01fe8a0ba94bf59aecc51fed83a61efd50055f))
 
 
 ## New Contributors
