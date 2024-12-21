@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2024-12-21
+## What's Changed
+
+### <!-- 7 -->📚 Documentation
+
+- Release 0.1.0  by @github-actions[bot] - ([62ae6a9](62ae6a95260a0755664ca997014ed4ab4c6a7968))
+
+### <!-- 9 -->🤖 CI
+
+- Improve release automation  by @wrightbradley - ([c316b16](c316b1604f7f069c8e2adb925fa30e7c68fa50c5))
+
+
+## New Contributors
+* @github-actions[bot] made their first contribution
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.0...0.1.1
+
 ## [0.1.0] - 2024-12-20
 ## What's Changed
 
