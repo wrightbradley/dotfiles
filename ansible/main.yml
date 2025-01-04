@@ -25,13 +25,7 @@
     - name: Determine shell based on architecture and brew setup
       ansible.builtin.set_fact:
         zsh_shell: >-
-          {%- if ansible_architecture == "arm64" and setup_brew %}
-            /opt/homebrew/bin/zsh
-          {%- elif setup_brew %}
-            /usr/local/bin/zsh
-          {%- else %}
-            /bin/zsh
-          {%- endif %}
+          {%- if ansible_architecture == "arm64" and setup_brew -%} /opt/homebrew/bin/zsh {%- elif setup_brew -%} /usr/local/bin/zsh {%- else -%} /bin/zsh {%- endif -%}
     - name: Change shell to Zsh
       ansible.builtin.user:
         name: "{{ lookup('env', 'USER') }}"
