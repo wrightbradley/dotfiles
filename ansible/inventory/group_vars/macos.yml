@@ -303,6 +303,7 @@ homebrew_cask_apps:
   - font-droid-sans-mono-nerd-font
   - font-fira-code-nerd-font
   - font-hack-nerd-font
+  - font-jetbrains-mono
   - font-jetbrains-mono-nerd-font
   - font-symbols-only-nerd-font
   - ghostty
