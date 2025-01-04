@@ -236,7 +236,7 @@ enter = 'mode main'
 esc = 'mode main'
 
 [workspace-to-monitor-force-assignment]
-1 = 'main'                           # Monitor sequence number from left to right. 1-based indexing
+1 = 'main'      # Monitor sequence number from left to right. 1-based indexing
 2 = 'secondary'
 3 = 'secondary'
 # 4 = 'built-in'                   # Case insensitive regex substring
@@ -325,3 +325,7 @@ run = ['layout tiling', 'move-node-to-workspace O']
 if.app-id = '8b35e986dd6b607da9eab2f820cc0235859c0e67'
 # check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace B']
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout tiling', 'move-node-to-workspace T']

@@ -305,6 +305,7 @@ homebrew_cask_apps:
   - font-hack-nerd-font
   - font-jetbrains-mono-nerd-font
   - font-symbols-only-nerd-font
+  - ghostty
   - google-chrome
   - google-cloud-sdk
   - hiddenbar
