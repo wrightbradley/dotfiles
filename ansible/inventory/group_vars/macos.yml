@@ -293,6 +293,7 @@ homebrew_cask_apps:
   - alacritty
   - betterdisplay
   - brave-browser
+  - crossover
   - deskpad
   - elgato-camera-hub
   - elgato-control-center
