@@ -1,4 +1,29 @@
-# Set the PATH environment variable
-export PATH="$HOME/bin:/usr/local/bin:$PATH"
-# Set the default editor
-export EDITOR="vim"
+# Homebrew PATH Setup
+[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+[[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+eval "$(direnv hook zsh)"
+eval "$(zoxide init --cmd cd zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
+
+export KUBECONFIG="$HOME/.kube/config"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
+export EDITOR='nvim'
+export KUBE_EDITOR='nvim'
+export YSU_IGNORED_GLOBAL_ALIASES=()
+export YSU_IGNORED_ALIASES=("vi" "vim" "G")
+export NODE_OPTIONS="--no-deprecation --max-old-space-size=4096"
+
+# Terraform Configuration
+# export TERRAFORM_BINARY_NAME="tofu"
+export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
+export TFENV_TERRAFORM_VERSION=1.5.7
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export GPG_TTY="$(tty)"
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+fi

@@ -1,7 +1,6 @@
 # -----------------
 # Zsh Configuration
 # -----------------
-
 bindkey -v  # Set the editor default keymap to emacs (`-e`) or vi (`-v`)
 SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '  # Customize the spelling correction prompt.
 WORDCHARS=${WORDCHARS//[\/]}  # Remove path separator from WORDCHARS.
@@ -67,10 +66,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # -----------------
 
 # ---- Color Config ----
-# export TERM=alacritty
-# export TERM=xterm-256color
 # export GREP_COLOR='1;33;40'
-
 # Base16 Shell
 # BASE16_SHELL="$HOME/.config/base16-shell/"
 # [ -n "$PS1" ] && \
@@ -82,37 +78,8 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 #   test -e ~/.dircolors && eval $(dircolors -b ~/.dircolors)
 # fi
 
-# Homebrew PATH Setup
-[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-[[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
-[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
-
-eval "$(direnv hook zsh)"
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(/opt/homebrew/bin/mise activate zsh)"
-
-export KUBECONFIG="$HOME/.kube/config"
-export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
-export XDG_CONFIG_HOME="$HOME/.config"
-export EDITOR='nvim'
-export KUBE_EDITOR='nvim'
-export YSU_IGNORED_GLOBAL_ALIASES=()
-export YSU_IGNORED_ALIASES=("vi" "vim" "G")
-export NODE_OPTIONS="--no-deprecation --max-old-space-size=4096"
-
-# Terraform Configuration
-# export TERRAFORM_BINARY_NAME="tofu"
-export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
-export TFENV_TERRAFORM_VERSION=1.5.7
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  export GPG_TTY="$(tty)"
-  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  gpgconf --launch gpg-agent
-fi
-
 source $HOME/.aliases
+
 
 # -----------------
 # Zimfw Initialization
@@ -139,7 +106,6 @@ fi
 
 # Load modules
 source ${ZIM_HOME}/init.zsh
-
 # zsh-history-substring-search
 zmodload -F zsh/terminfo +p:terminfo
 
@@ -147,21 +113,16 @@ zmodload -F zsh/terminfo +p:terminfo
 for key ('^[[A' '^P' ${terminfo[kcuu1]}); do
   bindkey ${key} history-substring-search-up
 done
-
 for key ('^[[B' '^N' ${terminfo[kcud1]}); do
   bindkey ${key} history-substring-search-down
 done
-
 for key ('k'); do
   bindkey -M vicmd ${key} history-substring-search-up
 done
-
 for key ('j'); do
   bindkey -M vicmd ${key} history-substring-search-down
 done
-
 unset key
-
 
 eval "$(uv generate-shell-completion zsh)"
 _uv_run_mod() {
