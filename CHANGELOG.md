@@ -5,12 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2025-01-05
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add ghostty  by @wrightbradley - ([1877df3](1877df378cc41af6c75703c8994f15dad39f9dc2))
+- Add font-jetbrains-mono non-nerd font version  by @wrightbradley - ([52c95ab](52c95abaf01b2c2aed79f374bfaf8d768e5f7e01))
+- Install crossover  by @wrightbradley - ([4272e52](4272e52084520e6fde13bafd58f8832c4f705643))
+- Add cloudflared tap to personal host_vars  by @wrightbradley - ([9af089e](9af089e733a70b1ce7605c3c3cad3965df82435d))
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Remove extra spaces defined for default shell  by @wrightbradley - ([96e498b](96e498b488c32d95c9b4d2537031902405c1e76f))
+- Move crossover to personal host_vars  by @wrightbradley - ([33e8381](33e83814b96ac9b3b31577ad27c4e5e91d46a54e))
+
+### <!-- 5 -->🎨 Styling
+
+- Improve zsh config  by @wrightbradley - ([ad7328a](ad7328afd1edddc375b2c7045062a5c98af2b9c8))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.1...0.1.2
+
 ## [0.1.1] - 2024-12-21
 ## What's Changed
 
 ### <!-- 7 -->📚 Documentation
 
 - Release 0.1.0  by @github-actions[bot] - ([62ae6a9](62ae6a95260a0755664ca997014ed4ab4c6a7968))
+- Release 0.1.1 [skip ci]  by @github-actions[bot] - ([256c11b](256c11bb300eec927182ab9314d1c7740920fd55))
 
 ### <!-- 9 -->🤖 CI
 
