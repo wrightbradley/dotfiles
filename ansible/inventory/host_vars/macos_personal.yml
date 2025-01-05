@@ -2,6 +2,7 @@
 personal_homebrew_installed_packages:
   - argo
   - bitwarden-cli
+  - cloudflared
   - cilium-cli
   - cirruslabs/cli/tart
   - fluxcd/tap/flux
