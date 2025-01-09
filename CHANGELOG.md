@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.2] - 2025-01-05
+## [0.1.2] - 2025-01-09
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add font-jetbrains-mono non-nerd font version  by @wrightbradley - ([52c95ab](52c95abaf01b2c2aed79f374bfaf8d768e5f7e01))
 - Install crossover  by @wrightbradley - ([4272e52](4272e52084520e6fde13bafd58f8832c4f705643))
 - Add cloudflared tap to personal host_vars  by @wrightbradley - ([9af089e](9af089e733a70b1ce7605c3c3cad3965df82435d))
+- Default to go 1.23 for global version  by @wrightbradley - ([b6181a2](b6181a26199e3c87d32acaf7b8ab369ac8b0037f))
+- Configure personal project git config  by @wrightbradley - ([4d4380e](4d4380eaeb6db12c2d047445be1dd71c307b369f))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
@@ -23,6 +25,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### <!-- 5 -->🎨 Styling
 
 - Improve zsh config  by @wrightbradley - ([ad7328a](ad7328afd1edddc375b2c7045062a5c98af2b9c8))
+- Adjust font size and background opacity for ghostty  by @wrightbradley - ([dac9b37](dac9b37ea6c920202f9f5b7a8a9301710ec0e49b))
+
+### <!-- 7 -->📚 Documentation
+
+- Release 0.1.2 [skip ci]  by @github-actions[bot] - ([a48db7e](a48db7e200b6544d775873d19552c158755649e2))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.1...0.1.2
