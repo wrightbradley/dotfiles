@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.2] - 2025-01-09
+## [0.1.2] - 2025-01-15
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
@@ -16,11 +16,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add cloudflared tap to personal host_vars  by @wrightbradley - ([9af089e](9af089e733a70b1ce7605c3c3cad3965df82435d))
 - Default to go 1.23 for global version  by @wrightbradley - ([b6181a2](b6181a26199e3c87d32acaf7b8ab369ac8b0037f))
 - Configure personal project git config  by @wrightbradley - ([4d4380e](4d4380eaeb6db12c2d047445be1dd71c307b369f))
+- Add perf profiling option to zshrc  by @wrightbradley - ([73a458b](73a458bb2cfbd1ea96d50304cb97aa149138f6ae))
+- Cleanup and improve tmux config  by @wrightbradley - ([92d9f21](92d9f21ef04ae93f072e1461a99c2582c9007829))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
 - Remove extra spaces defined for default shell  by @wrightbradley - ([96e498b](96e498b488c32d95c9b4d2537031902405c1e76f))
 - Move crossover to personal host_vars  by @wrightbradley - ([33e8381](33e83814b96ac9b3b31577ad27c4e5e91d46a54e))
+
+### <!-- 4 -->⚡ Performance
+
+- Improve zsh startup performance  by @wrightbradley - ([9e737d0](9e737d0285a8571705845d2b1b44b4a6d796a158))
 
 ### <!-- 5 -->🎨 Styling
 
