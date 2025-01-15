@@ -6,13 +6,13 @@
 #
 
 zmodule input   # Applies correct bindkeys for input events.
-zmodule termtitle   # Sets a custom terminal title.
-zmodule archive # Provides archive, unarchive and lsarchive functions for easy archive manipulation based on file extensions. https://github.com/zimfw/archive
-zmodule ssh # Provides a convenient way to load ssh-agent. This enables one-time login and caching of ssh credentials per session. https://github.com/zimfw/ssh
+# zmodule termtitle   # Sets a custom terminal title.
+# zmodule archive # Provides archive, unarchive and lsarchive functions for easy archive manipulation based on file extensions. https://github.com/zimfw/archive
+# zmodule ssh # Provides a convenient way to load ssh-agent. This enables one-time login and caching of ssh credentials per session. https://github.com/zimfw/ssh
 zmodule git # Provides handy git aliases and functions. https://github.com/zimfw/git
 zmodule https://github.com/unixorn/fzf-zsh-plugin.git   # Configures fzf for faster fetching of files and directories names. https://github.com/zimfw/fzf
-zmodule homebrew    # Adds aliases for Homebrew. https://github.com/zimfw/homebrew
-zmodule https://github.com/MichaelAquilina/zsh-you-should-use.git
+# zmodule homebrew    # Adds aliases for Homebrew. https://github.com/zimfw/homebrew
+# zmodule https://github.com/MichaelAquilina/zsh-you-should-use.git
 
 #
 # Completion

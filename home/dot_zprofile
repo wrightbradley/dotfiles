@@ -1,7 +1,16 @@
 # Homebrew PATH Setup
-[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-[[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
-[[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+# Disable recommended shell setup to speed up start up times
+# [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# [[ -f /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+# [[ -f /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew/Homebrew";
+fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/Users/bwright/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/Users/bwright/.cargo/bin:/Users/bwright/bin:/Users/bwright/.local/bin:/usr/local/sbin:/Users/bwright/.venv/bin:/Users/bwright/.local/share/mise/installs/fzf/0.56.3:/Users/bwright/.local/share/mise/installs/go/1.23.4/bin:/Users/bwright/.local/share/mise/installs/kubectl/1.31.4:/Users/bwright/.local/share/mise/installs/kubectx/0.9.5:/Users/bwright/.local/share/mise/installs/kustomize/5.5.0:/Users/bwright/.local/share/mise/installs/node/22.12.0/bin:/Users/bwright/.local/share/mise/installs/node/20.18.1/bin:/Users/bwright/.local/share/mise/installs/pre-commit/4.0.1:/Users/bwright/.local/share/mise/installs/usage/1.4.1/bin:/Users/bwright/.local/share/mise/installs/uv/0.5.8/uv-aarch64-apple-darwin:/Users/bwright/.local/share/mise/installs/pipx-ansible-core/2.18.1/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/bwright/.zim/modules/fzf-zsh-plugin/bin"; export PATH;
+[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
 
 eval "$(direnv hook zsh)"
 eval "$(zoxide init --cmd cd zsh)"
