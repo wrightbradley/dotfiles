@@ -322,7 +322,7 @@ homebrew_cask_apps:
   - slack
   - syncthing
   - tad
-  - topnotch
+  # - topnotch
   - visual-studio-code
   - vlc
   - yubico-authenticator
