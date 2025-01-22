@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.2] - 2025-01-16
+## [0.1.2] - 2025-01-22
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add perf profiling option to zshrc  by @wrightbradley - ([73a458b](73a458bb2cfbd1ea96d50304cb97aa149138f6ae))
 - Cleanup and improve tmux config  by @wrightbradley - ([92d9f21](92d9f21ef04ae93f072e1461a99c2582c9007829))
 - Color and locale tuning for tmux  by @wrightbradley - ([b9d6b71](b9d6b71cafe94400753f096b15e231bd554fbe88))
+- Increase font of ghostty  by @wrightbradley - ([593fdc5](593fdc59cfa6139b927b2ded52263881719e4037))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
@@ -37,6 +38,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### <!-- 7 -->📚 Documentation
 
 - Release 0.1.2 [skip ci]  by @github-actions[bot] - ([a48db7e](a48db7e200b6544d775873d19552c158755649e2))
+
+### <!-- 8 -->🧹 Miscellaneous Tasks
+
+- Remove changie  by @wrightbradley - ([46bb3b8](46bb3b83e67203fc2230599bc64a9084eee12016))
+- Disable topnotch  by @wrightbradley - ([ee57b2a](ee57b2a137513c022feebd80c38c68f17ee60178))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.1...0.1.2
