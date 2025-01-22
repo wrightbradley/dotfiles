@@ -173,7 +173,6 @@ homebrew_installed_packages:
   - mike-engel/jwt-cli/jwt-cli
   - mimirtool
   - minikube
-  - miniscruff/changie/changie
   - mise
   - mtr
   - mysql-client
@@ -285,8 +284,6 @@ homebrew_taps:
   - updatecli/updatecli
   - veeso/termscp
   - weaveworks/tap
-  - name: miniscruff/changie
-    url: 'https://github.com/miniscruff/changie'
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
