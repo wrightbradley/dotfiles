@@ -11,6 +11,6 @@ title = " "
 window-padding-x = 1
 window-padding-y = 1
 macos-titlebar-style = hidden
+shell-integration = fish
 quit-after-last-window-closed = true
-shell-integration = zsh
 # window-decoration = false
