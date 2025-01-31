@@ -360,6 +360,11 @@ jira() {
   (export JIRA_API_TOKEN=$(jq -r '.api_token' "${JIRA_CONFIG_HOME}"/jira-config.json) && command jira $@)
 }
 
+ghpr() {
+  # launch in a (subshell) so the api token doesn't linger in env after running
+  (export GITHUB_TOKEN=$(gh auth token -u wrightbradley) && command uv run $HOME/bin/open-gh-pr.py $@)
+}
+
 ukctx() {
   kubectl config unset current-context
 }
