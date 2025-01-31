@@ -20,14 +20,9 @@
         "homepage": "https://ant.apache.org/"
     },
     {
-        "name": "aquaproj/aqua/aqua",
-        "desc": "Declarative CLI Version manager. Support Lazy Install and Sharable configuration mechanism named Registry. Switch versions seamlessly\n",
-        "homepage": "https://github.com/aquaproj/aqua"
-    },
-    {
         "name": "argocd",
         "desc": "GitOps Continuous Delivery for Kubernetes",
-        "homepage": "https://argoproj.github.io/cd"
+        "homepage": "https://argoproj.github.io/cd/"
     },
     {
         "name": "arping",
@@ -115,11 +110,6 @@
         "homepage": "https://cdk8s.io/"
     },
     {
-        "name": "miniscruff/changie/changie",
-        "desc": "Automated changelog tool for preparing releases with lots of customization options.",
-        "homepage": "https://changie.dev"
-    },
-    {
         "name": "chart-testing",
         "desc": "Testing and linting Helm charts",
         "homepage": "https://github.com/helm/chart-testing"
@@ -170,11 +160,6 @@
         "homepage": "https://github.com/cookiecutter/cookiecutter"
     },
     {
-        "name": "coreutils",
-        "desc": "GNU File, Shell, and Text utilities",
-        "homepage": "https://www.gnu.org/software/coreutils/"
-    },
-    {
         "name": "cosign",
         "desc": "Container Signing",
         "homepage": "https://github.com/sigstore/cosign"
@@ -193,11 +178,6 @@
         "name": "curl",
         "desc": "Get a file from an HTTP, HTTPS or FTP server",
         "homepage": "https://curl.se"
-    },
-    {
-        "name": "cypher-shell",
-        "desc": "Command-line shell where you can execute Cypher against Neo4j",
-        "homepage": "https://neo4j.com"
     },
     {
         "name": "dasel",
@@ -325,6 +305,11 @@
         "homepage": "https://github.com/dirkvdb/ffmpegthumbnailer"
     },
     {
+        "name": "fish",
+        "desc": "User-friendly command-line shell for UNIX-like operating systems",
+        "homepage": "https://fishshell.com"
+    },
+    {
         "name": "charmbracelet/tap/freeze",
         "desc": "Generate images of code and terminal output.",
         "homepage": "https://charm.sh/"
@@ -411,7 +396,7 @@
     },
     {
         "name": "goreleaser/tap/goreleaser",
-        "desc": "Deliver Go binaries as fast and easily as possible",
+        "desc": "Release engineering, simplified",
         "homepage": "https://goreleaser.com"
     },
     {
@@ -438,11 +423,6 @@
         "name": "grpcurl",
         "desc": "Like cURL, but for gRPC",
         "homepage": "https://github.com/fullstorydev/grpcurl"
-    },
-    {
-        "name": "gstreamer",
-        "desc": "Development framework for multimedia applications",
-        "homepage": "https://gstreamer.freedesktop.org/"
     },
     {
         "name": "hadolint",
@@ -483,11 +463,6 @@
         "name": "httrack",
         "desc": "Website copier/offline browser",
         "homepage": "https://www.httrack.com/"
-    },
-    {
-        "name": "hub",
-        "desc": "Add GitHub support to git on the command-line",
-        "homepage": "https://hub.github.com/"
     },
     {
         "name": "iperf3",
@@ -565,11 +540,6 @@
         "homepage": "https://github.com/ahmetb/kubectx"
     },
     {
-        "name": "kubernetes-cli",
-        "desc": "Kubernetes command-line interface",
-        "homepage": "https://kubernetes.io/docs/reference/kubectl/"
-    },
-    {
         "name": "kubescape/tap/kubescape-cli",
         "desc": "Kubernetes misconfiguration testing",
         "homepage": "https://github.com/kubescape/kubescape"
@@ -595,9 +565,19 @@
         "homepage": "https://github.com/jesseduffield/lazygit/"
     },
     {
+        "name": "libfido2",
+        "desc": "Provides library functionality for FIDO U2F & FIDO 2.0, including USB",
+        "homepage": "https://developers.yubico.com/libfido2/"
+    },
+    {
         "name": "libheif",
         "desc": "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder",
         "homepage": "https://www.libde265.org/"
+    },
+    {
+        "name": "libpq",
+        "desc": "Postgres C API library",
+        "homepage": "https://www.postgresql.org/docs/current/libpq.html"
     },
     {
         "name": "libxml2",
@@ -657,12 +637,7 @@
     {
         "name": "mysql-client",
         "desc": "Open source relational database management system",
-        "homepage": "https://dev.mysql.com/doc/refman/9.0/en/"
-    },
-    {
-        "name": "ncurses",
-        "desc": "Text-based UI library",
-        "homepage": "https://invisible-island.net/ncurses/announce.html"
+        "homepage": "https://dev.mysql.com/doc/refman/9.2/en/"
     },
     {
         "name": "neomutt",
@@ -693,11 +668,6 @@
         "name": "openssh",
         "desc": "OpenBSD freely-licensed SSH connectivity tools",
         "homepage": "https://www.openssh.com/"
-    },
-    {
-        "name": "openssl@3",
-        "desc": "Cryptography and SSL/TLS Toolkit",
-        "homepage": "https://openssl-library.org"
     },
     {
         "name": "ossp-uuid",
@@ -745,11 +715,6 @@
         "homepage": "https://github.com/pypa/pipenv"
     },
     {
-        "name": "pkgconf",
-        "desc": "Package compiler and linker metadata toolkit",
-        "homepage": "https://github.com/pkgconf/pkgconf"
-    },
-    {
         "name": "pngpaste",
         "desc": "Paste PNG into files",
         "homepage": "https://github.com/jcsalterego/pngpaste"
@@ -765,9 +730,9 @@
         "homepage": ""
     },
     {
-        "name": "popeye",
-        "desc": "Kubernetes cluster resource sanitizer",
-        "homepage": "https://popeyecli.io"
+        "name": "derailed/popeye/popeye",
+        "desc": "A Kubernetes Cluster sanitizer and linter!",
+        "homepage": "https://imhotep.io/popeye"
     },
     {
         "name": "postgresql@14",
@@ -803,21 +768,6 @@
         "name": "pyenv-virtualenv",
         "desc": "Pyenv plugin to manage virtualenv",
         "homepage": "https://github.com/pyenv/pyenv-virtualenv"
-    },
-    {
-        "name": "python@3.11",
-        "desc": "Interpreted, interactive, object-oriented programming language",
-        "homepage": "https://www.python.org/"
-    },
-    {
-        "name": "python@3.12",
-        "desc": "Interpreted, interactive, object-oriented programming language",
-        "homepage": "https://www.python.org/"
-    },
-    {
-        "name": "readline",
-        "desc": "Library for command-line editing",
-        "homepage": "https://tiswww.case.edu/php/chet/readline/rltop.html"
     },
     {
         "name": "rename",
@@ -890,11 +840,6 @@
         "homepage": "https://zachholman.com/spark/"
     },
     {
-        "name": "sqlite",
-        "desc": "Command-line interface for SQLite",
-        "homepage": "https://sqlite.org/index.html"
-    },
-    {
         "name": "sslscan",
         "desc": "Test SSL/TLS enabled services to discover supported cipher suites",
         "homepage": "https://github.com/rbsec/sslscan"
@@ -918,11 +863,6 @@
         "name": "tealdeer",
         "desc": "Very fast implementation of tldr in Rust",
         "homepage": "https://github.com/dbrgn/tealdeer"
-    },
-    {
-        "name": "tenv",
-        "desc": "OpenTofu / Terraform / Terragrunt / Atmos version manager",
-        "homepage": "https://tofuutils.github.io/tenv/"
     },
     {
         "name": "terrascan",
@@ -970,11 +910,6 @@
         "homepage": "https://updatecli.io/"
     },
     {
-        "name": "usage",
-        "desc": "Tool for working with usage-spec CLIs",
-        "homepage": "https://usage.jdx.dev/"
-    },
-    {
         "name": "uv",
         "desc": "Extremely fast Python package installer and resolver, written in Rust",
         "homepage": "https://github.com/astral-sh/uv"
@@ -1020,11 +955,6 @@
         "homepage": "https://www.wireguard.com/"
     },
     {
-        "name": "xz",
-        "desc": "General-purpose data compression with high compression ratio",
-        "homepage": "https://tukaani.org/xz/"
-    },
-    {
         "name": "yamlfmt",
         "desc": "Extensible command-line tool to format YAML files",
         "homepage": "https://github.com/google/yamlfmt"
@@ -1068,11 +998,6 @@
         "name": "yubico-piv-tool",
         "desc": "Command-line tool for the YubiKey PIV application",
         "homepage": "https://developers.yubico.com/yubico-piv-tool/"
-    },
-    {
-        "name": "zlib",
-        "desc": "General-purpose lossless data-compression library",
-        "homepage": "https://zlib.net/"
     },
     {
         "name": "zoxide",

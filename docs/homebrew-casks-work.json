@@ -20,11 +20,6 @@
         "homepage": "https://brave.com/"
     },
     {
-        "name": "bruno",
-        "desc": "Opensource IDE for exploring and testing api's",
-        "homepage": "https://www.usebruno.com/"
-    },
-    {
         "name": "deskpad",
         "desc": "Virtual monitor for screen sharing",
         "homepage": "https://github.com/Stengo/DeskPad"
@@ -90,6 +85,11 @@
         "homepage": "https://github.com/ryanoasis/nerd-fonts"
     },
     {
+        "name": "ghostty",
+        "desc": "Terminal emulator that uses platform-native UI and GPU acceleration",
+        "homepage": "https://ghostty.org/"
+    },
+    {
         "name": "google-chrome",
         "desc": "Web browser",
         "homepage": "https://www.google.com/chrome/"
@@ -130,16 +130,6 @@
         "homepage": "https://www.logitech.com/en-us/software/logi-options-plus.html"
     },
     {
-        "name": "logitech-g-hub",
-        "desc": "Support for Logitech G gear",
-        "homepage": "https://www.logitechg.com/en-us/innovation/g-hub.html"
-    },
-    {
-        "name": "logitech-options",
-        "desc": "Software for Logitech devices",
-        "homepage": "https://support.logitech.com/software/options"
-    },
-    {
         "name": "loom",
         "desc": "Screen and video recording software",
         "homepage": "https://www.loom.com/"
@@ -148,6 +138,11 @@
         "name": "maccy",
         "desc": "Clipboard manager",
         "homepage": "https://maccy.app/"
+    },
+    {
+        "name": "microsoft-auto-update",
+        "desc": "Provides updates to various Microsoft products",
+        "homepage": "https://docs.microsoft.com/officeupdates/release-history-microsoft-autoupdate"
     },
     {
         "name": "microsoft-teams",
@@ -195,9 +190,9 @@
         "homepage": "https://www.tadviewer.com/"
     },
     {
-        "name": "topnotch",
-        "desc": "Utility to hide the notch",
-        "homepage": "https://topnotch.app/"
+        "name": "twingate",
+        "desc": "Zero trust network access platform",
+        "homepage": "https://twingate.com/"
     },
     {
         "name": "visual-studio-code",
@@ -213,15 +208,5 @@
         "name": "yubico-authenticator",
         "desc": "Application for generating TOTP and HOTP codes",
         "homepage": "https://developers.yubico.com/yubioath-flutter/"
-    },
-    {
-        "name": "yubico-yubikey-manager",
-        "desc": "Application for configuring any YubiKey",
-        "homepage": "https://developers.yubico.com/yubikey-manager-qt/"
-    },
-    {
-        "name": "zoom",
-        "desc": "Video communication and virtual meeting platform",
-        "homepage": "https://www.zoom.us/"
     }
 ]
