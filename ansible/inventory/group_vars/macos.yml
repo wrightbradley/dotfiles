@@ -6,12 +6,14 @@ setup_zsh: true
 configure_dock: true
 dockitems_remove:
   - 'App Store'
+  - 'Kandji Self Service'
   - 'System Preferences'
   - 'iPhone Mirroring'
   - Calendar
   - Contacts
   - FaceTime
   - Freeform
+  - Keynote
   - Launchpad
   - Maps
   - Messages
@@ -25,6 +27,7 @@ dockitems_remove:
   - Reminders
   - Safari
   - TV
+  - Zoom
 dockitems_persist:
   - name: 'Brave Browser'
     path: '/Applications/Brave Browser.app/'
