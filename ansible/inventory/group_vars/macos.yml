@@ -32,8 +32,11 @@ dockitems_persist:
   - name: 'Brave Browser'
     path: '/Applications/Brave Browser.app/'
     pos: 1
-  - name: 'Alacritty'
-    path: '/Applications/Alacritty.app/'
+  # - name: 'Alacritty'
+  #   path: '/Applications/Alacritty.app/'
+  #   pos: 2
+  - name: 'Ghostty'
+    path: '/Applications/Ghostty.app/'
     pos: 2
   - name: 'Slack'
     path: '/Applications/Slack.app/'
