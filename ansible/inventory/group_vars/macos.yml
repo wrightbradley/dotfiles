@@ -90,7 +90,7 @@ homebrew_installed_packages:
   - csvlens
   - cue
   - curl
-  - cypher-shell
+  # - cypher-shell
   - dasel
   - derailed/popeye/popeye
   - detect-secrets
@@ -139,7 +139,7 @@ homebrew_installed_packages:
   - grafana-agent
   - grep
   - grpcurl
-  - gstreamer
+  #- gstreamer
   - hadolint
   - helm
   - {name: hey, install_options: 'formula'}
