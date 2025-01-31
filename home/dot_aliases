@@ -357,7 +357,7 @@ start-grafana() {
 
 jira() {
   # launch in a (subshell) so the api token doesn't linger in env after running
-  (export JIRA_API_TOKEN=$(cat ~/.netrc | grep --color=none password | awk '{print $2}') && command jira $@)
+  (export JIRA_API_TOKEN=$(jq -r '.api_token' "${JIRA_CONFIG_HOME}"/jira-config.json) && command jira $@)
 }
 
 ukctx() {
