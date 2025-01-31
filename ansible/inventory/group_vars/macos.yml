@@ -53,7 +53,7 @@ homebrew_installed_packages:
   - ansible
   - ansible-lint
   - ant
-  - aquaproj/aqua/aqua
+  #- aquaproj/aqua/aqua
   - aquasecurity/trivy/trivy
   - argocd
   - arping
