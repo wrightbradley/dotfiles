@@ -326,7 +326,5 @@ homebrew_cask_apps:
   - visual-studio-code
   - vlc
   - yubico-authenticator
-  - yubico-yubikey-manager
-  - zoom
 
 mas_installed_apps: []

@@ -37,6 +37,8 @@ personal_homebrew_cask_apps:
   - rustdesk
   - signal
   - spotify
+  - yubico-yubikey-manager
+  - zoom
 
 personal_mas_installed_apps:
   # - { id: 441258766, name: 'Magnet (2.6.0)' }
