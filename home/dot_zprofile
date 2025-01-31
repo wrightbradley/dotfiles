@@ -28,11 +28,15 @@ export NODE_OPTIONS="--no-deprecation --max-old-space-size=4096"
 
 # Terraform Configuration
 # export TERRAFORM_BINARY_NAME="tofu"
-export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
-export TFENV_TERRAFORM_VERSION=1.5.7
+# export TENV_GITHUB_TOKEN=$(gh auth token --user wrightbradley)
+# export TFENV_TERRAFORM_VERSION=1.5.7
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  export GPG_TTY="$(tty)"
-  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+export GPG_TTY=$(tty)
   gpgconf --launch gpg-agent
+gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
