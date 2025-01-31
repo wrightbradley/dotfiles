@@ -12,5 +12,6 @@ window-padding-x = 1
 window-padding-y = 1
 macos-titlebar-style = hidden
 shell-integration = fish
+command = /bin/bash -c /Users/bwright/bin/ghostty-tmux.sh
 quit-after-last-window-closed = true
 # window-decoration = false
