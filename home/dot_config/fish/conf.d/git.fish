@@ -133,8 +133,8 @@ alias GpF 'git push --force'
 alias Gpa 'git push --all'
 alias GpA 'git push --all && git push --tags --no-verify'
 alias Gpt 'git push --tags'
-alias Gpc 'git push --set-upstream origin "(git-branch-current 2>/dev/null)"'
-alias Gpp 'git pull origin "(git-branch-current 2>/dev/null)" && git push origin "(git-branch-current 2>/dev/null)"'
+alias Gpc 'git push --set-upstream origin (git-branch-current 2>/dev/null)'
+alias Gpp 'git pull origin (git-branch-current 2>/dev/null) && git push origin (git-branch-current 2>/dev/null)'
 
 # Rebase (r)
 alias Gr 'git rebase'
@@ -223,3 +223,7 @@ alias 'G\?' "git-alias-lookup $gmodule_home"
 
 # Unset variables
 set -e gmodule_home gprefix
+
+function git-branch-current
+    command git symbolic-ref -q --short HEAD
+end
