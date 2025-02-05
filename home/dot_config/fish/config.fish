@@ -36,8 +36,11 @@ set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
 set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
 
 
-set -gx SSH_AUTH_SOCK ~/.gnupg/S.gpg-agent.ssh
-set -gx GPG_TTY $(tty)
+# Ensure that GPG Agent is used as the SSH agent
+set -e SSH_AUTH_SOCK
+set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+set -gx GPG_TTY (tty)
+gpgconf --launch gpg-agent
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
 # tool setup
