@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.2] - 2025-01-22
+## [0.1.2] - 2025-02-10
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
@@ -20,11 +20,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cleanup and improve tmux config  by @wrightbradley - ([92d9f21](92d9f21ef04ae93f072e1461a99c2582c9007829))
 - Color and locale tuning for tmux  by @wrightbradley - ([b9d6b71](b9d6b71cafe94400753f096b15e231bd554fbe88))
 - Increase font of ghostty  by @wrightbradley - ([593fdc5](593fdc59cfa6139b927b2ded52263881719e4037))
+- Migrate to ghostty  by @wrightbradley - ([bfde74f](bfde74fe16f6b71f16230b49f8ecbcb735a3050b))
+- Add gpg-agent login items  by @wrightbradley - ([229fcb2](229fcb2349f98c19150e1ee408fef4a9e7b3d20e))
+- Add github pr tmux automation alias  by @wrightbradley - ([cc8740e](cc8740e6b58c37357612e33ff938e8bf7b9f0ca8))
+- Add eza theme  by @wrightbradley - ([2ea0b92](2ea0b929bad52b0c07c13758d650a28fcfb3475d))
+- Add fish config  by @wrightbradley - ([570e374](570e374fadf546cc17680422439e8d308718c468))
+- Migrate to fish shell from zsh  by @wrightbradley - ([f42641a](f42641a217e69e81bd54d126ae76f944e734ecd2))
+- Add git branch script  by @wrightbradley - ([7ecef8f](7ecef8fda80fabb91dcef889a14ebb05cecb34a9))
+- Add ghostty tmux automation  by @wrightbradley - ([f55fefe](f55fefee72a833e2dfec22014e1bea4ec24f8cff))
+- Add fish git aliases  by @wrightbradley - ([891d790](891d790ebf7ac349360a8bee6a4bfde3778de859))
+- Add fish aliases  by @wrightbradley - ([d3654e9](d3654e9c1ce9bd5912bbdab1721e0f91cded9e5e))
+- Update git fish aliases  by @wrightbradley - ([3d8a191](3d8a191c85bdbd0509316d4c46f55db6e193289d))
+- Update gpg handling  by @wrightbradley - ([68431ec](68431ec35e0a27c0e2f12d13626e37d804191c05))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
 - Remove extra spaces defined for default shell  by @wrightbradley - ([96e498b](96e498b488c32d95c9b4d2537031902405c1e76f))
 - Move crossover to personal host_vars  by @wrightbradley - ([33e8381](33e83814b96ac9b3b31577ad27c4e5e91d46a54e))
+- Move yubico-manager and zoom to personal config  by @wrightbradley - ([715f291](715f2911efa7626e1a69e1b2648cd8a12c09735b))
+- Jira cli alias  by @wrightbradley - ([70ce6de](70ce6de08ff08219aa295bc8bcbe0f910d98e45e))
+- Tmux/vim pane handling  by @wrightbradley - ([df1cb7d](df1cb7d4272fff25ed7a63ebe74170eee3d75037))
+- Ignore renovate.json from check-json  by @wrightbradley - ([8d39ef1](8d39ef15e94b455c16d98fd07cd4fd9be2506243))
+- Start ghostty and tmux with fish  by @wrightbradley - ([1afac7b](1afac7b80e1d9ada7bae0718cccbecbd85a524f7))
 
 ### <!-- 4 -->⚡ Performance
 
@@ -34,15 +51,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Improve zsh config  by @wrightbradley - ([ad7328a](ad7328afd1edddc375b2c7045062a5c98af2b9c8))
 - Adjust font size and background opacity for ghostty  by @wrightbradley - ([dac9b37](dac9b37ea6c920202f9f5b7a8a9301710ec0e49b))
+- Change ghostty font details  by @wrightbradley - ([0140ded](0140dedaa88706c5a685e8377874ac652df1b9d2))
+- Improve ghostty font handling  by @wrightbradley - ([7c70785](7c70785f2fb4038ad37cf40b6727ffb1585ecad5))
 
 ### <!-- 7 -->📚 Documentation
 
 - Release 0.1.2 [skip ci]  by @github-actions[bot] - ([a48db7e](a48db7e200b6544d775873d19552c158755649e2))
+- Update work catalog  by @wrightbradley - ([0ba0066](0ba0066b881691423dbee6e029c9d268cb313b0a))
 
 ### <!-- 8 -->🧹 Miscellaneous Tasks
 
 - Remove changie  by @wrightbradley - ([46bb3b8](46bb3b83e67203fc2230599bc64a9084eee12016))
 - Disable topnotch  by @wrightbradley - ([ee57b2a](ee57b2a137513c022feebd80c38c68f17ee60178))
+- Add additional dock items to remove  by @wrightbradley - ([f5f3579](f5f3579570c2641a3b5295261529f4514f8a96fd))
+- Remove aqua - mise leverages aqua under the hood  by @wrightbradley - ([d9ebfc0](d9ebfc08221cf4f5e62ed198d924354ee6e25d61))
+- Remove unused packages  by @wrightbradley - ([ea9f64d](ea9f64da98eb93b754e907ac5a549f5f0816986a))
+- Update work aliases  by @wrightbradley - ([1871b27](1871b2750c7d696781957a42c8e7edd1414593fa))
+- Do not open tmux on ghostty launch  by @wrightbradley - ([c7ef880](c7ef8802575d45a6078454cc1ddbdac56bd12eaa))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.1...0.1.2
