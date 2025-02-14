@@ -345,6 +345,10 @@ function wednesday
     echo "https://tinyurl.com/cvbteam9" | pbcopy
 end
 
+function firedog
+    echo "https://media3.giphy.com/media/v1.Y2lkPTYxMDQ5NTVla3VucmhoeWU0bG10ZDMyYjhnMmJnOXRhb3U4MGp2YW5mb3l4YmJ3aSZlcD12MV9naWZzX3RyYW5zbGF0ZSZjdD1n/QMHoU66sBXqqLqYvGO/giphy.gif" | pbcopy
+end
+
 function brewls
     # https://apple.stackexchange.com/a/438632
     brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name'
