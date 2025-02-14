@@ -1,11 +1,11 @@
 [default_session]
-startup_command = "nvim +GoToFile"
-startup_command_ignore_dirs = ["$HOME/Projects", "$HOME/.config"]
+startup_command = "nvim"
+startup_command_ignore_dirs = ["~/Projects", "~/.config"]
 preview_command = "eza --all --git --icons --color=always {}"
 
 [[session]]
 name = "tmux plugins"
-path = "$HOME/.config/tmux/plugins"
+path = "~/.config/tmux/plugins"
 startup_command = "sesh connect (ls | fzf --ansi --no-border --preview 'glow -s light {}/README.md' --preview-window=right:70,border-none) && exit"
 
 [[session_preview]]
@@ -14,9 +14,9 @@ preview_command = "glow -s light {}"
 
 [[session]]
 name = "sesh config"
-path = "$HOME/.config/sesh"
+path = "~/.config/sesh"
 startup_command = "nvim sesh.toml"
-preview_command = "bat --language=toml --style=snip --color=always $HOME/.config/sesh/sesh.toml"
+preview_command = "bat --language=toml --style=snip --color=always ~/.config/sesh/sesh.toml"
 
 [[session]]
 name = "macmon"
@@ -27,64 +27,64 @@ startup_command = "macmon"
 # name = "update"
 # path = "/tmp"
 # startup_command = "update"
-# preview_command = "bat --language=fish --style=snip --color=always $HOME/.config/bin/update"
+# preview_command = "bat --language=fish --style=snip --color=always ~/.config/bin/update"
 
 [[session]]
 name = "aerospace config"
-path = "$HOME/.config/aerospace"
+path = "~/.config/aerospace"
 startup_command = "nvim aerospace.toml"
-preview_command = "bat --style='full' --color=always $HOME/.config/aerospace/aerospace.toml"
+preview_command = "bat --style='full' --color=always ~/.config/aerospace/aerospace.toml"
 
 [[session]]
 name = "ghostty config"
-path = "$HOME/.config/ghostty"
+path = "~/.config/ghostty"
 startup_command = "nvim config"
 
 [[session]]
 name = "pick worktree"
-path = "$HOME/Projects/code/github.com/tackle-io/"
+path = "~/Projects/code/github.com/tackle-io/"
 startup_command = "sesh connect (find . -maxdepth 1 -type d | gum filter --limit 1 --fuzzy --no-sort --placeholder 'Pick a worktree' --prompt='🌲') && exit"
 
 [[session]]
 name = "Home 🏡"
-path = "$HOME"
+path = "~"
 startup_command = "l"
 
 [[session]]
 name = "Code 💻"
-path = "$HOME/Projects/code/github.com/tackle-io/"
+path = "~/Projects/code/github.com/tackle-io/"
 startup_command = "l"
 
 [[session]]
 name = "tmux config"
-path = "$HOME/.config/tmux"
+path = "~/.config/tmux"
 startup_command = "nvim tmux.conf"
-preview_command = "bat --language=bash --style=snip --color=always $HOME/.config/tmux/tmux.conf"
+preview_command = "bat --language=bash --style=snip --color=always ~/.config/tmux/tmux.conf"
 # TODO: add `always_top = true` to force this to always be the top result
 # TODO: do the same for ghostty
 
 [[session]]
 name = "gitmux config"
-path = "$HOME/.config/tmux"
+path = "~/.config/tmux"
 startup_command = "nvim gitmux.conf"
 
 [[session]]
 name = "neovim config"
-path = "$HOME/.config/nvim"
+path = "~/.config/nvim"
 
 [[session]]
 name = "fish config"
-path = "$HOME/.config/fish"
-preview_command = "bat --language=fish --style=snip --color=always $HOME/.config/fish/config.fish"
+path = "~/.config/fish"
+preview_command = "bat --language=fish --style=snip --color=always ~/.config/fish/config.fish"
 
 [[session]]
 name = "yazi config"
-path = "$HOME/.config/yazi"
+path = "~/.config/yazi"
 startup_command = "nvim yazi.toml"
 
 [[session]]
 name = "obsidian"
-path = "$HOME/Projects/writing/obsidian-vault"
+path = "~/Projects/writing/obsidian-vault"
 startup_command = "nvim +ObsidianToday"
 
 [[session]]
