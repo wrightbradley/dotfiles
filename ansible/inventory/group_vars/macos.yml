@@ -53,7 +53,6 @@ homebrew_installed_packages:
   - ansible
   - ansible-lint
   - ant
-  #- aquaproj/aqua/aqua
   - aquasecurity/trivy/trivy
   - argocd
   - arping
@@ -117,6 +116,7 @@ homebrew_installed_packages:
   - fd
   - ffmpeg
   - ffmpegthumbnailer
+  - fish
   - fzf
   - gh
   - ghq
@@ -139,6 +139,7 @@ homebrew_installed_packages:
   - grafana-agent
   - grep
   - grpcurl
+  - gum
   #- gstreamer
   - hadolint
   - helm
@@ -150,6 +151,7 @@ homebrew_installed_packages:
   - iperf3
   - jdupes
   - jinja2-cli
+  - joshmedeski/sesh/sesh
   - jq
   - jsonnet-bundler
   - k2tf
@@ -173,6 +175,7 @@ homebrew_installed_packages:
   - lindell/multi-gitter/multi-gitter
   - logcli
   - luarocks
+  - macmon
   - make
   - mas
   - maven

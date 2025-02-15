@@ -7,6 +7,7 @@ work_homebrew_taps:
   - ankitpokhrel/jira-cli
 
 work_homebrew_cask_apps:
+  - 1password
   - amazon-chime
   - loom
   - microsoft-teams
