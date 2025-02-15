@@ -5,12 +5,88 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2] - 2025-02-15
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add ghostty  by @wrightbradley - ([1877df3](1877df378cc41af6c75703c8994f15dad39f9dc2))
+- Add font-jetbrains-mono non-nerd font version  by @wrightbradley - ([52c95ab](52c95abaf01b2c2aed79f374bfaf8d768e5f7e01))
+- Install crossover  by @wrightbradley - ([4272e52](4272e52084520e6fde13bafd58f8832c4f705643))
+- Add cloudflared tap to personal host_vars  by @wrightbradley - ([9af089e](9af089e733a70b1ce7605c3c3cad3965df82435d))
+- Default to go 1.23 for global version  by @wrightbradley - ([fa59ef9](fa59ef9548df28e398ff1f10d00511a1a6e54b62))
+- Configure personal project git config  by @wrightbradley - ([ba90151](ba90151cbea767c0a1ec4ca2dcf238302453417a))
+- Add perf profiling option to zshrc  by @wrightbradley - ([4bc4341](4bc434177d2c7e28aa7a5b416c3b0ab53dffb463))
+- Cleanup and improve tmux config  by @wrightbradley - ([3c9efc5](3c9efc59dfc5e5fab119b79324e71e787c4f81a6))
+- Color and locale tuning for tmux  by @wrightbradley - ([60e0c63](60e0c63cc113d65be224b18e700d20c5283364f1))
+- Increase font of ghostty  by @wrightbradley - ([198ed77](198ed77d58f11a7f19a7e752e3b74c7b9076e60d))
+- Migrate to ghostty  by @wrightbradley - ([8c4faeb](8c4faebab2be462a6c2afc01d725a0d9546cd654))
+- Add gpg-agent login items  by @wrightbradley - ([1b054dd](1b054dd2b07e906372a1a7c8c00c315bacb93ef5))
+- Add github pr tmux automation alias  by @wrightbradley - ([b9892c8](b9892c8ae56a0ec25a38f08855a084b6ac17d228))
+- Add eza theme  by @wrightbradley - ([7f51c9d](7f51c9dcca4ff5f2f2f492b160e0f9c8a7dca174))
+- Add fish config  by @wrightbradley - ([c002c46](c002c4686dafd9b8357163c1be33dca7ad30e6da))
+- Migrate to fish shell from zsh  by @wrightbradley - ([1bfc9ad](1bfc9ad0e5763e26fa460890720fe662db38fab5))
+- Add git branch script  by @wrightbradley - ([bbdade0](bbdade04a5d48f1e88c9f0d27c0a78d512ea7f91))
+- Add ghostty tmux automation  by @wrightbradley - ([2613922](261392278b7330fedde7b8a1a708d4c70b052341))
+- Add fish git aliases  by @wrightbradley - ([9035051](9035051749d7b03dd1ba5ea62c864555a5468ebc))
+- Add fish aliases  by @wrightbradley - ([34ff873](34ff873899b0e8e83deaeb08123dafd6a8896621))
+- Update git fish aliases  by @wrightbradley - ([bd2d703](bd2d703c63082b2baedcda98eb0df8c9be4891af))
+- Update gpg handling  by @wrightbradley - ([053bf55](053bf5590fa2f3efe54bc4f78b83f1d31238d49f))
+- Add sesh for tmux session management  by @wrightbradley - ([1c93fd9](1c93fd9e03b2904b536669c1d4eba8bcb46e030f))
+- Add floating tmux window  by @wrightbradley - ([04805a3](04805a3d2154c9d767a85ead0706fa07b90cb918))
+- Configure fzf defaults for fish  by @wrightbradley - ([2907c36](2907c367a791b64a7a8be70f6863b2947378ba67))
+- Update sesh config  by @wrightbradley - ([d72c825](d72c82591702ca370093b4551c264569b847c897))
+- Add fun alias  by @wrightbradley - ([68f2c58](68f2c58173e59dd446701b76457c632d39dc82fd))
+- Add additional homebrew packages  by @wrightbradley - ([e3eb01e](e3eb01e782d4f94ddce64ca8e301a726ae81bd53))
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Remove extra spaces defined for default shell  by @wrightbradley - ([96e498b](96e498b488c32d95c9b4d2537031902405c1e76f))
+- Move crossover to personal host_vars  by @wrightbradley - ([33e8381](33e83814b96ac9b3b31577ad27c4e5e91d46a54e))
+- Move yubico-manager and zoom to personal config  by @wrightbradley - ([a8152fb](a8152fb0d68642511d1b82e9dd8302fce1042422))
+- Jira cli alias  by @wrightbradley - ([9358fff](9358fff8d1ca63506acf1f2c9bd5d758cf323f11))
+- Tmux/vim pane handling  by @wrightbradley - ([409567a](409567a3a185c08eaf3bbbf965d60e9bcfb73bb1))
+- Ignore renovate.json from check-json  by @wrightbradley - ([dbb7659](dbb7659fdb5cf1a9db24d44d1f00bd8d694497af))
+- Start ghostty and tmux with fish  by @wrightbradley - ([4ad2c5c](4ad2c5c3b006f5b8c8d7816fcc72e80478db1981))
+- Configure tmux pomodoro timer keybinds  by @wrightbradley - ([835647a](835647a0a4a93d001b2f013b8b42058fc2ec7723))
+- Add missing local file  by @wrightbradley - ([91103a5](91103a5159dc739722bbec44a72da911c8795059))
+
+### <!-- 4 -->⚡ Performance
+
+- Improve zsh startup performance  by @wrightbradley - ([3f5d8be](3f5d8bec38d5e771a57fdf877a5498064126f13c))
+
+### <!-- 5 -->🎨 Styling
+
+- Improve zsh config  by @wrightbradley - ([ad7328a](ad7328afd1edddc375b2c7045062a5c98af2b9c8))
+- Adjust font size and background opacity for ghostty  by @wrightbradley - ([a6c4771](a6c477190fb2719c53a3f22d14d9b30398a9e67b))
+- Change ghostty font details  by @wrightbradley - ([8b43a7b](8b43a7ba654747ae7acfbb5c0686bbf80c60633e))
+- Improve ghostty font handling  by @wrightbradley - ([ce825ea](ce825ead79bf79f34dba6985296dd5112c0ae448))
+
+### <!-- 7 -->📚 Documentation
+
+- Update work catalog  by @wrightbradley - ([720eb46](720eb46d42b9db8b71e3ccbf5ff07ffddc475cdc))
+- Update homebrew catalog  by @wrightbradley - ([a1e61f7](a1e61f7208eb7e43db5389a289ac5d1220a03300))
+
+### <!-- 8 -->🧹 Miscellaneous Tasks
+
+- Remove changie  by @wrightbradley - ([60097b1](60097b1598efa418b19ef72d7407718ab7bde731))
+- Disable topnotch  by @wrightbradley - ([cf4d8f1](cf4d8f1f3c980660b653426af227fa6fda617052))
+- Add additional dock items to remove  by @wrightbradley - ([b5c1412](b5c141285be5aa1bcda44bb461c43f26d21cee03))
+- Remove aqua - mise leverages aqua under the hood  by @wrightbradley - ([10482f3](10482f3bbd478fb4dd2b405cb8158dbf5f55c35c))
+- Remove unused packages  by @wrightbradley - ([9bb7ace](9bb7ace59340116cad5c61aef8ac8976599d5dac))
+- Update work aliases  by @wrightbradley - ([159fb67](159fb6756475a2cce0720e5744b039099a629bcb))
+- Do not open tmux on ghostty launch  by @wrightbradley - ([2a1db35](2a1db3521d3358a3d936ea739f673c693706e8dd))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.1...0.1.2
+
 ## [0.1.1] - 2024-12-21
 ## What's Changed
 
 ### <!-- 7 -->📚 Documentation
 
 - Release 0.1.0  by @github-actions[bot] - ([62ae6a9](62ae6a95260a0755664ca997014ed4ab4c6a7968))
+- Release 0.1.1 [skip ci]  by @github-actions[bot] - ([256c11b](256c11bb300eec927182ab9314d1c7740920fd55))
 
 ### <!-- 9 -->🤖 CI
 
