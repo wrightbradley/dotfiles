@@ -425,6 +425,11 @@
         "homepage": "https://github.com/fullstorydev/grpcurl"
     },
     {
+        "name": "gum",
+        "desc": "Tool for glamorous shell scripts",
+        "homepage": "https://github.com/charmbracelet/gum"
+    },
+    {
         "name": "hadolint",
         "desc": "Smarter Dockerfile linter to validate best practices",
         "homepage": "https://github.com/hadolint/hadolint"
@@ -438,6 +443,11 @@
         "name": "norwoodj/tap/helm-docs",
         "desc": "Automatically generate markdown documentation for helm charts",
         "homepage": "https://github.com/norwoodj/helm-docs"
+    },
+    {
+        "name": "hettysoft/tap/hetty",
+        "desc": "An HTTP toolkit for security research.",
+        "homepage": "https://hetty.xyz"
     },
     {
         "name": "hey",
@@ -595,6 +605,11 @@
         "homepage": "https://luarocks.org/"
     },
     {
+        "name": "macmon",
+        "desc": "Sudoless performance monitoring for Apple Silicon processors",
+        "homepage": "https://github.com/vladkens/macmon"
+    },
+    {
         "name": "make",
         "desc": "Utility for directing compilation",
         "homepage": "https://www.gnu.org/software/make/"
@@ -637,7 +652,7 @@
     {
         "name": "mysql-client",
         "desc": "Open source relational database management system",
-        "homepage": "https://dev.mysql.com/doc/refman/9.2/en/"
+        "homepage": "https://github.com/mysql/mysql-server"
     },
     {
         "name": "neomutt",
@@ -801,13 +816,18 @@
     },
     {
         "name": "rye",
-        "desc": "Experimental Package Management Solution for Python",
-        "homepage": "https://rye-up.com/"
+        "desc": "Package Management Solution for Python (consider the successor \"uv\" instead)",
+        "homepage": "https://rye.astral.sh/"
     },
     {
         "name": "screen",
         "desc": "Terminal multiplexer with VT100/ANSI terminal emulation",
         "homepage": "https://www.gnu.org/software/screen/"
+    },
+    {
+        "name": "joshmedeski/sesh/sesh",
+        "desc": "Smart terminal session manager",
+        "homepage": "https://github.com/joshmedeski/sesh"
     },
     {
         "name": "shellcheck",

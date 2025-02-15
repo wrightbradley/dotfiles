@@ -1,5 +1,10 @@
 [
     {
+        "name": "1password",
+        "desc": "Password manager that keeps all passwords secure behind one password",
+        "homepage": "https://1password.com/"
+    },
+    {
         "name": "alacritty",
         "desc": "GPU-accelerated terminal emulator",
         "homepage": "https://github.com/alacritty/alacritty/"
@@ -208,5 +213,10 @@
         "name": "yubico-authenticator",
         "desc": "Application for generating TOTP and HOTP codes",
         "homepage": "https://developers.yubico.com/yubioath-flutter/"
+    },
+    {
+        "name": "yubico-yubikey-manager",
+        "desc": "Application for configuring any YubiKey",
+        "homepage": "https://developers.yubico.com/yubikey-manager-qt/"
     }
 ]

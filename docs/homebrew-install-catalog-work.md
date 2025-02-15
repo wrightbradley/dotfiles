@@ -4,6 +4,7 @@
 
 | Name | Description | Homepage |
 |------|-----------|-------------|
+| 1password | Password manager that keeps all passwords secure behind one password | [Link](https://1password.com/) |
 | alacritty | GPU-accelerated terminal emulator | [Link](https://github.com/alacritty/alacritty/) |
 | amazon-chime | Communications service | [Link](https://chime.aws/) |
 | betterdisplay | Display management tool | [Link](https://betterdisplay.pro/) |
@@ -46,6 +47,7 @@
 | visual-studio-code | Open-source code editor | [Link](https://code.visualstudio.com/) |
 | vlc | Multimedia player | [Link](https://www.videolan.org/vlc/) |
 | yubico-authenticator | Application for generating TOTP and HOTP codes | [Link](https://developers.yubico.com/yubioath-flutter/) |
+| yubico-yubikey-manager | Application for configuring any YubiKey | [Link](https://developers.yubico.com/yubikey-manager-qt/) |
 
 ## Installed Formulae
 
@@ -136,9 +138,11 @@
 | grafana-agent | Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces | [Link](https://grafana.com/docs/agent/) |
 | grep | GNU grep, egrep and fgrep | [Link](https://www.gnu.org/software/grep/) |
 | grpcurl | Like cURL, but for gRPC | [Link](https://github.com/fullstorydev/grpcurl) |
+| gum | Tool for glamorous shell scripts | [Link](https://github.com/charmbracelet/gum) |
 | hadolint | Smarter Dockerfile linter to validate best practices | [Link](https://github.com/hadolint/hadolint) |
 | helm | Kubernetes package manager | [Link](https://helm.sh/) |
 | norwoodj/tap/helm-docs | Automatically generate markdown documentation for helm charts | [Link](https://github.com/norwoodj/helm-docs) |
+| hettysoft/tap/hetty | An HTTP toolkit for security research. | [Link](https://hetty.xyz) |
 | hey | HTTP load generator, ApacheBench (ab) replacement | [Link](https://github.com/rakyll/hey) |
 | hidapi | Library for communicating with USB and Bluetooth HID devices | [Link](https://github.com/libusb/hidapi) |
 | hopenpgp-tools | Command-line tools for OpenPGP-related operations | [Link](https://hackage.haskell.org/package/hopenpgp-tools) |
@@ -170,6 +174,7 @@
 | libxml2 | GNOME XML library | [Link](http://xmlsoft.org/) |
 | logcli | Run LogQL queries against a Loki server | [Link](https://grafana.com/loki) |
 | luarocks | Package manager for the Lua programming language | [Link](https://luarocks.org/) |
+| macmon | Sudoless performance monitoring for Apple Silicon processors | [Link](https://github.com/vladkens/macmon) |
 | make | Utility for directing compilation | [Link](https://www.gnu.org/software/make/) |
 | mas | Mac App Store command-line interface | [Link](https://github.com/mas-cli/mas) |
 | maven | Java-based project management | [Link](https://maven.apache.org/) |
@@ -178,7 +183,7 @@
 | mise | Polyglot runtime manager (asdf rust clone) | [Link](https://mise.jdx.dev/) |
 | mtr | 'traceroute' and 'ping' in a single tool | [Link](https://www.bitwizard.nl/mtr/) |
 | lindell/multi-gitter/multi-gitter | Update multiple repositories in bulk | [Link](https://github.com/lindell/multi-gitter) |
-| mysql-client | Open source relational database management system | [Link](https://dev.mysql.com/doc/refman/9.2/en/) |
+| mysql-client | Open source relational database management system | [Link](https://github.com/mysql/mysql-server) |
 | neomutt | E-mail reader with support for Notmuch, NNTP and much more | [Link](https://neomutt.org/) |
 | neovim | Ambitious Vim-fork focused on extensibility and agility | [Link](https://neovim.io/) |
 | nmap | Port scanning utility for large networks | [Link](https://nmap.org/) |
@@ -211,8 +216,9 @@
 | ruby | Powerful, clean, object-oriented scripting language | [Link](https://www.ruby-lang.org/) |
 | ruff | Extremely fast Python linter, written in Rust | [Link](https://docs.astral.sh/ruff/) |
 | rust | Safe, concurrent, practical language | [Link](https://www.rust-lang.org/) |
-| rye | Experimental Package Management Solution for Python | [Link](https://rye-up.com/) |
+| rye | Package Management Solution for Python (consider the successor "uv" instead) | [Link](https://rye.astral.sh/) |
 | screen | Terminal multiplexer with VT100/ANSI terminal emulation | [Link](https://www.gnu.org/software/screen/) |
+| joshmedeski/sesh/sesh | Smart terminal session manager | [Link](https://github.com/joshmedeski/sesh) |
 | shellcheck | Static analysis and lint tool, for (ba)sh scripts | [Link](https://www.shellcheck.net/) |
 | shfmt | Autoformat shell script source code | [Link](https://github.com/mvdan/sh) |
 | skaffold | Easy and Repeatable Kubernetes Development | [Link](https://skaffold.dev/) |
