@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2025-02-19
+## What's Changed
+
+### <!-- 7 -->📚 Documentation
+
+- Release 0.1.3 [skip ci]  by @github-actions[bot] - ([23e734f](23e734f37680f54c68c10c18efbbbb68f56aa0f7))
+
+
+## New Contributors
+* @dependabot[bot] made their first contribution in [#7](https://github.com/wrightbradley/dotfiles/pull/7)
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.3...0.1.4
+
 ## [0.1.3] - 2025-02-19
 ## What's Changed
 
