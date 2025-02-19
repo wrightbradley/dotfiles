@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2025-02-19
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add yamlfmt global config  by @wrightbradley - ([ce8b08a](ce8b08ad8ed388e9afd93dbb7575f3382ea73b38))
+- Add global prettier config  by @wrightbradley - ([4a5809f](4a5809fed8ba1321613a148166b738eff76e6a38))
+- Aliases  by @wrightbradley - ([88bf4fb](88bf4fbbbfd810f2622a6856471154f5386cb94c))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.2...0.1.3
+
 ## [0.1.2] - 2025-02-15
 ## What's Changed
 
@@ -66,6 +78,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update work catalog  by @wrightbradley - ([720eb46](720eb46d42b9db8b71e3ccbf5ff07ffddc475cdc))
 - Update homebrew catalog  by @wrightbradley - ([a1e61f7](a1e61f7208eb7e43db5389a289ac5d1220a03300))
+- Release 0.1.2 [skip ci]  by @github-actions[bot] - ([87d7d6f](87d7d6fafcbdca7198556f739a20e5d4acd79ad8))
 
 ### <!-- 8 -->🧹 Miscellaneous Tasks
 
