@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add global prettier config  by @wrightbradley - ([4a5809f](4a5809fed8ba1321613a148166b738eff76e6a38))
 - Aliases  by @wrightbradley - ([88bf4fb](88bf4fbbbfd810f2622a6856471154f5386cb94c))
 
+### <!-- 7 -->📚 Documentation
+
+- Release 0.1.3 [skip ci]  by @github-actions[bot] - ([78bc21c](78bc21c2417d5f155a9e854e52edcc29592f9e66))
+
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.2...0.1.3
 
