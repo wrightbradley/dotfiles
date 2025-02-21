@@ -5,3 +5,4 @@ formatter:
   line_ending: lf
   retain_line_breaks: true
   indentless_arrays: false
+  eof_newline: false

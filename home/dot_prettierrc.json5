@@ -1,12 +1,12 @@
 {
   // Prettier Configuration
   // Default settings applied to all file types
-  printWidth: 100,           // Maximum line length
-  tabWidth: 2,               // Number of spaces per indentation level
-  useTabs: false,            // Indent lines with spaces instead of tabs
-  singleQuote: true,         // Use single quotes instead of double quotes
-  bracketSpacing: true,      // Print spaces between brackets
-  arrowParens: "always",     // Always include parentheses around arrow function parameters
+  "printWidth": 100,           // Maximum line length
+  "tabWidth": 2,               // Number of spaces per indentation level
+  "useTabs": false,            // Indent lines with spaces instead of tabs
+  "singleQuote": true,         // Use single quotes instead of double quotes
+  "bracketSpacing": true,      // Print spaces between brackets
+  "arrowParens": "always",     // Always include parentheses around arrow function parameters
   "trailingComma": "all",
   "overrides": [
     {
@@ -16,16 +16,16 @@
         "htmlWhitespaceSensitivity": "ignore",
         "printWidth": 80
       }
-    }
-    {
+    },
+    { // Added comma above to separate the override objects
       "files": ["*.yaml", "*.yml"],
       "options": {
-        singleQuote: false,   // Use double quotes in YAML for better compatibility
-        tabWidth: 2,
-        useTabs: false,
-        printWidth: 100,
-        bracketSpacing: true,
-        proseWrap: "preserve"  // Preserve existing line breaks in prose
+        "singleQuote": false,   // Use double quotes in YAML for better compatibility
+        "tabWidth": 2,
+        "useTabs": false,
+        "printWidth": 100,
+        "bracketSpacing": true,
+        "proseWrap": "preserve"  // Preserve existing line breaks in prose
       }
     }
   ]
