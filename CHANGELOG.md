@@ -5,12 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2025-02-21
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Update work alias  by @wrightbradley - ([4fb773b](4fb773b1d1b53115c8eb5b851fbb77a6f9a4badc))
+- Add formatting configs  by @wrightbradley - ([78550e2](78550e261fa35f476352b4f4c40cf9660934a2fc))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.4...0.1.5
+
 ## [0.1.4] - 2025-02-19
 ## What's Changed
 
 ### <!-- 7 -->📚 Documentation
 
 - Release 0.1.3 [skip ci]  by @github-actions[bot] - ([23e734f](23e734f37680f54c68c10c18efbbbb68f56aa0f7))
+- Release 0.1.4 [skip ci]  by @github-actions[bot] - ([e857466](e85746614cf16ce138b667a5c779588f9f528c23))
 
 
 ## New Contributors
