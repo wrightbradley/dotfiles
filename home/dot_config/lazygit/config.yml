@@ -15,8 +15,8 @@ git:
   skipHookPrefix: WIP
   commitPrefixes:
     'tackle-io/.*': # This is repository folder name
-      pattern: "^\\w+\\/(\\w+-\\w+).*"
-      replace: '[$1] '
+      - pattern: "^\\w+\\/(\\w+-\\w+).*"
+        replace: '[$1] '
 os:
   editPreset: 'nvim-remote'
   edit: 'nvim --server $NVIM --remote-tab {{filename}}'
