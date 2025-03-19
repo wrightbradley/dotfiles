@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.6] - 2025-03-19
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Update work aliases  by @wrightbradley - ([c2cf65b](c2cf65b201c80e1d49803ce2ef24dc48bbbc5e62))
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Update lazygit config  by @wrightbradley - ([8584607](85846071bed1eaa54e66fa363c8f659b96c27f8f))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.5...0.1.6
+
 ## [0.1.5] - 2025-02-21
 ## What's Changed
 
@@ -12,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update work alias  by @wrightbradley - ([4fb773b](4fb773b1d1b53115c8eb5b851fbb77a6f9a4badc))
 - Add formatting configs  by @wrightbradley - ([78550e2](78550e261fa35f476352b4f4c40cf9660934a2fc))
+
+### <!-- 7 -->📚 Documentation
+
+- Release 0.1.5 [skip ci]  by @github-actions[bot] - ([c41db1a](c41db1ae4f5b607578d604c96fa64d8354f74f5b))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.4...0.1.5
