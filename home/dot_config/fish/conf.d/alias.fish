@@ -327,6 +327,10 @@ function ghpr
     end
 end
 
+function ghcw
+    command uv run $HOME/bin/create-worktree.py $argv
+end
+
 function ukctx
     kubectl config unset current-context
 end
