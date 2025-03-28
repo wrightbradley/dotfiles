@@ -2334,4 +2334,8 @@ FodyWeavers.xsd
 
 # Mise Config
 mise.local.toml
+
+# VectorCode Config
+.vectorcode
+
 # Temporary Ignore Files
