@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.7] - 2025-03-28
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add create-worktree script  by @wrightbradley - ([9827541](98275411897925aba94202eb833bd7f9e41bbdd9))
+
+### <!-- 8 -->🧹 Miscellaneous Tasks
+
+- Update trippy config  by @wrightbradley - ([dc65d52](dc65d52bffcb0955c6f98182b68203b03c3f3cda))
+- Add vectorcode to global gitignore  by @wrightbradley - ([e5ba87b](e5ba87bd1be888c6d1963a7712355f89edbcce85))
+- Update pre-commit  by @wrightbradley - ([f04d639](f04d63901e378b39a33e712fb69ca50a132273f5))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.6...0.1.7
+
 ## [0.1.6] - 2025-03-19
 ## What's Changed
 
@@ -15,6 +31,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### <!-- 1 -->🐛 Bug Fixes
 
 - Update lazygit config  by @wrightbradley - ([8584607](85846071bed1eaa54e66fa363c8f659b96c27f8f))
+
+### <!-- 7 -->📚 Documentation
+
+- Release 0.1.6 [skip ci]  by @github-actions[bot] - ([ba72849](ba728497be33ac45666c2280b7a762aab3b2b9b8))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.5...0.1.6
