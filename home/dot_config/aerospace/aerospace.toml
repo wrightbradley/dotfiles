@@ -247,7 +247,7 @@ M = 'built-in'
 O = 'main'
 S = 'built-in'
 T = 'main'
-V = '^Virtual.+'
+V = '^VIRT$'
 W = 'main'
 Z = 'main'
 
