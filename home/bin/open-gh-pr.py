@@ -83,21 +83,56 @@ def create_tmux_session(
     # Fetch the latest refs
     subprocess.run(["git", "--git-dir", bare_repo_path, "fetch"], check=True)
 
-    # Check if the worktree directory already exists
-    if not os.path.exists(worktree_dir):
-        # Create a new git worktree
-        subprocess.run(
-            [
-                "git",
-                "--git-dir",
-                bare_repo_path,
-                "worktree",
-                "add",
-                worktree_dir,
-                branch,
-            ],
-            check=True,
+    # Check if the branch is already checked out somewhere
+    worktree_list = subprocess.run(
+        ["git", "--git-dir", bare_repo_path, "worktree", "list", "--porcelain"],
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout
+
+    # Parse the worktree list to find if the branch is checked out
+    existing_worktree = None
+    current_path = None
+    for line in worktree_list.splitlines():
+        if line.startswith("worktree "):
+            current_path = line.split(" ", 1)[1]
+        elif line.startswith("branch ") and line.endswith("/" + branch):
+            existing_worktree = current_path
+            break
+
+    # If the branch is already checked out, use that worktree
+    if existing_worktree:
+        print(
+            f"Branch {branch} already checked out at {existing_worktree}. Using that location."
         )
+        worktree_dir = existing_worktree
+    # Otherwise check if the worktree directory exists or create a new one
+    elif not os.path.exists(worktree_dir):
+        # Create a new git worktree
+        try:
+            subprocess.run(
+                [
+                    "git",
+                    "--git-dir",
+                    bare_repo_path,
+                    "worktree",
+                    "add",
+                    worktree_dir,
+                    branch,
+                ],
+                check=True,
+            )
+        except subprocess.CalledProcessError as e:
+            print(f"Error creating worktree: {e}")
+            # Try to find where the branch is already checked out
+            branch_info = subprocess.run(
+                ["git", "--git-dir", bare_repo_path, "worktree", "list"],
+                capture_output=True,
+                text=True,
+            ).stdout
+            print(f"Current worktrees:\n{branch_info}")
+            raise
     else:
         print(f"Worktree {worktree_dir} already exists. Skipping creation.")
 
