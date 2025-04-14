@@ -1,7 +1,6 @@
----
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
 gui:
-  nerdFontsVersion: '3'
+  nerdFontsVersion: "3"
 git:
   commit:
     signOff: true
@@ -10,95 +9,95 @@ git:
     pager: delta --paging=never
   overrideGpg: true
   mainBranches:
-    - 'main'
-    - 'master'
+    - "main"
+    - "master"
   skipHookPrefix: WIP
   commitPrefixes:
-    'tackle-io/.*': # This is repository folder name
+    "tackle-io/.*": # This is repository folder name
       - pattern: "^\\w+\\/(\\w+-\\w+).*"
-        replace: '[$1] '
+        replace: "[$1] "
 os:
-  editPreset: 'nvim-remote'
-  edit: 'nvim --server $NVIM --remote-tab {{filename}}'
+  editPreset: "nvim-remote"
+  edit: "nvim --server $NVIM --remote-tab {{filename}}"
 customCommands:
-  - key: '<c-g>'
-    command: "unset GITHUB_TOKEN; JIRA_ID=$(git symbolic-ref --short HEAD | grep -e '\\b[A-Z][A-Z0-9_]\\+-[1-9][0-9]\\+' -o); TITLE=$(uv run ~/bin/get-jira-title.py ${JIRA_ID}); BODY=$(git log --date-order --pretty=format:'%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)%n  * %b' origin/main..HEAD | grep -v Signed-off-by | sed 's/\"//g'); echo $BODY > /tmp/body.txt; gh pr create --body \"${BODY}\" --title \"${TITLE}\" --assignee @me {{.Form.DRAFT}} {{.Form.CLOUDOPS}}"
-    context: 'global'
-    loadingText: 'Creating pull request on GitHub'
+  - key: "<c-g>"
+    command: "uv run ~/bin/create-gh-pr.py {{.Form.DRAFT}} {{.Form.CLOUDOPS}}"
+    context: "global"
+    loadingText: "Creating pull request on GitHub"
     prompts:
-      - type: 'menu'
-        title: 'Open a Draft PR?'
-        key: 'DRAFT'
+      - type: "menu"
+        title: "Open a Draft PR?"
+        key: "DRAFT"
         options:
-          - value: ' '
-            name: 'No'
-            description: 'Do not open a Draft PR'
-          - value: '--draft'
-            name: 'Yes'
-            description: 'Open a Draft PR'
-      - type: 'menu'
-        title: 'Add pod-cloudops Reviewers?'
-        key: 'CLOUDOPS'
+          - value: " "
+            name: "No"
+            description: "Do not open a Draft PR"
+          - value: "--draft"
+            name: "Yes"
+            description: "Open a Draft PR"
+      - type: "menu"
+        title: "Add pod-cloudops Reviewers?"
+        key: "CLOUDOPS"
         options:
-          - value: ' '
-            name: 'No'
-            description: 'Do not add pod-cloudops as a Reviewer'
-          - value: '--reviewer tackle-io/pod-cloudops'
-            name: 'Yes'
-            description: 'Add pod-cloudops as a Reviewer'
+          - value: " "
+            name: "No"
+            description: "Do not add pod-cloudops as a Reviewer"
+          - value: "--reviewer tackle-io/pod-cloudops"
+            name: "Yes"
+            description: "Add pod-cloudops as a Reviewer"
   #   command: "git remote prune {{.SelectedRemote.Name}}"
   #   context: "remotes"
   #   loadingText: "Pruning..."
   #   description: "prune deleted remote branches"
-  - key: 'b'
+  - key: "b"
     command: "git branch --merged master | grep -v '^[ *]*master$' | xargs git branch -d"
-    context: 'localBranches'
-    loadingText: 'Pruning...'
-    description: 'prune local branches that have been merged to master'
+    context: "localBranches"
+    loadingText: "Pruning..."
+    description: "prune local branches that have been merged to master"
   # - key: 'C'
   #   command: 'koji'
   #   description: 'Create conventional commits, built on cocogitto and inspired by cz-cli.'
   #   context: 'files'
   #   loadingText: 'opening koji commit tool'
   #   subprocess: true
-  - key: 'P'
+  - key: "P"
     command: "git push --set-upstream origin '$(git-branch-current 2>/dev/null)'"
-    context: 'localBranches'
-    loadingText: 'Pushing...'
-    description: 'Push changes to upstream origin'
-  - key: '<c-v>'
-    command: 'unset GITHUB_TOKEN; gh pr view --web'
-    context: 'global'
-    loadingText: 'Opening GH PR...'
-    description: 'Open GH PR in Browser'
-  - key: 'v'
-    context: 'localBranches'
-    loadingText: 'Checking out GitHub Pull Request...'
-    command: 'gh pr checkout {{.Form.PullRequestNumber}}'
+    context: "localBranches"
+    loadingText: "Pushing..."
+    description: "Push changes to upstream origin"
+  - key: "<c-v>"
+    command: "unset GITHUB_TOKEN; gh pr view --web"
+    context: "global"
+    loadingText: "Opening GH PR..."
+    description: "Open GH PR in Browser"
+  - key: "v"
+    context: "localBranches"
+    loadingText: "Checking out GitHub Pull Request..."
+    command: "gh pr checkout {{.Form.PullRequestNumber}}"
     prompts:
-      - type: 'menuFromCommand'
-        title: 'Which PR do you want to check out?'
-        key: 'PullRequestNumber'
+      - type: "menuFromCommand"
+        title: "Which PR do you want to check out?"
+        key: "PullRequestNumber"
         command: >-
           gh pr list --json number,title,headRefName,updatedAt --template '{{`{{range .}}{{printf "#%v: %s - %s (%s)" .number .title .headRefName (timeago .updatedAt)}}{{end}}`}}'
-        filter: '#(?P<number>[0-9]+): (?P<title>.+) - (?P<ref_name>[^ ]+).*'
-        valueFormat: '{{.number}}'
+        filter: "#(?P<number>[0-9]+): (?P<title>.+) - (?P<ref_name>[^ ]+).*"
+        valueFormat: "{{.number}}"
         labelFormat: '{{"#" | black | bold}}{{.number | white | bold}} {{.title | yellow | bold}}{{" [" | black | bold}}{{.ref_name | green}}{{"]" | black | bold}}'
-  - key: '<c-a>'
-    description: 'Search the whole history (From a ref and down) for an expression in a file'
-    command: 'git checkout {{index .PromptResponses 3}}'
-    context: 'commits'
+  - key: "<c-a>"
+    description: "Search the whole history (From a ref and down) for an expression in a file"
+    command: "git checkout {{index .PromptResponses 3}}"
+    context: "commits"
     prompts:
-      - type: 'input'
-        title: 'Search word:'
-      - type: 'input'
-        title: 'File/Subtree:'
-      - type: 'input'
-        title: 'Ref:'
-        initialValue: '{{index .CheckedOutBranch.Name }}'
-      - type: 'menuFromCommand'
-        title: 'Commits:'
+      - type: "input"
+        title: "Search word:"
+      - type: "input"
+        title: "File/Subtree:"
+      - type: "input"
+        title: "Ref:"
+        initialValue: "{{index .CheckedOutBranch.Name }}"
+      - type: "menuFromCommand"
+        title: "Commits:"
         command: "git log --oneline {{index .PromptResponses 2}} -S'{{index .PromptResponses 0}}' --all -- {{index .PromptResponses 1}}"
-        filter: '(?P<commit_id>[0-9a-zA-Z]*) *(?P<commit_msg>.*)'
-        valueFormat: '{{ .commit_id }}'
-        labelFormat: '{{ .commit_id | green | bold }} - {{ .commit_msg | yellow }}'
+        filter: "(?P<commit_id>[0-9a-zA-Z]*) *(?P<commit_msg>.*)"
+        valueFormat: "{{ .commit_id }}"
+        labelFormat: "{{ .commit_id | green | bold }} - {{ .commit_msg | yellow }}"
