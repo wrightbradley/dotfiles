@@ -68,8 +68,8 @@ def get_jira_title(ticket_id):
         return ticket_id
 
 
-def generate_pr_body():
-    """Generate PR body from git logs between main and current branch."""
+def generate_pr_body(base_branch="main"):
+    """Generate PR body from git logs between base branch and current branch."""
     try:
         result = subprocess.run(
             [
@@ -77,7 +77,7 @@ def generate_pr_body():
                 "log",
                 "--date-order",
                 "--pretty=format:%C(bold yellow)%h%C(reset) %s%C(auto)%d%C(reset)%n  * %b",
-                "origin/main..HEAD",
+                f"origin/{base_branch}..HEAD",
             ],
             capture_output=True,
             text=True,
@@ -95,17 +95,30 @@ def generate_pr_body():
         return ""
 
 
-def create_github_pr(title, body, draft_option, cloudops_option):
+def create_github_pr(title, body, is_draft, reviewers, base_branch="main"):
     """Create a GitHub PR using gh CLI."""
-    cmd = ["gh", "pr", "create", "--body", body, "--title", title, "--assignee", "@me"]
+    cmd = [
+        "gh",
+        "pr",
+        "create",
+        "--body",
+        body,
+        "--title",
+        title,
+        "--assignee",
+        "@me",
+        "--base",
+        base_branch,
+    ]
 
     # Add draft option if provided
-    if draft_option and draft_option.strip():
-        cmd.append(draft_option)
+    if is_draft:
+        cmd.append("--draft")
 
-    # Add cloudops reviewers if provided
-    if cloudops_option and cloudops_option.strip():
-        cmd.append(cloudops_option)
+    # Add reviewers if provided
+    if reviewers:
+        for reviewer in reviewers:
+            cmd.extend(["--reviewer", reviewer])
 
     try:
         # Unset GITHUB_TOKEN to ensure gh CLI uses the right credentials
@@ -135,20 +148,25 @@ def main():
     )
     parser.add_argument(
         "--draft",
-        dest="draft_option",
-        default="",
-        help="Draft option to pass to gh PR create",
+        action="store_true",
+        help="Create PR as draft",
     )
     parser.add_argument(
         "--reviewer",
-        dest="cloudops_option",
-        default="",
-        help="Reviewer option to pass to gh PR create",
+        dest="reviewers",
+        action="append",
+        help="Reviewer to add to the PR (can be used multiple times)",
     )
     parser.add_argument(
         "--title-only",
         action="store_true",
         help="Only print the title without creating PR",
+    )
+    parser.add_argument(
+        "--base",
+        dest="base_branch",
+        default="main",
+        help="Base branch for the PR (default: main)",
     )
     args = parser.parse_args()
 
@@ -171,10 +189,10 @@ def main():
         return
 
     # Generate PR body
-    body = generate_pr_body()
+    body = generate_pr_body(args.base_branch)
 
     # Create GitHub PR
-    pr_url = create_github_pr(title, body, args.draft_option, args.cloudops_option)
+    pr_url = create_github_pr(title, body, args.draft, args.reviewers, args.base_branch)
     if pr_url:
         print(f"PR created: {pr_url}")
 
