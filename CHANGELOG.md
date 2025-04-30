@@ -5,13 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.7] - 2025-04-14
+## [0.1.7] - 2025-04-30
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
 
 - Add create-worktree script  by @wrightbradley - ([9827541](98275411897925aba94202eb833bd7f9e41bbdd9))
 - Git/github automation  by @wrightbradley - ([705c71d](705c71dc6b96dbad3747e813b8d63c1cb27f013d))
+- Add aws alias  by @wrightbradley - ([d23c345](d23c34531a3b263cc7d3295c2995bb7c9ff820af))
+- Improve create-gh-pr operation  by @wrightbradley - ([6c9c55e](6c9c55e5bc8cc7331ef39bac9ef4b87a6885a761))
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Update mise config  by @wrightbradley - ([4c13de1](4c13de1ffdb1967617c6f69bd4fcdfac491e8617))
 
 ### <!-- 7 -->📚 Documentation
 
