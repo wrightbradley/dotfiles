@@ -29,8 +29,8 @@ uv = "0.5.8"
 [settings]
 # plugins can read the versions files used by other version managers (if enabled by the plugin)
 # for example, .nvmrc in the case of node's nvm
-idiomatic_version_file = true                     # enabled by default (unlike asdf)
-idiomatic_version_file_disable_tools = ['python'] # disable for specific tools
+idiomatic_version_file = true # enabled by default (unlike asdf)
+# idiomatic_version_file_disable_tools = ['python'] # disable for specific tools
 
 # configure `mise install` to always keep the downloaded archive
 always_keep_download = false # deleted after install by default
@@ -73,6 +73,7 @@ status = { missing_tools = "if_other_versions_installed", show_env = false, show
 
 pipx.uvx = true
 python.uv_venv_auto = true
+idiomatic_version_file_enable_tools = ["node"]
 
 # "_" is a special key for information you'd like to put into mise.toml that mise will never parse
 [_]
