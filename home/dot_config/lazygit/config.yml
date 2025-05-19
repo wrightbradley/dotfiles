@@ -21,7 +21,7 @@ os:
   edit: "nvim --server $NVIM --remote-tab {{filename}}"
 customCommands:
   - key: "<c-g>"
-    command: "uv run ~/bin/create-gh-pr.py {{.Form.DRAFT}} {{.Form.CLOUDOPS}}"
+    command: "VIRTUAL_ENV='' uv run ~/bin/create-gh-pr.py {{.Form.DRAFT}} {{.Form.CLOUDOPS}}"
     context: "global"
     loadingText: "Creating pull request on GitHub"
     prompts:
