@@ -205,9 +205,14 @@ function kgca
 end
 
 function docker
-    # Determine if containerd or docker is running
-    set evalCmd (nerdctl info ^/dev/null && echo nerdctl || echo docker)
-    set cntrCmd $evalCmd
+    # Determine if nerdctl or docker is running
+    if command -q nerdctl && nerdctl info >/dev/null 2>&1
+        set cntrCmd nerdctl
+    else
+        set cntrCmd docker
+    end
+
+    # Build command arguments
     for var in $argv
         # strip docker from command
         if test $var = docker
@@ -234,7 +239,7 @@ end
 
 function awsprof
     if test -z "$argv"
-        set AWS_PROFILE (perl -nle '/\[profile (.+)\]/ && print "$1"' < "$HOME/.aws/config" | fzf)
+        set AWS_PROFILE (perl -nle '/\[profile (.+)\]/ && print "$1"' < "$HOME/.aws/config" 2>/dev/null | fzf)
     else
         set AWS_PROFILE $argv
     end
@@ -312,17 +317,24 @@ function start-grafana
 end
 
 function jira
+    if test ! -f "$JIRA_CONFIG_HOME/jira-config.json"
+        echo "Error: JIRA config file not found at $JIRA_CONFIG_HOME/jira-config.json"
+        return 1
+    end
+
     # launch in a (subshell) so the api token doesn't linger in env after running
     begin
-        set -x JIRA_API_TOKEN (jq -r '.api_token' "$JIRA_CONFIG_HOME"/jira-config.json)
+        set -x JIRA_API_TOKEN (jq -r '.api_token' "$JIRA_CONFIG_HOME/jira-config.json" 2>/dev/null)
         command jira $argv
     end
 end
 
 function ghpr
-    # launch in a (subshell) so the api token doesn't linger in env after running
     begin
-        set -x GITHUB_TOKEN (gh auth token -u wrightbradley)
+        if ! set -x GITHUB_TOKEN (gh auth token -u wrightbradley 2>/dev/null)
+            echo "Error: Could not get GitHub token"
+            return 1
+        end
         command uv run $HOME/bin/open-gh-pr.py $argv
     end
 end
@@ -354,8 +366,7 @@ function firedog
 end
 
 function brewls
-    # https://apple.stackexchange.com/a/438632
-    brew info --json=v2 --installed | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name'
+    brew info --json=v2 --installed 2>/dev/null | jq -r '.formulae[]|select(any(.installed[]; .installed_on_request)).full_name' 2>/dev/null || echo "Error: Could not get brew list"
 end
 
 # function yy
