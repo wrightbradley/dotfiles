@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.7] - 2025-04-30
+## [0.1.7] - 2025-05-19
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
@@ -14,10 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Git/github automation  by @wrightbradley - ([705c71d](705c71dc6b96dbad3747e813b8d63c1cb27f013d))
 - Add aws alias  by @wrightbradley - ([d23c345](d23c34531a3b263cc7d3295c2995bb7c9ff820af))
 - Improve create-gh-pr operation  by @wrightbradley - ([6c9c55e](6c9c55e5bc8cc7331ef39bac9ef4b87a6885a761))
+- Add some new tools to mise  by @wrightbradley - ([815b84b](815b84bd64d9cb6ecc181bd7c7fd123fe8eac887))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
 - Update mise config  by @wrightbradley - ([4c13de1](4c13de1ffdb1967617c6f69bd4fcdfac491e8617))
+- Do not collide with venv  by @wrightbradley - ([6a9dfe0](6a9dfe0ca81419ead923daab75477d4181f06b6d))
 
 ### <!-- 7 -->📚 Documentation
 
@@ -29,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add vectorcode to global gitignore  by @wrightbradley - ([e5ba87b](e5ba87bd1be888c6d1963a7712355f89edbcce85))
 - Update pre-commit  by @wrightbradley - ([f04d639](f04d63901e378b39a33e712fb69ca50a132273f5))
 - Update virtual display name in aerospace  by @wrightbradley - ([457e44f](457e44f0df02e4d8a581a982d0ddede7340e5a71))
+- Improve aliases  by @wrightbradley - ([2eb5c69](2eb5c691853fd60b4d109f281856c424c6a5a0f4))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.6...0.1.7
