@@ -19,8 +19,10 @@ python = ['3.11', '3.12', '3.13']
 # terragrunt = "0.69.10"
 usage = "latest"
 uv = "0.5.8"
-# "go:github.com/gcla/termshark/v2/cmd/termshark" = ["2.4.0"]
+"go:github.com/gcla/termshark/v2/cmd/termshark" = "2.4.0"
+"pipx:vectorcode[lsp,mcp]" = { version = "latest" }
 "pipx:ansible-core" = { version = "latest", uvx_args = "--with ansible" }
+"go:github.com/grafana/grafanactl/cmd/grafanactl" = "0.0.6"
 
 
 # [hooks]
