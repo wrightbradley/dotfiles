@@ -1,0 +1,37 @@
+// This is a default configuration file for VectorCode.
+//
+// VectorCode typically looks for this file in two locations:
+// 1. Project-specific: <your_project_root>/.vectorcode/config.json (or config.json5)
+// 2. Global: $HOME/.config/vectorcode/config.json (or config.json5)
+//
+// Project-specific configurations override global ones.
+// When you run `vectorcode init`, if a global config exists, it's often copied
+// to the project's .vectorcode/ directory.
+{
+  // "host": "127.0.0.1", // before 0.6.8
+  // "port": 8000, // before 0.6.8
+  "db_url": "http://127.0.0.1:8000", // since 0.6.8
+  // Configure the embedding model used to convert code into vector representations.
+  // VectorCode primarily uses ChromaDB's embedding function capabilities.
+  "embedding_function": "OllamaEmbeddingFunction",
+  "embedding_params": {
+    "local_files_only": true,
+    "url": "http://127.0.0.1:11434/api/embeddings",
+    "model_name": "nomic-embed-text"
+  }
+  // "db_path": "~/.local/share/vectorcode/chromadb/",
+  // "db_log_path": "~/.local/share/vectorcode/",
+  // "db_settings": null,
+  "chunk_size": 2500,
+  "overlap_ratio": 0.2,
+  "query_multiplier": -1,
+  "reranker": "CrossEncoderReranker",
+  "reranker_params": {
+    "model_name_or_path": "cross-encoder/ms-marco-MiniLM-L-6-v2"
+  },
+  "hnsw": {
+    "hnsw:M": 64
+  },
+  "chunk_filters": {},
+  "encoding": "utf8"
+}
