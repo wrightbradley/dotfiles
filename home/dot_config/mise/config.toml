@@ -1,7 +1,6 @@
 [env]
 #SSH_AUTH_SOCK = $(gpgconf --list-dirs agent-ssh-socket)
 _.python.venv = { path = '.venv', create = true }
-UV_PYTHON = "3.12"
 
 [tools]
 # global tool versions go here
@@ -13,16 +12,17 @@ kubectx = ["0.9.5"]
 kustomize = "5.5.0"
 node = ['lts', '20', '22']
 # opentofu = "1.8.7"
-pre-commit = "latest"
+# pre-commit = "latest"
 python = ['3.11', '3.12', '3.13']
 # terraform = "1.5.7"
 # terragrunt = "0.69.10"
 usage = "latest"
-uv = "0.5.8"
+# uv = "0.5.8"
 "go:github.com/gcla/termshark/v2/cmd/termshark" = "2.4.0"
-"pipx:vectorcode[lsp,mcp]" = { version = "latest" }
+"pipx:vectorcode[lsp,mcp]" = { version = "0.6.11" }
 "pipx:ansible-core" = { version = "latest", uvx_args = "--with ansible" }
-"go:github.com/grafana/grafanactl/cmd/grafanactl" = "0.0.6"
+# "pipx:ty" = { version = "latest" }
+# "go:github.com/grafana/grafanactl/cmd/grafanactl" = "0.0.6"
 
 
 # [hooks]
