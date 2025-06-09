@@ -42,7 +42,9 @@ def branch_exists(repo_path: str, branch_name: str) -> bool:
 def tmux_session_exists(session_name: str) -> bool:
     """Check if a tmux session with the given name already exists."""
     result = subprocess.run(["tmux", "list-sessions"], capture_output=True, text=True)
-    return session_name in result.stdout
+    return any(
+        line.startswith(f"{session_name}:") for line in result.stdout.splitlines()
+    )
 
 
 def tmux_window_exists(session_name: str, window_name: str) -> bool:
@@ -50,7 +52,7 @@ def tmux_window_exists(session_name: str, window_name: str) -> bool:
     result = subprocess.run(
         ["tmux", "list-windows", "-t", session_name], capture_output=True, text=True
     )
-    return window_name in result.stdout
+    return any(f": {window_name}" in line for line in result.stdout.splitlines())
 
 
 def create_tmux_session(git_dir: str, jira_id: str):
