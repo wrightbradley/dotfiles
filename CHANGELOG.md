@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.7] - 2025-06-09
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add create-worktree script  by @wrightbradley - ([9827541](98275411897925aba94202eb833bd7f9e41bbdd9))
+- Git/github automation  by @wrightbradley - ([e11a16e](e11a16e3f06fe2cf7579ffee964b2204fd47d8f5))
+- Add aws alias  by @wrightbradley - ([b7d3b6b](b7d3b6b94bc4769443bc9e79c488454a183ab4c3))
+- Improve create-gh-pr operation  by @wrightbradley - ([a71b6f1](a71b6f1ae5dfae7d7c2214127f0a0d3e30152477))
+- Add some new tools to mise  by @wrightbradley - ([41e271d](41e271de957f2ae2919c77bbcc2b8ed57711ac5f))
+- Add vectorcode  by @wrightbradley - ([bb9ff0d](bb9ff0d0a861f7bfb406feb2b2dca4f0cfe4fe03))
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Update mise config  by @wrightbradley - ([65fc64a](65fc64a9674941462603aac0ebf715167e1970d0))
+- Do not collide with venv  by @wrightbradley - ([ec401a8](ec401a882e690d7d5021a07dd4ab0720bbf49d25))
+- Handling for fuzzy matching of tmux session name  by @wrightbradley - ([dacd46e](dacd46e70336d71410496a3f76c9d1098dfce730))
+
+### <!-- 8 -->🧹 Miscellaneous Tasks
+
+- Update trippy config  by @wrightbradley - ([dc65d52](dc65d52bffcb0955c6f98182b68203b03c3f3cda))
+- Add vectorcode to global gitignore  by @wrightbradley - ([e5ba87b](e5ba87bd1be888c6d1963a7712355f89edbcce85))
+- Update pre-commit  by @wrightbradley - ([f04d639](f04d63901e378b39a33e712fb69ca50a132273f5))
+- Update virtual display name in aerospace  by @wrightbradley - ([e70695d](e70695dc3f02a509a76eec62e8ad5dab533d5edb))
+- Improve aliases  by @wrightbradley - ([ce3f28e](ce3f28e54d35cecb92abc9798027ad2c363ee9ba))
+- Update mise config  by @wrightbradley - ([7752ddb](7752ddbebf3ecb7615256dcf471e66448af58908))
+
+### <!-- 9 -->🤖 CI
+
+- Improve git-cliff changelog  by @wrightbradley - ([9df8ef5](9df8ef59c2c2742b04f50627f6c937b99e91897c))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.6...0.1.7
+
 ## [0.1.6] - 2025-03-19
 ## What's Changed
 
@@ -27,26 +61,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update work alias  by @wrightbradley - ([4fb773b](4fb773b1d1b53115c8eb5b851fbb77a6f9a4badc))
 - Add formatting configs  by @wrightbradley - ([78550e2](78550e261fa35f476352b4f4c40cf9660934a2fc))
 
-### <!-- 7 -->📚 Documentation
-
-- Release 0.1.5 [skip ci]  by @github-actions[bot] - ([c41db1a](c41db1ae4f5b607578d604c96fa64d8354f74f5b))
-
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.4...0.1.5
-
-## [0.1.4] - 2025-02-19
-## What's Changed
-
-### <!-- 7 -->📚 Documentation
-
-- Release 0.1.3 [skip ci]  by @github-actions[bot] - ([23e734f](23e734f37680f54c68c10c18efbbbb68f56aa0f7))
-- Release 0.1.4 [skip ci]  by @github-actions[bot] - ([e857466](e85746614cf16ce138b667a5c779588f9f528c23))
-
-
-## New Contributors
-* @dependabot[bot] made their first contribution in [#7](https://github.com/wrightbradley/dotfiles/pull/7)
-
-**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.3...0.1.4
 
 ## [0.1.3] - 2025-02-19
 ## What's Changed
@@ -56,10 +72,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add yamlfmt global config  by @wrightbradley - ([ce8b08a](ce8b08ad8ed388e9afd93dbb7575f3382ea73b38))
 - Add global prettier config  by @wrightbradley - ([4a5809f](4a5809fed8ba1321613a148166b738eff76e6a38))
 - Aliases  by @wrightbradley - ([88bf4fb](88bf4fbbbfd810f2622a6856471154f5386cb94c))
-
-### <!-- 7 -->📚 Documentation
-
-- Release 0.1.3 [skip ci]  by @github-actions[bot] - ([78bc21c](78bc21c2417d5f155a9e854e52edcc29592f9e66))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.2...0.1.3
@@ -125,7 +137,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update work catalog  by @wrightbradley - ([720eb46](720eb46d42b9db8b71e3ccbf5ff07ffddc475cdc))
 - Update homebrew catalog  by @wrightbradley - ([a1e61f7](a1e61f7208eb7e43db5389a289ac5d1220a03300))
-- Release 0.1.2 [skip ci]  by @github-actions[bot] - ([87d7d6f](87d7d6fafcbdca7198556f739a20e5d4acd79ad8))
 
 ### <!-- 8 -->🧹 Miscellaneous Tasks
 
@@ -142,11 +153,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.1] - 2024-12-21
 ## What's Changed
-
-### <!-- 7 -->📚 Documentation
-
-- Release 0.1.0  by @github-actions[bot] - ([62ae6a9](62ae6a95260a0755664ca997014ed4ab4c6a7968))
-- Release 0.1.1 [skip ci]  by @github-actions[bot] - ([256c11b](256c11bb300eec927182ab9314d1c7740920fd55))
 
 ### <!-- 9 -->🤖 CI
 
