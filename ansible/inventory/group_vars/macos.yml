@@ -133,7 +133,6 @@ homebrew_installed_packages:
   - gnupg
   - gnutls
   - go-jsonnet
-  - goreleaser/tap/goreleaser
   - gradle
   - grafana
   - grafana-agent
@@ -316,6 +315,7 @@ homebrew_cask_apps:
   - ghostty
   - google-chrome
   - google-cloud-sdk
+  - goreleaser/tap/goreleaser
   - hiddenbar
   - homerow
   - iterm2
