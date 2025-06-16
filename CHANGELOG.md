@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.8] - 2025-06-16
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add flameshot  by @wrightbradley - ([01197bf](01197bf880240b47bd6aaefc5ad0193e5be8af04))
+- Update tmux handling  by @wrightbradley - ([5f5206d](5f5206da8f1ed10b28b977cae4772e0c14ea1e9b))
+
+### <!-- 8 -->🧹 Miscellaneous Tasks
+
+- Use cask for goreleaser  by @wrightbradley - ([c028d77](c028d773c7d0e5b57492ffe37ebb2c9a8070fe0c))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.7...0.1.8
+
 ## [0.1.7] - 2025-06-09
 ## What's Changed
 
