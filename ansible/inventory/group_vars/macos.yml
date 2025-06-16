@@ -304,6 +304,7 @@ homebrew_cask_apps:
   - elgato-control-center
   - elgato-stream-deck
   - elgato-wave-link
+  - flameshot
   - firefox
   - font-caskaydia-cove-nerd-font
   - font-droid-sans-mono-nerd-font
