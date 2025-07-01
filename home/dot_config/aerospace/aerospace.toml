@@ -20,6 +20,11 @@ after-startup-command = [
   'exec-and-forget borders active_color=0x8567c0e0 inactive_color=0x00494d64 width=7 style=round blur_radius=0 hidpi=on',
 ]
 
+exec-on-workspace-change = [
+  '/bin/bash', '-c',
+  '~/.config/aerospace/pip-move.sh',
+]
+
 # Start AeroSpace at login
 start-at-login = true
 
@@ -298,8 +303,14 @@ run = ['layout tiling', 'move-node-to-workspace W']
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser'
-# check-further-callbacks = true
+check-further-callbacks = true
 run = ['layout tiling', 'move-node-to-workspace W']
+
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+check-further-callbacks = true
+if.window-title-regex-substring = 'Picture in Picture'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
