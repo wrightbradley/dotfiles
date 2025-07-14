@@ -408,3 +408,8 @@ end
 
 # Fuzzy-search a list of TLDR pages, starting with an optional query.
 alias tldrf='tldr --list | fzf --reverse --preview "tldr --color always {1}" --preview-window=right,60% | xargs tldr --color always'
+
+function enable-rancher-desktop
+    set --export --prepend PATH "$HOME/.rd/bin"
+    set --export DOCKER_HOST "unix://$HOME/.rd/docker.sock"
+end

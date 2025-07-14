@@ -35,7 +35,6 @@ set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH
 ! set -q INFOPATH; and set INFOPATH ''
 set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH
 
-
 # Ensure that GPG Agent is used as the SSH agent
 set -e SSH_AUTH_SOCK
 set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
