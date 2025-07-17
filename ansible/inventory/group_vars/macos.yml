@@ -236,6 +236,7 @@ homebrew_installed_packages:
   - skaffold
   - skopeo
   - socat
+  - somo
   - {name: spark, install_options: 'formula'}
   - sqlite
   - sslscan
