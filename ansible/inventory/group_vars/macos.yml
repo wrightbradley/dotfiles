@@ -152,6 +152,7 @@ homebrew_installed_packages:
   - htop
   - httrack
   - iperf3
+  - imagemagick
   - jdupes
   - jinja2-cli
   - joshmedeski/sesh/sesh
