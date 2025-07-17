@@ -136,6 +136,7 @@ homebrew_installed_packages:
   - gnupg
   - gnutls
   - go-jsonnet
+  - gping
   - gradle
   - grafana
   - grafana-agent
