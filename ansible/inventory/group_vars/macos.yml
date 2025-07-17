@@ -161,6 +161,7 @@ homebrew_installed_packages:
   - k2tf
   - k3d
   - k9s
+  - kdenlive
   - krew
   - kube-linter
   - kube-ps1
