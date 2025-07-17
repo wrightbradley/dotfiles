@@ -262,6 +262,7 @@ homebrew_installed_packages:
   - usage
   - uv
   - vale
+  - vectorcode
   - velero
   - vhs
   - vim
