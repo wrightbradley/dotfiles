@@ -232,6 +232,7 @@ homebrew_installed_packages:
   - {name: spark, install_options: 'formula'}
   - sqlite
   - sslscan
+  - sst/tap/opencode
   - starship
   - stern
   - stylua

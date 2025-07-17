@@ -1,0 +1,45 @@
+#!/bin/bash
+set -euo pipefail
+
+LOGDIR="/Users/bwright/.local/share/opencode/mcp-log"
+mkdir -p "$LOGDIR"
+LOGFILE="$LOGDIR/github-mcp-$(date +%Y%m%d-%H%M%S).log"
+START_TIME=$(date +%s)
+
+# Usage help
+if [[ "${1:-}" == "--help" ]]; then
+  echo "Usage: $0 [GITHUB_TOKEN]"
+  exit 0
+fi
+
+# Token from argument or environment
+TOKEN="${1:-${GITHUB_TOKEN:-}}"
+
+{
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting GitHub MCP Server"
+  if [ -z "$TOKEN" ]; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ERROR: GITHUB_PERSONAL_ACCESS_TOKEN is not set"
+    exit 1
+  else
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] Using provided GitHub token"
+  fi
+
+  # Check for docker
+  if ! command -v docker >/dev/null 2>&1; then
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ERROR: Docker is not installed"
+    exit 1
+  fi
+
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Invoking Docker container..."
+} >"$LOGFILE"
+
+# Run docker, log output to file and also show in terminal
+/opt/homebrew/bin/docker run -i --rm -e GITHUB_PERSONAL_ACCESS_TOKEN="$TOKEN" ghcr.io/github/github-mcp-server 2>&1 | tee -a "$LOGFILE"
+DOCKER_EXIT_CODE=${PIPESTATUS[0]}
+
+{
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Docker exited with code $DOCKER_EXIT_CODE"
+  END_TIME=$(date +%s)
+  DURATION=$((END_TIME - START_TIME))
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] Script finished in ${DURATION}s"
+} >>"$LOGFILE"

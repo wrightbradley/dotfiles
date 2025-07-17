@@ -1,0 +1,152 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    ".clinerules/*.md",
+    ".cursor/rules/*.md",
+    ".github/copilot-instructions.md",
+    ".instructions.md",
+    "CONTRIBUTING.md",
+    "docs/guidelines.md"
+  ],
+  "theme": "ayu",
+  "keybinds": {
+    "leader": "ctrl+x",
+    "app_help": "<leader>h",
+    "switch_mode": "tab",
+    "editor_open": "<leader>e",
+    "session_new": "<leader>n",
+    "session_list": "<leader>l",
+    "session_unshare": "<leader>u",
+    "session_interrupt": "esc",
+    "session_compact": "<leader>c",
+    "tool_details": "<leader>d",
+    "model_list": "<leader>m",
+    "theme_list": "<leader>t",
+    "file_list": "<leader>f",
+    "file_close": "esc",
+    "file_search": "<leader>/",
+    "file_diff_toggle": "<leader>v",
+    "project_init": "<leader>i",
+    "input_clear": "ctrl+c",
+    "input_paste": "ctrl+v",
+    "input_submit": "enter",
+    "input_newline": "shift+enter",
+    "messages_page_up": "ctrl+u",
+    "messages_page_down": "ctrl+d",
+    "messages_half_page_up": "ctrl+alt+u",
+    "messages_half_page_down": "ctrl+alt+d",
+    "messages_previous": "ctrl+p",
+    "messages_next": "ctrl+n",
+    "messages_first": "ctrl+g",
+    "messages_last": "ctrl+alt+g",
+    "messages_layout_toggle": "<leader>p",
+    "messages_copy": "<leader>y",
+    "messages_revert": "<leader>r",
+    "app_exit": "ctrl+c,<leader>q"
+  },
+  "share": "disabled",
+  "layout": "stretch",
+  "autoupdate": true,
+  "disabled_providers": [
+    "amazon-bedrock",
+    "anthropic",
+    "azure",
+    "deepseek",
+    "google",
+    "google-vertex",
+    "groq",
+    "llama",
+    "mistral",
+    "morph",
+    "openai",
+    "openrouter",
+    "vercel",
+    "xai"
+  ],
+  "log_level": "DEBUG",
+  "model": "github-copilot/gpt-4.1",
+  "mode": {
+    "build": {
+      "model": "github-copilot/gpt-4.1",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    },
+    "plan": {
+      "model": "github-copilot/gemini-2.5-pro",
+      "tools": {
+        "write": false,
+        "edit": false,
+        "bash": false
+      }
+    }
+  },
+  "mcp": {
+    "github": {
+      "type": "local",
+      "command": ["bash", "$HOME/.config/opencode/commands/github"],
+      "environment": {
+        "GITHUB_TOKEN": "GITHUB_TOKEN"
+      }
+    },
+    "awslabs.core-mcp-server": {
+      "type": "local",
+      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.core-mcp-server"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs.cdk-mcp-server": {
+      "type": "local",
+      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.cdk-mcp-server"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs.cost-explorer-mcp-server": {
+      "type": "local",
+      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.cost-explorer-mcp-server"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs.terraform-mcp-server": {
+      "type": "local",
+      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.terraform-mcp-server"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs.cloudwatch-mcp-server": {
+      "type": "local",
+      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.cloudwatch-mcp-server"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      }
+    },
+    "awslabs.aws-documentation-mcp-server": {
+      "type": "local",
+      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.aws-documentation-mcp-server"],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR",
+        "AWS_DOCUMENTATION_PARTITION": "aws"
+      }
+    },
+    "container-use": {
+      "type": "local",
+      "command": ["bash", "/Users/bwright/.config/opencode/commands/container-use-run"],
+      "enabled": false
+    }
+  },
+  "experimental": {
+    "hook": {
+      "session_completed": [
+        {
+          "command": ["afplay", "/System/Library/Sounds/Sosumi.aiff"]
+        }
+      ]
+    }
+  }
+}
