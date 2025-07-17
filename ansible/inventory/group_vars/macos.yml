@@ -90,6 +90,8 @@ homebrew_installed_packages:
   - cue
   - curl
   # - cypher-shell
+  - dagger/tap/container-use
+  - dagger/tap/dagger
   - dasel
   - derailed/popeye/popeye
   - detect-secrets
