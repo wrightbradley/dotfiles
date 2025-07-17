@@ -105,6 +105,7 @@ homebrew_installed_packages:
   - dockutil
   - dos2unix
   - dotenv-linter
+  - dprint
   - dust
   - eksctl
   - entr
