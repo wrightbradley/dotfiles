@@ -193,6 +193,7 @@ homebrew_installed_packages:
   - ncurses
   - neomutt
   - neovim
+  - netscanner
   - nmap
   - node
   - norwoodj/tap/helm-docs
