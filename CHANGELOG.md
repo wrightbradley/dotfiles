@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.11] - 2025-07-17
+## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add and configure opencode  by @wrightbradley - ([bb34ebf](bb34ebfeace0741bacdb66bfbfff62d531731e36))
+- Add dagger  by @wrightbradley - ([ce31ccb](ce31ccb752e8903818697ba194bc8528f5e46b0f))
+- Add dprint  by @wrightbradley - ([9e14ba4](9e14ba4d73af356323b2739c8c29285d3167f4d3))
+- Add gping  by @wrightbradley - ([dcb0396](dcb0396463b7272346a08c0f7ac65717593e66ac))
+- Add imagemagick  by @wrightbradley - ([276936b](276936b986ed5215ba794d3ac8804774c8561655))
+- Add kdenlive  by @wrightbradley - ([06213c7](06213c7fc666a4b86a2c3c3664b815853d08deaf))
+- Add netscanner  by @wrightbradley - ([35dc099](35dc099d3e6d17277bb42d91421376b03a9f0cac))
+- Add somo  by @wrightbradley - ([499a1d0](499a1d073c6e7611f826f2c2833fd21261277fe6))
+- Add vectorcode  by @wrightbradley - ([7c29d3c](7c29d3c8a098a534790cfc2e9349b92739cb9f19))
+
+### <!-- 5 -->🎨 Styling
+
+- Format lazygit config  by @wrightbradley - ([600702f](600702f69ac97dcfce993d45b8d634c735464d3a))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.10...0.1.11
+
 ## [0.1.10] - 2025-07-14
 ## What's Changed
 
