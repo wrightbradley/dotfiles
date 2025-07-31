@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.12] - 2025-07-31
+## What's Changed
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Allow copy/backup of directory  by @wrightbradley - ([e86bf46](e86bf4655c57acb31047d0767d8301d3df002257))
+- Do not ignore Backup dir names  by @wrightbradley - ([f2b24e8](f2b24e8d82a16640ca6626f7fa78b5adadaa759a))
+
+### <!-- 8 -->🧹 Miscellaneous Tasks
+
+- Configure opencode  by @wrightbradley - ([3372227](33722277f59f4de1a9fe3164e23cf574966cd5fc))
+- Remove deprecated keybinds for opencode  by @wrightbradley - ([efc2da0](efc2da0549117f879eecf1d5d179fe7c5b12d62e))
+
+
+**Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.11...0.1.12
+
 ## [0.1.11] - 2025-07-17
 ## What's Changed
 
