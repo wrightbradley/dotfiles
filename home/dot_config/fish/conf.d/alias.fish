@@ -91,7 +91,7 @@ end
 
 function bak
     set LOGDATE (date +%Y%m%dT%H%M%S)
-    cp "$argv" "$argv.bak.$LOGDATE"
+    cp -r "$argv" "$argv.bak.$LOGDATE"
 end
 
 # fshow - git commit browser (enter for show, ctrl-d for diff, ` toggles sort)
