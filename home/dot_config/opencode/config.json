@@ -35,8 +35,6 @@
     "messages_page_down": "ctrl+d",
     "messages_half_page_up": "ctrl+alt+u",
     "messages_half_page_down": "ctrl+alt+d",
-    "messages_previous": "ctrl+p",
-    "messages_next": "ctrl+n",
     "messages_first": "ctrl+g",
     "messages_last": "ctrl+alt+g",
     "messages_layout_toggle": "<leader>p",
