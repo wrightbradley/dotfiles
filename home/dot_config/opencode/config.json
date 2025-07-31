@@ -8,7 +8,7 @@
     "CONTRIBUTING.md",
     "docs/guidelines.md"
   ],
-  "theme": "ayu",
+  "theme": "system",
   "keybinds": {
     "leader": "ctrl+x",
     "app_help": "<leader>h",
@@ -63,7 +63,6 @@
     "vercel",
     "xai"
   ],
-  "log_level": "DEBUG",
   "model": "github-copilot/gpt-4.1",
   "mode": {
     "build": {
@@ -85,53 +84,77 @@
   },
   "mcp": {
     "github": {
+      "enabled": false,
       "type": "local",
-      "command": ["bash", "$HOME/.config/opencode/commands/github"],
+      "command": ["bash", "/Users/bwright/.config/opencode/commands/github"],
       "environment": {
         "GITHUB_TOKEN": "GITHUB_TOKEN"
       }
     },
-    "awslabs.core-mcp-server": {
+    "awslabs-core-mcp-server": {
+      "enabled": true,
       "type": "local",
-      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.core-mcp-server"],
+      "command": ["bash", "/Users/bwright/.config/opencode/commands/awslabs.core-mcp-server"],
       "environment": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
-    "awslabs.cdk-mcp-server": {
+    "awslabs-cdk-mcp-server": {
+      "enabled": false,
       "type": "local",
-      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.cdk-mcp-server"],
+      "command": ["bash", "/Users/bwright/.config/opencode/commands/awslabs.cdk-mcp-server"],
       "environment": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
-    "awslabs.cost-explorer-mcp-server": {
+    "awslabs-cost-explorer-mcp-server": {
+      "enabled": false,
       "type": "local",
-      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.cost-explorer-mcp-server"],
+      "command": [
+        "bash",
+        "/Users/bwright/.config/opencode/commands/awslabs.cost-explorer-mcp-server"
+      ],
       "environment": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
-    "awslabs.terraform-mcp-server": {
+    "awslabs-terraform-mcp-server": {
+      "enabled": false,
       "type": "local",
-      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.terraform-mcp-server"],
+      "command": ["bash", "/Users/bwright/.config/opencode/commands/awslabs.terraform-mcp-server"],
       "environment": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
-    "awslabs.cloudwatch-mcp-server": {
+    "awslabs-cloudwatch-mcp-server": {
+      "enabled": false,
       "type": "local",
-      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.cloudwatch-mcp-server"],
+      "command": ["bash", "/Users/bwright/.config/opencode/commands/awslabs.cloudwatch-mcp-server"],
       "environment": {
         "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
-    "awslabs.aws-documentation-mcp-server": {
+    "awslabs-aws-documentation-mcp-server": {
+      "enabled": true,
       "type": "local",
-      "command": ["bash", "$HOME/.config/opencode/commands/awslabs.aws-documentation-mcp-server"],
+      "command": [
+        "bash",
+        "/Users/bwright/.config/opencode/commands/awslabs.aws-documentation-mcp-server"
+      ],
       "environment": {
         "FASTMCP_LOG_LEVEL": "ERROR",
         "AWS_DOCUMENTATION_PARTITION": "aws"
+      }
+    },
+    "awslabs-aws-diagram-mcp-server": {
+      "enabled": true,
+      "type": "local",
+      "command": [
+        "bash",
+        "/Users/bwright/.config/opencode/commands/awslabs.aws-diagram-mcp-server"
+      ],
+      "environment": {
+        "FASTMCP_LOG_LEVEL": "ERROR"
       }
     },
     "container-use": {
