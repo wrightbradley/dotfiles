@@ -5,8 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.12] - 2025-07-31
+## [0.1.12] - 2025-08-15
 ## What's Changed
+
+### <!-- 0 -->🚀 Features
+
+- Add quick-term for ghostty  by @wrightbradley - ([ca6fe2e](ca6fe2e31984199fdebf0e76f4cadc70f6f42481))
+- Add opencode plugins  by @wrightbradley - ([70d26d4](70d26d428d18cfa0182e704819c8a60ff74f398a))
+- Update opencode config  by @wrightbradley - ([6e70541](6e705418cd7ca4465ad9a0077703b9c12b12296a))
+- Add stormy config  by @wrightbradley - ([95e1dc8](95e1dc8d8945453fb71cf0591e5bf171ceeba603))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
@@ -17,6 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Configure opencode  by @wrightbradley - ([3372227](33722277f59f4de1a9fe3164e23cf574966cd5fc))
 - Remove deprecated keybinds for opencode  by @wrightbradley - ([efc2da0](efc2da0549117f879eecf1d5d179fe7c5b12d62e))
+
+### <!-- 9 -->🤖 CI
+
+- Update pre-commit-config  by @wrightbradley - ([a12c4eb](a12c4eb7356e32948be507bbfe5613dc97495c82))
 
 
 **Full Changelog**: https://github.com/wrightbradley/dotfiles/compare/0.1.11...0.1.12
