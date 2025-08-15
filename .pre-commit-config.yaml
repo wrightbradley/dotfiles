@@ -5,7 +5,7 @@ repos:
   ##############################################################################
   ################################ General Checks ##############################
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
         exclude: .gitignore
@@ -35,17 +35,17 @@ repos:
           - --exclude-secrets
           - "[0-9a-f]{40}" # commit shas
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.24.2
+    rev: v8.28.0
     hooks:
       - id: gitleaks
   ##############################################################################
   ################################ YAML Checks #################################
   - repo: https://github.com/google/yamlfmt
-    rev: v0.16.0
+    rev: v0.17.2
     hooks:
       - id: yamlfmt
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.37.0
+    rev: v1.37.1
     hooks:
       - id: yamllint
 ##############################################################################
