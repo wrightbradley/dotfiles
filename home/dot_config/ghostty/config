@@ -2,6 +2,10 @@ font-family = "JetBrains Mono"
 font-family-bold = "JetBrains Mono Regular Bold"
 font-family-italic = "JetBrains Mono Italic Italic"
 font-family-bold-italic = "JetBrains Mono Italic Bold Italic"
+# font-family = "Google Sans Code"
+# font-family-bold = "Google Sans Code Bold"
+# font-family-italic = "Google Sans Code Italic"
+# font-family-bold-italic = "Google Sans Code Bold Italic"
 font-size = 15
 font-thicken = true
 font-thicken-strength = 70
@@ -18,3 +22,6 @@ shell-integration = fish
 # command = /opt/homebrew/bin/fish -c /Users/bwright/bin/ghostty-tmux.fish
 quit-after-last-window-closed = true
 # window-decoration = false
+quick-terminal-position = center
+# syntax: keybind = trigger=action
+keybind = global:cmd+/=toggle_quick_terminal
