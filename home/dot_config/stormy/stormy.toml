@@ -1,0 +1,8 @@
+provider = "OpenMeteo"
+api_key = ""
+city = "Boston"
+units = "imperial"
+showcityname = true
+use_colors = true
+live_mode = true
+compact = false
