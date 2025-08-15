@@ -9,10 +9,40 @@
     "docs/guidelines.md"
   ],
   "theme": "system",
+  "share": "disabled",
+  "layout": "stretch",
+  "autoupdate": true,
+  "disabled_providers": [
+    "amazon-bedrock",
+    "anthropic",
+    "azure",
+    "deepseek",
+    "github-models",
+    "google",
+    "google-vertex",
+    "groq",
+    "llama",
+    "mistral",
+    "morph",
+    "openai",
+    "openrouter",
+    "vercel",
+    "xai"
+  ],
+  "permission": {
+    "bash": {
+      "terraform*": "ask",
+      "tofu*": "ask",
+      "terragrunt*": "ask",
+      "cdk*": "ask",
+      "cdktf*": "ask",
+      "*": "allow"
+    }
+  },
   "keybinds": {
     "leader": "ctrl+x",
     "app_help": "<leader>h",
-    "switch_mode": "tab",
+    "switch_agent": "tab",
     "editor_open": "<leader>e",
     "session_new": "<leader>n",
     "session_list": "<leader>l",
@@ -42,42 +72,15 @@
     "messages_revert": "<leader>r",
     "app_exit": "ctrl+c,<leader>q"
   },
-  "share": "disabled",
-  "layout": "stretch",
-  "autoupdate": true,
-  "disabled_providers": [
-    "amazon-bedrock",
-    "anthropic",
-    "azure",
-    "deepseek",
-    "google",
-    "google-vertex",
-    "groq",
-    "llama",
-    "mistral",
-    "morph",
-    "openai",
-    "openrouter",
-    "vercel",
-    "xai"
-  ],
   "model": "github-copilot/gpt-4.1",
-  "mode": {
+  "agent": {
     "build": {
-      "model": "github-copilot/gpt-4.1",
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
+      "mode": "primary",
+      "model": "github-copilot/gpt-4.1"
     },
     "plan": {
-      "model": "github-copilot/gemini-2.5-pro",
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
+      "mode": "primary",
+      "model": "github-copilot/gpt-4.1"
     }
   },
   "mcp": {
@@ -161,13 +164,10 @@
       "enabled": false
     }
   },
-  "experimental": {
-    "hook": {
-      "session_completed": [
-        {
-          "command": ["afplay", "/System/Library/Sounds/Sosumi.aiff"]
-        }
-      ]
+  "formatter": {
+    "dprint-markdown": {
+      "command": ["dprint", "fmt", "--config", "~/.dprint.json", "$FILE"],
+      "extensions": [".md"]
     }
   }
 }
