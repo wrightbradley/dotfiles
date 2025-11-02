@@ -12,7 +12,7 @@ font-thicken-strength = 70
 adjust-cell-height = 8%
 adjust-cell-width = -8%
 # font-style = SemiBold
-theme = tokyonight_night
+theme = "TokyoNight Night"
 background-opacity = 0.97
 title = " "
 window-padding-x = 1
@@ -23,5 +23,6 @@ shell-integration = fish
 quit-after-last-window-closed = true
 # window-decoration = false
 quick-terminal-position = center
+quick-terminal-size = 35%, 60%
 # syntax: keybind = trigger=action
 keybind = global:cmd+/=toggle_quick_terminal
