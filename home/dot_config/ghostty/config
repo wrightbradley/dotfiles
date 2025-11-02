@@ -22,7 +22,11 @@ shell-integration = fish
 # command = /opt/homebrew/bin/fish -c /Users/bwright/bin/ghostty-tmux.fish
 quit-after-last-window-closed = true
 # window-decoration = false
-quick-terminal-position = center
-quick-terminal-size = 35%, 60%
+# quick-terminal-position = center
+# quick-terminal-size = 35%, 60%
+quick-terminal-position           = center
+quick-terminal-size               = 50%,50%
+quick-terminal-animation-duration = 0
+quick-terminal-autohide           = false
 # syntax: keybind = trigger=action
 keybind = global:cmd+/=toggle_quick_terminal
