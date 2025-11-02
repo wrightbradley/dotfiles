@@ -1,13 +1,12 @@
----
 # yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
 gui:
   nerdFontsVersion: "3"
 git:
   commit:
     signOff: true
-  paging:
-    colorArg: always
-    pager: delta --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never
   overrideGpg: true
   mainBranches:
     - "main"
