@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.12] - 2025-11-02
+## [0.1.12] - 2025-12-16
 ## What's Changed
 
 ### <!-- 0 -->🚀 Features
@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update opencode config  by @wrightbradley - ([6e70541](6e705418cd7ca4465ad9a0077703b9c12b12296a))
 - Add stormy config  by @wrightbradley - ([95e1dc8](95e1dc8d8945453fb71cf0591e5bf171ceeba603))
 - Update aliases  by @wrightbradley - ([0d0f9e1](0d0f9e19a0e55f556a2779ec23fc9d9944f9b05c))
+- Opencode config  by @wrightbradley - ([cf1e20f](cf1e20f42a604cb1f2027b83abf06226759a1030))
 
 ### <!-- 1 -->🐛 Bug Fixes
 
@@ -32,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove basic env block plugin  by @wrightbradley - ([21b126f](21b126fda99148603a88646889674eba94fd87c2))
 - Update pre-commit-config  by @wrightbradley - ([7b8d3f9](7b8d3f982d86157aff2940f488523799f0c08981))
 - Update lazygit config  by @wrightbradley - ([ce82b5f](ce82b5f197e4202aaef7945d19100f6c34dffea2))
+- Configure gitleaks  by @wrightbradley - ([3112fe0](3112fe026253bc5883bfdc48da2b43573434ea74))
 
 ### <!-- 9 -->🤖 CI
 
